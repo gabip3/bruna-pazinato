@@ -91,36 +91,64 @@
     window.setTimeout(avaliar, 200);
     window.addEventListener('load', avaliar);
 
-    /* --- arrastar com o mouse -------------------------------------- */
+    /* --- arrastar com o mouse --------------------------------------
+       A captura de ponteiro só começa depois que o cursor anda de
+       verdade. Capturando já no pointerdown, o navegador passa a
+       entregar o clique à pista em vez do painel — e o galeria.js,
+       que procura o data-galeria a partir do alvo do clique, não
+       achava nada. Resultado: clicar num musical não abria galeria
+       nenhuma, e só no computador, porque no toque nem entra aqui.
+       ---------------------------------------------------------------- */
 
     var arrastando = false;
+    var capturou   = false;
     var partidaX = 0;
     var partidaScroll = 0;
     var andou = 0;
 
+    function engolirClique(e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+
     pista.addEventListener('pointerdown', function (e) {
       if (e.pointerType === 'touch') { return; }   /* toque já rola sozinho */
       arrastando = true;
+      capturou = false;
       andou = 0;
       partidaX = e.clientX;
       partidaScroll = pista.scrollLeft;
-      pista.setPointerCapture(e.pointerId);
     });
 
     pista.addEventListener('pointermove', function (e) {
       if (!arrastando) { return; }
       var d = e.clientX - partidaX;
       andou = Math.abs(d);
-      if (andou > 6) { pista.classList.add('is-arrastando'); }
+
+      if (!capturou) {
+        if (andou <= 6) { return; }   /* ainda pode ser um clique */
+        capturou = true;
+        pista.classList.add('is-arrastando');
+        try { pista.setPointerCapture(e.pointerId); } catch (err) {}
+      }
+
       pista.scrollLeft = partidaScroll - d;
     });
 
     function soltar(e) {
       if (!arrastando) { return; }
       arrastando = false;
+      if (!capturou) { return; }        /* foi clique: deixa passar */
+      capturou = false;
+
       try { pista.releasePointerCapture(e.pointerId); } catch (err) {}
-      /* o clique só volta a valer depois que a pista para */
-      window.setTimeout(function () { pista.classList.remove('is-arrastando'); }, 40);
+
+      /* o clique que fecha o arrasto não deve abrir a galeria */
+      pista.addEventListener('click', engolirClique, true);
+      window.setTimeout(function () {
+        pista.removeEventListener('click', engolirClique, true);
+        pista.classList.remove('is-arrastando');
+      }, 40);
     }
 
     pista.addEventListener('pointerup', soltar);

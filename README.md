@@ -625,6 +625,33 @@ As miniaturas vêm do YouTube mas ficam hospedadas aqui (`assets/img/clipes/`,
 YouTube antes do clique. A miniatura que seguia o cursor saiu do CSS e do
 `player.js`.
 
+
+## Clicar num painel não abria a galeria
+
+O sintoma: no computador, clicar num musical não fazia nada. No celular
+funcionava. E clicar pelo console (`palco.click()`) funcionava também, o que
+mandou a investigação para o lado errado — o visor abria, a foto carregava, o
+CSS estava certo, os 47 gatilhos batiam com as 16 galerias, os arquivos
+respondiam 200. Não havia nada quebrado para achar.
+
+A causa está no arrasto da vitrine, em `vitrine.js`: ele chamava
+`setPointerCapture` já no `pointerdown`. **Com o ponteiro capturado, o navegador
+entrega o `click` ao elemento que capturou** — a pista — e não ao painel dentro
+dela. O `galeria.js` procura o `data-galeria` a partir do alvo do clique
+(`e.target.closest('[data-galeria]')`), achava o `<ul>`, que não tem atributo
+nenhum, e desistia em silêncio. No toque o código nem entra nesse caminho, daí
+o celular funcionar. E `element.click()` não passa por ponteiro, daí o console
+funcionar.
+
+A captura agora só começa depois que o cursor anda mais de 6px, quando já é
+arrasto de verdade e não mais candidato a clique. Ao soltar depois de arrastar,
+um `click` de capture-phase é engolido uma única vez, para o gesto não abrir uma
+galeria por acidente.
+
+**A lição:** quando o clique programático funciona e o do usuário não, o
+problema está no caminho do evento, não no que o clique faz. E `setPointerCapture`
+muda esse caminho.
+
 ## Carimbo de versão nos arquivos
 
 Todo `<link>` de CSS e `<script>` de JS leva `?v=<data e hora>`. O GitHub Pages
