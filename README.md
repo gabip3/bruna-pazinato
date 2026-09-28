@@ -559,6 +559,19 @@ foto mais forte: a do painel deixava a figura pequena e escura no canto, então
 ali entra um retrato de palco da série da Clara Nunes. Brilho e enquadramento
 são variáveis por página (`--foto-brilho`, `--foto-pos`).
 
+**A máscara não pode cair em cima da pessoa.** A foto da abertura era um
+retrato de 933×1400 numa banda deitada: o `cover` cortava a Bruna no pescoço, e
+a dissolvência da esquerda passava por cima do resto — "o fade que eu tava
+falando era aqui q corta a Bruna inteira". Eu tinha lido a primeira reclamação
+como escuridão e mexido no brilho, que era a metade errada do problema.
+
+O conserto não é de CSS, é de arquivo: a imagem foi recortada da original
+(`ClaraNunesBP02`, 1365×2048) já deitada, 1600×1172, com ela inteira dentro do
+quadro e folga em cima e embaixo para a banda poder variar de altura sem cortar
+cabeça. Com a pessoa longe da borda, a dissolvência acontece sobre o fundo azul
+e a rampa pôde encurtar para 17%. **Recorte a foto para o formato do quadro em
+vez de deixar o `cover` decidir onde cortar.**
+
 **A dissolvência estava comendo a pessoa** — "é tanto fade aqui q não dá pra ver
 a mulher". Dois efeitos se somavam justamente em cima do rosto: a máscara só
 chegava a opaca em 44% da figura, e o véu de leitura jogava 62% de preto sobre
