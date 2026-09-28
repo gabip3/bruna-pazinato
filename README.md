@@ -709,9 +709,19 @@ hover, nada acende e nada muda de cor: a linha inteira anda um fio para a
 direita, o texto de apoio clareia e a seta avança. Em mais lugares que isso, o
 coral deixaria de ser detalhe.
 
-**Os três endereços são `#`.** Ainda não existem, e inventar e-mail de assessoria
-seria pior do que deixar em branco. Um comentário no HTML, logo acima dos três,
-diz o que fazer: trocar o `href` por `mailto:` e nada mais precisa mudar.
+**O e-mail dela é um só.** Então os três blocos apontam para o mesmo endereço e
+mudam apenas o assunto — `?subject=Shows e booking`, `Projetos e parcerias`,
+`Imprensa` — que chega pronto na caixa e separa o que e o que. Três portas, uma
+sala, e ela sabendo de qual porta a pessoa veio sem precisar de três contas.
+
+O endereço ainda não existe, e inventar e-mail de assessoria seria pior do que
+deixar em branco: os href trazem a palavra `ENDERECO`, que é impossível
+confundir com um endereço real. Trocá-la nos três liga a página.
+
+**O retrato é ela estendendo o microfone** (`BP_000`), e é o motivo de a foto
+ficar ao lado do título e não no fim da página: o gesto diz "vamos conversar"
+antes da tipografia dizer. No celular ela desce para baixo do texto e vira
+paisagem, que é o recorte que cabe sem empurrar os contatos para fora da tela.
 
 A página não menciona ato nenhum, de propósito: o programa em atos organiza a
 obra, e quem chega aqui quer falar com uma pessoa.

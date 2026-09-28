@@ -19,9 +19,35 @@
    ABERTURA
    ------------------------------------------------------------- */
 
+/* A abertura e duas colunas: a fala de um lado, ela do outro. O retrato
+   e ela estendendo o microfone — o gesto da pagina inteira dito sem
+   palavra, e o motivo de a foto ficar ao lado do titulo e nao no fim. */
 .contato{
-  padding: calc(var(--header-h) + clamp(4rem, 16vh, 11rem)) var(--gutter) clamp(3rem, 9vh, 6rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5.5rem);
+  padding: calc(var(--header-h) + clamp(3rem, 11vh, 8rem)) var(--gutter) clamp(3rem, 9vh, 6rem);
   background: var(--ink);
+}
+
+.contato__texto{ min-width: 0; }
+
+.contato__retrato{
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  max-height: 76svh;
+  justify-self: end;
+  width: 100%;
+}
+
+.contato__retrato img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  filter: contrast(1.03) saturate(.94) brightness(.94);
 }
 
 .contato__rotulo{
@@ -194,6 +220,21 @@
    ------------------------------------------------------------- */
 
 @media (max-width: 860px){
+
+  /* uma coluna: a fala primeiro, ela embaixo */
+  .contato{
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 5vh, 3rem);
+    padding-top: calc(var(--header-h) + clamp(2.4rem, 8vh, 4rem));
+  }
+
+  .contato__retrato{
+    justify-self: stretch;
+    max-height: none;
+    aspect-ratio: 5 / 4;
+  }
+
+  .contato__retrato img{ object-position: 50% 24%; }
 
   .canal{
     grid-template-columns: 1fr;
