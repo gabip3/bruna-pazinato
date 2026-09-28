@@ -27,55 +27,7 @@
   if (!links.length) { return; }
 
   /* ---------------------------------------------------------
-     1. Miniatura seguindo o cursor
-     --------------------------------------------------------- */
-
-  var previa = document.querySelector('.previa');
-  var previaImg = previa ? previa.querySelector('img') : null;
-  var podeApontar = window.matchMedia('(hover: hover) and (min-width: 761px)').matches;
-
-  function miniatura(id) {
-    return 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
-  }
-
-  function miniaturaReserva(id) {
-    return 'https://i.ytimg.com/vi/' + id + '/mqdefault.jpg';
-  }
-
-  if (previa && previaImg && podeApontar) {
-
-    previaImg.addEventListener('error', function () {
-      var id = previa.getAttribute('data-id');
-      if (id && previaImg.src.indexOf('maxres') > -1) {
-        previaImg.src = miniaturaReserva(id);
-      }
-    });
-
-    faixas.forEach(function (link) {
-      var id = link.getAttribute('data-video');
-
-      link.addEventListener('mouseenter', function () {
-        if (previa.getAttribute('data-id') !== id) {
-          previa.setAttribute('data-id', id);
-          previaImg.src = miniatura(id);
-        }
-        previa.classList.add('is-on');
-      });
-
-      link.addEventListener('mouseleave', function () {
-        previa.classList.remove('is-on');
-      });
-    });
-
-    document.addEventListener('mousemove', function (e) {
-      if (!previa.classList.contains('is-on')) { return; }
-      previa.style.transform =
-        'translate3d(' + e.clientX + 'px, ' + e.clientY + 'px, 0) translate(-50%, -50%) scale(1)';
-    }, { passive: true });
-  }
-
-  /* ---------------------------------------------------------
-     2. Player
+     O player
      --------------------------------------------------------- */
 
   var player = document.getElementById('player');
@@ -125,7 +77,6 @@
     void player.offsetWidth;              /* reflow: garante a transição */
     root.classList.add('player-aberto');
 
-    if (previa) { previa.classList.remove('is-on'); }
     fechar.focus();
   }
 

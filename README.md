@@ -558,3 +558,15 @@ vem logo abaixo, na folha clara.
 **Os clipes perderam a numeração.** O `01 02 03` ao lado dos títulos ficou
 brega, e não informava nada: a ordem já é visível. Saiu a coluna inteira da
 grade, não só o texto, para o título não ficar com um buraco à esquerda.
+
+**Os clipes ganharam quadro.** O Ato I era uma lista de oito linhas de texto no
+preto, e a miniatura só aparecia seguindo o cursor: no celular não aparecia
+nunca. A página parecia vazia e escura, e a queixa foi exatamente essa. Agora
+cada clipe tem o seu quadro, na mesma gramática dos filmes da Cena 3, então
+clipe e comercial são irmãos no site. As miniaturas vêm do YouTube, mas ficam
+hospedadas aqui (`assets/img/clipes/`, 268 KB no total), para não depender de
+terceiro nem entregar o visitante ao rastreio do YouTube antes do clique.
+
+A miniatura que seguia o cursor saiu do CSS e do `player.js` junto: truque
+bonito, mas redundante quando a imagem já está na tela. A página passou de
+1,72 para 2,41 telas, e valeu: ela estava vazia demais.
