@@ -580,3 +580,24 @@ As miniaturas vêm do YouTube mas ficam hospedadas aqui (`assets/img/clipes/`,
 268 KB), para não depender de terceiro nem entregar o visitante ao rastreio do
 YouTube antes do clique. A miniatura que seguia o cursor saiu do CSS e do
 `player.js`.
+
+## Carimbo de versão nos arquivos
+
+Todo `<link>` de CSS e `<script>` de JS leva `?v=<data e hora>`. O GitHub Pages
+serve tudo com `max-age=600`, então por até dez minutos o navegador pode ficar
+com a folha antiga e o HTML novo. Quando isso aconteceu de verdade, a página do
+Ato I apareceu crua, sem estilo nenhum: as classes tinham mudado de `faixa` para
+`clipe` e nenhuma regra guardada casava mais.
+
+**Ao publicar mudança de CSS ou JS, atualize o carimbo nas quatro páginas.**
+Uma linha resolve:
+
+```powershell
+$v = Get-Date -Format "yyyyMMddHHmm"
+Get-ChildItem *.html | ForEach-Object {
+  $t = [System.IO.File]::ReadAllText($_.FullName)
+  $t = [regex]::Replace($t, '(assets/[^"]+\.(css|js))\?v=\d+', '$1')
+  $t = [regex]::Replace($t, '(assets/[^"]+\.(css|js))"', ('$1?v=' + $v + '"'))
+  [System.IO.File]::WriteAllText($_.FullName, $t, (New-Object System.Text.UTF8Encoding $false))
+}
+```

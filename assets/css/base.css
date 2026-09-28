@@ -199,6 +199,10 @@ body{
    a coreografia do nome e nas páginas de ato entra logo.
    --------------------------------------------------------------- */
 
+/* A linha se desenha na entrada e para. Havia um waveDrift infinito
+   por baixo, de 46s em laço: bonito nos primeiros dias e inquieto
+   depois, porque movimento na periferia do olho não deixa ler em paz.
+   A assinatura é o traço, não o traço andando. */
 .wave{
   position: absolute;
   pointer-events: none;
@@ -217,23 +221,23 @@ body{
   to  { stroke-dashoffset: 0; }
 }
 
-@keyframes waveDrift{
-  from{ transform: translateX(0); }
   to  { transform: translateX(-800px); }
 }
 
-.js.is-ready .wave{
+.js.is-ready /* A linha se desenha na entrada e para. Havia um waveDrift infinito
+   por baixo, de 46s em laço: bonito nos primeiros dias e inquieto
+   depois, porque movimento na periferia do olho não deixa ler em paz.
+   A assinatura é o traço, não o traço andando. */
+.wave{
   animation: fadeIn 2.4s linear var(--wave-delay, .5s) both;
 }
 
 .js.is-ready .wave__line{
-  animation: waveDraw 3.2s var(--ease-soft) calc(var(--wave-delay, .5s) + .1s) both,
-             waveDrift 46s linear 3s infinite;
+  animation: waveDraw 3.2s var(--ease-soft) calc(var(--wave-delay, .5s) + .1s) both;
 }
 
 .js.is-ready .wave__echo{
-  animation: waveDraw 3.6s var(--ease-soft) calc(var(--wave-delay, .5s) + .3s) both,
-             waveDrift 67s linear 3s infinite;
+  animation: waveDraw 3.6s var(--ease-soft) calc(var(--wave-delay, .5s) + .3s) both;
 }
 
 /* --- grão de filme ---------------------------------------------- */

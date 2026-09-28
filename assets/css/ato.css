@@ -43,16 +43,6 @@
   color: var(--coral);
 }
 
-.abertura__num::after{
-  content: "";
-  display: block;
-  width: clamp(38px, 5vw, 74px);
-  height: 1px;
-  margin-top: 1.4em;
-  background: linear-gradient(90deg, var(--coral), rgba(209,75,50,0));
-  transform-origin: left center;
-}
-
 .abertura__titulo{
   position: relative;
   z-index: 2;
@@ -80,12 +70,10 @@
 
 /* --- entrada da abertura ----------------------------------------- */
 
-.js .abertura__num::after{ transform: scaleX(0); }
 .js .abertura__titulo,
 .js .abertura__nota{ opacity: 0; }
 
 .js.is-ready .abertura__num       { animation: fadeIn  1.2s var(--ease-soft) .2s both; }
-.js.is-ready .abertura__num::after{ animation: drawLine 1.2s var(--ease)     .35s both; }
 .js.is-ready .abertura__titulo    { animation: riseIn  1.5s var(--ease)      .55s both; }
 .js.is-ready .abertura__nota      { animation: fadeUp  1.3s var(--ease)      1.15s both; }
 
@@ -222,7 +210,6 @@
 /* --- movimento reduzido ------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce){
-  .js .abertura__num::after{ transform: none; }
   .js .abertura__titulo,
   .js .abertura__nota{ opacity: 1; }
 }
