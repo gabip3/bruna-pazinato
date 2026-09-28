@@ -58,58 +58,6 @@
   color: var(--paper-70);
 }
 
-/* --- o convite -----------------------------------------------------
-   Não é botão: é uma linha com um fio embaixo, do mesmo jeito que a
-   lista de clipes do Ato I se acende. No hover o fio vira coral e a
-   seta avança.
-   ------------------------------------------------------------- */
-
-.contato__acao{
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 1em;
-  margin-top: clamp(2rem, 5.5vh, 3.4rem);
-  padding: 0 .2em .9em;
-  font-family: var(--font-sans);
-  font-size: clamp(.62rem, .78vw, .82rem);
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  color: var(--paper);
-}
-
-.contato__acao::before{
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1px;
-  background: var(--paper-26);
-}
-
-.contato__acao::after{
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1px;
-  background: var(--coral);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform .8s var(--ease);
-}
-
-.contato__acao:hover::after,
-.contato__acao:focus-visible::after{ transform: scaleX(1); }
-
-.contato__seta{
-  display: block;
-  transition: transform .5s var(--ease);
-}
-
-.contato__acao:hover .contato__seta,
-.contato__acao:focus-visible .contato__seta{ transform: translateX(.5em); }
-
-.contato__acao:focus-visible{ outline: 1px solid var(--paper-45); outline-offset: 8px; }
-
 /* --- o retrato ---------------------------------------------------- */
 
 .contato__retrato{
@@ -175,7 +123,6 @@
 
   .contato__nota{ max-width: none; }
 
-  .contato__acao{ padding-bottom: 1.1em; }
 }
 
 /* =============================================================
@@ -194,19 +141,6 @@
   padding: clamp(3rem, 10vh, 6.5rem) var(--gutter) clamp(3.4rem, 11vh, 7rem);
   border-top: 1px solid var(--paper-12);
   background: var(--ink);
-}
-
-.recado__titulo{
-  margin: 0 0 clamp(2rem, 6vh, 3.4rem);
-  font-family: var(--font-display);
-  font-optical-sizing: none;
-  font-variation-settings: var(--display-axes);
-  font-size: clamp(1.6rem, 3.4vw, 3rem);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -.014em;
-  text-transform: uppercase;
-  color: var(--paper);
 }
 
 .recado__form{

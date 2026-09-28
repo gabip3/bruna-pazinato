@@ -749,6 +749,12 @@ A primeira versão da página proibia formulário — estava escrito no pedido. 
 Gabi mudou de ideia depois de ver a página pronta, e tem razão: contratante em
 celular não abre o programa de e-mail, escreve ali e vai embora.
 
+**Sem botão na abertura e sem título no formulário.** O "Escrever" virou
+redundante quando o formulário entrou logo abaixo — era um botão para rolar
+dois dedos de página — e o "Escreva." dizia em palavra o que o primeiro campo
+já diz. Mesma poda do título do showreel: nas duas telas, a coisa se apresenta
+sozinha.
+
 **Formulário sem caixa.** Cada campo é uma linha com um fio de 1px embaixo, que
 vira coral ao ser usado — o mesmo fio do convite e da lista de clipes. Retângulo
 cinza com canto arredondado é a única coisa que faria esta página parecer
