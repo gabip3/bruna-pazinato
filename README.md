@@ -437,8 +437,9 @@ YouTube é 16:9. Em vez de uma classe por formato, o vídeo se encaixa no quadro
 com `object-fit: contain` e o que sobra fica preto, como no cinema.
 
 **Duas ressalvas de material, escritas na página.** O Spaten entrou com o que
-existe: o arquivo da Wix tem quatro segundos, e a linha diz **"2022 · trecho"**
-em vez de deixar o visitante achar que o filme acabou no meio. Ele veio de um
+existe: o arquivo da Wix tem quatro segundos. Cheguei a marcar a linha como
+"2022 · trecho", e o Gabi mandou tirar — a palavra chamava atenção para a
+falta em vez de deixar o filme passar como os outros. Fica só o ano. Ele veio de um
 embed do YouTube e trazia o **botão do player queimado na tarja preta de
 baixo** — o recorte para os 1472×560 de imagem real tira a tarja e o botão
 junto. E o arquivo do Globo Receitas veio com o **botão de mudo do player
