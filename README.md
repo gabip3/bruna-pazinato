@@ -690,6 +690,32 @@ que a animação de entrada daquelas duas páginas nunca funcionou** — mover o
 bloco genérico para o `base.css` conserta as três de uma vez, e é conversa para
 depois da aprovação desta seção.
 
+
+## A página de contato
+
+Não é formulário e não são cartões: são três linhas de um índice, do tamanho de
+um título. A tipografia é a interface — quem lê "Shows & booking" em corpo 76 já
+sabe onde clicar, e não precisa de caixa em volta para entender que aquilo é
+clicável.
+
+**A hierarquia é a da carreira dela agora.** Ao vivo é a prioridade, então
+`Shows & booking` vem primeiro, em corpo 76 contra 50 dos outros dois, com mais
+respiro em cima e embaixo. Não é destaque decorativo: é a ordem em que ela quer
+ser procurada.
+
+**O coral aparece em dois lugares e só:** o rótulo da abertura e o fio que
+atravessa a linha no hover — o mesmo gesto da lista de clipes do Ato I. No
+hover, nada acende e nada muda de cor: a linha inteira anda um fio para a
+direita, o texto de apoio clareia e a seta avança. Em mais lugares que isso, o
+coral deixaria de ser detalhe.
+
+**Os três endereços são `#`.** Ainda não existem, e inventar e-mail de assessoria
+seria pior do que deixar em branco. Um comentário no HTML, logo acima dos três,
+diz o que fazer: trocar o `href` por `mailto:` e nada mais precisa mudar.
+
+A página não menciona ato nenhum, de propósito: o programa em atos organiza a
+obra, e quem chega aqui quer falar com uma pessoa.
+
 ## Carimbo de versão nos arquivos
 
 Todo `<link>` de CSS e `<script>` de JS leva `?v=<data e hora>`. O GitHub Pages
@@ -713,7 +739,7 @@ que foram substituídas no lugar. Renomear o arquivo resolveria igual; o carimbo
 **As cinco páginas** — o carimbo agora cobre `index`, `musica`, `em-cena`,
 `ao-vivo` e `trajetoria`.
 
-**Ao publicar mudança de CSS ou JS, atualize o carimbo nas cinco páginas.**
+**Ao publicar mudança de CSS ou JS, atualize o carimbo nas seis páginas.**
 Uma linha resolve:
 
 ```powershell

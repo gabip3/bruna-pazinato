@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Ato III · Ao vivo | Bruna Pazinato</title>
-<meta name="description" content="Bruna Pazinato ao vivo: a intérprete no palco, com banda e plateia.">
+<title>Contato | Bruna Pazinato</title>
+<meta name="description" content="Contato de Bruna Pazinato: shows e booking, projetos e parcerias, imprensa.">
 <meta name="theme-color" content="#0B0B0C">
 <meta name="color-scheme" content="dark">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Ato III · Ao vivo | Bruna Pazinato">
-<meta property="og:description" content="A intérprete no palco.">
-<meta property="og:image" content="assets/img/abertura-ao-vivo.jpg">
+<meta property="og:title" content="Contato | Bruna Pazinato">
+<meta property="og:description" content="Shows, projetos e imprensa.">
+<meta property="og:image" content="assets/img/bruna-hero.jpg">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
@@ -24,8 +24,7 @@
 <link rel="stylesheet" href="assets/css/base.css?v=202609281852">
 <link rel="stylesheet" href="assets/css/header.css?v=202609281852">
 <link rel="stylesheet" href="assets/css/rodape.css?v=202609281852">
-<link rel="stylesheet" href="assets/css/ato.css?v=202609281852">
-<link rel="stylesheet" href="assets/css/showreel.css?v=202609281852">
+<link rel="stylesheet" href="assets/css/contato.css?v=202609281852">
 
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -96,52 +95,46 @@
 <main id="conteudo">
 
   <!-- ============================================================
-       ABERTURA DO ATO
-
-       PLACEHOLDER: a fotografia é assets/img/abertura-ao-vivo.jpg.
-       Para trocar, basta substituir o arquivo nesse caminho. Se a
-       nova foto tiver outra proporção, ajuste --foto-forma abaixo
-       (é a largura / altura da imagem), senão o quadro corta.
+       ABERTURA
        ============================================================ -->
-  <section class="abertura" style="--foto-forma: 1600 / 1186; --foto-pos: 50% 42%; --foto-brilho: 1; --foto-fade: 9%">
-
-    <figure class="abertura__figura" aria-hidden="true">
-      <img class="abertura__foto" src="assets/img/abertura-ao-vivo.jpg" alt="" width="1600" height="1186" decoding="async">
-      <span class="abertura__veu"></span>
-    </figure>
-
-    <p class="abertura__num">Ato III</p>
-    <h1 class="abertura__titulo">Ao vivo</h1>
-    <p class="abertura__frase">“É onde consigo expressar minha energia.”</p>
-
-    <span class="grain" aria-hidden="true"></span>
+  <section class="contato">
+    <p class="contato__rotulo" data-reveal>Contato</p>
+    <h1 class="contato__titulo" data-reveal style="--i:1">Vamos conversar.</h1>
+    <p class="contato__linha" data-reveal style="--i:2">Shows · Projetos · Imprensa</p>
   </section>
 
-
   <!-- ============================================================
-       O SHOWREEL
-       Um minuto e meio de palco. Entra mudo, como fotografia que se
-       mexe; ganha som e controles nativos quando alguem clica.
+       OS TRÊS CANAIS
+
+       PLACEHOLDER: os três href estão em "#" porque os endereços
+       ainda não existem. Para ligar cada um, troque o href por
+       mailto:endereco@dominio — nada mais precisa mudar.
        ============================================================ -->
-  <section class="showreel" aria-labelledby="showreel-titulo">
+  <section class="canais" aria-label="Canais de contato">
 
-    <h2 class="showreel__titulo" id="showreel-titulo" data-reveal>Bruna no palco.</h2>
+    <a class="canal canal--destaque" href="#" data-reveal>
+      <span class="canal__nome">Shows &amp; booking</span>
+      <span class="canal__texto">
+        <span class="canal__nota">Contratações, eventos e apresentações ao vivo.</span>
+        <span class="canal__acao">Contato <span class="canal__seta" aria-hidden="true">&#8594;</span></span>
+      </span>
+    </a>
 
-    <figure class="showreel__quadro" data-showreel data-reveal style="--i:1">
-      <video class="showreel__video"
-             poster="assets/img/showreel-poster.jpg"
-             preload="metadata"
-             muted loop playsinline
-             width="1920" height="1080"
-             aria-label="Bruna Pazinato ao vivo: cortes de shows e apresentações">
-        <source src="assets/video/showreel.mp4" type="video/mp4">
-      </video>
+    <a class="canal" href="#" data-reveal style="--i:1">
+      <span class="canal__nome">Projetos &amp; parcerias</span>
+      <span class="canal__texto">
+        <span class="canal__nota">Teatro, audiovisual, música e projetos especiais.</span>
+        <span class="canal__acao">Contato <span class="canal__seta" aria-hidden="true">&#8594;</span></span>
+      </span>
+    </a>
 
-      <button class="showreel__som" type="button">
-        <span class="showreel__triangulo" aria-hidden="true"></span>
-        <span>Com som</span>
-      </button>
-    </figure>
+    <a class="canal" href="#" data-reveal style="--i:2">
+      <span class="canal__nome">Imprensa</span>
+      <span class="canal__texto">
+        <span class="canal__nota">Entrevistas, pautas e materiais.</span>
+        <span class="canal__acao">Contato <span class="canal__seta" aria-hidden="true">&#8594;</span></span>
+      </span>
+    </a>
 
   </section>
 </main>
@@ -180,7 +173,6 @@
 <script src="assets/js/pronto.js?v=202609281852" defer></script>
 <script src="assets/js/nav.js?v=202609281852" defer></script>
 <script src="assets/js/reveal.js?v=202609281852" defer></script>
-<script src="assets/js/showreel.js?v=202609281852" defer></script>
 
 </body>
 </html>

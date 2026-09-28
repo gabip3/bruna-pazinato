@@ -1,0 +1,212 @@
+/* =============================================================
+   BRUNA PAZINATO
+   contato.css
+
+   Não é formulário e não é cartão: são três linhas de um índice,
+   do tamanho de um título. A tipografia é a interface — quem lê
+   "Shows & booking" em corpo 80 já sabe onde clicar.
+
+   A hierarquia é a da carreira dela agora: ao vivo primeiro, e
+   com mais presença. Os outros dois vêm no mesmo desenho, um
+   corpo abaixo.
+
+   O coral aparece em dois lugares e só: o rótulo da abertura e o
+   fio que atravessa a linha no hover. Em mais lugares que isso,
+   deixaria de ser detalhe.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   ABERTURA
+   ------------------------------------------------------------- */
+
+.contato{
+  padding: calc(var(--header-h) + clamp(4rem, 16vh, 11rem)) var(--gutter) clamp(3rem, 9vh, 6rem);
+  background: var(--ink);
+}
+
+.contato__rotulo{
+  font-family: var(--font-sans);
+  font-size: clamp(.6rem, .72vw, .74rem);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.contato__titulo{
+  margin: clamp(1rem, 2.6vh, 2rem) 0 0;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(2.4rem, 8vw, 7rem);
+  font-weight: 400;
+  line-height: .92;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.contato__linha{
+  margin: clamp(1.3rem, 3.4vh, 2.4rem) 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(.58rem, .7vw, .72rem);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+/* -------------------------------------------------------------
+   OS TRÊS CANAIS
+   ------------------------------------------------------------- */
+
+.canais{
+  padding: 0 var(--gutter) clamp(4rem, 12vh, 8rem);
+  background: var(--ink);
+  border-top: 1px solid var(--paper-12);
+}
+
+.canal{
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.4rem, 4vw, 4rem);
+  padding: clamp(2.4rem, 7vh, 5rem) 0;
+  border-bottom: 1px solid var(--paper-12);
+}
+
+/* o primeiro é a prioridade: respira mais e fala mais alto */
+.canal--destaque{
+  padding: clamp(3rem, 9vh, 6.5rem) 0 clamp(2.8rem, 8vh, 5.5rem);
+}
+
+.canal__nome{
+  display: block;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.5rem, 3.6vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transition: transform .7s var(--ease);
+}
+
+.canal--destaque .canal__nome{
+  font-size: clamp(2rem, 5.4vw, 4.8rem);
+}
+
+.canal__texto{ display: block; }
+
+.canal__nota{
+  display: block;
+  max-width: 34ch;
+  font-family: var(--font-sans);
+  font-size: clamp(.72rem, .9vw, .92rem);
+  line-height: 1.55;
+  color: var(--paper-45);
+  transition: color .5s var(--ease);
+}
+
+.canal__acao{
+  display: inline-flex;
+  align-items: center;
+  gap: .9em;
+  margin-top: clamp(1rem, 2.6vh, 1.8rem);
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .64vw, .68rem);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-70);
+  transition: color .45s var(--ease);
+}
+
+.canal__seta{
+  display: block;
+  transition: transform .5s var(--ease);
+}
+
+/* --- o hover: um fio coral atravessa a linha ----------------------
+   O mesmo gesto da lista de clipes do Ato I. Nada se acende, nada
+   muda de cor: a linha inteira anda um fio para a direita.
+   ------------------------------------------------------------- */
+
+.canal::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--coral);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .9s var(--ease);
+}
+
+.canal:hover::after,
+.canal:focus-visible::after{ transform: scaleX(1); }
+
+.canal:hover .canal__nome,
+.canal:focus-visible .canal__nome{ transform: translateX(.14em); }
+
+.canal:hover .canal__nota,
+.canal:focus-visible .canal__nota{ color: var(--paper-70); }
+
+.canal:hover .canal__acao,
+.canal:focus-visible .canal__acao{ color: var(--paper); }
+
+.canal:hover .canal__seta,
+.canal:focus-visible .canal__seta{ transform: translateX(.45em); }
+
+.canal:focus-visible{ outline: 1px solid var(--paper-45); outline-offset: 10px; }
+
+/* -------------------------------------------------------------
+   ENTRADA
+   Mesma gramática da home, escopada aqui: a regra geral vive no
+   atos.css, que só a home carrega.
+   ------------------------------------------------------------- */
+
+.js .contato [data-reveal],
+.js .canais [data-reveal]{
+  opacity: 0;
+  transform: translate3d(0, 2rem, 0);
+}
+
+.js .contato [data-reveal].is-in,
+.js .canais [data-reveal].is-in{
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity   1.3s var(--ease-soft) calc(var(--i, 0) * .16s),
+    transform 1.3s var(--ease)      calc(var(--i, 0) * .16s);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .js .contato [data-reveal],
+  .js .canais [data-reveal]{ opacity: 1; transform: none; }
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVO
+   No celular o nome sobe e o texto desce: uma coluna, na ordem
+   em que se lê.
+   ------------------------------------------------------------- */
+
+@media (max-width: 860px){
+
+  .canal{
+    grid-template-columns: 1fr;
+    gap: clamp(.9rem, 2.4vh, 1.4rem);
+    align-items: start;
+    padding: clamp(2rem, 5.5vh, 3rem) 0;
+  }
+
+  .canal--destaque{
+    padding: clamp(2.4rem, 6.5vh, 3.6rem) 0;
+  }
+
+  .canal__nota{ max-width: none; }
+
+  .canal__acao{ margin-top: clamp(1rem, 2.4vh, 1.4rem); }
+}
