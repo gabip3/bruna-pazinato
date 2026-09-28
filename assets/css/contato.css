@@ -48,16 +48,6 @@
   color: var(--paper-45);
 }
 
-.contato__nota{
-  margin: clamp(1.6rem, 4.2vh, 2.8rem) 0 0;
-  max-width: 44ch;
-  font-family: var(--font-sans);
-  font-size: clamp(.82rem, 1vw, 1.02rem);
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--paper-70);
-}
-
 /* --- o retrato ---------------------------------------------------- */
 
 .contato__retrato{
@@ -121,7 +111,6 @@
 
   .contato__retrato img{ object-position: 50% 24%; }
 
-  .contato__nota{ max-width: none; }
 
 }
 

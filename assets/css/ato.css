@@ -34,10 +34,15 @@
   color: var(--coral);
 }
 
+/* O titulo nasce sem margem: so a Trajetoria ainda tem rotulo em cima
+   ("A artista"), e a margem vem dele, na regra logo abaixo. Nos atos o
+   rotulo saiu, e a margem iria virar buraco. */
+.abertura__num + .abertura__titulo{ margin-top: clamp(1rem, 2.6vh, 2rem); }
+
 .abertura__titulo{
   position: relative;
   z-index: 2;
-  margin-top: clamp(1rem, 2.6vh, 2rem);
+  margin-top: 0;
   font-family: var(--font-display);
   font-optical-sizing: none;
   font-variation-settings: var(--display-axes);
