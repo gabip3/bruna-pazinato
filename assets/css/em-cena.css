@@ -19,16 +19,9 @@
   margin-bottom: clamp(1.5rem, 3.6vh, 2.6rem);
 }
 
-.cena__num{
-  font-family: var(--font-sans);
-  font-size: clamp(.58rem, .68vw, .7rem);
-  letter-spacing: .34em;
-  text-transform: uppercase;
-  color: var(--coral);
-}
 
 .cena__titulo{
-  margin-top: clamp(.8rem, 2vh, 1.4rem);
+  margin-top: 0;
   font-family: var(--font-display);
   font-optical-sizing: none;
   font-variation-settings: var(--display-axes);
@@ -251,7 +244,7 @@
 }
 
 .programa__titulo{
-  margin: clamp(.7rem, 1.8vh, 1.2rem) 0 clamp(.9rem, 2.2vh, 1.5rem);
+  margin: 0 0 clamp(.9rem, 2.2vh, 1.5rem);
   font-family: var(--font-display);
   font-optical-sizing: none;
   font-variation-settings: var(--display-axes);

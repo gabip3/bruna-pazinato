@@ -549,15 +549,33 @@ porque lá a fotografia atravessa as letras, e a tensão entre imagem e tipo é 
 que faz parecer desenhado por alguém. As aberturas tinham ficado só com a
 metade tipográfica da ideia.
 
-Agora a foto entra pela direita com a borda esquerda dissolvida em máscara, o
-título avança por cima dela e a onda passa por cima de tudo. Mesmo princípio do
-hero, em banda mais baixa.
+Agora a foto entra pela direita com a borda esquerda dissolvida em máscara e o
+título avança por cima dela. Mesmo princípio do hero, em banda mais baixa.
 
 **A imagem é a do painel da home**, de propósito: quem clica no painel do ato
 cai na fotografia que acabou de ver. A exceção é o Ato II, que precisou de uma
 foto mais forte: a do painel deixava a figura pequena e escura no canto, então
 ali entra um retrato de palco da série da Clara Nunes. Brilho e enquadramento
 são variáveis por página (`--foto-brilho`, `--foto-pos`).
+
+**A dissolvência estava comendo a pessoa** — "é tanto fade aqui q não dá pra ver
+a mulher". Dois efeitos se somavam justamente em cima do rosto: a máscara só
+chegava a opaca em 44% da figura, e o véu de leitura jogava 62% de preto sobre
+os primeiros 30% dela. Como a figura começa em 46% da tela, essa soma caía
+exatamente onde o rosto está. Agora a máscara fecha em 26%, o véu começa em 55%
+e morre em 20%, e o brilho de repouso subiu de .76 para .9. A máscara existe
+para entregar o título, não para esconder a fotografia.
+
+**Saíram os "Cena 1, Cena 2, Cena 3".** Os títulos já dizem o que cada bloco é —
+Teatro musical, Televisão, Publicidade — e o número só repetia a estrutura para
+quem já estava vendo. O rótulo que sobrou é o que descreve de verdade: "As
+outras montagens". A regra `.cena__num` saiu junto, e as margens que existiam
+para separar título de eyebrow foram a zero.
+
+**As miniaturas dos clipes estavam em `brightness(.78)`.** No quadro do
+"Imaginei Você", que já é preto e branco e escuro, isso dava um retângulo vazio
+na página. Foram para `.9`, com menos dessaturação. Mesma doença da abertura:
+tratamento pensado para foto clara, aplicado em foto escura.
 
 A Trajetória fica sem foto na abertura de propósito: ela não é ato, e o retrato
 vem logo abaixo, na folha clara.
@@ -566,22 +584,27 @@ vem logo abaixo, na folha clara.
 brega, e não informava nada: a ordem já é visível. Saiu a coluna inteira da
 grade, não só o texto, para o título não ficar com um buraco à esquerda.
 
-**O Ato I virou mosaico**, e levou duas tentativas erradas antes.
+**O Ato I é lista**, e chegou aqui depois de três tentativas e de um erro meu de
+leitura.
 
 A primeira versão era só tipografia, com a miniatura aparecendo apenas ao
 seguir o cursor: a página ficava preta e vazia, e no celular não havia imagem
 nenhuma, porque não há cursor para seguir.
 
 A segunda pôs a miniatura fixa ao lado do título, na gramática dos filmes da
-Cena 3. Funcionava a 1280px, onde eu testei, e quebrava mais largo: o título
-ocupava um terço da linha e sobrava um vão preto até o triângulo na ponta
-direita. A miniatura, pequena e escurecida, virava mancha cinza.
+Cena 3. É esta que está no ar.
 
-A terceira é a que ficou: cartões 16:9 num mosaico de vão de 2px, com o título
-por cima da imagem. É a linguagem dos painéis das montagens do Ato II, e aqui a
-fotografia é o conteúdo, não um enfeite ao lado do texto. As colunas se
-acomodam sozinhas com `auto-fit`, de quatro a uma. A página encolheu de 1,72
-para 1,42 tela.
+A terceira foi um mosaico de cartões 16:9 com o título por cima da imagem, e
+nasceu de um diagnóstico errado: li "mas não tá bonito igual tô vendo aqui no
+lado" como rejeição do desenho em linha, quando o que estava feio era a folha
+de estilo velha no cache do navegador. O Gabi mandou as duas telas lado a lado
+— "não é assim que eu quero" no mosaico, "é assim" na lista — e o mosaico saiu
+com `git checkout 10c9049`.
+
+**A lição é sobre diagnóstico, não sobre desenho.** Antes de refazer uma tela
+porque ela "está feia", confirme que o que a outra pessoa está vendo é o que
+você acabou de publicar. Era cache. A reforma inteira foi trabalho perdido, e
+é a origem do carimbo de versão descrito logo abaixo.
 
 As miniaturas vêm do YouTube mas ficam hospedadas aqui (`assets/img/clipes/`,
 268 KB), para não depender de terceiro nem entregar o visitante ao rastreio do
