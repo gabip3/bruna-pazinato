@@ -532,3 +532,29 @@ regra não vale com o menu aberto, que é preto. Isso corrigiu também o bloco
 claro do Ato II, onde o problema já existia.
 
 A passagem no fim leva ao **Ato I**: depois do programa, o espetáculo começa.
+
+## A abertura dos atos
+
+As aberturas eram só tipografia sobre o preto, e o Gabi acertou o diagnóstico:
+"cara de IA". O motivo é que a tela era 100% ornamento, tipo grande mais um fio
+decorativo, que é a receita de gerador de site. O hero nunca teve esse problema
+porque lá a fotografia atravessa as letras, e a tensão entre imagem e tipo é o
+que faz parecer desenhado por alguém. As aberturas tinham ficado só com a
+metade tipográfica da ideia.
+
+Agora a foto entra pela direita com a borda esquerda dissolvida em máscara, o
+título avança por cima dela e a onda passa por cima de tudo. Mesmo princípio do
+hero, em banda mais baixa.
+
+**A imagem é a do painel da home**, de propósito: quem clica no painel do ato
+cai na fotografia que acabou de ver. A exceção é o Ato II, que precisou de uma
+foto mais forte: a do painel deixava a figura pequena e escura no canto, então
+ali entra um retrato de palco da série da Clara Nunes. Brilho e enquadramento
+são variáveis por página (`--foto-brilho`, `--foto-pos`).
+
+A Trajetória fica sem foto na abertura de propósito: ela não é ato, e o retrato
+vem logo abaixo, na folha clara.
+
+**Os clipes perderam a numeração.** O `01 02 03` ao lado dos títulos ficou
+brega, e não informava nada: a ordem já é visível. Saiu a coluna inteira da
+grade, não só o texto, para o título não ficar com um buraco à esquerda.
