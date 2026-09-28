@@ -655,9 +655,9 @@ muda esse caminho.
 
 ## O showreel do Ato III
 
-Um título e um vídeo, sem cartão, sem moldura e sem legenda ao lado. O material
-é um minuto e meio de cortes de show, e ele se explica sozinho — qualquer texto
-ao lado só competiria com a imagem.
+So o video, sem titulo, sem cartao, sem moldura e sem legenda. Um minuto e meio
+de cortes de show se explica sozinho — o titulo "Bruna no palco." chegou a
+existir e saiu a pedido do Gabi: dizia em palavra o que a imagem ja dizia.
 
 **O vídeo entra mudo e sai do silêncio quando alguém pede.** Ao chegar à tela
 ele toca em laço, sem som, como uma fotografia que se mexe; ao clique, recomeça
