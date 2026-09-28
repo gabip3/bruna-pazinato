@@ -1,0 +1,305 @@
+/* =============================================================
+   BRUNA PAZINATO
+   header.css — navegação transparente sobre o hero
+   ============================================================= */
+
+.header{
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  height: var(--header-h);
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  pointer-events: none;                 /* só os elementos clicáveis capturam */
+}
+
+.header > *{ pointer-events: auto; }
+
+/* --- assinatura ------------------------------------------------ */
+
+.brand{
+  display: inline-flex;
+  align-items: baseline;
+  gap: .62em;
+  font-family: var(--font-sans);
+  font-size: clamp(.64rem, .76vw, .78rem);
+  font-weight: 400;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.brand__first{
+  color: var(--paper-45);
+  transition: color .6s var(--ease);
+}
+
+.brand__last{
+  color: var(--paper);
+}
+
+.brand .ato{
+  color: var(--coral);
+}
+
+.brand:hover .brand__first{ color: var(--paper-70); }
+
+/* --- menu desktop ---------------------------------------------- */
+
+.nav{ display: none; }   /* menu horizontal desativado — ver variante no README */
+
+.nav__list{
+  display: flex;
+  align-items: center;
+  gap: clamp(1.4rem, 2.8vw, 3.4rem);
+}
+
+.nav__item a{
+  position: relative;
+  display: inline-block;
+  padding: .35em 0;
+  font-size: clamp(.6rem, .7vw, .72rem);
+  font-weight: 400;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-70);
+  transition: color .5s var(--ease);
+}
+
+.nav__item a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--coral);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .55s var(--ease);
+}
+
+.nav__item a:hover,
+.nav__item a:focus-visible{ color: var(--paper); }
+
+.nav__item a:hover::after,
+.nav__item a:focus-visible::after{ transform: scaleX(1); }
+
+/* --- botão hamburguer ------------------------------------------- */
+
+.burger{
+  display: inline-flex;
+  align-items: center;
+  gap: .95em;
+  height: 34px;
+  margin-right: -2px;
+}
+
+.burger__label{
+  font-family: var(--font-sans);
+  font-size: clamp(.6rem, .7vw, .72rem);
+  font-weight: 400;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-70);
+  transition: color .5s var(--ease);
+}
+
+.burger__label::before{ content: "Menu"; }
+
+[aria-expanded="true"] .burger__label::before{ content: "Fechar"; }
+
+.burger:hover .burger__label{ color: var(--paper); }
+
+.burger__lines{
+  display: block;
+  width: 24px;
+}
+
+.burger__lines i{
+  display: block;
+  height: 1px;
+  background: var(--paper);
+  transition: transform .5s var(--ease), opacity .3s linear, width .5s var(--ease);
+}
+
+.burger__lines i:first-child{ width: 24px; }
+.burger__lines i:last-child { width: 15px; margin-top: 6px; }
+
+.burger:hover .burger__lines i:last-child{ width: 24px; }
+
+[aria-expanded="true"] .burger__lines i:first-child{ transform: translateY(3.5px) rotate(45deg); }
+[aria-expanded="true"] .burger__lines i:last-child { width: 24px; transform: translateY(-3.5px) rotate(-45deg); }
+
+/* --- menu em tela cheia ------------------------------------------- */
+
+.menu{
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--header-h) var(--gutter) calc(var(--gutter) + 1rem);
+  background: rgba(11, 11, 12, .95);
+  -webkit-backdrop-filter: blur(22px);
+          backdrop-filter: blur(22px);
+  opacity: 0;
+  transition: opacity .5s var(--ease-soft);
+}
+
+.menu[hidden]{ display: none; }
+
+.menu-open .menu{ opacity: 1; }
+
+.menu-open{ overflow: hidden; }
+
+.menu__nav li{
+  overflow: hidden;
+}
+
+.menu__nav a{
+  display: block;
+  padding: .16em 0;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.5rem, 7.6vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transform: translateY(105%);
+  transition: transform .8s var(--ease), color .4s linear;
+}
+
+.menu-open .menu__nav a{ transform: translateY(0); }
+
+.menu__nav li:nth-child(1) a{ transition-delay: .10s; }
+.menu__nav li:nth-child(2) a{ transition-delay: .16s; }
+.menu__nav li:nth-child(3) a{ transition-delay: .22s; }
+.menu__nav li:nth-child(4) a{ transition-delay: .28s; }
+.menu__nav li:nth-child(5) a{ transition-delay: .34s; }
+
+.menu__nav a:active,
+.menu__nav a:hover{ color: var(--coral); }
+
+/* --- rodapé do menu: assinatura e redes --------------------------- */
+
+.menu__rodape{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: clamp(1.8rem, 6vh, 3.2rem);
+  padding-top: clamp(1.1rem, 2.6vh, 1.8rem);
+  border-top: 1px solid var(--paper-12);
+  opacity: 0;
+  transition: opacity .6s linear .45s;
+}
+
+.menu-open .menu__rodape{ opacity: 1; }
+
+.menu__foot{
+  font-size: .62rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+.menu__redes{
+  display: flex;
+  gap: clamp(1rem, 1.8vw, 1.7rem);
+  flex: 0 0 auto;
+}
+
+.menu__redes a{
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--paper-45);
+  transition: color .4s linear, transform .5s var(--ease);
+}
+
+.menu__redes svg{
+  width: 21px;
+  height: 21px;
+}
+
+.menu__redes a:hover,
+.menu__redes a:focus-visible{
+  color: var(--coral);
+  transform: translateY(-2px);
+}
+
+/* --- entrada do header ------------------------------------------- */
+
+.js .brand,
+.js .nav__item,
+.js .burger{ opacity: 0; }
+
+.js.is-ready .brand{
+  animation: fadeIn 1.4s var(--ease-soft) .55s both;
+}
+
+.js.is-ready .burger{
+  animation: fadeIn 1.4s var(--ease-soft) .75s both;
+}
+
+.js.is-ready .nav__item{
+  animation: fadeUp 1.2s var(--ease) both;
+}
+
+.js.is-ready .nav__item:nth-child(1){ animation-delay: .74s; }
+.js.is-ready .nav__item:nth-child(2){ animation-delay: .81s; }
+.js.is-ready .nav__item:nth-child(3){ animation-delay: .88s; }
+.js.is-ready .nav__item:nth-child(4){ animation-delay: .95s; }
+.js.is-ready .nav__item:nth-child(5){ animation-delay: 1.02s; }
+
+
+/* --- menu no desktop ---------------------------------------------- */
+
+@media (min-width: 901px){
+
+  .menu{
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .menu__nav a{
+    font-size: clamp(1.9rem, 3.4vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -.014em;
+  }
+
+  /* no desktop os itens ficam centrados e o rodapé desce para o pé */
+  .menu__rodape{
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(var(--gutter) + .4rem);
+    margin-top: 0;
+  }
+}
+
+/* --- cabeçalho sobre seção clara ----------------------------------
+   O cabeçalho é fixo e claro, feito para o preto. Quando passa por
+   cima de uma seção .claro, a assinatura e o MENU sumiam no papel.
+   O nav.js liga .header--claro nesse trecho; com o menu aberto o
+   fundo volta a ser preto, então a troca não vale. */
+
+.brand__last,
+.burger__label{ transition: color .5s var(--ease); }
+
+.burger__lines i{
+  transition: transform .5s var(--ease), opacity .3s linear, width .5s var(--ease), background-color .5s var(--ease);
+}
+
+:root:not(.menu-open) .header--claro .brand__first{ color: rgba(20,18,15,.56); }
+:root:not(.menu-open) .header--claro .brand__last { color: #14120F; }
+:root:not(.menu-open) .header--claro .brand .ato  { color: #A8341F; }
+:root:not(.menu-open) .header--claro .burger__label{ color: rgba(20,18,15,.72); }
+:root:not(.menu-open) .header--claro .burger__lines i{ background: #14120F; }

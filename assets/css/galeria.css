@@ -1,0 +1,278 @@
+/* =============================================================
+   BRUNA PAZINATO
+   galeria.css — visor de fotos de cena
+
+   Uma foto por vez, grande, no preto. Sem grade, sem moldura:
+   a galeria não acrescenta rolagem à página, ela abre por cima.
+   Serve a qualquer ato — o conteúdo vem de um JSON na página.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   PORTA DE ENTRADA
+
+   O botão é a affordance de verdade: hover em imagem não anuncia
+   nada para quem não passa o cursor — e não existe no celular.
+   A fotografia continua clicável, mas como atalho, não como aviso.
+   ------------------------------------------------------------- */
+
+/* Botão retangular, canto vivo, sem sombra. No hover o coral
+   varre de baixo para cima e o texto inverte para o preto.
+   O mesmo componente abre galeria e leva à bilheteria. */
+
+.btn{
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1em;
+  padding: .95em 1.5em;
+  border: 1px solid var(--paper-26);
+  font-family: var(--font-sans);
+  font-size: clamp(.56rem, .68vw, .7rem);
+  font-weight: 400;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--paper);
+  transition: color .45s var(--ease), border-color .45s var(--ease);
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--coral);
+  transform: scaleY(0);
+  transform-origin: center bottom;
+  transition: transform .55s var(--ease);
+}
+
+.btn__contagem{
+  color: var(--coral);
+  letter-spacing: .1em;
+  transition: color .45s var(--ease);
+}
+
+.btn:hover,
+.btn:focus-visible{
+  color: var(--ink);
+  border-color: var(--coral);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before{ transform: scaleY(1); }
+
+.btn:hover .btn__contagem,
+.btn:focus-visible .btn__contagem{ color: var(--ink); }
+
+/* no destaque, o botão respira depois da ficha técnica */
+.destaque .btn{ margin-top: clamp(1.2rem, 3vh, 2rem); }
+
+/* a fotografia segue clicável, sem rótulo por cima */
+.abre-galeria{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(11, 11, 12, 0);
+  transition: background .5s var(--ease-soft);
+}
+
+.destaque__figura:hover .abre-galeria{ background: rgba(11, 11, 12, .16); }
+
+.abre-galeria:focus-visible{ outline-offset: -6px; }
+
+/* --- visor ----------------------------------------------------- */
+
+.visor{
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: clamp(3.4rem, 8vh, 6rem) clamp(1rem, 7vw, 6rem) clamp(1.4rem, 4vh, 2.6rem);
+  background: rgba(9, 9, 10, .97);
+  -webkit-backdrop-filter: blur(26px);
+          backdrop-filter: blur(26px);
+  opacity: 0;
+  transition: opacity .45s var(--ease-soft);
+}
+
+.visor[hidden]{ display: none; }
+
+.visor-aberto .visor{ opacity: 1; }
+
+.visor-aberto{ overflow: hidden; }
+
+/* --- palco ----------------------------------------------------- */
+
+/* altura definida pelo grid do visor; a imagem preenche a caixa e
+   se ajusta por object-fit — percentual em item de grid não segura */
+.visor__palco{
+  position: relative;
+  display: block;
+  min-height: 0;
+  margin: 0 auto;      /* galerias de baixa resolução ficam centradas */
+  width: 100%;
+}
+
+.visor__palco img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(.985);
+  transition: opacity .5s var(--ease-soft), transform .8s var(--ease);
+}
+
+.visor__palco img.is-on{
+  opacity: 1;
+  transform: none;
+}
+
+/* --- legenda --------------------------------------------------- */
+
+.visor__legenda{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1.4rem;
+  margin-top: clamp(1rem, 2.6vh, 1.8rem);
+  padding-top: clamp(.8rem, 2vh, 1.2rem);
+  border-top: 1px solid var(--paper-12);
+}
+
+.visor__obra{
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(.95rem, 1.5vw, 1.5rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.visor__obra i{
+  display: block;
+  margin-top: .5em;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: clamp(.55rem, .66vw, .68rem);
+  letter-spacing: .28em;
+  color: var(--paper-45);
+}
+
+.visor__lado{
+  text-align: right;
+  font-family: var(--font-sans);
+  font-size: clamp(.55rem, .66vw, .68rem);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+.visor__contador b{
+  font-weight: 400;
+  color: var(--coral);
+}
+
+.visor__credito{
+  display: block;
+  margin-top: .7em;
+  letter-spacing: .18em;
+  color: var(--paper-26);
+}
+
+/* --- controles -------------------------------------------------- */
+
+.visor__nav{
+  position: absolute;
+  top: 0;
+  bottom: clamp(4rem, 12vh, 7rem);
+  width: clamp(64px, 16vw, 240px);
+  display: grid;
+  place-items: center;
+  color: var(--paper-45);
+  transition: color .4s linear;
+}
+
+/* display: grid vence o atributo hidden; aqui ele volta a valer */
+.visor__nav[hidden],
+.visor__contador[hidden]{ display: none; }
+
+.visor__nav--ant { left: 0; }
+.visor__nav--prox{ right: 0; }
+
+.visor__nav:hover{ color: var(--paper); }
+
+/* seta inteira: haste + as duas diagonais da ponta */
+.visor__nav span{
+  display: block;
+  width: clamp(26px, 3vw, 40px);
+  height: 1px;
+  background: currentColor;
+  position: relative;
+  transition: transform .5s var(--ease);
+}
+
+.visor__nav span::before,
+.visor__nav span::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+}
+
+.visor__nav--ant span::before{ left: 0;  transform-origin: left center;  transform: rotate(-40deg); }
+.visor__nav--ant span::after { left: 0;  transform-origin: left center;  transform: rotate(40deg); }
+
+.visor__nav--prox span::before{ right: 0; transform-origin: right center; transform: rotate(40deg); }
+.visor__nav--prox span::after { right: 0; transform-origin: right center; transform: rotate(-40deg); }
+
+.visor__nav--ant:hover span { transform: translateX(-.35rem); }
+.visor__nav--prox:hover span{ transform: translateX(.35rem); }
+
+.visor__fechar{
+  position: absolute;
+  top: clamp(1rem, 3vh, 2.2rem);
+  right: clamp(1rem, 7vw, 6rem);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.visor__fechar span{
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--paper);
+  transform: rotate(45deg);
+  transition: background .4s linear;
+}
+
+.visor__fechar span::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  transform: rotate(-90deg);
+}
+
+.visor__fechar:hover span{ background: var(--coral); }
+
+@media (max-width: 700px){
+  .visor__nav{ width: 22vw; }
+  .visor__legenda{ grid-template-columns: 1fr; gap: .7rem; }
+  .visor__lado{ text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .visor__palco img{ transform: none; }
+}

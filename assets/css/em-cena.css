@@ -1,0 +1,296 @@
+/* =============================================================
+   BRUNA PAZINATO
+   em-cena.css — Ato II
+
+   Quinze musicais não podem ser tratados igualmente: lista plana
+   é currículo, escolha é portfólio. Por isso três destaques com
+   fotografia e escala, e o resto num índice tipográfico — como o
+   programa de uma peça, com o elenco principal na capa e a ficha
+   técnica completa no verso.
+   ============================================================= */
+
+.cena{
+  position: relative;
+  padding: clamp(1.9rem, 5vh, 4rem) var(--gutter) clamp(1.6rem, 4.5vh, 3.4rem);
+  background: var(--ink);
+}
+
+.cena__cabeca{
+  margin-bottom: clamp(1.5rem, 3.6vh, 2.6rem);
+}
+
+.cena__num{
+  font-family: var(--font-sans);
+  font-size: clamp(.58rem, .68vw, .7rem);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.cena__num::after{
+  content: "";
+  display: block;
+  width: clamp(24px, 3vw, 42px);
+  height: 1px;
+  margin-top: 1.1em;
+  background: var(--coral);
+}
+
+.cena__titulo{
+  margin-top: clamp(.8rem, 2vh, 1.4rem);
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.6rem, 3.4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.014em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+/* -------------------------------------------------------------
+   DESTAQUES
+   ------------------------------------------------------------- */
+
+.destaques{
+  display: grid;
+  gap: clamp(1.8rem, 4.4vh, 3.2rem);
+  margin-bottom: clamp(2.2rem, 6vh, 4.4rem);
+}
+
+.destaque{
+  display: grid;
+  grid-template-columns: minmax(0, 28%) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.6rem, 5vw, 5rem);
+}
+
+/* alterna o lado da fotografia */
+.destaque:nth-child(even) .destaque__figura{ order: 2; }
+.destaque:nth-child(even) .destaque__texto { order: 1; text-align: right; }
+.destaque:nth-child(even) .ficha           { justify-items: end; }
+
+.destaque__figura{
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 54svh;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+.destaque__figura img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 24%;
+  filter: contrast(1.04) saturate(.82) brightness(.84);
+  transform: scale(1.01);
+  transition: transform 1.6s var(--ease), filter 1.2s var(--ease-soft);
+}
+
+.destaque:hover .destaque__figura img{
+  transform: scale(1.045);
+  filter: contrast(1.03) saturate(.95) brightness(.98);
+}
+
+.destaque__meta{
+  font-family: var(--font-sans);
+  font-size: clamp(.56rem, .66vw, .68rem);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+.destaque__titulo{
+  margin-top: clamp(.9rem, 2.2vh, 1.6rem);
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.9rem, 4.4vw, 4.2rem);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.018em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.destaque__sub{
+  display: block;
+  margin-top: .34em;
+  font-size: .38em;
+  line-height: 1.1;
+  letter-spacing: .04em;
+  color: var(--paper-45);
+}
+
+.destaque__papel{
+  margin-top: clamp(1.1rem, 2.6vh, 1.9rem);
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(.95rem, 1.5vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: var(--paper);
+}
+
+.destaque__papel span{
+  display: block;
+  margin-bottom: .7em;
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .62vw, .64rem);
+  letter-spacing: .3em;
+  color: var(--paper-45);
+}
+
+/* A crítica. Uma frase só: o resto da resenha mora na Trajetória.
+   Display em caixa baixa, para não competir com o título em caixa
+   alta; o fio coral é linha, não texto, então não tem o problema de
+   leitura que a data em coral tinha. */
+.destaque__critica{
+  margin: clamp(1.2rem, 3vh, 2rem) 0 0;
+  padding-left: clamp(.9rem, 1.4vw, 1.2rem);
+  border-left: 1px solid var(--coral);
+}
+
+.destaque__critica p{
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  line-height: 1.3;
+  color: var(--paper);
+}
+
+.destaque__critica cite{
+  display: block;
+  margin-top: .9em;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: clamp(.54rem, .62vw, .64rem);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+/* nos destaques alinhados à direita, o fio troca de lado */
+.destaque:nth-child(even) .destaque__critica{
+  padding-left: 0;
+  padding-right: clamp(.9rem, 1.4vw, 1.2rem);
+  border-left: 0;
+  border-right: 1px solid var(--coral);
+}
+
+/* ficha técnica */
+.ficha{
+  display: grid;
+  gap: .55rem;
+  margin-top: clamp(1.2rem, 3vh, 2rem);
+  padding-top: clamp(1.1rem, 2.6vh, 1.6rem);
+  border-top: 1px solid var(--paper-12);
+}
+
+.ficha div{
+  display: flex;
+  gap: .9em;
+  align-items: baseline;
+  font-family: var(--font-sans);
+  font-size: clamp(.58rem, .7vw, .72rem);
+}
+
+.destaque:nth-child(even) .ficha div{ flex-direction: row-reverse; }
+
+.ficha dt{
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+.ficha dd{
+  letter-spacing: .1em;
+  color: var(--paper);
+}
+
+/* -------------------------------------------------------------
+   ÍNDICE DAS OUTRAS MONTAGENS
+   ------------------------------------------------------------- */
+
+/* -------------------------------------------------------------
+   O PROGRAMA — bloco claro
+
+   Quebra a sequência escura no ponto em que a página era só lista,
+   e o faz por um motivo: ficha de peça é impressa em papel, não
+   projetada no palco. Grão em multiply para não parecer tela acesa.
+   ------------------------------------------------------------- */
+
+.programa{
+  position: relative;
+  padding: clamp(2.4rem, 6.5vh, 5rem) var(--gutter) clamp(2.4rem, 6.5vh, 4.6rem);
+}
+
+.programa::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .32;
+  mix-blend-mode: multiply;
+  background-size: 190px 190px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.programa__coluna{
+  position: relative;
+  z-index: 1;
+}
+
+.programa__coluna + .programa__coluna{
+  margin-top: clamp(2.2rem, 6vh, 4rem);
+}
+
+.programa__rotulo{
+  margin-bottom: clamp(.8rem, 2vh, 1.4rem);
+  font-family: var(--font-sans);
+  font-size: clamp(.56rem, .66vw, .68rem);
+  font-weight: 400;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+.programa__titulo{
+  margin: clamp(.7rem, 1.8vh, 1.2rem) 0 clamp(.9rem, 2.2vh, 1.5rem);
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.4rem, 2.8vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.014em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+/* o botão da galeria vem de galeria.css — aqui só o encaixe na linha */
+
+/* -------------------------------------------------------------
+   RESPONSIVO
+   ------------------------------------------------------------- */
+
+@media (max-width: 860px){
+
+  .destaque{
+    grid-template-columns: 1fr;
+    gap: clamp(1.2rem, 3vh, 2rem);
+  }
+
+  /* no empilhamento a alternância de lado não faz sentido */
+  .destaque:nth-child(even) .destaque__figura{ order: 0; }
+  .destaque:nth-child(even) .destaque__texto { order: 0; text-align: left; }
+  .destaque:nth-child(even) .ficha           { justify-items: start; }
+  .destaque:nth-child(even) .ficha div       { flex-direction: row; }
+
+  .destaque__figura{ aspect-ratio: 3 / 2; max-height: 44svh; }
+  .destaque__figura img{ object-position: 50% 20%; }
+}

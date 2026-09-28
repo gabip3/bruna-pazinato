@@ -1,0 +1,307 @@
+/* =============================================================
+   BRUNA PAZINATO
+   vitrine.css — as montagens em painéis
+
+   Substitui a lista longa: em vez de ler quinze linhas iguais, a
+   pessoa escolhe pela imagem. O painel sob o cursor cresce e os
+   vizinhos cedem espaço — flex-basis com transição, sem biblioteca.
+
+   A pista rola na horizontal e dá a volta: ao chegar na ponta,
+   o JS reposiciona sem emenda.
+   ============================================================= */
+
+/* --- topo: rótulo à esquerda, setas à direita ---------------------
+   A pista sangra até a borda e corta os painéis de propósito, mas
+   corte sozinho não avisa que dá para andar. As setas avisam.
+
+   Na Cena 2 as setas encostam no título grande em vez do rótulo
+   miúdo: mesma regra, outra âncora. */
+
+.vitrine__topo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(.8rem, 2vh, 1.4rem);
+}
+
+.vitrine__topo .programa__rotulo{ margin-bottom: 0; }
+
+.vitrine__setas{
+  display: flex;
+  gap: .3rem;
+  flex: 0 0 auto;
+}
+
+.vitrine__seta{
+  width: 46px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--paper-45);
+  transition: color .4s linear;
+}
+
+.vitrine__seta:hover,
+.vitrine__seta:focus-visible{ color: var(--paper); }
+
+/* seta inteira: haste mais as duas diagonais da ponta */
+.vitrine__seta span{
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: currentColor;
+  transition: transform .45s var(--ease);
+}
+
+.vitrine__seta span::before,
+.vitrine__seta span::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 1px;
+  background: currentColor;
+}
+
+.vitrine__seta--ant span::before{ left: 0; transform-origin: left center; transform: rotate(-40deg); }
+.vitrine__seta--ant span::after { left: 0; transform-origin: left center; transform: rotate(40deg); }
+
+.vitrine__seta--prox span::before{ right: 0; transform-origin: right center; transform: rotate(40deg); }
+.vitrine__seta--prox span::after { right: 0; transform-origin: right center; transform: rotate(-40deg); }
+
+.vitrine__seta--ant:hover span { transform: translateX(-.28rem); }
+.vitrine__seta--prox:hover span{ transform: translateX(.28rem); }
+
+.vitrine{
+  /* o tamanho do painel é variável: a pista das montagens sangra a
+     página inteira, a da Cena 2 vive dentro de meia coluna */
+  --palco-largura: clamp(178px, 18.5vw, 288px);
+  --palco-altura:  clamp(290px, 44vh, 500px);
+  --palco-aberto:  clamp(248px, 26vw, 386px);
+
+  position: relative;
+  margin-left: calc(var(--gutter) * -1);
+  margin-right: calc(var(--gutter) * -1);
+}
+
+/* --- a pista miúda: um cartão de cada vez -------------------------
+   Três produções de TV não pedem fileira. A pista tem a largura de
+   um painel só e as setas ficam ao lado dele — o resto da coluna
+   fica em branco de propósito, que é o respiro do programa impresso. */
+.vitrine--miuda{
+  --palco-largura: 100%;                    /* um por vez: o painel é a pista */
+  --palco-aberto:  100%;                    /* mostrando um só, não há para onde crescer */
+
+  display: flex;
+  align-items: center;
+  gap: clamp(1.1rem, 2.8vw, 2.4rem);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* A pista fica com o que sobra da coluna depois das setas, em vez de
+   um tamanho fixo em vw: assim o cartão é o maior possível em cada
+   largura e nunca empurra as setas para fora.
+
+   O encaixe obrigatório é o que garante o um-por-um: qualquer rolagem
+   — seta, arrasto, trackpad — assenta num cartão inteiro, nunca no
+   meio de dois. */
+.vitrine--miuda .vitrine__pista{
+  flex: 0 1 440px;          /* não cresce: a sobra vira o branco da direita */
+  min-width: 0;
+  padding: 0;
+  gap: 0;                                   /* sem vão: o passo é a largura exata */
+  scroll-snap-type: x mandatory;
+}
+
+/* enquanto o dedo ou o mouse arrasta, o encaixe sai da frente e
+   volta a valer quando solta */
+.vitrine--miuda .vitrine__pista.is-arrastando{ scroll-snap-type: none; }
+
+/* a altura vem da proporção da capa, não de vh: assim a foto nunca
+   é recortada por causa do tamanho da janela */
+.vitrine--miuda .palco{
+  height: auto;
+  aspect-ratio: 5 / 7;
+  scroll-snap-align: start;
+}
+
+/* Uma seta de cada lado do cartão, as duas encostadas nele com o mesmo
+   vão. O branco sobra à direita das três peças, não entre elas. */
+.vitrine--miuda .vitrine__seta{ flex: 0 0 auto; }
+
+.vitrine__pista{
+  display: flex;
+  gap: 2px;
+  padding: 0 var(--gutter);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+
+.vitrine__pista::-webkit-scrollbar{ display: none; }
+
+.vitrine__pista.is-arrastando{
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.vitrine__pista.is-arrastando .palco__link{ pointer-events: none; }
+
+/* --- painel ------------------------------------------------------ */
+
+.palco{
+  position: relative;
+  flex: 0 0 var(--palco-largura);
+  height: var(--palco-altura);
+  transition: flex-basis .95s cubic-bezier(.22, 1, .3, 1);
+}
+
+/* Só o painel sob o cursor cresce.
+
+   A referência encolhia os vizinhos, mas ali a fileira ocupava a
+   largura exata da tela. Aqui a pista rola e tem 30 painéis (10 mais
+   os clones do laço): encolher todos contraía a pista em centenas de
+   pixels a cada hover, e tudo disparava para o lado. Crescendo só um,
+   o deslocamento é local e o movimento fica calmo. */
+.vitrine__pista .palco:hover{
+  flex-basis: var(--palco-aberto);
+}
+
+.palco__link{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #17151a;
+}
+
+.palco__foto{
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.palco__foto img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.04) saturate(.78) brightness(.72);
+  transform: scale(1.03);
+  transition: filter .7s var(--ease-soft), transform 1.2s var(--ease);
+}
+
+.palco__link:hover .palco__foto img,
+.palco__link:focus-visible .palco__foto img{
+  filter: contrast(1.03) saturate(.95) brightness(.95);
+  transform: scale(1);
+}
+
+.palco__foto::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9,9,10,.92) 4%, rgba(9,9,10,.15) 52%, rgba(9,9,10,.35) 100%);
+}
+
+/* --- legenda do painel -------------------------------------------- */
+
+.palco__texto{
+  position: absolute;
+  left: clamp(.9rem, 1.4vw, 1.5rem);
+  right: clamp(.9rem, 1.4vw, 1.5rem);
+  bottom: clamp(1rem, 2.2vh, 1.6rem);
+  display: block;
+  color: #EFEAE3;
+}
+
+/* A data era coral sobre a foto e não se lia: #D14B32 em cima de um
+   fundo quase preto dá contraste 4:1, abaixo do mínimo para texto
+   miúdo. O dourado é a mesma família quente e chega a 9:1. */
+.palco__ano{
+  display: block;
+  margin-bottom: .8em;
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .64vw, .66rem);
+  letter-spacing: .3em;
+  color: #E3B879;
+}
+
+.palco__ano i{ font-style: normal; opacity: .5; }
+
+.palco__obra{
+  display: block;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(.98rem, 1.4vw, 1.5rem);
+  line-height: 1.06;
+  letter-spacing: -.006em;
+  text-transform: uppercase;
+}
+
+.palco__papel{
+  display: block;
+  margin-top: .7em;
+  font-family: var(--font-sans);
+  font-size: clamp(.5rem, .6vw, .62rem);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(239,234,227,.6);
+}
+
+/* a contagem só aparece quando o painel abre */
+.palco__conta{
+  display: block;
+  margin-top: 1em;
+  font-family: var(--font-sans);
+  font-size: clamp(.5rem, .6vw, .62rem);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: #EFEAE3;
+  opacity: 0;
+  transform: translateY(.5em);
+  transition: opacity .5s var(--ease-soft), transform .6s var(--ease);
+}
+
+.palco__link:hover .palco__conta,
+.palco__link:focus-visible .palco__conta{
+  opacity: 1;
+  transform: none;
+}
+
+/* --- rodapé da vitrine -------------------------------------------- */
+
+.vitrine__nota{
+  margin-top: clamp(1rem, 2.4vh, 1.6rem);
+  padding: 0 var(--gutter);
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .64vw, .66rem);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  line-height: 2.1;
+  color: var(--paper-45);
+}
+
+.vitrine__nota b{
+  font-weight: 400;
+  color: var(--paper-70);
+}
+
+/* --- sem cursor: os painéis não expandem, só rolam ------------------ */
+
+@media (hover: none){
+  .vitrine{ --palco-largura: clamp(200px, 62vw, 300px); --palco-aberto: clamp(200px, 62vw, 300px); }
+  .palco__conta{ opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .palco,
+  .palco__foto img,
+  .palco__conta{ transition: none; }
+}

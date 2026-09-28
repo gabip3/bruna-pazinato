@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Espaço reservado para a fotografia">
+
+  <defs>
+    <linearGradient id="bg" x1="0.15" y1="0" x2="0.65" y2="1">
+      <stop offset="0"    stop-color="#4A464C"/>
+      <stop offset="0.38" stop-color="#2E2B31"/>
+      <stop offset="0.78" stop-color="#17161A"/>
+      <stop offset="1"    stop-color="#0D0D10"/>
+    </linearGradient>
+
+    <radialGradient id="lamp" cx="0.58" cy="0.2" r="0.62">
+      <stop offset="0"    stop-color="#FFD9A3" stop-opacity="0.62"/>
+      <stop offset="0.3"  stop-color="#E3B879" stop-opacity="0.26"/>
+      <stop offset="1"    stop-color="#E3B879" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="beam" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0"    stop-color="#FFF6E8" stop-opacity="0.42"/>
+      <stop offset="0.5"  stop-color="#F0EBE4" stop-opacity="0.13"/>
+      <stop offset="1"    stop-color="#F0EBE4" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="vignette" cx="0.55" cy="0.42" r="0.72">
+      <stop offset="0.45" stop-color="#0B0B0C" stop-opacity="0"/>
+      <stop offset="1"    stop-color="#0B0B0C" stop-opacity="0.75"/>
+    </radialGradient>
+
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+
+    <filter id="soft" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="58"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+
+  <!-- feixe de luz de palco -->
+  <polygon points="640,-60 900,-60 1280,1600 340,1600" fill="url(#beam)" filter="url(#soft)"/>
+
+  <rect width="1200" height="1600" fill="url(#lamp)"/>
+  <rect width="1200" height="1600" fill="url(#vignette)"/>
+
+  <!-- grão -->
+  <rect width="1200" height="1600" filter="url(#grain)" opacity="0.13"/>
+
+  <!-- marcação discreta -->
+  <rect x="72" y="1452" width="46" height="1" fill="#D14B32" opacity="0.9"/>
+  <g fill="#F0EBE4" font-family="Helvetica, Arial, sans-serif">
+    <text x="72" y="1512" font-size="17" letter-spacing="7" opacity="0.5">SUBSTITUIR ESTA IMAGEM</text>
+    <text x="72" y="1552" font-size="15" letter-spacing="6" opacity="0.26">FOTOGRAFIA HD — RETRATO VERTICAL</text>
+  </g>
+
+</svg>

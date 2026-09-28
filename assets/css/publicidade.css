@@ -1,0 +1,157 @@
+/* =============================================================
+   BRUNA PAZINATO
+   publicidade.css — Cena 3 do Ato II
+
+   Três filmes. Pouco material para um ato inteiro, muito para
+   virar uma linha de texto. Vira um índice com imagem: o mesmo
+   compasso da Cena 2, só que a coluna da esquerda é um quadro
+   do filme em vez do ano.
+
+   No desktop as duas cenas ficam lado a lado. Empilhadas, a
+   página crescia meia tela; pareadas, cresce quase nada — e o
+   programa impresso ganha duas colunas, que é como programa
+   impresso se parece mesmo.
+   ============================================================= */
+
+/* O par não é uma .programa__coluna, então a regra de espaçamento
+   do programa não o alcançava e ele encostava na fileira de musicais.
+   Aqui o respiro volta, e maior: a fileira sangra a página inteira e
+   precisa de ar antes de o texto começar. */
+.programa__coluna + .programa__par{
+  margin-top: clamp(2.6rem, 7.5vh, 5rem);
+}
+
+.programa__par > .programa__coluna + .programa__coluna{
+  margin-top: clamp(2.2rem, 6vh, 4rem);
+}
+
+.filmes{
+  border-top: 1px solid var(--paper-12);
+}
+
+.filme__link{
+  display: grid;
+  grid-template-columns: clamp(112px, 15vw, 176px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.3rem, 2.8vw, 2.4rem);
+  padding: clamp(1.15rem, 2.7vh, 1.8rem) 0;
+  border-bottom: 1px solid var(--paper-12);
+}
+
+/* --- o quadro do filme ------------------------------------------- */
+
+.filme__still{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #17151a;
+  aspect-ratio: 16 / 9;
+}
+
+.filme__still img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.86) brightness(.9);
+  transform: scale(1.04);
+  transition: filter .6s var(--ease-soft), transform 1s var(--ease);
+}
+
+.filme__link:hover .filme__still img,
+.filme__link:focus-visible .filme__still img{
+  filter: none;
+  transform: scale(1);
+}
+
+/* --- texto -------------------------------------------------------- */
+
+.filme__texto{ display: block; }
+
+.filme__ano{
+  display: block;
+  margin-bottom: .8em;
+  font-family: var(--font-sans);
+  font-size: clamp(.56rem, .66vw, .68rem);
+  letter-spacing: .16em;
+  color: var(--paper-45);
+}
+
+/* Só a marca. Personagem de comercial não é crédito de elenco, e
+   nomear o filme ("Tubarão") só confundia com nome de espetáculo. */
+.filme__marca{
+  display: block;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.05rem, 2vw, 1.8rem);
+  line-height: 1.1;
+  letter-spacing: -.008em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+/* --- o triângulo ---------------------------------------------------
+   Um triângulo desenhado em borda, sem SVG e sem fonte de ícone.
+   É a única forma que diz "isto toca" sem escrever nada. */
+
+.filme__play{
+  justify-self: end;
+  display: block;
+  width: 0;
+  height: 0;
+  margin-right: .35rem;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent var(--paper-26);
+  transition: border-left-color .4s linear, transform .5s var(--ease);
+}
+
+.filme__link:hover .filme__play,
+.filme__link:focus-visible .filme__play{
+  border-left-color: var(--coral);
+  transform: translateX(3px);
+}
+
+/* --- nota do pé ---------------------------------------------------- */
+
+.filmes__nota{
+  margin-top: clamp(1.3rem, 3vh, 2rem);
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .64vw, .66rem);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  line-height: 2;
+  color: var(--paper-45);
+}
+
+/* -------------------------------------------------------------
+   DUAS COLUNAS
+   ------------------------------------------------------------- */
+
+@media (min-width: 861px){
+
+  .programa__par{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  /* pareadas, não empilhadas: o espaçamento vertical some */
+  .programa__par > .programa__coluna + .programa__coluna{
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 860px){
+  .filme__link{
+    grid-template-columns: clamp(96px, 28vw, 148px) minmax(0, 1fr) auto;
+    gap: clamp(1.1rem, 4vw, 1.8rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .filme__still img,
+  .filme__play{ transition: none; }
+}

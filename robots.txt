@@ -1,0 +1,7 @@
+# O site ainda está em aprovação. Enquanto não for para o domínio dela,
+# fica fora dos buscadores: o endereço do GitHub Pages é público, e sem
+# isto o Google poderia indexar a versão de rascunho.
+# Quando publicar de verdade, é só apagar a linha Disallow.
+
+User-agent: *
+Disallow: /

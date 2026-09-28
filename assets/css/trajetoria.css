@@ -1,0 +1,307 @@
+/* =============================================================
+   BRUNA PAZINATO
+   trajetoria.css — a página de leitura
+
+   O palco é escuro; o programa da peça é impresso. A TRAJETÓRIA
+   é o programa inteiro: depois da abertura, tudo é papel.
+
+   Não é currículo. A ordem é a de uma matéria de revista: o arco
+   primeiro (de onde saiu, até onde chegou), a crítica, os nomes
+   com quem trabalhou, e no fim a linha do tempo.
+   ============================================================= */
+
+.folha{
+  position: relative;
+  padding: clamp(3rem, 9vh, 6.5rem) var(--gutter) clamp(3rem, 8vh, 5.5rem);
+}
+
+/* grão de papel, o mesmo do programa do Ato II */
+.folha::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .32;
+  mix-blend-mode: multiply;
+  background-size: 190px 190px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.folha > *{ position: relative; z-index: 1; }
+
+/* rótulo miúdo, o mesmo em todas as partes da folha */
+.rotulo{
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(.58rem, .68vw, .7rem);
+  font-weight: 400;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+
+/* -------------------------------------------------------------
+   O ARCO
+   ------------------------------------------------------------- */
+
+.arco{
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 6vw, 6.5rem);
+  align-items: center;
+}
+
+.arco__retrato{
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+/* Foto de estúdio com fundo branco. Em multiply o branco vira a cor
+   do papel e a figura fica impressa na folha, sem retângulo em volta. */
+.arco__retrato img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  mix-blend-mode: multiply;
+  filter: saturate(.92) contrast(1.03);
+}
+
+.arco__frase{
+  margin-top: clamp(1.2rem, 3vh, 2rem);
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.45rem, 2.7vw, 2.75rem);
+  line-height: 1.16;
+  letter-spacing: -.01em;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+.arco__corpo{
+  margin-top: clamp(1.5rem, 4vh, 2.6rem);
+  max-width: 40em;
+  display: grid;
+  gap: 1.1em;
+}
+
+.arco__corpo p{
+  font-family: var(--font-sans);
+  font-size: clamp(.9rem, 1.02vw, 1.02rem);
+  line-height: 1.72;
+  color: var(--paper-70);
+}
+
+.arco__corpo em{
+  font-style: normal;
+  color: var(--paper);
+}
+
+/* -------------------------------------------------------------
+   A CRÍTICA
+   ------------------------------------------------------------- */
+
+.critica{
+  margin: clamp(3.2rem, 10vh, 7rem) 0 0;
+  padding-top: clamp(1.6rem, 4vh, 2.6rem);
+  border-top: 1px solid var(--paper-12);
+  max-width: 30em;
+}
+
+.critica p{
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.3rem, 2.5vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+.critica cite{
+  display: block;
+  margin-top: 1.3em;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: clamp(.56rem, .66vw, .68rem);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+.critica cite em{ font-style: normal; color: var(--paper-70); }
+
+/* -------------------------------------------------------------
+   LINHA DO TEMPO
+   Trajetória é uma linha que se percorre, e a assinatura do site
+   já é uma linha fina atravessando as páginas. Aqui ela vira o
+   trilho: fio de 1px, um ponto por obra, o título inclinado por
+   cima e o ano embaixo, só na primeira obra de cada ano.
+
+   Veio de uma referência em React e Tailwind. Ficou a ideia; saíram
+   a barra de 6px arredondada e os cinzas de interface.
+
+   Abre no presente (o vitrine.js rola até o fim ao carregar) e o
+   fio some depois de 2026: quem quiser, arrasta para trás no tempo.
+   ------------------------------------------------------------- */
+
+.cronologia{
+  margin-top: clamp(3rem, 9vh, 6rem);
+}
+
+.cronologia .vitrine__topo{ margin-bottom: 0; }
+
+.linha{
+  --passo: clamp(58px, 5.6vw, 86px);        /* distância entre pontos */
+  --ceu:   clamp(200px, 28vh, 262px);       /* altura reservada aos títulos inclinados */
+  --futuro: clamp(140px, 22vw, 360px);      /* trecho do fio depois de hoje */
+
+  margin: 0 calc(var(--gutter) * -1);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.linha::-webkit-scrollbar{ display: none; }
+
+.linha.is-arrastando{ cursor: grabbing; }
+
+.linha:focus-visible{
+  outline: 1px solid var(--coral);
+  outline-offset: -1px;
+}
+
+.linha__lista{
+  position: relative;
+  display: flex;
+  width: max-content;
+  padding: var(--ceu) calc(var(--gutter) + var(--futuro)) clamp(2.4rem, 5vh, 3.4rem) var(--gutter);
+}
+
+/* o trilho: firme de 2011 até hoje, e se desfaz no que ainda vem */
+.linha__lista::before{
+  content: "";
+  position: absolute;
+  top: var(--ceu);
+  left: var(--gutter);
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right,
+    var(--paper-45) 0,
+    var(--paper-45) calc(100% - var(--gutter) - var(--futuro)),
+    transparent 100%);
+}
+
+.marco{
+  position: relative;
+  flex: 0 0 var(--passo);
+  height: 0;
+}
+
+/* o ponto: cheio para teatro, vazado para o resto */
+.marco::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--paper);
+  transform: translate(-50%, -50%);
+}
+
+.marco--fora::before{
+  background: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--paper);
+}
+
+/* o que está em cartaz acende, com um halo */
+.marco--agora::before{
+  width: 11px;
+  height: 11px;
+  background: var(--coral);
+  box-shadow: 0 0 0 6px rgba(168, 52, 31, .14);
+}
+
+/* o título: sai do ponto e sobe na diagonal, paralelo aos vizinhos */
+.marco__titulo{
+  position: absolute;
+  left: -.1em;
+  bottom: 12px;
+  transform-origin: 0 100%;
+  transform: rotate(-42deg);
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(.8rem, 1.02vw, 1rem);
+  line-height: 1;
+  color: var(--paper);
+}
+
+.marco__tag{
+  margin-left: .45em;
+  font-family: var(--font-sans);
+  font-size: .56em;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  vertical-align: .2em;
+  color: var(--paper-45);
+}
+
+.marco__tag--agora{ color: var(--coral); }
+
+/* o ano: embaixo, só na primeira obra de cada ano */
+.marco__ano{
+  position: absolute;
+  left: -.06em;
+  top: 15px;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(.72rem, .92vw, .95rem);   /* bem menor: e ancora, nao manchete */
+  line-height: 1;
+  letter-spacing: .04em;
+  color: var(--paper-45);
+}
+
+.marco__ano--agora{ color: var(--coral); }
+
+/* nas obras seguintes do mesmo ano, o ano continua lá para quem
+   ouve a página, mas não se repete na tela */
+.marco__ano.is-repetido{
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* -------------------------------------------------------------
+   RESPONSIVO
+   ------------------------------------------------------------- */
+
+@media (max-width: 860px){
+
+  .arco{
+    grid-template-columns: 1fr;
+    gap: clamp(1.6rem, 5vh, 2.4rem);
+  }
+
+  .arco__retrato{
+    max-width: 78%;
+    aspect-ratio: 4 / 5;
+  }
+
+  .linha{
+    --passo: 54px;
+    --ceu: 222px;                          /* o título mais longo, inclinado, pede uns 205px */
+    --futuro: 28vw;
+  }
+
+  .marco__titulo{ font-size: .8rem; }
+
+}

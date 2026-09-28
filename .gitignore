@@ -1,0 +1,21 @@
+# Originais pesados. Ficam só na máquina, nunca no repositório:
+# somados passam de 1 GB, e o site não precisa deles.
+Fotos/
+Videos/
+*.zip
+*.docx
+/BP_*.jpg
+/BP_*.JPG
+/BP_*.PNG
+
+# Notas de trabalho. O GitHub Pages serve tudo o que está no repositório,
+# inclusive .md por URL direta, então o que é interno fica de fora.
+conteudo/
+
+# Configuração do servidor de desenvolvimento local
+.claude/
+
+# Lixo de sistema
+Thumbs.db
+desktop.ini
+.DS_Store

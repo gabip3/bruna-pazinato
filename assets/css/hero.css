@@ -1,0 +1,356 @@
+/* =============================================================
+   BRUNA PAZINATO
+   hero.css — abertura (100vh)
+   Camadas (z-index):
+     0  nome (a fotografia passa por cima das últimas letras)
+     2  fotografia
+     3  luz quente
+     4  linha / onda
+     5  contorno do nome sobre a foto
+     6  micro-tipografia
+     8  grão
+   ============================================================= */
+
+.hero{
+  --photo-edge: 50%;                 /* onde a fotografia começa */
+  --photo-pos: 50% 24%;              /* enquadramento da foto */
+  --name-size: clamp(2.7rem, 10.8vw, 15rem);
+  --wave-delay: 2.4s;            /* a linha espera a coreografia do nome */
+
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--header-h) var(--gutter) calc(var(--gutter) + .4rem);
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero__grid{
+  position: relative;
+  flex: 1 1 auto;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+}
+
+/* -------------------------------------------------------------
+   FOTOGRAFIA
+   ------------------------------------------------------------- */
+
+.hero__figure{
+  position: absolute;
+  z-index: 2;
+  top: 0; right: 0; bottom: 0;
+  left: var(--photo-edge);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) 13%, #000 34%);
+          mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) 13%, #000 34%);
+}
+
+.hero__photo{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--photo-pos);
+  /* Tratamento da foto — o fundo original é vermelho pleno (#BD0001).
+     O hue-rotate puxa para vermelho queimado, aproximando do --coral.
+     Três ajustes possíveis, troque a linha ativa:
+       cru      contrast(1.05) saturate(.90) brightness(.94)
+       médio    contrast(1.06) saturate(.82) brightness(.90) hue-rotate(4deg)   ← atual
+       queimado contrast(1.07) saturate(.74) brightness(.88) hue-rotate(7deg)   */
+  filter: contrast(1.06) saturate(.82) brightness(.90) hue-rotate(4deg);
+  transform: scale(1.045);
+}
+
+/* véus de leitura sobre a fotografia */
+.hero__veil{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to top,    var(--ink) 0%, rgba(11,11,12,0) 46%),
+    linear-gradient(to bottom, rgba(11,11,12,.38) 0%, rgba(11,11,12,0) 16%),
+    linear-gradient(to right,  rgba(11,11,12,.55), rgba(11,11,12,0) 24%);
+}
+
+/* cortina de abertura — as luzes ainda estão apagadas */
+.hero__figure::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--ink);
+  opacity: 0;
+}
+
+.js .hero__figure::after{ opacity: 1; }
+
+/* -------------------------------------------------------------
+   LUZ QUENTE
+   ------------------------------------------------------------- */
+
+.hero__glow{
+  position: absolute;
+  z-index: 3;
+  top: -14%;
+  right: 1%;
+  width: 62vw;
+  height: 62vw;
+  max-width: 880px;
+  max-height: 880px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: blur(26px);
+  opacity: 0;
+  background: radial-gradient(circle at 50% 50%,
+              rgba(227,184,121,.17) 0%,
+              rgba(227,184,121,.06) 40%,
+              rgba(227,184,121,0)   68%);
+}
+
+/* -------------------------------------------------------------
+   LINHA / ONDA SONORA
+   ------------------------------------------------------------- */
+
+.hero .wave{
+  z-index: 4;
+  left: -3%;
+  width: 106%;
+  top: 65%;
+  height: clamp(80px, 15vh, 180px);
+}
+
+/* -------------------------------------------------------------
+   NOME
+   ------------------------------------------------------------- */
+
+.hero__mark{
+  display: block;
+  width: clamp(38px, 5vw, 74px);
+  height: 1px;
+  margin-bottom: clamp(1.1rem, 2.4vh, 2rem);
+  background: linear-gradient(90deg, var(--coral), rgba(209,75,50,0));
+  transform-origin: left center;
+}
+
+.name{
+  position: relative;                 /* sem z-index: fica sob a fotografia */
+  font-family: var(--font-name);
+  font-optical-sizing: none;
+  font-variation-settings: var(--name-axes);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: .88;
+}
+
+.name__line{
+  display: block;
+}
+
+.name__line--first{
+  font-size: clamp(1.05rem, 3.5vw, 3.6rem);
+  letter-spacing: .38em;
+  color: var(--paper-70);
+}
+
+.name__line--last{
+  position: relative;
+  margin-top: clamp(.4rem, 1.4vh, 1.1rem);
+  margin-left: -.018em;
+  font-size: var(--name-size);
+  font-weight: 700;
+  letter-spacing: -.022em;
+  white-space: nowrap;
+}
+
+.name__inner{
+  display: block;
+}
+
+.name .ato{
+  color: var(--coral);
+}
+
+/* contorno do nome onde a fotografia o atravessa */
+.name__ghost{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  white-space: nowrap;
+  color: transparent;
+  opacity: 0;
+  -webkit-text-stroke: 1px rgba(240,235,228,.42);
+  -webkit-mask-image: linear-gradient(90deg, transparent var(--cut, 62%), #000 calc(var(--cut, 62%) + 13vw));
+          mask-image: linear-gradient(90deg, transparent var(--cut, 62%), #000 calc(var(--cut, 62%) + 13vw));
+}
+
+.name__ghost .ato{
+  color: transparent;
+  -webkit-text-stroke-color: rgba(209,75,50,.72);
+}
+
+/* -------------------------------------------------------------
+   TAGLINE
+   ------------------------------------------------------------- */
+
+.tagline{
+  position: relative;
+  z-index: 6;
+  margin-top: clamp(1.5rem, 3.4vh, 2.9rem);
+  font-size: clamp(.63rem, .82vw, .8rem);
+  font-weight: 400;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tagline__a{ color: var(--paper); }
+.tagline__b{ color: var(--paper-45); margin-left: .35em; }
+
+/* -------------------------------------------------------------
+   MARCADOR DE ROLAGEM
+   ------------------------------------------------------------- */
+
+.cue{
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: clamp(36px, 6vh, 64px);
+  background: var(--paper-12);
+  overflow: hidden;
+  opacity: 0;
+}
+
+.cue i{
+  position: absolute;
+  left: 0;
+  top: -42%;
+  width: 1px;
+  height: 42%;
+  background: var(--coral);
+}
+
+/* =============================================================
+   ENTRADA — "as luzes ainda estão apagadas"
+   ============================================================= */
+
+.js .hero__mark{ transform: scaleX(0); }
+.js .name__inner,
+.js .tagline{ opacity: 0; }
+.js .name .ato{ color: var(--paper); }
+
+@keyframes photoIn{
+  from{ opacity: 0; transform: scale(1.075); }
+  to  { opacity: 1; transform: scale(1.045); }
+}
+
+@keyframes curtainUp{
+  from{ opacity: 1; }
+  to  { opacity: 0; }
+}
+
+@keyframes ignite{
+  from{ color: var(--paper); text-shadow: 0 0 0 rgba(209,75,50,0); }
+  to  { color: var(--coral); text-shadow: 0 0 44px rgba(209,75,50,.26); }
+}
+
+@keyframes breathe{
+  from{ opacity: 1; }
+  to  { opacity: .6; }
+}
+
+@keyframes cueTravel{
+  0%  { transform: translateY(0);    opacity: 0; }
+  18% { opacity: 1; }
+  78% { opacity: 1; }
+  100%{ transform: translateY(320%); opacity: 0; }
+}
+
+/* --- coreografia ------------------------------------------------ */
+
+.js.is-ready .hero__mark      { animation: drawLine 1.2s var(--ease) .25s both; }
+.js.is-ready .name__line--first .name__inner{ animation: riseIn 1.6s var(--ease) .90s both; }
+.js.is-ready .name__line--last  .name__inner{ animation: riseIn 1.7s var(--ease) 1.15s both; }
+.js.is-ready .name .ato       { animation: ignite 1.7s var(--ease-soft) 2.15s both; }
+.js.is-ready .hero__photo     { animation: photoIn 3s var(--ease-soft) 1.5s both; }
+.js.is-ready .hero__figure::after{ animation: curtainUp 2.8s var(--ease-soft) 1.45s both; }
+.js.is-ready .hero__glow      { animation: fadeIn 3.4s linear 1.9s both,
+                                           breathe 15s ease-in-out 5.4s infinite alternate; }
+.js.is-ready .name__ghost     { animation: fadeIn 2s var(--ease-soft) 2.7s both; }
+.js.is-ready .tagline         { animation: fadeUp 1.6s var(--ease) 3.05s both; }
+.js.is-ready .cue             { animation: fadeIn 1.6s linear 4.5s both; }
+.js.is-ready .cue i           { animation: cueTravel 3.8s var(--ease-soft) 5s infinite; }
+
+/* =============================================================
+   RESPONSIVO — o mobile é outra composição, não uma redução
+   ============================================================= */
+
+@media (max-width: 1180px){
+  .hero{ --photo-edge: 47%; --name-size: clamp(3rem, 11.6vw, 9.4rem); }
+}
+
+@media (max-width: 900px){
+
+  .hero{
+    --photo-pos: 56% 18%;
+    --name-size: clamp(2.4rem, 17.4vw, 6.6rem);
+    padding-bottom: calc(var(--gutter) + 2.6rem);
+  }
+
+  .hero__grid{ align-content: end; }
+
+  /* fotografia como cartaz: ocupa o alto e dissolve na base */
+  .hero__figure{
+    left: 0;
+    bottom: auto;
+    height: 84%;
+    -webkit-mask-image: linear-gradient(180deg, #000 36%, rgba(0,0,0,.38) 70%, transparent 95%);
+            mask-image: linear-gradient(180deg, #000 36%, rgba(0,0,0,.38) 70%, transparent 95%);
+  }
+
+  .hero__veil{
+    background:
+      linear-gradient(to top, var(--ink) 4%, rgba(11,11,12,0) 62%),
+      linear-gradient(to right, rgba(11,11,12,.45), rgba(11,11,12,0) 72%);
+  }
+
+  .hero__glow{ top: -6%; right: -18%; width: 92vw; height: 92vw; }
+
+  .wave{ top: 55%; height: clamp(64px, 10vh, 110px); }
+
+  .name__line--first{ font-size: clamp(1.15rem, 5.4vw, 1.7rem); letter-spacing: .3em; }
+
+  .name__ghost{ display: none; }
+
+  .tagline{ margin-top: clamp(1.1rem, 2.6vh, 1.8rem); letter-spacing: .26em; }
+
+  .cue{ display: none; }
+}
+
+@media (max-width: 420px){
+  .tagline{ font-size: .6rem; letter-spacing: .22em; }
+}
+
+/* telas baixas (celular deitado, notebooks pequenos) */
+@media (max-height: 620px) and (min-width: 901px){
+  .hero{ --name-size: clamp(2.6rem, 9vw, 8rem); }
+}
+
+/* --- movimento reduzido ------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce){
+  .js .hero__mark{ transform: none; }
+  .js .name__inner,
+  .js .tagline{ opacity: 1; }
+  .js .name .ato{ color: var(--coral); }
+  .js .hero__figure::after{ opacity: 0; }
+  .js .name__ghost{ opacity: 1; }
+  .js .cue{ opacity: 1; }
+  .wave__line, .wave__echo{ stroke-dashoffset: 0 !important; }
+}

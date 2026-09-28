@@ -1,0 +1,264 @@
+/* =============================================================
+   BRUNA PAZINATO
+   base.css — tokens, reset e fundações
+   ============================================================= */
+
+:root{
+
+  /* --- cor ------------------------------------------------- */
+  --ink:        #0B0B0C;   /* preto de fundo */
+  --charcoal:   #141417;   /* carvão */
+  --paper:      #F0EBE4;   /* off-white quente */
+  --paper-70:   rgba(240,235,228,.70);
+  --paper-45:   rgba(240,235,228,.45);
+  --paper-26:   rgba(240,235,228,.26);
+  --paper-12:   rgba(240,235,228,.12);
+  --coral:      #D14B32;   /* vermelho queimado / coral */
+  --coral-45:   rgba(209,75,50,.45);
+  --gold:       #E3B879;   /* luz quente */
+
+  /* --- tipografia ------------------------------------------
+     Duas serifadas, com papéis separados:
+
+     --font-name     Fraunces. EXCLUSIVA da assinatura BRUNA PAZINATO.
+                     É variável e afina as hastes conforme o corpo cresce,
+                     por isso a optical size fica travada em 16.
+     --font-display  Young Serif. Menu e títulos. Haste grossa e reta,
+                     peso único, sem eixo variável — nada a travar.
+     --font-sans     Archivo. Micro-tipografia em caixa alta espaçada.
+     --------------------------------------------------------- */
+  --font-name:    "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --name-axes:    "opsz" 16;
+
+  --font-display: "Young Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --display-axes: normal;
+
+  --font-sans:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* --- métrica --------------------------------------------- */
+  --gutter:    clamp(1.25rem, 4.4vw, 4.75rem);
+  --header-h:  clamp(60px, 9vh, 104px);
+
+  /* --- movimento ------------------------------------------- */
+  --ease:      cubic-bezier(.19, 1, .22, 1);
+  --ease-soft: cubic-bezier(.33, .02, .18, 1);
+}
+
+/* --- reset ------------------------------------------------- */
+
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+
+html{
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body,
+h1, p, ul, ol, li, figure{ margin: 0; padding: 0; }
+
+ul, ol{ list-style: none; }
+
+img, svg{ display: block; max-width: 100%; }
+
+button{
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+body{
+  min-height: 100vh;
+
+  /* Números sempre alinhados. A Young Serif vem com algarismos de
+     texto por padrão: o 9, o 7, o 5 e o 4 descem abaixo da linha e
+     "2019" fica torto ao lado de "2021". Ela tem a variante alinhada
+     (lnum), e a regra aqui vale para qualquer número futuro também.
+     A Archivo já é alinhada; para ela não muda nada. */
+  font-variant-numeric: lining-nums;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection{
+  background: var(--coral);
+  color: var(--ink);
+}
+
+/* --- foco visível (discreto, sem cara de app) --------------- */
+
+:focus-visible{
+  outline: 1px solid var(--coral);
+  outline-offset: .45em;
+}
+
+/* --- utilitários -------------------------------------------- */
+
+.skip-link{
+  position: fixed;
+  top: 0; left: 50%;
+  transform: translate(-50%, -140%);
+  z-index: 999;
+  padding: .9em 1.6em;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  transition: transform .4s var(--ease);
+}
+.skip-link:focus{ transform: translate(-50%, 0); }
+
+/* --- micro-tipografia recorrente ----------------------------- */
+
+.micro{
+  font-family: var(--font-sans);
+  font-size: clamp(.62rem, .72vw, .74rem);
+  font-weight: 400;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+/* --- animação base de entrada -------------------------------- */
+/* Sem JS, nada é escondido: os estados iniciais só existem em .js */
+
+@keyframes riseIn{
+  from{
+    opacity: 0;
+    transform: translate3d(0, .40em, 0);
+    clip-path: inset(0 0 110% 0);
+  }
+  to{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(-35% -14% -35% -14%);
+  }
+}
+
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to  { opacity: 1; }
+}
+
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translate3d(0, .9em, 0); }
+  to  { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes drawLine{
+  from{ transform: scaleX(0); }
+  to  { transform: scaleX(1); }
+}
+
+/* --- registro claro ---------------------------------------------
+   O palco é escuro; o programa da peça é impresso em papel. Não é
+   luz — é outro suporte. Toda a paleta está em token, então basta
+   inverter os valores dentro deste escopo e os componentes
+   acompanham sozinhos.
+
+   O coral escurece: #D14B32 sobre off-white não tem contraste
+   suficiente para tipo pequeno.
+   --------------------------------------------------------------- */
+
+.claro{
+  --ink:        #EDE8E0;
+  --charcoal:   #E1DAD0;
+  --paper:      #14120F;
+  --paper-70:   rgba(20,18,15,.72);
+  --paper-45:   rgba(20,18,15,.56);
+  --paper-26:   rgba(20,18,15,.32);
+  --paper-12:   rgba(20,18,15,.16);
+  --coral:      #A8341F;
+  --gold:       #8A6A34;
+
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* --- a linha ---------------------------------------------------
+   Compartilhada por todas as páginas. Cada seção posiciona a sua
+   e escolhe o perfil pelo data-wave (ver soundwave.js). O atraso
+   da entrada vem de --wave-delay, porque na abertura ela espera
+   a coreografia do nome e nas páginas de ato entra logo.
+   --------------------------------------------------------------- */
+
+.wave{
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.wave__line,
+.wave__echo{
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+
+@keyframes waveDraw{
+  from{ stroke-dashoffset: var(--len, 4000); }
+  to  { stroke-dashoffset: 0; }
+}
+
+@keyframes waveDrift{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-800px); }
+}
+
+.js.is-ready .wave{
+  animation: fadeIn 2.4s linear var(--wave-delay, .5s) both;
+}
+
+.js.is-ready .wave__line{
+  animation: waveDraw 3.2s var(--ease-soft) calc(var(--wave-delay, .5s) + .1s) both,
+             waveDrift 46s linear 3s infinite;
+}
+
+.js.is-ready .wave__echo{
+  animation: waveDraw 3.6s var(--ease-soft) calc(var(--wave-delay, .5s) + .3s) both,
+             waveDrift 67s linear 3s infinite;
+}
+
+/* --- grão de filme ---------------------------------------------- */
+
+.grain{
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  pointer-events: none;
+  opacity: .05;
+  mix-blend-mode: overlay;
+  background-size: 190px 190px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- acessibilidade de movimento ------------------------------ */
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
