@@ -565,12 +565,28 @@ a dissolvência da esquerda passava por cima do resto — "o fade que eu tava
 falando era aqui q corta a Bruna inteira". Eu tinha lido a primeira reclamação
 como escuridão e mexido no brilho, que era a metade errada do problema.
 
-O conserto não é de CSS, é de arquivo: a imagem foi recortada da original
-(`ClaraNunesBP02`, 1365×2048) já deitada, 1600×1172, com ela inteira dentro do
-quadro e folga em cima e embaixo para a banda poder variar de altura sem cortar
-cabeça. Com a pessoa longe da borda, a dissolvência acontece sobre o fundo azul
-e a rampa pôde encurtar para 17%. **Recorte a foto para o formato do quadro em
-vez de deixar o `cover` decidir onde cortar.**
+O conserto foi de arquivo: a imagem foi recortada da original
+(`ClaraNunesBP02`, 1365×2048) já deitada, 1600×1172, com ela inteira no quadro e
+folga em cima e embaixo. **Recorte a foto para o formato do quadro em vez de
+deixar o `cover` decidir onde cortar.**
+
+**Depois disso o quadro chegou a seguir a proporção da imagem** (`aspect-ratio`),
+para não cortar nada. Durou pouco: a largura do quadro passa a sair da altura da
+banda, e uma foto em retrato virava uma tira — o Ato I ficou com 543px de faixa,
+"nada a ver". O pedido que resolveu foi do Gabi: *"não precisa manter a foto
+toda, mas faz tipo um hero"*.
+
+**Hoje as aberturas são o hero em banda**, e o molde é o do `hero.css`: a foto
+ocupa uma faixa à direita a partir de `--foto-borda`, cobre o quadro cortando o
+que precisar, e dissolve na esquerda com `--foto-fade`. A banda é alta de
+propósito — `clamp(520px, 90svh, 1060px)` — porque quanto mais alta, menos o
+`cover` precisa cortar na vertical. Cada ato ajusta `--foto-borda`, `--foto-pos`
+e `--foto-fade`; o Ato I, cuja foto é quadrada e a figura ocupa o quadro todo,
+usa borda 42% e rampa 26%.
+
+**A lição das três voltas:** a moldura não pode ser refém da foto nem a foto
+refém da moldura. Recorte a imagem perto do formato do quadro, e deixe o `cover`
+resolver os últimos por cento.
 
 **A dissolvência estava comendo a pessoa** — "é tanto fade aqui q não dá pra ver
 a mulher". Dois efeitos se somavam justamente em cima do rosto: a máscara só

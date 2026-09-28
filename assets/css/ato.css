@@ -15,7 +15,7 @@
 
   position: relative;
   isolation: isolate;
-  min-height: clamp(460px, 80svh, 940px);
+  min-height: var(--abertura-altura, clamp(520px, 90svh, 1060px));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,21 +108,14 @@
   margin: 0;
   overflow: hidden;
 
-  /* O quadro tem a proporcao da propria fotografia, entao a imagem aparece
-     inteira: nada de cover cortando pessoa, nada de mascara dissolvendo por
-     cima dela. A largura sai da altura da banda, e a altura da banda e
-     generosa de proposito — e a fotografia que faz a abertura, nao a letra. */
-  width: auto;
-  height: auto;
-  aspect-ratio: var(--foto-forma, 1600 / 1172);
-
-  /* A borda esquerda dissolve no preto, senao a foto vira um retangulo
-     colado na pagina. A rampa e curta e cada pagina diz onde ela acaba
-     (--foto-fade), porque o que nao pode acontecer e ela alcancar a
-     pessoa: e dai que vem o "fade que corta a Bruna inteira". A medida
-     e a margem vazia a esquerda da propria fotografia. */
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 var(--foto-fade, 14%));
-          mask-image: linear-gradient(90deg, transparent 0%, #000 var(--foto-fade, 14%));
+  /* Mesmo desenho do hero: a foto ocupa uma faixa alta a direita, cobre o
+     quadro (cortando o que precisar) e dissolve na esquerda. Prender o
+     quadro a proporcao da imagem deixava a faixa estreita demais — o Ato I
+     virou uma tira de 543px. A banda e alta de proposito: quanto mais alta,
+     menos o cover precisa cortar. */
+  left: var(--foto-borda, 44%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) calc(var(--foto-fade, 24%) * .4), #000 var(--foto-fade, 24%));
+          mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) calc(var(--foto-fade, 24%) * .4), #000 var(--foto-fade, 24%));
 }
 
 .abertura__foto{
