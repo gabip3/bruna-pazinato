@@ -25,10 +25,6 @@
   margin-top: clamp(2.2rem, 6vh, 4rem);
 }
 
-.filmes{
-  border-top: 1px solid var(--paper-12);
-}
-
 .filme__link{
   display: grid;
   grid-template-columns: clamp(112px, 15vw, 176px) minmax(0, 1fr) auto;
