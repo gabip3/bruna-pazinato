@@ -202,16 +202,6 @@
   margin-top: clamp(2.2rem, 6vh, 4rem);
 }
 
-.programa__rotulo{
-  margin-bottom: clamp(.8rem, 2vh, 1.4rem);
-  font-family: var(--font-sans);
-  font-size: clamp(.56rem, .66vw, .68rem);
-  font-weight: 400;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--paper-45);
-}
-
 .programa__titulo{
   margin: 0 0 clamp(.9rem, 2.2vh, 1.5rem);
   font-family: var(--font-display);

@@ -742,6 +742,40 @@ paisagem, que é o recorte que cabe sem empurrar os contatos para fora da tela.
 A página não menciona ato nenhum, de propósito: o programa em atos organiza a
 obra, e quem chega aqui quer falar com uma pessoa.
 
+
+## O formulário, o endereço e o registro
+
+A primeira versão da página proibia formulário — estava escrito no pedido. O
+Gabi mudou de ideia depois de ver a página pronta, e tem razão: contratante em
+celular não abre o programa de e-mail, escreve ali e vai embora.
+
+**Formulário sem caixa.** Cada campo é uma linha com um fio de 1px embaixo, que
+vira coral ao ser usado — o mesmo fio do convite e da lista de clipes. Retângulo
+cinza com canto arredondado é a única coisa que faria esta página parecer
+template. Nome e e-mail dividem a linha, a mensagem ocupa a largura inteira, e
+no celular tudo empilha.
+
+**Web3Forms.** O formulário já sai no formato que eles esperam: `POST` para
+`api.web3forms.com/submit`, o `access_key` escondido (hoje com a palavra
+`CHAVE-WEB3FORMS`, a trocar pela chave do painel), um `subject` que chega pronto
+na caixa dela, e o campo `botcheck` — a armadilha de robô, que existe no HTML e
+não na tela. Sem `redirect`, o Web3Forms mostra a página de sucesso dele; se ela
+quiser voltar para o site, é um campo a mais.
+
+**O amarelo do autofill** é desfeito com `box-shadow` interno da cor do fundo:
+sem isso, o navegador pinta o campo preenchido de amarelo no meio da página
+preta.
+
+**O endereço é `contato.brunapazinato@gmail.com`**, escrito no pé da seção para
+quem prefere o próprio programa de e-mail. O convite lá em cima deixou de ser
+`mailto:` e passou a levar ao formulário, para não existirem dois caminhos
+competindo na mesma tela.
+
+**DRT 0037897 SSP · OMB 68682** ficam nesse mesmo pé, em corpo miúdo. Registro
+profissional não é conteúdo de portfólio: quem procura é contratante e imprensa,
+e os dois chegam por esta página. No rodapé global ficaria repetindo em cinco
+páginas que não têm nada a ver com isso.
+
 ## Carimbo de versão nos arquivos
 
 Todo `<link>` de CSS e `<script>` de JS leva `?v=<data e hora>`. O GitHub Pages

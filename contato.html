@@ -21,10 +21,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..600&family=Fraunces:opsz,wght@9..144,300..800&family=Young+Serif&display=swap">
 
-<link rel="stylesheet" href="assets/css/base.css?v=202609282030">
-<link rel="stylesheet" href="assets/css/header.css?v=202609282030">
-<link rel="stylesheet" href="assets/css/rodape.css?v=202609282030">
-<link rel="stylesheet" href="assets/css/contato.css?v=202609282030">
+<link rel="stylesheet" href="assets/css/base.css?v=202609282050">
+<link rel="stylesheet" href="assets/css/header.css?v=202609282050">
+<link rel="stylesheet" href="assets/css/rodape.css?v=202609282050">
+<link rel="stylesheet" href="assets/css/contato.css?v=202609282050">
 
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -101,8 +101,8 @@
        portas para a mesma sala viraram repetição: agora é um texto
        curto que diz o que cabe, e um único convite.
 
-       PLACEHOLDER: troque a palavra ENDERECO no href abaixo pelo
-       e-mail dela. É o único lugar.
+       O convite leva ao formulário logo abaixo; quem prefere o próprio
+       programa de e-mail tem o endereço escrito no pé da página.
        ============================================================ -->
   <section class="contato">
 
@@ -112,7 +112,7 @@
 
       <p class="contato__nota" data-reveal style="--i:2">Contratação, parceria ou pauta: tudo chega no mesmo endereço.</p>
 
-      <a class="contato__acao" href="mailto:ENDERECO" data-reveal style="--i:3">
+      <a class="contato__acao" href="#escrever" data-reveal style="--i:3">
         <span>Escrever</span>
         <span class="contato__seta" aria-hidden="true">&#8594;</span>
       </a>
@@ -121,6 +121,57 @@
     <figure class="contato__retrato" data-reveal style="--i:1">
       <img src="assets/img/contato-retrato.jpg" alt="Bruna Pazinato estendendo o microfone" width="1200" height="1500" decoding="async">
     </figure>
+
+  </section>
+
+  <!-- ============================================================
+       O RECADO
+
+       Formulário sem caixa: cada campo é uma linha com um fio
+       embaixo, que vira coral quando está em uso. Nada de moldura
+       cinza com canto arredondado.
+
+       PLACEHOLDER WEB3FORMS: troque CHAVE-WEB3FORMS pela access key
+       do painel (web3forms.com). O resto já está no formato que eles
+       esperam: o campo escondido "botcheck" é a armadilha de robô, e
+       o "subject" é o assunto que chega na caixa dela.
+       ============================================================ -->
+  <section class="recado" id="escrever" aria-labelledby="recado-titulo">
+
+    <h2 class="recado__titulo" id="recado-titulo" data-reveal>Escreva.</h2>
+
+    <form class="recado__form" action="https://api.web3forms.com/submit" method="POST" data-reveal style="--i:1">
+
+      <input type="hidden" name="access_key" value="CHAVE-WEB3FORMS">
+      <input type="hidden" name="subject" value="Contato pelo site">
+      <input type="checkbox" name="botcheck" class="recado__isca" tabindex="-1" autocomplete="off">
+
+      <p class="campo">
+        <label class="campo__rotulo" for="campo-nome">Nome</label>
+        <input class="campo__valor" id="campo-nome" type="text" name="name" autocomplete="name" required>
+      </p>
+
+      <p class="campo">
+        <label class="campo__rotulo" for="campo-email">E-mail</label>
+        <input class="campo__valor" id="campo-email" type="email" name="email" autocomplete="email" required>
+      </p>
+
+      <p class="campo campo--largo">
+        <label class="campo__rotulo" for="campo-recado">Mensagem</label>
+        <textarea class="campo__valor campo__valor--area" id="campo-recado" name="message" rows="4" required></textarea>
+      </p>
+
+      <button class="recado__enviar" type="submit">
+        <span>Enviar</span>
+        <span class="recado__seta" aria-hidden="true">&#8594;</span>
+      </button>
+
+    </form>
+
+    <p class="recado__pe" data-reveal style="--i:2">
+      <a href="mailto:contato.brunapazinato@gmail.com">contato.brunapazinato@gmail.com</a>
+      <span class="recado__registro">DRT 0037897 SSP · OMB 68682</span>
+    </p>
 
   </section>
 </main>
@@ -156,9 +207,9 @@
 
 </footer>
 
-<script src="assets/js/pronto.js?v=202609282030" defer></script>
-<script src="assets/js/nav.js?v=202609282030" defer></script>
-<script src="assets/js/reveal.js?v=202609282030" defer></script>
+<script src="assets/js/pronto.js?v=202609282050" defer></script>
+<script src="assets/js/nav.js?v=202609282050" defer></script>
+<script src="assets/js/reveal.js?v=202609282050" defer></script>
 
 </body>
 </html>

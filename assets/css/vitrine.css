@@ -20,12 +20,12 @@
 .vitrine__topo{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* o rotulo saiu e sobraram so as setas: ficam na direita, onde sempre
+     estiveram, em vez de escorregar para a esquerda com o space-between */
+  justify-content: flex-end;
   gap: 1.5rem;
   margin-bottom: clamp(.8rem, 2vh, 1.4rem);
 }
-
-.vitrine__topo .programa__rotulo{ margin-bottom: 0; }
 
 .vitrine__setas{
   display: flex;
