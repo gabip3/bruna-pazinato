@@ -107,16 +107,22 @@
    com ar em volta, sem fio nem caixa. */
 .critica{
   margin: clamp(4rem, 13vh, 9rem) auto 0;
-  max-width: 19ch;
   text-align: center;
 }
 
+/* A medida fica no <p>, não no <blockquote>: ch se mede na fonte do próprio
+   elemento, e o blockquote herda a Archivo de 16px. Lá em cima, 19ch davam
+   uma coluna de 150px para um texto de 67px — uma palavra por linha. Aqui
+   os 22ch são 22 caracteres da Young Serif grande, que é o que se queria
+   dizer: cinco linhas de citação. */
 .critica p{
+  max-width: 22ch;
+  margin-inline: auto;
   font-family: var(--font-display);
   font-optical-sizing: none;
   font-variation-settings: var(--display-axes);
-  font-size: clamp(1.7rem, 4.4vw, 4.2rem);
-  line-height: 1.1;
+  font-size: clamp(1.5rem, 3.2vw, 3rem);
+  line-height: 1.12;
   letter-spacing: -.015em;
   color: var(--paper);
   text-wrap: balance;

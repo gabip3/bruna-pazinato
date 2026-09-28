@@ -436,11 +436,14 @@ Os filmes não têm todos o mesmo formato — um é 2,16:1, outro 1,62:1, o do
 YouTube é 16:9. Em vez de uma classe por formato, o vídeo se encaixa no quadro
 com `object-fit: contain` e o que sobra fica preto, como no cinema.
 
-**Duas ressalvas de material, escritas na página.** O Spaten está no pé da cena
-como "aguardando o filme completo", porque o arquivo da Wix tem três segundos.
-E o arquivo do Globo Receitas veio com o **botão de mudo do player gravado na
-imagem** — é captura de tela, não master; cortei a faixa da direita para tirá-lo,
-o que levou o filme de 828 para 740 de largura.
+**Duas ressalvas de material, escritas na página.** O Spaten entrou com o que
+existe: o arquivo da Wix tem quatro segundos, e a linha diz **"2022 · trecho"**
+em vez de deixar o visitante achar que o filme acabou no meio. Ele veio de um
+embed do YouTube e trazia o **botão do player queimado na tarja preta de
+baixo** — o recorte para os 1472×560 de imagem real tira a tarja e o botão
+junto. E o arquivo do Globo Receitas veio com o **botão de mudo do player
+gravado na imagem** — é captura de tela, não master; cortei a faixa da direita
+para tirá-lo, o que levou o filme de 828 para 740 de largura.
 
 ### Galeria (piloto: Clara Nunes)
 
@@ -506,19 +509,23 @@ retângulo em volta.
 1. **O arco.** "Aos doze anos, no interior gaúcho, já cantava música
    regionalista e sertanejo. Em 2026, cantou para um milhão e meio de pessoas
    na Rua da Consolação." Dois parágrafos curtos embaixo, e só
-2. **A crítica** da Tania Brandão, a primeira frase. A segunda está na Clara
-   Nunes do Ato II, para não repetir
-3. **A linha do tempo.** O fio de 1px da casa com um ponto por obra, o título
-   inclinado por cima e o ano embaixo, só na primeira obra de cada ano. Ponto
-   cheio é teatro, vazado é o resto; o Piaf, em cartaz, é coral com halo.
-   Arrasta para o lado como a vitrine, abre no presente, e o fio se desfaz
-   depois de 2026. Veio de uma referência em React, Tailwind e shadcn: ficou a
-   ideia, refeita em CSS, e o `vitrine.js` ganhou pista sem laço
-   (`data-laco="nao"`) e que abre no fim (`data-comeca="fim"`)
+2. **A crítica** da Tania Brandão, a primeira frase, centrada e sozinha no meio
+   da folha. A segunda está na Clara Nunes do Ato II, para não repetir
+3. **A foto do fim.** Ela no palco com o próprio nome no telão, em parallax.
+   A folha clara corta direto na fotografia, sem transição: é o papel acabando
+   e a luz voltando
 
-Houve tambem uma parede de nomes dos diretores, o `Dirigida por`, entre a
-critica e a linha do tempo. Saiu a pedido do Gabi; os nomes seguem no
-`conteudo/bio-release-2023.md` e no acervo.
+**A medida da citação fica no `<p>`, não no `<blockquote>`.** `ch` se mede na
+fonte do próprio elemento: no blockquote, que herda a Archivo de 16px, os 19ch
+viravam uma coluna de 150px para um texto de 48px — uma palavra por linha. No
+parágrafo, 22ch são 22 caracteres da Young Serif grande, que é o que se queria
+dizer. Vale para qualquer medida em `ch` ou `em` posta num pai: ela se resolve
+lá, não no filho.
+
+Saíram duas coisas a pedido do Gabi: a **linha do tempo** (um fio de 1px com um
+ponto por obra, arrastável como a vitrine) e a parede de nomes dos diretores, o
+`Dirigida por`. As duas ficaram engessadas na página. Os dados seguem no
+`conteudo/bio-release-2023.md` e no acervo, se um dia voltarem.
 
 Todo fato ali tem fonte: o release de 2023 (`conteudo/bio-release-2023.md`),
 o site antigo, e o que foi conferido no Instagram e na imprensa. O que não

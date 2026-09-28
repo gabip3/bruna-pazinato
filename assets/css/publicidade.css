@@ -113,18 +113,6 @@
   transform: translateX(3px);
 }
 
-/* --- nota do pé ---------------------------------------------------- */
-
-.filmes__nota{
-  margin-top: clamp(1.3rem, 3vh, 2rem);
-  font-family: var(--font-sans);
-  font-size: clamp(.54rem, .64vw, .66rem);
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  line-height: 2;
-  color: var(--paper-45);
-}
-
 /* -------------------------------------------------------------
    DUAS COLUNAS
    ------------------------------------------------------------- */
