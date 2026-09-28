@@ -192,7 +192,7 @@
   position: relative;
   z-index: 6;
   margin-top: clamp(1.5rem, 3.4vh, 2.9rem);
-  font-size: clamp(.63rem, .82vw, .8rem);
+  font-size: clamp(.78rem, 1.12vw, 1.15rem);
   font-weight: 400;
   letter-spacing: .34em;
   text-transform: uppercase;
@@ -323,7 +323,7 @@
 }
 
 @media (max-width: 420px){
-  .tagline{ font-size: .6rem; letter-spacing: .22em; }
+  .tagline{ font-size: .72rem; letter-spacing: .2em; }
 }
 
 /* telas baixas (celular deitado, notebooks pequenos) */
