@@ -652,6 +652,44 @@ galeria por acidente.
 problema está no caminho do evento, não no que o clique faz. E `setPointerCapture`
 muda esse caminho.
 
+
+## O showreel do Ato III
+
+Um título e um vídeo, sem cartão, sem moldura e sem legenda ao lado. O material
+é um minuto e meio de cortes de show, e ele se explica sozinho — qualquer texto
+ao lado só competiria com a imagem.
+
+**O vídeo entra mudo e sai do silêncio quando alguém pede.** Ao chegar à tela
+ele toca em laço, sem som, como uma fotografia que se mexe; ao clique, recomeça
+do zero com áudio, sem laço e com os controles nativos do navegador. Mudo na
+prévia não é escolha estética: navegador nenhum deixa tocar com som sem gesto do
+usuário, e mesmo que deixasse, som que começa sozinho é falta de educação. Fora
+da tela o vídeo pausa, inclusive depois de ligado o som — áudio tocando numa
+seção que ninguém está vendo é pior do que silêncio.
+
+Nada de player escrito à mão: `controls` nativo já traz teclado, tela cheia e
+acessibilidade, e funciona melhor do que qualquer coisa que eu fizesse. O convite
+ao som é tipografia, não botão — o mesmo corpo das notas do site com o triângulo
+que já abre clipes e filmes — e some ao ser usado.
+
+A prévia está um passo mais escura (`brightness(.86)`), no mesmo tratamento das
+fotografias do site; ao ligar o som volta ao brilho cheio. É a diferença entre
+olhar e assistir, dita sem palavra nenhuma.
+
+**O arquivo.** O original tem 180 MB a 15,6 Mbps, o que não se serve numa página.
+Reencodado em 1920×1080 a 2 Mbps dá **23 MB**, com `faststart` para começar antes
+de baixar tudo e `preload="metadata"` para não gastar banda de quem não desceu
+até aqui. Uma primeira tentativa a 4 Mbps deu 46 MB — bonito e impraticável.
+
+**A entrada por rolagem está escrita aqui dentro.** A regra geral de
+`[data-reveal]` mora no `atos.css`, e só a home carrega aquele arquivo: em
+`musica.html` e `em-cena.html` o atributo está no HTML, o `reveal.js` roda, e
+nada acontece, porque não existe o `opacity: 0` de onde animar. Como o pedido
+era fazer só esta seção, copiei a regra escopada em `.showreel`. **Fica anotado
+que a animação de entrada daquelas duas páginas nunca funcionou** — mover o
+bloco genérico para o `base.css` conserta as três de uma vez, e é conversa para
+depois da aprovação desta seção.
+
 ## Carimbo de versão nos arquivos
 
 Todo `<link>` de CSS e `<script>` de JS leva `?v=<data e hora>`. O GitHub Pages

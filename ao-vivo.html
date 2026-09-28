@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="assets/css/header.css?v=202609281852">
 <link rel="stylesheet" href="assets/css/rodape.css?v=202609281852">
 <link rel="stylesheet" href="assets/css/ato.css?v=202609281852">
+<link rel="stylesheet" href="assets/css/showreel.css?v=202609281852">
 
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -116,6 +117,33 @@
     <span class="grain" aria-hidden="true"></span>
   </section>
 
+
+  <!-- ============================================================
+       O SHOWREEL
+       Um minuto e meio de palco. Entra mudo, como fotografia que se
+       mexe; ganha som e controles nativos quando alguem clica.
+       ============================================================ -->
+  <section class="showreel" aria-labelledby="showreel-titulo">
+
+    <h2 class="showreel__titulo" id="showreel-titulo" data-reveal>Bruna no palco.</h2>
+
+    <figure class="showreel__quadro" data-showreel data-reveal style="--i:1">
+      <video class="showreel__video"
+             poster="assets/img/showreel-poster.jpg"
+             preload="metadata"
+             muted loop playsinline
+             width="1920" height="1080"
+             aria-label="Bruna Pazinato ao vivo: cortes de shows e apresentações">
+        <source src="assets/video/showreel.mp4" type="video/mp4">
+      </video>
+
+      <button class="showreel__som" type="button">
+        <span class="showreel__triangulo" aria-hidden="true"></span>
+        <span>Com som</span>
+      </button>
+    </figure>
+
+  </section>
 </main>
 
 <!-- ============================================================
@@ -151,6 +179,8 @@
 
 <script src="assets/js/pronto.js?v=202609281852" defer></script>
 <script src="assets/js/nav.js?v=202609281852" defer></script>
+<script src="assets/js/reveal.js?v=202609281852" defer></script>
+<script src="assets/js/showreel.js?v=202609281852" defer></script>
 
 </body>
 </html>

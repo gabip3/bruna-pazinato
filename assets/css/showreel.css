@@ -1,0 +1,142 @@
+/* =============================================================
+   BRUNA PAZINATO
+   showreel.css — Ato III, primeira cena
+
+   Um vídeo e um título. Sem cartão, sem moldura, sem legenda:
+   noventa segundos de palco dizem mais do que qualquer texto que
+   eu pudesse escrever ao lado.
+
+   O vídeo entra em silêncio, como uma fotografia que se mexe, e
+   só ganha som quando alguém pede. Antes disso ele está um passo
+   mais escuro, no mesmo tratamento das outras imagens do site;
+   ao ligar o som, volta ao brilho cheio. É a diferença entre
+   olhar e assistir.
+   ============================================================= */
+
+.showreel{
+  padding: clamp(4rem, 13vh, 9rem) var(--gutter) clamp(3rem, 10vh, 7rem);
+  background: var(--ink);
+}
+
+.showreel__titulo{
+  margin: 0 0 clamp(1.8rem, 5.5vh, 3.6rem);
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.9rem, 5.2vw, 4.6rem);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.018em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+/* --- o vídeo ------------------------------------------------------ */
+
+.showreel__quadro{
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  cursor: pointer;
+}
+
+/* com som, quem manda são os controles nativos */
+.showreel__quadro.is-com-som{ cursor: default; }
+
+.showreel__video{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.86) saturate(.96);
+  transition: filter 1.1s var(--ease-soft);
+}
+
+.showreel__quadro.is-com-som .showreel__video{ filter: none; }
+
+/* --- o convite ao som ---------------------------------------------
+   Tipografia, não botão: o mesmo corpo das notas do site, com o
+   triângulo que já abre os clipes e os filmes. Some ao ser usado.
+   ------------------------------------------------------------- */
+
+.showreel__som{
+  position: absolute;
+  left: clamp(.9rem, 2.2vw, 2.2rem);
+  bottom: clamp(.8rem, 2vw, 1.9rem);
+  display: inline-flex;
+  align-items: center;
+  gap: .9em;
+  padding: .7em .3em;
+  border: 0;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .64vw, .68rem);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-shadow: 0 1px 16px rgba(0, 0, 0, .7);
+  cursor: pointer;
+  transition: transform .5s var(--ease), opacity .5s var(--ease-soft);
+}
+
+.showreel__som[hidden]{ display: none; }
+
+.showreel__triangulo{
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent currentColor;
+  filter: drop-shadow(0 1px 10px rgba(0, 0, 0, .7));
+}
+
+.showreel__quadro:hover .showreel__som,
+.showreel__som:focus-visible{ transform: translateX(3px); }
+
+.showreel__som:focus-visible{ outline: 1px solid var(--paper-45); outline-offset: 6px; }
+
+/* -------------------------------------------------------------
+   ENTRADA
+   A mesma gramática da home — opacidade, 2rem de subida e um
+   corte que abre — mas escrita aqui dentro, porque a regra geral
+   vive no atos.css e só a home carrega aquele arquivo.
+   ------------------------------------------------------------- */
+
+.js .showreel [data-reveal]{
+  opacity: 0;
+  transform: translate3d(0, 2rem, 0);
+  clip-path: inset(0 0 8% 0);
+}
+
+.js .showreel [data-reveal].is-in{
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+  transition:
+    opacity   1.3s var(--ease-soft) calc(var(--i, 0) * .16s),
+    transform 1.3s var(--ease)      calc(var(--i, 0) * .16s),
+    clip-path 1.4s var(--ease)      calc(var(--i, 0) * .16s);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .js .showreel [data-reveal]{ opacity: 1; transform: none; clip-path: none; }
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVO
+   ------------------------------------------------------------- */
+
+@media (max-width: 760px){
+
+  .showreel{
+    padding-top: clamp(3rem, 9vh, 5rem);
+  }
+
+  .showreel__som{
+    letter-spacing: .2em;
+    padding: .9em .4em;   /* alvo de toque */
+  }
+}
