@@ -85,7 +85,9 @@
     window.clearTimeout(relogio);
 
     obra.innerHTML = d.titulo + (d.sub ? '<i>' + d.sub + (d.ano ? ' · ' + d.ano : '') + '</i>' : '');
-    credito.textContent = d.credito ? '© ' + d.credito : 'Crédito de fotografia a confirmar';
+    /* sem credito, nada escrito: a frase de espera aparecia em quase
+       toda galeria e virava ruido. O credito de verdade continua. */
+    credito.textContent = d.credito ? '© ' + d.credito : '';
 
     /* frames de TV são pequenos: o visor não amplia além do original,
        senão a foto chega esticada na tela grande */
