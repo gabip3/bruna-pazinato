@@ -48,12 +48,6 @@
   transition: transform .55s var(--ease);
 }
 
-.btn__contagem{
-  color: var(--coral);
-  letter-spacing: .1em;
-  transition: color .45s var(--ease);
-}
-
 .btn:hover,
 .btn:focus-visible{
   color: var(--ink);
@@ -63,10 +57,7 @@
 .btn:hover::before,
 .btn:focus-visible::before{ transform: scaleY(1); }
 
-.btn:hover .btn__contagem,
-.btn:focus-visible .btn__contagem{ color: var(--ink); }
-
-/* no destaque, o botão respira depois da ficha técnica */
+/* no destaque, o botao respira depois da critica */
 .destaque .btn{ margin-top: clamp(1.2rem, 3vh, 2rem); }
 
 /* a fotografia segue clicável, sem rótulo por cima */

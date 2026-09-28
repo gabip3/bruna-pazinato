@@ -151,7 +151,7 @@
 .fim{
   position: relative;
   margin: 0;
-  height: clamp(300px, 58svh, 640px);
+  height: clamp(460px, 88svh, 1040px);
   overflow: hidden;
   background: var(--ink);
 }
@@ -164,7 +164,7 @@
   object-fit: cover;
   object-position: 50% 40%;
   /* a sobra de escala é o que o parallax consome ao deslocar */
-  transform: scale(1.14);
+  transform: scale(1.12);
   filter: contrast(1.04) saturate(.86) brightness(.84);
   will-change: transform;
 }

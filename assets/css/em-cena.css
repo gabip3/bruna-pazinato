@@ -53,7 +53,6 @@
 /* alterna o lado da fotografia */
 .destaque:nth-child(even) .destaque__figura{ order: 2; }
 .destaque:nth-child(even) .destaque__texto { order: 1; text-align: right; }
-.destaque:nth-child(even) .ficha           { justify-items: end; }
 
 .destaque__figura{
   position: relative;
@@ -166,36 +165,6 @@
   border-right: 1px solid var(--coral);
 }
 
-/* ficha técnica */
-.ficha{
-  display: grid;
-  gap: .55rem;
-  margin-top: clamp(1.2rem, 3vh, 2rem);
-  padding-top: clamp(1.1rem, 2.6vh, 1.6rem);
-  border-top: 1px solid var(--paper-12);
-}
-
-.ficha div{
-  display: flex;
-  gap: .9em;
-  align-items: baseline;
-  font-family: var(--font-sans);
-  font-size: clamp(.58rem, .7vw, .72rem);
-}
-
-.destaque:nth-child(even) .ficha div{ flex-direction: row-reverse; }
-
-.ficha dt{
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: var(--paper-45);
-}
-
-.ficha dd{
-  letter-spacing: .1em;
-  color: var(--paper);
-}
-
 /* -------------------------------------------------------------
    ÍNDICE DAS OUTRAS MONTAGENS
    ------------------------------------------------------------- */
@@ -272,8 +241,6 @@
   /* no empilhamento a alternância de lado não faz sentido */
   .destaque:nth-child(even) .destaque__figura{ order: 0; }
   .destaque:nth-child(even) .destaque__texto { order: 0; text-align: left; }
-  .destaque:nth-child(even) .ficha           { justify-items: start; }
-  .destaque:nth-child(even) .ficha div       { flex-direction: row; }
 
   .destaque__figura{ aspect-ratio: 3 / 2; max-height: 44svh; }
   .destaque__figura img{ object-position: 50% 20%; }

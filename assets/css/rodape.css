@@ -1,0 +1,96 @@
+/* =============================================================
+   BRUNA PAZINATO
+   rodape.css — o fim de toda página
+
+   O menu já tem as redes, em ícone. Aqui elas voltam por extenso,
+   para quem chega ao fim da página e não pensou em abrir o menu.
+   Não é seção: é assinatura. Uma linha de 1px, muito ar, e nada
+   que peça alguma coisa de quem está lendo.
+
+   A contratação não mora aqui. O Ato III vai ter a própria área
+   de contato antes deste rodapé.
+   ============================================================= */
+
+.rodape{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(1.4rem, 4vw, 3.6rem);
+  padding: clamp(3.2rem, 10vh, 6.5rem) var(--gutter) clamp(2.6rem, 7vh, 4.4rem);
+  border-top: 1px solid var(--paper-12);
+  background: var(--ink);
+}
+
+/* a mesma marca do cabeçalho, com o ato em coral */
+.rodape__marca{
+  display: inline-flex;
+  align-items: baseline;
+  gap: .62em;
+  font-family: var(--font-sans);
+  font-size: clamp(.6rem, .72vw, .74rem);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--paper-70);
+}
+
+.rodape__marca .ato{ color: var(--coral); }
+
+.rodape__redes{
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.2rem, 3.4vw, 3rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rodape__redes a{
+  display: block;
+  padding: .6em 0;
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .64vw, .68rem);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+  transition: color .45s var(--ease);
+}
+
+.rodape__redes a:hover,
+.rodape__redes a:focus-visible{ color: var(--paper); }
+
+.rodape__direitos{
+  justify-self: end;
+  font-family: var(--font-sans);
+  font-size: clamp(.52rem, .62vw, .64rem);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--paper-26);
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVO
+   Empilha centrado, e os links ganham altura de toque.
+   ------------------------------------------------------------- */
+
+@media (max-width: 760px){
+
+  .rodape{
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: clamp(1.2rem, 3.4vh, 2rem);
+    padding-top: clamp(2.8rem, 8vh, 4rem);
+  }
+
+  .rodape__redes{
+    gap: clamp(1rem, 6vw, 2rem);
+  }
+
+  .rodape__redes a{
+    padding: .9em .35em;
+    letter-spacing: .2em;
+  }
+
+  .rodape__direitos{ justify-self: center; }
+}

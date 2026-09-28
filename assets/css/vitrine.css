@@ -255,26 +255,6 @@
   color: rgba(239,234,227,.6);
 }
 
-/* a contagem só aparece quando o painel abre */
-.palco__conta{
-  display: block;
-  margin-top: 1em;
-  font-family: var(--font-sans);
-  font-size: clamp(.5rem, .6vw, .62rem);
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: #EFEAE3;
-  opacity: 0;
-  transform: translateY(.5em);
-  transition: opacity .5s var(--ease-soft), transform .6s var(--ease);
-}
-
-.palco__link:hover .palco__conta,
-.palco__link:focus-visible .palco__conta{
-  opacity: 1;
-  transform: none;
-}
-
 /* --- rodapé da vitrine -------------------------------------------- */
 
 .vitrine__nota{
@@ -297,11 +277,9 @@
 
 @media (hover: none){
   .vitrine{ --palco-largura: clamp(200px, 62vw, 300px); --palco-aberto: clamp(200px, 62vw, 300px); }
-  .palco__conta{ opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce){
   .palco,
   .palco__foto img,
-  .palco__conta{ transition: none; }
 }

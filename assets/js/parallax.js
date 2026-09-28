@@ -19,7 +19,7 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
 
   /* o quanto a foto anda, no total, de uma ponta à outra da tela */
-  var CURSO = 70;
+  var CURSO = 44;
 
   function mover() {
     for (var i = 0; i < alvos.length; i++) {
