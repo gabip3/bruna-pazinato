@@ -2,139 +2,144 @@
    BRUNA PAZINATO
    musica.css — Ato I
 
-   Mosaico de cartões 16:9, um por clipe, com o título por cima da
-   imagem. É a linguagem dos painéis das montagens do Ato II: a
-   fotografia é o conteúdo, não um enfeite ao lado do texto.
+   Cada clipe é uma linha com o seu quadro, a mesma gramática dos
+   filmes na Cena 3 do Ato II: clipe e comercial são irmãos.
 
-   Duas tentativas anteriores, e por que saíram:
-
-   1. Lista só de tipografia, com a miniatura seguindo o cursor.
-      A página ficava preta e vazia, e no celular não tinha imagem
-      nenhuma, porque não há cursor para seguir.
-
-   2. Lista com a miniatura fixa ao lado do título. Em tela larga
-      o título ocupava um terço da linha e sobrava um vão preto
-      enorme até o triângulo, na ponta direita. A linha parecia
-      quebrada, e a miniatura, pequena e escurecida, virava mancha.
+   Antes a lista era só tipografia, e a miniatura só aparecia
+   seguindo o cursor. A página ficava preta e vazia, e no celular
+   não tinha imagem nenhuma.
    ============================================================= */
 
-.clipes{
+.faixas{
+  position: relative;
   padding: clamp(1rem, 3vh, 3rem) var(--gutter) clamp(2rem, 6vh, 5rem);
   background: var(--ink);
 }
 
-/* Os cartões se acomodam sozinhos: quatro colunas em tela larga,
-   duas no meio do caminho, uma no celular. O vão de 2px deixa o
-   conjunto com cara de folha de contato, como a vitrine. */
-.clipes__grade{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: 2px;
+.faixas__lista{
+  border-top: 1px solid var(--paper-12);
 }
 
-.clipe__link{
+.faixa{
+  border-bottom: 1px solid var(--paper-12);
+}
+
+.faixa__link{
   position: relative;
+  display: grid;
+  grid-template-columns: clamp(112px, 15vw, 190px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.2rem, 2.8vw, 2.4rem);
+  padding: clamp(1.1rem, 2.6vh, 1.7rem) 0;
+}
+
+/* o quadro do clipe */
+.faixa__still{
   display: block;
-  aspect-ratio: 16 / 9;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
   background: var(--charcoal);
 }
 
-.clipe__foto{
-  position: absolute;
-  inset: 0;
-  display: block;
-}
-
-.clipe__foto img{
+.faixa__still img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.04) saturate(.85) brightness(.74);
+  filter: contrast(1.04) saturate(.8) brightness(.78);
   transform: scale(1.04);
-  transition: filter .7s var(--ease-soft), transform 1.2s var(--ease);
+  transition: filter .6s var(--ease-soft), transform 1s var(--ease);
 }
 
-/* véu para o título continuar legível sobre qualquer quadro */
-.clipe__foto::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top,
-    rgba(9, 9, 10, .92) 4%,
-    rgba(9, 9, 10, .18) 56%,
-    rgba(9, 9, 10, .38) 100%);
-}
-
-.clipe__link:hover .clipe__foto img,
-.clipe__link:focus-visible .clipe__foto img{
-  filter: contrast(1.03) saturate(.98) brightness(.96);
+.faixa__link:hover .faixa__still img,
+.faixa__link:focus-visible .faixa__still img{
+  filter: none;
   transform: scale(1);
 }
 
-/* --- o texto, deitado no pé do cartão ------------------------------ */
+.faixa__texto{ display: block; }
 
-.clipe__texto{
-  position: absolute;
-  left: clamp(.9rem, 1.4vw, 1.5rem);
-  right: clamp(.9rem, 1.4vw, 1.5rem);
-  bottom: clamp(.9rem, 2vh, 1.5rem);
+/* o triângulo, o mesmo dos filmes */
+.faixa__play{
+  justify-self: end;
   display: block;
-  color: #EFEAE3;
-}
-
-.clipe__titulo{
-  display: block;
-  font-family: var(--font-display);
-  font-optical-sizing: none;
-  font-variation-settings: var(--display-axes);
-  font-size: clamp(1.02rem, 1.5vw, 1.5rem);
-  line-height: 1.06;
-  letter-spacing: -.006em;
-  text-transform: uppercase;
-}
-
-.clipe__nota{
-  display: block;
-  margin-top: .7em;
-  font-family: var(--font-sans);
-  font-size: clamp(.5rem, .6vw, .62rem);
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(239, 234, 227, .6);
-  transition: color .5s var(--ease);
-}
-
-.clipe__link:hover .clipe__nota,
-.clipe__link:focus-visible .clipe__nota{ color: rgba(239, 234, 227, .85); }
-
-/* --- o triângulo, para o cartão se anunciar como vídeo -------------- */
-
-.clipe__link::after{
-  content: "";
-  position: absolute;
-  top: clamp(.9rem, 1.6vh, 1.3rem);
-  right: clamp(.9rem, 1.4vw, 1.4rem);
   width: 0;
   height: 0;
+  margin-right: .35rem;
   border-style: solid;
-  border-width: 6px 0 6px 11px;
-  border-color: transparent transparent transparent rgba(239, 234, 227, .55);
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent var(--paper-26);
   transition: border-left-color .4s linear, transform .5s var(--ease);
 }
 
-.clipe__link:hover::after,
-.clipe__link:focus-visible::after{
+.faixa__link:hover .faixa__play,
+.faixa__link:focus-visible .faixa__play{
   border-left-color: var(--coral);
   transform: translateX(3px);
 }
 
+/* varredura coral que atravessa a linha no hover */
+.faixa__link::before{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: var(--coral);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .8s var(--ease);
+}
+
+.faixa__titulo{
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.3rem, 3.1vw, 2.9rem);
+  line-height: 1.04;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transition: transform .7s var(--ease);
+}
+
+.faixa__nota{
+  display: block;
+  margin-top: .6em;
+  font-family: var(--font-sans);
+  font-size: clamp(.55rem, .68vw, .7rem);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+  transition: color .5s var(--ease);
+}
+
+.faixa__link:hover::before,
+.faixa__link:focus-visible::before{ transform: scaleX(1); }
+
+.faixa__link:hover .faixa__titulo,
+.faixa__link:focus-visible .faixa__titulo{ transform: translateX(.16em); }
+
+.faixa__link:hover .faixa__nota,
+.faixa__link:focus-visible .faixa__nota{ color: var(--paper-70); }
+
 /* -------------------------------------------------------------
-   MOVIMENTO REDUZIDO
+   RESPONSIVO
    ------------------------------------------------------------- */
 
-@media (prefers-reduced-motion: reduce){
-  .clipe__foto img,
-  .clipe__nota,
-  .clipe__link::after{ transition: none; }
+@media (max-width: 760px){
+
+  .faixa__link{
+    grid-template-columns: clamp(96px, 28vw, 150px) minmax(0, 1fr) auto;
+    gap: 1.1rem;
+    padding: 1.05rem 0;
+  }
+
+  .faixa__titulo{
+    font-size: clamp(1.25rem, 6.4vw, 2rem);
+  }
+
+  /* a nota desce para debaixo do título, alinhada com ele */
+  .faixa__nota{
+    text-align: left;
+    letter-spacing: .2em;
+  }
 }

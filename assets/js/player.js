@@ -21,7 +21,7 @@
   }
 
   /* faixas são os clipes do Ato I; filmes são a Cena 3 do Ato II */
-  var faixas = todos('.clipe__link[data-video]');
+  var faixas = todos('.faixa__link[data-video]');
   var filmes = todos('.filme__link[data-video], .filme__link[data-filme]');
   var links  = faixas.concat(filmes);
   if (!links.length) { return; }
@@ -101,7 +101,7 @@
       /* deixa passar cliques de "abrir em nova aba" */
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) { return; }
       e.preventDefault();
-      var rotulo = link.querySelector('.clipe__titulo') || link.querySelector('.filme__marca');
+      var rotulo = link.querySelector('.faixa__titulo') || link.querySelector('.filme__marca');
       abrir({ id: link.getAttribute('data-video'), arquivo: link.getAttribute('data-filme') },
             rotulo ? rotulo.textContent.trim() : '',
             link.getAttribute('data-formato') === 'vertical');
