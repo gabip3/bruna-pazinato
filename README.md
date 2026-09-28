@@ -559,14 +559,24 @@ vem logo abaixo, na folha clara.
 brega, e não informava nada: a ordem já é visível. Saiu a coluna inteira da
 grade, não só o texto, para o título não ficar com um buraco à esquerda.
 
-**Os clipes ganharam quadro.** O Ato I era uma lista de oito linhas de texto no
-preto, e a miniatura só aparecia seguindo o cursor: no celular não aparecia
-nunca. A página parecia vazia e escura, e a queixa foi exatamente essa. Agora
-cada clipe tem o seu quadro, na mesma gramática dos filmes da Cena 3, então
-clipe e comercial são irmãos no site. As miniaturas vêm do YouTube, mas ficam
-hospedadas aqui (`assets/img/clipes/`, 268 KB no total), para não depender de
-terceiro nem entregar o visitante ao rastreio do YouTube antes do clique.
+**O Ato I virou mosaico**, e levou duas tentativas erradas antes.
 
-A miniatura que seguia o cursor saiu do CSS e do `player.js` junto: truque
-bonito, mas redundante quando a imagem já está na tela. A página passou de
-1,72 para 2,41 telas, e valeu: ela estava vazia demais.
+A primeira versão era só tipografia, com a miniatura aparecendo apenas ao
+seguir o cursor: a página ficava preta e vazia, e no celular não havia imagem
+nenhuma, porque não há cursor para seguir.
+
+A segunda pôs a miniatura fixa ao lado do título, na gramática dos filmes da
+Cena 3. Funcionava a 1280px, onde eu testei, e quebrava mais largo: o título
+ocupava um terço da linha e sobrava um vão preto até o triângulo na ponta
+direita. A miniatura, pequena e escurecida, virava mancha cinza.
+
+A terceira é a que ficou: cartões 16:9 num mosaico de vão de 2px, com o título
+por cima da imagem. É a linguagem dos painéis das montagens do Ato II, e aqui a
+fotografia é o conteúdo, não um enfeite ao lado do texto. As colunas se
+acomodam sozinhas com `auto-fit`, de quatro a uma. A página encolheu de 1,72
+para 1,42 tela.
+
+As miniaturas vêm do YouTube mas ficam hospedadas aqui (`assets/img/clipes/`,
+268 KB), para não depender de terceiro nem entregar o visitante ao rastreio do
+YouTube antes do clique. A miniatura que seguia o cursor saiu do CSS e do
+`player.js`.
