@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Trajetória | Bruna Pazinato</title>
-<meta name="description" content="A trajetória de Bruna Pazinato, de Santa Bárbara do Sul à Rua da Consolação: teatro musical, televisão, música e carnaval.">
+<title>Ato III · Ao vivo | Bruna Pazinato</title>
+<meta name="description" content="Bruna Pazinato ao vivo: a intérprete no palco, com banda e plateia.">
 <meta name="theme-color" content="#0B0B0C">
-<meta name="color-scheme" content="dark light">
+<meta name="color-scheme" content="dark">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Trajetória | Bruna Pazinato">
-<meta property="og:description" content="De Santa Bárbara do Sul à Rua da Consolação.">
-<meta property="og:image" content="assets/img/trajetoria-retrato.jpg">
+<meta property="og:title" content="Ato III · Ao vivo | Bruna Pazinato">
+<meta property="og:description" content="A intérprete no palco.">
+<meta property="og:image" content="assets/img/abertura-ao-vivo.jpg">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
@@ -25,7 +25,6 @@
 <link rel="stylesheet" href="assets/css/header.css?v=202609281824">
 <link rel="stylesheet" href="assets/css/rodape.css?v=202609281824">
 <link rel="stylesheet" href="assets/css/ato.css?v=202609281824">
-<link rel="stylesheet" href="assets/css/trajetoria.css?v=202609281824">
 
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -46,7 +45,7 @@
       <li class="nav__item"><a href="musica.html">Música</a></li>
       <li class="nav__item"><a href="em-cena.html">Em cena</a></li>
       <li class="nav__item"><a href="ao-vivo.html">Ao vivo</a></li>
-      <li class="nav__item"><a href="trajetoria.html" aria-current="page">Trajetória</a></li>
+      <li class="nav__item"><a href="trajetoria.html">Trajetória</a></li>
       <li class="nav__item"><a href="index.html#contato">Contato</a></li>
     </ul>
   </nav>
@@ -64,7 +63,7 @@
       <li><a href="musica.html">Música</a></li>
       <li><a href="em-cena.html">Em cena</a></li>
       <li><a href="ao-vivo.html">Ao vivo</a></li>
-      <li><a href="trajetoria.html" aria-current="page">Trajetória</a></li>
+      <li><a href="trajetoria.html">Trajetória</a></li>
       <li><a href="index.html#contato">Contato</a></li>
     </ul>
   </nav>
@@ -96,71 +95,26 @@
 <main id="conteudo">
 
   <!-- ============================================================
-       ABERTURA
-       Mesmo molde dos atos: a página começa no escuro, como todas.
-       ============================================================ -->
-  <section class="abertura">
+       ABERTURA DO ATO
 
-    <p class="abertura__num">A artista</p>
-    <h1 class="abertura__titulo">Trajetória</h1>
+       PLACEHOLDER: a fotografia é assets/img/abertura-ao-vivo.jpg.
+       Para trocar, basta substituir o arquivo nesse caminho. Se a
+       nova foto tiver outra proporção, ajuste --foto-forma abaixo
+       (é a largura / altura da imagem), senão o quadro corta.
+       ============================================================ -->
+  <section class="abertura" style="--foto-forma: 1600 / 1186; --foto-pos: 50% 42%; --foto-brilho: 1; --foto-fade: 9%">
+
+    <figure class="abertura__figura" aria-hidden="true">
+      <img class="abertura__foto" src="assets/img/abertura-ao-vivo.jpg" alt="" width="1600" height="1186" decoding="async">
+      <span class="abertura__veu"></span>
+    </figure>
+
+    <p class="abertura__num">Ato III</p>
+    <h1 class="abertura__titulo">Ao vivo</h1>
+    <p class="abertura__frase">“É onde consigo expressar minha energia.”</p>
 
     <span class="grain" aria-hidden="true"></span>
   </section>
-
-  <!-- ============================================================
-       O PROGRAMA DA ARTISTA · registro claro
-       O palco é escuro; o programa da peça é impresso. Aqui é o
-       programa inteiro, e as fotos de fundo branco, que não cabiam
-       no preto, finalmente têm onde morar.
-       ============================================================ -->
-  <div class="folha claro">
-
-    <!-- o arco: de onde saiu, até onde chegou -->
-    <section class="arco" aria-labelledby="arco-titulo">
-
-      <figure class="arco__retrato">
-        <img src="assets/img/trajetoria-retrato.jpg" alt="Retrato de Bruna Pazinato" width="1200" height="1500" decoding="async">
-      </figure>
-
-      <div class="arco__texto">
-        <p class="rotulo" id="arco-titulo">De Santa Bárbara do Sul à Consolação</p>
-
-        <p class="arco__frase">Aos doze anos, no interior gaúcho, já cantava música regionalista e sertanejo. Em 2026, cantou para um milhão e meio de pessoas na Rua da Consolação.</p>
-
-        <div class="arco__corpo">
-          <p>Aos dezessete, deixou Santa Bárbara do Sul para morar em São Paulo, e foi lá que o teatro musical começou. De lá para cá coleciona superproduções, viveu a própria Clara Nunes no palco em 2023 e hoje está em cartaz como Marlene Dietrich, em <em>Piaf, Eu Não Me Arrependo</em>.</p>
-          <p>Na televisão, estreou em 2017 como a cantora Rebeca, de <em>O Rico e Lázaro</em>, papel que cresceu ao longo da novela, e foi a protagonista de <em>Lia</em>, as duas na Record. Na música, lançou <em>Alucinação</em>, que considera o seu hit, <em>Imaginei Você</em> e <em>Afrodisíaca</em>. E no carnaval é uma das vozes da banda do Acadêmicos do Baixo Augusta, o maior bloco de rua de São Paulo.</p>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- a crítica -->
-    <blockquote class="critica">
-      <p>“Atriz e cantora de primeira grandeza, jovem estrela reluzente, Bruna Pazinato vale a noite no teatro.”</p>
-      <cite>Tania Brandão · Folias Teatrais, sobre <em>Clara Nunes</em></cite>
-    </blockquote>
-
-  </div>
-
-  <!-- o fim: ela no palco, com o próprio nome no telão -->
-  <figure class="fim" data-parallax>
-    <img src="assets/img/fim-trajetoria.jpg" alt="Bruna Pazinato no palco, com o próprio nome no telão atrás" width="2400" height="1200" decoding="async">
-  </figure>
-  <!-- ============================================================
-       PASSAGEM
-       Depois do programa, o espetáculo começa: o próximo é o Ato I.
-       ============================================================ -->
-  <nav class="passagem" aria-label="Navegação entre páginas">
-    <a class="passagem__link" href="index.html">
-      <span class="passagem__rotulo">Voltar</span>
-      <span class="passagem__nome">Início</span>
-    </a>
-    <a class="passagem__link passagem__link--proximo" href="musica.html">
-      <span class="passagem__rotulo">Ato I</span>
-      <span class="passagem__nome">Música</span>
-    </a>
-  </nav>
 
 </main>
 
@@ -183,7 +137,6 @@
 
 <script src="assets/js/pronto.js?v=202609281824" defer></script>
 <script src="assets/js/nav.js?v=202609281824" defer></script>
-<script src="assets/js/parallax.js?v=202609281824" defer></script>
 
 </body>
 </html>

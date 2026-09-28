@@ -59,14 +59,31 @@
   color: var(--paper-45);
 }
 
+/* A frase de apoio do Ato III. Nao e slogan: e fala dela, entao vem na
+   serifa do nome, em caixa baixa e com aspas, do tamanho de uma legenda
+   — e nao em versal espacejado, que soaria a cartaz de campanha. */
+.abertura__frase{
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(1.3rem, 3.2vh, 2.6rem);
+  max-width: 26ch;
+  font-family: var(--font-name);
+  font-size: clamp(.98rem, 1.45vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--paper-70);
+}
+
 /* --- entrada da abertura ----------------------------------------- */
 
 .js .abertura__titulo,
+.js .abertura__frase,
 .js .abertura__nota{ opacity: 0; }
 
 .js.is-ready .abertura__num       { animation: fadeIn  1.2s var(--ease-soft) .2s both; }
 .js.is-ready .abertura__titulo    { animation: riseIn  1.5s var(--ease)      .55s both; }
 .js.is-ready .abertura__nota      { animation: fadeUp  1.3s var(--ease)      1.15s both; }
+.js.is-ready .abertura__frase     { animation: fadeUp  1.4s var(--ease)      1.25s both; }
 
 /* --- a fotografia do ato ------------------------------------------
    A abertura era só tipografia sobre o preto: bonita e vazia, com
@@ -95,6 +112,14 @@
   width: auto;
   height: auto;
   aspect-ratio: var(--foto-forma, 1600 / 1172);
+
+  /* A borda esquerda dissolve no preto, senao a foto vira um retangulo
+     colado na pagina. A rampa e curta e cada pagina diz onde ela acaba
+     (--foto-fade), porque o que nao pode acontecer e ela alcancar a
+     pessoa: e dai que vem o "fade que corta a Bruna inteira". A medida
+     e a margem vazia a esquerda da propria fotografia. */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 var(--foto-fade, 14%));
+          mask-image: linear-gradient(90deg, transparent 0%, #000 var(--foto-fade, 14%));
 }
 
 .abertura__foto{
