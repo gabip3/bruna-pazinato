@@ -192,54 +192,6 @@ body{
   color: var(--paper);
 }
 
-/* --- a linha ---------------------------------------------------
-   Compartilhada por todas as páginas. Cada seção posiciona a sua
-   e escolhe o perfil pelo data-wave (ver soundwave.js). O atraso
-   da entrada vem de --wave-delay, porque na abertura ela espera
-   a coreografia do nome e nas páginas de ato entra logo.
-   --------------------------------------------------------------- */
-
-/* A linha se desenha na entrada e para. Havia um waveDrift infinito
-   por baixo, de 46s em laço: bonito nos primeiros dias e inquieto
-   depois, porque movimento na periferia do olho não deixa ler em paz.
-   A assinatura é o traço, não o traço andando. */
-.wave{
-  position: absolute;
-  pointer-events: none;
-  mix-blend-mode: screen;
-  opacity: 0;
-}
-
-.wave__line,
-.wave__echo{
-  transform-box: view-box;
-  transform-origin: 0 0;
-}
-
-@keyframes waveDraw{
-  from{ stroke-dashoffset: var(--len, 4000); }
-  to  { stroke-dashoffset: 0; }
-}
-
-  to  { transform: translateX(-800px); }
-}
-
-.js.is-ready /* A linha se desenha na entrada e para. Havia um waveDrift infinito
-   por baixo, de 46s em laço: bonito nos primeiros dias e inquieto
-   depois, porque movimento na periferia do olho não deixa ler em paz.
-   A assinatura é o traço, não o traço andando. */
-.wave{
-  animation: fadeIn 2.4s linear var(--wave-delay, .5s) both;
-}
-
-.js.is-ready .wave__line{
-  animation: waveDraw 3.2s var(--ease-soft) calc(var(--wave-delay, .5s) + .1s) both;
-}
-
-.js.is-ready .wave__echo{
-  animation: waveDraw 3.6s var(--ease-soft) calc(var(--wave-delay, .5s) + .3s) both;
-}
-
 /* --- grão de filme ---------------------------------------------- */
 
 .grain{

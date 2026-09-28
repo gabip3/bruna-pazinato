@@ -15,7 +15,6 @@
   --photo-edge: 50%;                 /* onde a fotografia começa */
   --photo-pos: 50% 24%;              /* enquadramento da foto */
   --name-size: clamp(2.7rem, 10.8vw, 15rem);
-  --wave-delay: 2.4s;            /* a linha espera a coreografia do nome */
 
   position: relative;
   isolation: isolate;
@@ -114,14 +113,6 @@
 /* -------------------------------------------------------------
    LINHA / ONDA SONORA
    ------------------------------------------------------------- */
-
-.hero .wave{
-  z-index: 4;
-  left: -3%;
-  width: 106%;
-  top: 65%;
-  height: clamp(80px, 15vh, 180px);
-}
 
 /* -------------------------------------------------------------
    NOME
@@ -322,8 +313,6 @@
 
   .hero__glow{ top: -6%; right: -18%; width: 92vw; height: 92vw; }
 
-  .wave{ top: 55%; height: clamp(64px, 10vh, 110px); }
-
   .name__line--first{ font-size: clamp(1.15rem, 5.4vw, 1.7rem); letter-spacing: .3em; }
 
   .name__ghost{ display: none; }
@@ -352,5 +341,4 @@
   .js .hero__figure::after{ opacity: 0; }
   .js .name__ghost{ opacity: 1; }
   .js .cue{ opacity: 1; }
-  .wave__line, .wave__echo{ stroke-dashoffset: 0 !important; }
 }
