@@ -66,7 +66,10 @@
   position: relative;
   z-index: 2;
   margin-top: clamp(1.3rem, 3.2vh, 2.6rem);
-  max-width: 26ch;
+
+  /* Uma linha só: quebrada em duas ela vira parágrafo, e o que se quer
+     é uma frase dita de passagem. No celular não cabe, e aí quebra. */
+  white-space: nowrap;
   font-family: var(--font-name);
   font-size: clamp(.98rem, 1.45vw, 1.4rem);
   font-weight: 300;
@@ -146,6 +149,10 @@
 /* No celular nao cabe a fotografia inteira ao lado do titulo: ela passa a
    ocupar a banda toda e o veu carrega a mao para o titulo continuar legivel. */
 @media (max-width: 700px){
+
+  /* A frase volta a poder quebrar: em uma linha so nao cabe. */
+  .abertura__frase{ white-space: normal; max-width: 24ch; }
+
   .abertura__figura{
     left: 0;
     aspect-ratio: auto;

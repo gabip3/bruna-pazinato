@@ -633,7 +633,22 @@ com a folha antiga e o HTML novo. Quando isso aconteceu de verdade, a página do
 Ato I apareceu crua, sem estilo nenhum: as classes tinham mudado de `faixa` para
 `clipe` e nenhuma regra guardada casava mais.
 
-**Ao publicar mudança de CSS ou JS, atualize o carimbo nas quatro páginas.**
+**A regra vale para imagem trocada no mesmo nome.** O painel do Ato III passou
+da foto de chapéu para a de palco, e o Gabi continuou vendo o chapéu: o arquivo
+mudou de conteúdo mas manteve o caminho, e o navegador guardou o antigo por dez
+minutos. Conferido no ar, o arquivo servido já era o novo. Só o HTML é que não
+tinha como avisar.
+
+Quando a fotografia muda e o nome fica, carimbe **aquele `src`** — não todos.
+Carimbar imagem que não mudou joga fora cache bom, e são centenas de KB por
+página. Hoje carregam carimbo só `ato-ao-vivo.jpg` e `abertura-em-cena.jpg`,
+que foram substituídas no lugar. Renomear o arquivo resolveria igual; o carimbo
+é mais barato porque não mexe em quem aponta para ele.
+
+**As cinco páginas** — o carimbo agora cobre `index`, `musica`, `em-cena`,
+`ao-vivo` e `trajetoria`.
+
+**Ao publicar mudança de CSS ou JS, atualize o carimbo nas cinco páginas.**
 Uma linha resolve:
 
 ```powershell
