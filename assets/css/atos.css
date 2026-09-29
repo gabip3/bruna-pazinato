@@ -91,11 +91,15 @@
   transition: transform .7s var(--ease);
 }
 
+/* GAMBETTA MORA AQUI, E SÓ AQUI.
+   A Bruna escolheu esta letra entre seis testadas e aprovou para os três
+   painéis da home — não para os títulos do site inteiro. O arquivo está
+   hospedado em assets/fonts e declarado no base.css; o resto do site
+   segue na Young Serif. Não espalhar sem ela ver. */
 .ato-panel__name{
   display: block;
-  font-family: var(--font-display);
+  font-family: "Gambetta", "Iowan Old Style", Georgia, "Times New Roman", serif;
   font-optical-sizing: none;
-  font-variation-settings: var(--display-axes);
   font-size: clamp(1.5rem, 2.7vw, 3.1rem);
   line-height: 1;
   letter-spacing: -.01em;

@@ -53,16 +53,17 @@
      --font-name     Fraunces. EXCLUSIVA da assinatura BRUNA PAZINATO.
                      É variável e afina as hastes conforme o corpo cresce,
                      por isso a optical size fica travada em 16.
-     --font-display  Gambetta, hospedada em assets/fonts. Menu e títulos.
-                     Escolha da Bruna entre seis testadas. Substituiu a
-                     Young Serif, que era boa letra e era também a mesma
-                     de todo template — o defeito dela era ser comum.
+     --font-display  Young Serif. Menu e títulos. Haste grossa e reta,
+                     peso único, sem eixo variável — nada a travar.
+                     A Gambetta NÃO entra aqui: a Bruna aprovou ela só
+                     para os três painéis da home, e a regra mora no
+                     atos.css. Não espalhar sem ela ver.
      --font-sans     Archivo. Micro-tipografia em caixa alta espaçada.
      --------------------------------------------------------- */
   --font-name:    "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --name-axes:    "opsz" 16;
 
-  --font-display: "Gambetta", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-display: "Young Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --display-axes: normal;
 
   --font-sans:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
