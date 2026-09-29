@@ -82,6 +82,25 @@
   filter: contrast(1.03) saturate(.95) brightness(.98);
 }
 
+/* Crédito de fotografia. Fica sobre o canto da imagem, em corpo miúdo e
+   caixa baixa: é informação de quem fez, não rótulo de seção. A Bruna
+   fez questão de que estas fossem creditadas, e ela tem razão — foto de
+   cena tem autor. */
+.destaque__credito{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.2em .9em .7em;
+  font-family: var(--font-sans);
+  font-size: clamp(.5rem, .58vw, .6rem);
+  font-weight: 300;
+  letter-spacing: .06em;
+  color: rgba(240, 235, 228, .62);
+  background: linear-gradient(to top, rgba(11,11,12,.72), rgba(11,11,12,0));
+  pointer-events: none;
+}
+
 .destaque__meta{
   font-family: var(--font-sans);
   font-size: clamp(.56rem, .66vw, .68rem);
