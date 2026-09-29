@@ -763,9 +763,10 @@ cinza com canto arredondado é a única coisa que faria esta página parecer
 template. Nome e e-mail dividem a linha, a mensagem ocupa a largura inteira, e
 no celular tudo empilha.
 
-**Web3Forms.** O formulário já sai no formato que eles esperam: `POST` para
-`api.web3forms.com/submit`, o `access_key` escondido (hoje com a palavra
-`CHAVE-WEB3FORMS`, a trocar pela chave do painel), um `subject` que chega pronto
+**Web3Forms.** O formulário sai no formato que eles esperam: `POST` para
+`api.web3forms.com/submit`, com a `access_key` no HTML — ela é pública de
+propósito, e é assim que o serviço funciona: quem protege é o domínio e o
+filtro de spam deles, não o segredo da chave, um `subject` que chega pronto
 na caixa dela, e o campo `botcheck` — a armadilha de robô, que existe no HTML e
 não na tela. Sem `redirect`, o Web3Forms mostra a página de sucesso dele; se ela
 quiser voltar para o site, é um campo a mais.

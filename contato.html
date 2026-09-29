@@ -127,17 +127,18 @@
        embaixo, que vira coral quando está em uso. Nada de moldura
        cinza com canto arredondado.
 
-       PLACEHOLDER WEB3FORMS: troque CHAVE-WEB3FORMS pela access key
-       do painel (web3forms.com). O resto já está no formato que eles
-       esperam: o campo escondido "botcheck" é a armadilha de robô, e
-       o "subject" é o assunto que chega na caixa dela.
+       A access key do Web3Forms fica no HTML de propósito: é chave
+       pública, e é assim que o serviço funciona — quem protege é o
+       domínio e o filtro de spam deles, não o segredo da chave.
+       O campo escondido "botcheck" é a armadilha de robô que eles
+       pedem, e o "subject" é o assunto que chega na caixa dela.
        ============================================================ -->
   <section class="recado" id="escrever" aria-label="Formulário de contato">
 
 
     <form class="recado__form" action="https://api.web3forms.com/submit" method="POST" data-reveal style="--i:1">
 
-      <input type="hidden" name="access_key" value="CHAVE-WEB3FORMS">
+      <input type="hidden" name="access_key" value="81a70efb-5e14-47e2-a2f0-8201e1c519f1">
       <input type="hidden" name="subject" value="Contato pelo site">
       <input type="checkbox" name="botcheck" class="recado__isca" tabindex="-1" autocomplete="off">
 
