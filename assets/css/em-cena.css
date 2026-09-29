@@ -50,9 +50,14 @@
   gap: clamp(1.6rem, 5vw, 5rem);
 }
 
-/* alterna o lado da fotografia */
-.destaque:nth-child(even) .destaque__figura{ order: 2; }
-.destaque:nth-child(even) .destaque__texto { order: 1; text-align: right; }
+/* A fotografia ficava alternando de lado, e nos blocos pares o texto ia
+   para a esquerda alinhado à direita. Parecia ritmo e era estorvo: as duas
+   citações — a da Lúcia Veríssimo no Gal e a da Tania Brandão na Clara
+   Nunes — são o que esses blocos têm de melhor, e alinhadas à direita
+   ficavam espremidas contra a imagem, com a página vazia do outro lado.
+
+   Agora a foto é sempre à esquerda e o texto corre à direita dela. Menos
+   truque, mais leitura. */
 
 .destaque__figura{
   position: relative;
@@ -157,14 +162,6 @@
   color: var(--paper-45);
 }
 
-/* nos destaques alinhados à direita, o fio troca de lado */
-.destaque:nth-child(even) .destaque__critica{
-  padding-left: 0;
-  padding-right: clamp(.9rem, 1.4vw, 1.2rem);
-  border-left: 0;
-  border-right: 1px solid var(--coral);
-}
-
 /* -------------------------------------------------------------
    ÍNDICE DAS OUTRAS MONTAGENS
    ------------------------------------------------------------- */
@@ -227,10 +224,6 @@
     grid-template-columns: 1fr;
     gap: clamp(1.2rem, 3vh, 2rem);
   }
-
-  /* no empilhamento a alternância de lado não faz sentido */
-  .destaque:nth-child(even) .destaque__figura{ order: 0; }
-  .destaque:nth-child(even) .destaque__texto { order: 0; text-align: left; }
 
   .destaque__figura{ aspect-ratio: 3 / 2; max-height: 44svh; }
   .destaque__figura img{ object-position: 50% 20%; }
