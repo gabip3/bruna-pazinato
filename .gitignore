@@ -19,3 +19,6 @@ conteudo/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Pagina local de comparacao de fontes. Nao vai para o ar.
+tipos.html
