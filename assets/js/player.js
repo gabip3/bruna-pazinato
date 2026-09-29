@@ -2,10 +2,9 @@
    BRUNA PAZINATO
    player.js — clipes e filmes
 
-   Três coisas:
-   1. a miniatura que segue o cursor sobre a lista (só no Ato I)
-   2. o player em tela cheia
-   3. duas origens de vídeo: YouTube (iframe) e arquivo daqui (<video>)
+   Duas coisas:
+   1. o player em tela cheia
+   2. duas origens de vídeo: YouTube (iframe) e arquivo daqui (<video>)
 
    Os links apontam para o vídeo de verdade. O JS intercepta o
    clique; sem JS, o clipe abre no YouTube e o filme abre o .mp4.
@@ -16,15 +15,18 @@
 (function () {
   'use strict';
 
-  function todos(seletor) {
-    return Array.prototype.slice.call(document.querySelectorAll(seletor));
-  }
+  /* Faixas são os clipes do Ato I; filmes, a Cena 3 do Ato II; palcos, os
+     vídeos de show do Ato III, que usam o painel da vitrine em vez de uma
+     linha de lista — mesmo gatilho, mesmo player.
 
-  /* faixas são os clipes do Ato I; filmes são a Cena 3 do Ato II */
-  var faixas = todos('.faixa__link[data-video]');
-  var filmes = todos('.filme__link[data-video], .filme__link[data-filme]');
-  var links  = faixas.concat(filmes);
-  if (!links.length) { return; }
+     A escuta é no documento, e não link a link. A vitrine clona os painéis
+     para fazer o laço infinito, e quem amarra no elemento só pega os
+     originais: dos 18 painéis do Ato III, 12 eram clones e não abriam
+     nada. Delegar resolve, e resolve para qualquer coisa clonada depois. */
+  var GATILHOS = '.faixa__link[data-video], .filme__link[data-video],' +
+                 '.filme__link[data-filme], .palco__link[data-filme]';
+
+  if (!document.querySelector(GATILHOS)) { return; }
 
   /* ---------------------------------------------------------
      O player
@@ -96,16 +98,21 @@
     }, 450);
   }
 
-  links.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      /* deixa passar cliques de "abrir em nova aba" */
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) { return; }
-      e.preventDefault();
-      var rotulo = link.querySelector('.faixa__titulo') || link.querySelector('.filme__marca');
-      abrir({ id: link.getAttribute('data-video'), arquivo: link.getAttribute('data-filme') },
-            rotulo ? rotulo.textContent.trim() : '',
-            link.getAttribute('data-formato') === 'vertical');
-    });
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest(GATILHOS) : null;
+    if (!link) { return; }
+
+    /* deixa passar cliques de "abrir em nova aba" */
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) { return; }
+    e.preventDefault();
+
+    var rotulo = link.querySelector('.faixa__titulo') ||
+                 link.querySelector('.filme__marca') ||
+                 link.querySelector('.palco__obra');
+
+    abrir({ id: link.getAttribute('data-video'), arquivo: link.getAttribute('data-filme') },
+          rotulo ? rotulo.textContent.trim() : '',
+          link.getAttribute('data-formato') === 'vertical');
   });
 
   fechar.addEventListener('click', encerrar);

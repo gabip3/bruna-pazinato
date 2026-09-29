@@ -3,6 +3,36 @@
    base.css — tokens, reset e fundações
    ============================================================= */
 
+/* -------------------------------------------------------------
+   GAMBETTA, hospedada aqui
+
+   A Bruna escolheu esta para os títulos, entre seis testadas. É da
+   Fontshare, grátis inclusive para uso comercial, e por isso pode
+   morar no repositório: são 40 KB nos dois pesos, servidos do mesmo
+   domínio. Pedir à CDN deles a cada visita custaria uma conexão a
+   mais e entregaria o visitante a um terceiro antes de ele ler a
+   página.
+
+   font-display: swap — o texto aparece na serifa de sistema e troca
+   quando a fonte chega. Nunca uma tela em branco esperando letra.
+   ------------------------------------------------------------- */
+
+@font-face{
+  font-family: "Gambetta";
+  src: url("../fonts/gambetta-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "Gambetta";
+  src: url("../fonts/gambetta-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{
 
   /* --- cor ------------------------------------------------- */
@@ -23,14 +53,16 @@
      --font-name     Fraunces. EXCLUSIVA da assinatura BRUNA PAZINATO.
                      É variável e afina as hastes conforme o corpo cresce,
                      por isso a optical size fica travada em 16.
-     --font-display  Young Serif. Menu e títulos. Haste grossa e reta,
-                     peso único, sem eixo variável — nada a travar.
+     --font-display  Gambetta, hospedada em assets/fonts. Menu e títulos.
+                     Escolha da Bruna entre seis testadas. Substituiu a
+                     Young Serif, que era boa letra e era também a mesma
+                     de todo template — o defeito dela era ser comum.
      --font-sans     Archivo. Micro-tipografia em caixa alta espaçada.
      --------------------------------------------------------- */
   --font-name:    "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --name-axes:    "opsz" 16;
 
-  --font-display: "Young Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-display: "Gambetta", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --display-axes: normal;
 
   --font-sans:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
