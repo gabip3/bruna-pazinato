@@ -132,3 +132,38 @@
      palavra caber entre as duas goteiras. */
   .hero{ --name-size: clamp(2.4rem, 16.2vw, 6.6rem); }
 }
+
+/* =============================================================
+   O RITMO VERTICAL NO CELULAR
+
+   O Ato II tinha 6,8 telas de rolagem. Nada disso era gordura de
+   conteúdo — são cinco montagens em destaque, dezesseis na vitrine,
+   a televisão e a publicidade. O que dava para devolver era espaço:
+   a abertura comia 90% de uma tela inteira antes de qualquer coisa,
+   e os vãos entre blocos foram medidos em vh, que num celular alto
+   viram muito mais pixel do que a intenção.
+
+   Aqui os vãos passam a ser fixos e a abertura encolhe. Nenhuma
+   fotografia diminui, nenhum texto sai.
+   ============================================================= */
+
+@media (max-width: 760px){
+
+  /* A abertura é cartaz, não tela de espera: 90svh viravam 731px
+     antes da primeira montagem. */
+  .abertura{ min-height: clamp(380px, 62svh, 560px); }
+
+  /* Os vãos em vh crescem demais em tela alta. Fixos, em rem. */
+  .destaques{ gap: 2.2rem; margin-bottom: 2rem; }
+  .destaque{ gap: 1rem; }
+  .cena{ padding-top: 2.2rem; padding-bottom: 2.2rem; }
+  .cena__cabeca{ margin-bottom: 1.4rem; }
+  .destaque__titulo{ margin-top: .7rem; }
+  .destaque__papel{ margin-top: .9rem; }
+  .destaque__critica{ margin-top: 1rem; }
+
+  .programa{ padding-top: 2.2rem; padding-bottom: 2.4rem; }
+  .programa__coluna + .programa__coluna{ margin-top: 2rem; }
+
+  .passagem{ padding-top: 2rem; padding-bottom: 2rem; }
+}
