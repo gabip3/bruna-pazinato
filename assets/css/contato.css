@@ -314,3 +314,46 @@
 
   .recado__enviar{ padding-bottom: 1.1em; }
 }
+
+/* --- a resposta do envio -------------------------------------------
+   O formulário some e a confirmação ocupa o lugar dele, na mesma
+   tipografia. Antes disso o envio levava a pessoa para a página de
+   sucesso do Web3Forms: um cartão branco, fora do site, com um botão
+   "Go Back". Quem escreveu não voltava.
+   ------------------------------------------------------------- */
+
+.recado__form--enviado{
+  display: block;
+  min-height: 8rem;
+}
+
+.recado__obrigado{
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  line-height: 1.12;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.recado__aviso{
+  grid-column: 1 / -1;
+  margin: .4rem 0 0;
+  max-width: 44ch;
+  font-family: var(--font-sans);
+  font-size: clamp(.74rem, .9vw, .88rem);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--paper-70);
+}
+
+.recado__aviso--erro{ color: var(--coral); }
+
+.recado__enviar[disabled]{
+  opacity: .45;
+  cursor: default;
+}

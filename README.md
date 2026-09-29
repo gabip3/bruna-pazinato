@@ -768,8 +768,16 @@ no celular tudo empilha.
 propósito, e é assim que o serviço funciona: quem protege é o domínio e o
 filtro de spam deles, não o segredo da chave, um `subject` que chega pronto
 na caixa dela, e o campo `botcheck` — a armadilha de robô, que existe no HTML e
-não na tela. Sem `redirect`, o Web3Forms mostra a página de sucesso dele; se ela
-quiser voltar para o site, é um campo a mais.
+não na tela. O envio vai por `fetch` e a resposta acontece no lugar do formulário, na
+tipografia da casa. Sem isso o navegador faz o POST na marra e o Web3Forms
+devolve a página de sucesso deles: um cartão branco genérico, fora do site,
+com um "Go Back" — depois de cinco páginas em preto, é um tombo, e quem
+escreveu não volta. Se o envio falhar, o formulário continua lá com o texto
+intacto e uma linha em coral oferece o e-mail direto.
+
+**Sem JavaScript o formulário continua funcionando** do jeito antigo: o
+`action` e o `method` estão no HTML, não no script. Melhor a página feia deles
+do que um botão morto.
 
 **O amarelo do autofill** é desfeito com `box-shadow` interno da cor do fundo:
 sem isso, o navegador pinta o campo preenchido de amarelo no meio da página
