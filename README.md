@@ -473,15 +473,17 @@ outro espetáculo, basta o JSON e o gatilho — não se mexe no JS.
 
 Sem JavaScript, o gatilho continua sendo um link para a primeira foto.
 
-**O visor exibe "crédito de fotografia a confirmar"** enquanto o nome do
-fotógrafo não vier. É intencional: a lacuna fica visível em vez de silenciosa.
+**O visor não escreve nada quando não há crédito.** A frase de espera aparecia
+em quase toda galeria e virava ruído — além de anunciar uma pendência nossa a
+quem só queria ver as fotos. O crédito de verdade continua onde existe.
 
 ### O que está pendente e visível na página
 
-`Piaf` e `Cassia Eller` estão publicados com **"ano a confirmar"** e placeholder
-no lugar da foto. A Bruna mandou só o nome do espetáculo e o personagem; ficha
-técnica não se inventa. A lista do que falta está em
-[pedido-de-material.md](conteudo/pedido-de-material.md).
+Os anos do `Piaf` e da `Cassia Eller` foram confirmados, e a foto de cena da
+Cassia chegou em 29/9/2026 — era a única montagem do site sem fotografia
+nenhuma. O que ainda falta de ficha técnica está em
+[pedido-de-material.md](conteudo/pedido-de-material.md); ficha técnica não se
+inventa, então o que não veio não está escrito.
 
 ## Pendências desta etapa
 
@@ -507,9 +509,9 @@ estúdio vira a cor do papel e a figura aparece impressa na folha, sem
 retângulo em volta.
 
 **Não é currículo.** A ordem é de matéria de revista:
-1. **O arco.** "Aos doze anos, no interior gaúcho, já cantava música
-   regionalista e sertanejo. Em 2026, cantou para um milhão e meio de pessoas
-   na Rua da Consolação." Dois parágrafos curtos embaixo, e só
+1. **O arco.** "Aos doze anos, no interior gaúcho, já se apresentava em
+   festivais e CTGs. Em 2026, cantou para um milhão e meio de pessoas na Rua
+   da Consolação." Dois parágrafos curtos embaixo, e só
 2. **A crítica** da Tania Brandão, a primeira frase, centrada e sozinha no meio
    da folha. A segunda está na Clara Nunes do Ato II, para não repetir
 3. **A foto do fim.** Ela no palco com o próprio nome no telão, em parallax.
