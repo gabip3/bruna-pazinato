@@ -1,0 +1,134 @@
+/* =============================================================
+   BRUNA PAZINATO
+   mobile.css — a passagem pelo celular
+
+   Carrega por último, e só faz duas coisas. Não muda composição,
+   não move nada de lugar: o desenho do site já responde bem, e a
+   auditoria a 375px não achou uma única página que role de lado.
+
+   1. LEVANTA O PISO DA MICRO-TIPOGRAFIA.
+      As legendas são `clamp(mínimo, Xvw, máximo)`. No desktop manda
+      o vw; no celular, o vw é minúsculo e quem manda é o mínimo —
+      que foi escolhido olhando para uma tela grande. O resultado
+      medido no aparelho: crédito de foto a 8px, papel do painel a
+      8px, direitos a 8,3px, ano a 8,6px, "ver galeria" a 9px. Isso
+      não se lê com o braço esticado.
+      O piso aqui é 10,6px para o que é assinatura e 11,2px para o
+      que é informação. E o espacejamento afrouxa junto: .3em num
+      corpo de 11px empurra a linha para fora da tela.
+
+   2. DÁ TAMANHO DE DEDO AOS ALVOS.
+      O mínimo confortável é 44px. Estavam em 15 (a marca), 26 (o
+      enviar do formulário), 27 (os campos), 32 (ver galeria), 34
+      (menu e redes), 40 (setas e passagem). Cresce a área de toque
+      por padding, não por corpo: nada muda de tamanho na tela.
+   ============================================================= */
+
+@media (max-width: 760px){
+
+  /* --- 1. o piso da micro-tipografia ------------------------- */
+
+  /* assinatura e navegação */
+  .brand{ font-size: .72rem; letter-spacing: .26em; }
+  .burger__label{ font-size: .7rem; letter-spacing: .26em; }
+  .menu__foot{ font-size: .68rem; letter-spacing: .24em; }
+
+  /* rótulos de ato e de seção */
+  .abertura__num,
+  .rotulo,
+  .passagem__rotulo,
+  .contato__linha,
+  .campo__rotulo{ font-size: .7rem; letter-spacing: .22em; }
+
+  /* dados de obra: ano, papel, nota */
+  .destaque__meta,
+  .destaque__papel span,
+  .filme__ano,
+  .palco__ano,
+  .palco__papel,
+  .faixa__nota,
+  .vitrine__nota,
+  .showreel__som,
+  .btn__texto,
+  .btn__contagem{ font-size: .7rem; letter-spacing: .2em; }
+
+  /* o que é assinatura miúda: crédito, direitos, fonte da citação */
+  .destaque__credito,
+  .destaque__critica cite,
+  .critica cite,
+  .rodape__direitos,
+  .recado__pe{ font-size: .66rem; letter-spacing: .14em; }
+
+  /* subtítulo da obra — vinha de um em, e o em encolheu junto */
+  .destaque__sub{ font-size: .42em; }
+
+  /* o visor de fotos tem a própria micro-tipografia */
+  .visor__contador,
+  .visor__credito,
+  .visor__obra i{ font-size: .68rem; letter-spacing: .18em; }
+
+  /* --- 2. área de toque -------------------------------------- */
+
+  /* A marca tinha 15px de altura: o alvo cresce por padding e a
+     posição não muda, porque o padding é compensado na margem. */
+  .brand{
+    padding: .85rem 0;
+    margin: -.85rem 0;
+  }
+
+  .burger{
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .rodape__redes a{
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn{
+    min-height: 44px;
+    padding-top: .55em;
+    padding-bottom: .55em;
+  }
+
+  .passagem__link{
+    padding: .35rem 0;
+  }
+
+  .vitrine__seta{
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Campos de formulário: o texto encostava no fio e o alvo tinha
+     27px. Cresce por padding, e o fio desce junto. */
+  .campo__valor{
+    min-height: 44px;
+    padding-bottom: 1em;
+    font-size: 1rem;       /* 16px: abaixo disso o iOS dá zoom ao focar */
+  }
+
+  .campo__valor--area{
+    min-height: 7em;
+  }
+
+  .recado__enviar{
+    min-height: 44px;
+    padding-top: .5em;
+    padding-bottom: 1.2em;
+  }
+
+  .showreel__som{
+    min-height: 44px;
+    padding-top: .9em;
+    padding-bottom: .9em;
+  }
+
+  /* --- 3. o nome no hero ------------------------------------- */
+
+  /* "PAZINATO" parava a 6px da borda direita, com 20px de goteira à
+     esquerda: lia como corte. O corpo cai o suficiente para a
+     palavra caber entre as duas goteiras. */
+  .hero{ --name-size: clamp(2.4rem, 16.2vw, 6.6rem); }
+}
