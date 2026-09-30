@@ -429,3 +429,26 @@
      ficam no meio do branco, que é onde o olho as procura. */
   .vitrine__topo{ margin-bottom: 2.2rem; }
 }
+
+/* =============================================================
+   A MARCA SAI QUANDO O MENU ABRE — SÓ NO CELULAR
+   ============================================================= */
+
+@media (max-width: 760px){
+
+  /* Com o menu aberto, "BRUNA PAZINATO" ficava no alto de uma tela
+     que já é só o nome dela em cinco linhas grandes. Repetição sem
+     função, e o nome miúdo competindo com o menu.
+
+     visibility, não só opacity: assim ele sai de verdade, sem deixar
+     alvo de toque por cima do FECHAR, e sem mexer no lugar do botão —
+     o espaço continua reservado, então nada pula quando o menu fecha.
+
+     No desktop fica: lá o menu não toma a tela inteira do mesmo jeito
+     e a marca continua sendo o caminho de volta para o início. */
+  .menu-open .brand{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
