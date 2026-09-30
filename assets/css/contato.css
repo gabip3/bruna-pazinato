@@ -408,16 +408,18 @@
 .campo{ width: 100%; text-align: center; }
 
 .campo__rotulo{
-  font-size: clamp(.6rem, .7vw, .72rem);
+  font-size: clamp(.72rem, .82vw, .84rem);
   color: rgba(11, 11, 12, .5);
 }
 
 /* maiores: o corpo sobe de ~14px para ~18px e a linha ganha ar. O
    16px mínimo continua valendo — abaixo disso o iOS dá zoom ao focar. */
+/* Maiores de novo: de 16px para 18.4 no celular e 20 no desktop. É
+   formulário, não legenda — quem escreve precisa ler o que escreveu. */
 .campo__valor{
-  padding: .2em 0 .7em;
+  padding: .25em 0 .75em;
   border-bottom-color: rgba(11, 11, 12, .26);
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-size: clamp(1.15rem, 1.4vw, 1.3rem);
   text-align: center;
   color: var(--ink);
 }
@@ -454,3 +456,11 @@
 
 .recado__obrigado{ color: var(--ink); }
 .recado__aviso{ color: rgba(11, 11, 12, .62); }
+
+/* O e-mail e a linha do DRT/OMB moram num flex que empacotava tudo à
+   esquerda: com o bloco centrado, os dois ficavam encostados na
+   margem esquerda dele. Agora o conteúdo se centra também. */
+.recado__pe{
+  justify-content: center;
+  text-align: center;
+}

@@ -112,7 +112,11 @@
   .campo__valor{
     min-height: 44px;
     padding-bottom: 1em;
-    font-size: 1rem;       /* 16px: abaixo disso o iOS dá zoom ao focar */
+    /* O 16px aqui era piso contra o zoom do iOS, mas virou teto: esta
+       regra vem depois do contato.css e vencia o corpo maior que eu
+       tinha escrito lá. Sobe para 1.15rem, que continua acima do
+       limite do iOS e é o tamanho pedido. */
+    font-size: 1.15rem;
   }
 
   .campo__valor--area{
@@ -191,17 +195,21 @@
      Estava em 11.5px numa tela de 375, com white-space: nowrap para
      caber numa linha. Cabia, e não se lia. Em duas linhas ela pode
      crescer 45% e ainda sobrar margem. */
-  .tagline{
-    white-space: normal;
-    font-size: 1.02rem;
-    letter-spacing: .24em;
-    line-height: 1.75;
-  }
+  /* Uma linha, como no começo — mas maior do que era.
 
-  .tagline__a,
-  .tagline__b{
-    display: block;
-    margin-left: 0;
+     Ela estava em 11.5px porque o nowrap obrigava. Medido no espaço
+     real de 314px que sobra num aparelho de 375: em 1.04rem com .2em
+     de entreletra o texto dá 305px e ainda cabe. É 44% maior que o
+     original, sem quebrar. */
+  .tagline{
+    /* O corpo tem de seguir a largura da tela, porque a linha é
+       indivisível: em 1.04rem fixo o texto dava 305px, e num aparelho
+       de 320 sobram 280 — cortava. O 4.5vw resolve embaixo e o teto
+       de 1.04rem segura em cima.
+         320px: 14.4px de corpo, texto 264 em 280 disponíveis
+         375px: 16.6px (no teto), texto 305 em 335 */
+    font-size: clamp(.8rem, 4.5vw, 1.04rem);
+    letter-spacing: .2em;
   }
 
   /* --- o menu ------------------------------------------------------
@@ -250,9 +258,14 @@
   .disco__capa{ margin-inline: auto; }
   .disco__texto{ width: 100%; }
 
+  /* A lista fica no meio do painel, mas o TEXTO dela alinha à
+     esquerda: é lista numerada, e centrada os números não formam
+     coluna — cada linha começa num lugar. */
   .disco__faixas{
+    width: max-content;
+    max-width: 100%;
     margin-inline: auto;
-    max-width: none;
+    text-align: left;
     font-size: .82rem;       /* vence o piso de .7rem lá de cima */
     letter-spacing: .03em;
     line-height: 2.1;
@@ -325,4 +338,60 @@
     background: no-repeat center / contain
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M1 6h36M31 1l6 5-6 5' fill='none' stroke='%23D14B32' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
+}
+
+/* =============================================================
+   TERCEIRA PASSADA — 30/9/2026, fim da tarde
+   ============================================================= */
+
+@media (max-width: 760px){
+
+  /* --- eyebrows e títulos, mais uma vez ---------------------------
+     "Aumentar eyebrows e títulos. AUMENTAR." Estavam todos no piso de
+     11.2px, que era o mínimo de leitura, não uma escolha de escala.
+     Sobem para 13.1 — ainda é micro-tipografia, mas deixa de parecer
+     nota de rodapé. Os títulos sobem junto, na mesma proporção. */
+  .abertura__num,
+  .rotulo,
+  .passagem__rotulo,
+  .contato__linha,
+  .campo__rotulo,
+  .destaque__meta,
+  .destaque__papel span,
+  .filme__ano,
+  .palco__ano,
+  .palco__papel,
+  .faixa__nota,
+  .vitrine__nota,
+  .showreel__som,
+  .btn__texto,
+  .btn__contagem,
+  .disco__tipo,
+  .ato-panel__num{ font-size: .82rem; letter-spacing: .24em; }
+
+  .abertura__titulo{ font-size: clamp(3.4rem, 15.5vw, 5rem); }
+  .cena__titulo{ font-size: clamp(2rem, 9vw, 2.8rem); }
+  .programa__titulo{ font-size: clamp(1.8rem, 8vw, 2.5rem); }
+  .destaque__titulo{ font-size: clamp(2.4rem, 10.6vw, 3.2rem); }
+  .destaque__papel{ font-size: 1.12rem; }
+  .palco__obra{ font-size: 1.18rem; }
+  .filme__marca{ font-size: 1.18rem; }
+  .disco__nome{ font-size: clamp(1.5rem, 7vw, 2rem); }
+  .passagem__nome{ font-size: 1.25rem; }
+  .passagem__link--proximo .passagem__nome{ font-size: clamp(1.7rem, 7.6vw, 2.2rem); }
+
+  /* --- as fotos dos atos com cor ------------------------------------
+     Estavam em brightness .62 e saturate .72, mais o véu por cima.
+     No escritório, com a tela cheia, o escuro é atmosfera; no celular,
+     na rua, vira borrão. Sobe o brilho e devolve quase toda a cor —
+     o véu continua segurando o contraste da legenda. */
+  .ato-panel__figure img{
+    filter: contrast(1.02) saturate(.96) brightness(.84) hue-rotate(2deg);
+  }
+
+  /* --- as setas no meio da faixa clara ------------------------------
+     A faixa abre com 35px de respiro e as setas ficavam a 16px das
+     fotos: encostadas embaixo. Com a mesma medida dos dois lados elas
+     ficam no meio do branco, que é onde o olho as procura. */
+  .vitrine__topo{ margin-bottom: 2.2rem; }
 }
