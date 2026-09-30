@@ -227,8 +227,13 @@
   display: block;
   margin-bottom: .8em;
   font-family: var(--font-sans);
-  font-size: clamp(.54rem, .64vw, .66rem);
+  font-size: clamp(.54rem, .66vw, .66rem);
   letter-spacing: .3em;
+  /* Este rótulo só guardava ano, e número não tem caixa — a falta do
+     uppercase passou despercebida até o Ato III pôr palavra aqui
+     ("Carnaval", "Personalidades") e ela destoar de todo eyebrow do
+     site. */
+  text-transform: uppercase;
   color: #E3B879;
 }
 
