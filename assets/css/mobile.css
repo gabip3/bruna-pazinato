@@ -46,6 +46,8 @@
   .filme__ano,
   .palco__ano,
   .palco__papel,
+  .disco__tipo,
+  .disco__faixas,
   .faixa__nota,
   .vitrine__nota,
   .showreel__som,
@@ -81,7 +83,8 @@
     min-height: 48px;
   }
 
-  .rodape__redes a{
+  .rodape__redes a,
+  .disco__onde a{
     width: 44px;
     height: 44px;
   }

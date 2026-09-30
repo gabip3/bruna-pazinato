@@ -1,0 +1,145 @@
+/* =============================================================
+   BRUNA PAZINATO
+   discos.css — os dois EPs, no fim do Ato I
+
+   A página inteira era clipe. Mas quase todo clipe que está aqui
+   saiu de um destes dois discos: Alucinação, Imaginei Você,
+   Afrodisíaca e Tato são o EP Afrodisíaca; Não Pira, Ligada em
+   Você, Jazz Sacanagem e Bem-Vinda a Minha Cama são o Dopamina.
+   Faltava dizer isso, e faltava dizer onde se escuta.
+
+   Sem datas: foi decisão dela. O que o painel carrega é o nome,
+   o número de faixas e os ícones das plataformas — a mesma
+   família de desenho do menu e do rodapé, 21px num alvo de 34.
+   ============================================================= */
+
+.discos{
+  position: relative;
+  padding: clamp(1.4rem, 4vh, 3.4rem) var(--gutter) clamp(2.4rem, 7vh, 5.5rem);
+  background: var(--ink);
+}
+
+/* Dois quadrados de 1:1 ocupando a página inteira viram cartaz de
+   loja. A medida segura os dois num tamanho de capa de disco. */
+.discos__lista{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 4vw, 3.6rem);
+  max-width: 780px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.disco__capa{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--charcoal);
+}
+
+/* A capa chega mais apagada e acende no cursor, como o still do
+   clipe logo acima — é a mesma gramática da página. */
+.disco__capa img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.02) saturate(.88) brightness(.86);
+  transform: scale(1.03);
+  transition: filter .7s var(--ease-soft), transform 1.1s var(--ease);
+}
+
+.disco__capa:hover img,
+.disco__capa:focus-visible img{
+  filter: none;
+  transform: scale(1);
+}
+
+.disco__texto{
+  margin-top: clamp(.8rem, 2vh, 1.2rem);
+}
+
+.disco__tipo{
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, .64vw, .66rem);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.disco__nome{
+  margin: .7em 0 0;
+  font-family: var(--font-display);
+  font-optical-sizing: none;
+  font-variation-settings: var(--display-axes);
+  font-size: clamp(1.15rem, 2.2vw, 2rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.disco__faixas{
+  margin: .8em 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(.5rem, .6vw, .62rem);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--paper-45);
+}
+
+/* --- onde se escuta -----------------------------------------------
+   Mesma medida do menu e do rodapé: ícone de 21 num alvo de 34.
+   Um só desenho de ícone no site inteiro. */
+
+.disco__onde{
+  display: flex;
+  gap: clamp(.2rem, .8vw, .5rem);
+  margin: clamp(.5rem, 1.4vh, .9rem) 0 0;
+  margin-left: -7px;          /* o alvo tem folga: alinha o desenho à margem */
+  padding: 0;
+  list-style: none;
+}
+
+.disco__onde a{
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--paper-45);
+  transition: color .4s linear, transform .5s var(--ease);
+}
+
+.disco__onde svg{
+  width: 21px;
+  height: 21px;
+}
+
+.disco__onde a:hover,
+.disco__onde a:focus-visible{
+  color: var(--coral);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVO
+   Dois por linha continua cabendo no celular: capa de disco é
+   pequena por natureza, e empilhar deixaria a página longa à toa.
+   ------------------------------------------------------------- */
+
+@media (max-width: 560px){
+
+  .discos__lista{ gap: clamp(1rem, 4vw, 1.6rem); }
+
+  /* no celular o mobile.css abre o alvo para 44px. A folga em volta
+     do desenho cresce junto, e o recuo tem de crescer com ela: são
+     (44 - 21) / 2 de cada lado. Sem isto os ícones entram sete
+     pixels para dentro da margem da capa. */
+  .disco__onde{
+    gap: 0;
+    margin-left: -11.5px;
+  }
+}
