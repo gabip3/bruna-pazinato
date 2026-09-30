@@ -4,9 +4,6 @@ Fotos/
 Videos/
 *.zip
 *.docx
-/BP_*.jpg
-/BP_*.JPG
-/BP_*.PNG
 
 # Notas de trabalho. O GitHub Pages serve tudo o que está no repositório,
 # inclusive .md por URL direta, então o que é interno fica de fora.
@@ -23,9 +20,23 @@ desktop.ini
 # Pagina local de comparacao de fontes. Nao vai para o ar.
 tipos.html
 
-# Fotos que chegam soltas na raiz, direto do WhatsApp ou do Drive.
-# Entraram no site por engano uma vez (37bb900). O lugar delas e
-# Fotos/espetaculos/<montagem>/, e a copia tratada vai para assets/img/.
-/WhatsApp*
-/IMG-*.jpg
-/IMG-*.jpeg
+# ---------------------------------------------------------------------
+# IMAGEM SOLTA NA RAIZ NUNCA FAZ PARTE DO SITE.
+#
+# Tudo o que o site usa mora em assets/img/. A raiz e a caixa de entrada:
+# e onde o Gabi larga o material que chega do WhatsApp e do Drive. E a
+# raiz do projeto e tambem a raiz do site publicado.
+#
+# Ja aconteceu duas vezes de um "git add -A" levar esse material para o
+# ar: as 14 fotos do Piaf em 37bb900, com nome "WhatsApp Image 2026-09-29
+# at 21.27.24 (3).jpeg", e depois piaf001/002 em a4112e1. Nas duas eu
+# tinha escrito uma regra para o padrao do NOME. O nome sempre muda.
+# O lugar nao — por isso a regra agora e o lugar.
+/*.jpg
+/*.JPG
+/*.jpeg
+/*.JPEG
+/*.png
+/*.PNG
+/*.webp
+/*.heic
