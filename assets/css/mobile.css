@@ -47,12 +47,15 @@
   .palco__ano,
   .palco__papel,
   .disco__tipo,
-  .disco__faixas,
   .faixa__nota,
   .vitrine__nota,
   .showreel__som,
   .btn__texto,
   .btn__contagem{ font-size: .7rem; letter-spacing: .2em; }
+
+  /* lista de faixas dos EPs: e nome de musica, nao rotulo. Sobe para
+     o piso de 11.2px mas mantem a entreletra de texto corrido. */
+  .disco__faixas{ font-size: .7rem; letter-spacing: .04em; }
 
   /* o que é assinatura miúda: crédito, direitos, fonte da citação */
   .destaque__credito,

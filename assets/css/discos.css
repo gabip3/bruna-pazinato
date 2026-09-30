@@ -8,9 +8,20 @@
    Você, Jazz Sacanagem e Bem-Vinda a Minha Cama são o Dopamina.
    Faltava dizer isso, e faltava dizer onde se escuta.
 
-   Sem datas: foi decisão dela. O que o painel carrega é o nome,
-   o número de faixas e os ícones das plataformas — a mesma
-   família de desenho do menu e do rodapé, 21px num alvo de 34.
+   Sem datas: foi decisão dela.
+
+   A PRIMEIRA VERSÃO ERAM DUAS CAPAS LADO A LADO, presas a 780px.
+   Numa tela de 1440 os clipes acima têm 1298 de largura e o bloco
+   parava em 780: sobravam 597px de preto à direita, e a seção era
+   a única da página que não chegava na margem. Sangrar as duas
+   capas para a página inteira dava 620px cada uma, do lado de
+   miniaturas de clipe com 190 — outra escala, outro site. Pôr uma
+   capa em cada margem deixava 594px de buraco no meio.
+
+   O que resolve é a anatomia do clipe logo acima: uma linha por
+   disco, capa à esquerda, o resto à direita. Aí a lista de faixas
+   deixa de ser enfeite e vira o que ocupa a coluna — e é ela que
+   mostra o que não virou clipe, como os dois acústicos do Dopamina.
    ============================================================= */
 
 .discos{
@@ -19,16 +30,25 @@
   background: var(--ink);
 }
 
-/* Dois quadrados de 1:1 ocupando a página inteira viram cartaz de
-   loja. A medida segura os dois num tamanho de capa de disco. */
 .discos__lista{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.4rem, 4vw, 3.6rem);
-  max-width: 780px;
+  gap: clamp(1.8rem, 5vh, 3.4rem);
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* Uma linha por disco, de margem a margem, com as mesmas três partes
+   do clipe logo acima: quadro, texto, e uma marca encostada na margem
+   direita. Lá é o triângulo do play; aqui são os ícones das
+   plataformas. É o que faz a linha terminar, em vez de parar no meio.
+
+   A capa não passa de 300px: é tamanho de bolacha, não de cartaz. */
+.disco{
+  display: grid;
+  grid-template-columns: clamp(190px, 22vw, 300px) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1.4rem, 3vw, 2.8rem);
 }
 
 .disco__capa{
@@ -56,10 +76,6 @@
   transform: scale(1);
 }
 
-.disco__texto{
-  margin-top: clamp(.8rem, 2vh, 1.2rem);
-}
-
 .disco__tipo{
   margin: 0;
   font-family: var(--font-sans);
@@ -74,7 +90,7 @@
   font-family: var(--font-display);
   font-optical-sizing: none;
   font-variation-settings: var(--display-axes);
-  font-size: clamp(1.15rem, 2.2vw, 2rem);
+  font-size: clamp(1.3rem, 2.6vw, 2.4rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -.012em;
@@ -82,13 +98,36 @@
   color: var(--paper);
 }
 
+/* --- as faixas ----------------------------------------------------
+   Uma coluna: lista de disco se lê para baixo. Em duas colunas as
+   seis faixas do Dopamina viravam um bloco baixo e largo, e títulos
+   como "Ligada em Você (Acústico)" quebravam no meio.
+
+   Medido: em coluna única o bloco de texto dá 241px contra os 300
+   da capa ao lado. Encaixa com folga. */
+
 .disco__faixas{
-  margin: .8em 0 0;
+  margin: clamp(.9rem, 2vh, 1.3rem) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 46ch;
   font-family: var(--font-sans);
-  font-size: clamp(.5rem, .6vw, .62rem);
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--paper-45);
+  font-size: clamp(.68rem, .82vw, .82rem);
+  font-weight: 300;
+  letter-spacing: .04em;
+  line-height: 2;
+  color: var(--paper-70);
+}
+
+.disco__faixas li{
+  break-inside: avoid;
+}
+
+/* o número da faixa, apagado: é índice, não informação */
+.disco__faixas i{
+  font-style: normal;
+  margin-right: .95em;
+  color: var(--paper-26);
 }
 
 /* --- onde se escuta -----------------------------------------------
@@ -98,8 +137,11 @@
 .disco__onde{
   display: flex;
   gap: clamp(.2rem, .8vw, .5rem);
-  margin: clamp(.5rem, 1.4vh, .9rem) 0 0;
-  margin-left: -7px;          /* o alvo tem folga: alinha o desenho à margem */
+  justify-self: end;          /* na margem, como o triângulo do clipe */
+  margin: 0;
+  /* o desenho fica no centro de um alvo de 34: sem recuo, a borda
+     dele cai onde cai o triângulo do clipe, a 84px da margem */
+  margin-right: 0;
   padding: 0;
   list-style: none;
 }
@@ -126,20 +168,34 @@
 
 /* -------------------------------------------------------------
    RESPONSIVO
-   Dois por linha continua cabendo no celular: capa de disco é
-   pequena por natureza, e empilhar deixaria a página longa à toa.
    ------------------------------------------------------------- */
 
-@media (max-width: 560px){
+/* Celular: a capa sobe para cima do texto. Ao lado dele ela teria
+   130px, menor que a miniatura do clipe. */
+@media (max-width: 620px){
 
-  .discos__lista{ gap: clamp(1rem, 4vw, 1.6rem); }
+  .disco{
+    grid-template-columns: 1fr;
+    gap: clamp(.9rem, 2.4vh, 1.3rem);
+  }
 
-  /* no celular o mobile.css abre o alvo para 44px. A folga em volta
-     do desenho cresce junto, e o recuo tem de crescer com ela: são
-     (44 - 21) / 2 de cada lado. Sem isto os ícones entram sete
-     pixels para dentro da margem da capa. */
+  /* a capa inteira na largura da página vira cartaz;
+     260px é capa de disco na mão */
+  .disco__capa{
+    max-width: 260px;
+  }
+
+  /* Numa coluna só não há margem direita para encostar: os ícones
+     voltam para baixo do texto, alinhados à esquerda como tudo.
+
+     E o mobile.css abre o alvo para 44px. A folga em volta do desenho
+     cresce junto, e o recuo tem de crescer com ela: são (44 - 21) / 2
+     de cada lado. Sem isto os ícones entram sete pixels para dentro
+     da margem da capa. */
   .disco__onde{
     gap: 0;
+    justify-self: start;
+    margin: .3rem 0 0;
     margin-left: -11.5px;
   }
 }
