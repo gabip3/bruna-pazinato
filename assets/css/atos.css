@@ -61,12 +61,25 @@
 
 /* --- legenda ------------------------------------------------------ */
 
+/* Centralizado, e é a única coisa centralizada do site.
+
+   Em todo o resto o texto encosta na sarjeta — os clipes, os destaques,
+   a bio, os EPs. Mas isto aqui não é conteúdo numa grade: é o título
+   dentro de uma imagem que sangra. Depois que o painel ganhou a forma
+   da foto no celular, os três viraram cartazes verticais, e cartaz de
+   ato tem o nome no meio. É o programa de teatro que o site diz ser.
+
+   A abertura de cada ato continua alinhada à esquerda, e continua de
+   propósito: lá o título divide a faixa com a fotografia, que ocupa a
+   direita a partir de --foto-borda. Centralizar meteria a palavra
+   debaixo da foto. */
 .ato-panel__caption{
   position: absolute;
   left: clamp(1.1rem, 2.2vw, 2.4rem);
   right: clamp(1.1rem, 2.2vw, 2.4rem);
   bottom: clamp(1.9rem, 3.4vh, 2.8rem);
   display: block;
+  text-align: center;
 }
 
 .ato-panel__num{
@@ -85,8 +98,12 @@
   width: clamp(20px, 2.4vw, 34px);
   height: 1px;
   margin-top: .85em;
+  margin-left: auto;
+  margin-right: auto;
   background: var(--coral);
-  transform-origin: left center;
+  /* o fio cresce para os dois lados junto com o texto centralizado;
+     preso à esquerda, ele escorregava para fora do eixo no hover */
+  transform-origin: center;
   transform: scaleX(1);
   transition: transform .7s var(--ease);
 }
