@@ -22,3 +22,10 @@ desktop.ini
 
 # Pagina local de comparacao de fontes. Nao vai para o ar.
 tipos.html
+
+# Fotos que chegam soltas na raiz, direto do WhatsApp ou do Drive.
+# Entraram no site por engano uma vez (37bb900). O lugar delas e
+# Fotos/espetaculos/<montagem>/, e a copia tratada vai para assets/img/.
+/WhatsApp*
+/IMG-*.jpg
+/IMG-*.jpeg
