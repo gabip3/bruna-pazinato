@@ -1,7 +1,20 @@
-# O site ainda está em aprovação. Enquanto não for para o domínio dela,
-# fica fora dos buscadores: o endereço do GitHub Pages é público, e sem
-# isto o Google poderia indexar a versão de rascunho.
-# Quando publicar de verdade, é só apagar a linha Disallow.
+# O site foi aprovado pela Bruna em 30/9/2026 e saiu do rascunho.
+# Até aqui este arquivo trazia "Disallow: /" — com o site em aprovação,
+# o endereço do GitHub Pages é público e sem o bloqueio o Google teria
+# indexado a versão de rascunho.
+#
+# Se um dia ele mudar para o domínio próprio dela, o GitHub Pages passa
+# a redirecionar este endereço para lá sozinho, então o que for indexado
+# agora não se perde.
 
 User-agent: *
-Disallow: /
+Allow: /
+
+# /gambetta/ é uma CÓPIA INTEIRA do site, feita só para mostrar a letra
+# nova para a Bruna. Liberada junto com o resto, ela viraria conteúdo
+# duplicado: seis páginas iguais concorrendo com as de verdade. Fica de
+# fora aqui e leva noindex em cada página, que é o que o Google obedece
+# mesmo quando chega por link.
+Disallow: /gambetta/
+
+Sitemap: https://gabip3.github.io/bruna-pazinato/sitemap.xml

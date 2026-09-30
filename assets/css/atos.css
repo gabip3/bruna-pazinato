@@ -114,6 +114,7 @@
    hospedado em assets/fonts e declarado no base.css; o resto do site
    segue na Young Serif. Não espalhar sem ela ver. */
 .ato-panel__name{
+  margin: 0;              /* virou h2: zera a margem que o navegador dá */
   display: block;
   font-family: "Gambetta", "Iowan Old Style", Georgia, "Times New Roman", serif;
   font-optical-sizing: none;
