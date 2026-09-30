@@ -446,7 +446,14 @@
 
      No desktop fica: lá o menu não toma a tela inteira do mesmo jeito
      e a marca continua sendo o caminho de volta para o início. */
-  .menu-open .brand{
+  /* SEMPRE, não só com o menu aberto. O nome miúdo ficava fixo por
+     cima da fotografia o tempo todo, e num telefone ele é a única
+     coisa que compete com a imagem numa tela que já é pequena.
+
+     visibility em vez de display: a caixa dele continua ocupando o
+     lugar, então o MENU não escorrega para a esquerda — o cabeçalho é
+     um space-between de dois filhos, e sumir um moveria o outro. */
+  .brand{
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
