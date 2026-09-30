@@ -386,8 +386,42 @@
      na rua, vira borrão. Sobe o brilho e devolve quase toda a cor —
      o véu continua segurando o contraste da legenda. */
   .ato-panel__figure img{
-    filter: contrast(1.02) saturate(.96) brightness(.84) hue-rotate(2deg);
+    filter: contrast(1) saturate(1.12) brightness(.98);
   }
+
+  /* MAIS COR E MAIS LEGÍVEL SÃO PEDIDOS QUE BRIGAM.
+
+     Enquanto o rótulo dependia do véu, clarear a foto o apagava — e o
+     "ATO I" é coral miúdo, o primeiro a sumir. A saída é separar as
+     duas coisas: a fotografia fica clara, e o texto passa a carregar
+     o próprio escuro.
+
+     O véu deixa de escurecer a foto toda e vira uma sombra baixa e
+     larga atrás da legenda, onde ela está — 26% do pé. Fora dali a
+     imagem aparece inteira. */
+  .ato-panel__veil{
+    background:
+      linear-gradient(to top, rgba(11,11,12,.7) 0%, rgba(11,11,12,.3) 16%, rgba(11,11,12,0) 48%),
+      /* Medido: a legenda ocupa de 58% a 74% da altura do painel, com
+         centro em 66%. A sombra vai exatamente ali — a primeira
+         tentativa estava em 76%, abaixo dela, e por isso o "ATO I"
+         continuava sobre foto crua. */
+      radial-gradient(96% 34% at 50% 66%, rgba(11,11,12,.74), rgba(11,11,12,0) 74%);
+  }
+
+  /* E a sombra no próprio tipo, que é o que garante a leitura mesmo
+     se a foto tiver uma área clara justo atrás da palavra. */
+  .ato-panel__num,
+  .ato-panel__name{
+    text-shadow: 0 1px 14px rgba(11,11,12,.85), 0 1px 3px rgba(11,11,12,.7);
+  }
+
+  /* O olho é coral sobre foto, e na Música a foto é vermelha justo
+     atrás dele: mesma família de cor, contraste baixo por natureza.
+     Meio ponto de peso resolve sem trocar a cor, que é assinatura. */
+  .ato-panel__num{ font-weight: 500; }
+
+  .ato-panel__num::after{ box-shadow: 0 1px 6px rgba(11,11,12,.7); }
 
   /* --- as setas no meio da faixa clara ------------------------------
      A faixa abre com 35px de respiro e as setas ficavam a 16px das
