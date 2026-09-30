@@ -250,6 +250,17 @@
     gap: clamp(1.2rem, 3vh, 2rem);
   }
 
-  .destaque__figura{ aspect-ratio: 3 / 2; max-height: 44svh; }
-  .destaque__figura img{ object-position: 50% 20%; }
+  /* EM PÉ, COMO A FOTO.
+
+     Estava em 3/2 — deitada — para os destaques não empurrarem a
+     página quando viraram coluna única. Mas as três fotos são 4:5
+     (854x1066 o Piaf, 1200x1500 a Gal e a Clara Nunes), e um corte
+     3/2 delas joga fora metade da imagem: num aparelho de 375 dava
+     335x223, e o que sobrava era uma tira.
+
+     Em 4/5 a foto aparece inteira, 335x419. A página fica mais longa,
+     e é o preço certo: são as três montagens que ela escolheu pôr em
+     destaque. */
+  .destaque__figura{ aspect-ratio: 4 / 5; max-height: none; }
+  .destaque__figura img{ object-position: 50% 22%; }
 }
