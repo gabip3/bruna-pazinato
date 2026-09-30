@@ -464,3 +464,42 @@
   justify-content: center;
   text-align: center;
 }
+
+/* =============================================================
+   CAIXA EM VEZ DE LINHA
+
+   O campo era um fio embaixo do texto — bonito no preto, onde o site
+   inteiro é fio e vazio. No papel ele perdeu a função: sobre fundo
+   claro, uma linha solta não diz onde começa nem onde termina a área
+   de escrever, e num celular a pessoa não sabe onde tocar.
+
+   Retângulo de canto reto, como todo o resto do site — nenhum raio de
+   borda em lugar nenhum daqui. O preenchimento é quase branco sobre o
+   papel: separa o campo do fundo sem virar um bloco.
+   ============================================================= */
+
+.campo__valor{
+  padding: .72em .9em;
+  border: 1px solid rgba(11, 11, 12, .2);
+  background: rgba(255, 255, 255, .58);
+  transition: border-color .35s var(--ease), background-color .35s var(--ease);
+}
+
+.campo__valor:focus{
+  border-color: var(--coral);
+  background: #fff;
+}
+
+.campo__valor--area{
+  min-height: 8em;
+  padding-top: .85em;
+}
+
+/* o preenchimento automático tem de respeitar a caixa, não o preto */
+.campo__valor:-webkit-autofill,
+.campo__valor:-webkit-autofill:hover,
+.campo__valor:-webkit-autofill:focus{
+  -webkit-text-fill-color: var(--ink);
+  -webkit-box-shadow: inset 0 0 0 1000px #fff;
+  caret-color: var(--ink);
+}
