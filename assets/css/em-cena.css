@@ -162,6 +162,12 @@
 }
 
 .destaque__critica p{
+  /* A medida vai no <p>, que é quem tem o corpo grande: ch se mede na
+     fonte do próprio elemento. Sem ela a citação corria a coluna
+     inteira numa linha só, esticada até onde desse. 44ch dá duas
+     linhas nas duas citações do site — a da Lúcia Veríssimo, que é
+     longa, e a da Tania Brandão, que é curta. */
+  max-width: 44ch;
   font-family: var(--font-display);
   font-optical-sizing: none;
   font-variation-settings: var(--display-axes);
