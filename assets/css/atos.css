@@ -150,8 +150,32 @@
     grid-template-columns: 1fr;
   }
 
-  /* três painéis baixos: os três cabem quase numa tela só */
-  .ato-panel__link{ height: clamp(230px, 30svh, 330px); }
+  /* O painel tem a forma da foto, e não uma altura arbitrária.
+
+     Antes eram 230 a 330px de altura numa largura de 375: uma faixa
+     deitada por cima de uma foto em pé. Medido num iPhone de 375x812,
+     aparecia 46% DA ALTURA DA FOTO — a artista cortada na cintura, para
+     os três painéis caberem quase numa tela só. Economia errada: o
+     painel é a foto.
+
+     As três fotos são 5:7 exatos (1000x1400 as duas primeiras, 900x1260
+     a terceira), então 5/7 mostra as três inteiras, sem corte nenhum.
+     No mesmo aparelho o painel passa a 375x525.
+
+     O teto existe para a borda do intervalo: a 760px de largura, 5:7
+     daria 1064px de altura, mais alto que a tela. Aí ele volta a cortar,
+     que é o comportamento certo nessa largura. */
+  .ato-panel__link{
+    /* A largura explícita não é redundante: sem ela, quando o teto de
+       altura entra em ação o navegador honra a proporção ENCOLHENDO A
+       LARGURA. A 760px o painel virava 446px com 314 de vazio ao lado.
+       Com width: 100% a proporção é que cede, e o corte volta — que é
+       o que se quer quando não cabe. */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 7;
+    max-height: 78svh;
+  }
 
   .ato-panel__figure img{ object-position: 50% 24%; }
 
