@@ -34,8 +34,8 @@
 <link rel="stylesheet" href="../assets/css/player.css?v=202609291600">
 
 <!-- por ultimo: levanta o piso da micro-tipografia e a area de toque -->
-<link rel="stylesheet" href="../assets/css/mobile.css?v=202609292100">
-<link rel="stylesheet" href="fonte.css?v=202609292100">
+<link rel="stylesheet" href="../assets/css/mobile.css?v=202609300900">
+<link rel="stylesheet" href="fonte.css?v=202609300900">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -132,25 +132,29 @@
 
       <article class="destaque" data-reveal style="--i:0">
         <figure class="destaque__figura">
-          <img src="../assets/img/cena-piaf.jpg" alt="Bruna Pazinato como Marlene Dietrich em Piaf" width="397" height="496" decoding="async">
+          <img src="../assets/img/cena-piaf.jpg?v=202609300900" alt="Bruna Pazinato como Marlene Dietrich em Piaf" width="1200" height="1500" decoding="async">
+          <a class="abre-galeria" href="../assets/img/galeria/piaf/piaf-01.jpg" data-galeria="piaf" aria-label="Abrir galeria de Piaf, Eu Não Me Arrependo"></a>
         </figure>
         <div class="destaque__texto">
           <p class="destaque__meta">2026</p>
           <h3 class="destaque__titulo">Piaf<span class="destaque__sub">Eu não me arrependo</span></h3>
           <p class="destaque__papel"><span>Interpreta</span> Marlene Dietrich</p>
+          <a class="btn" href="../assets/img/galeria/piaf/piaf-01.jpg" data-galeria="piaf">
+            <span class="btn__texto">Ver galeria</span>
+          </a>
         </div>
       </article>
 
       <article class="destaque" data-reveal style="--i:1">
         <figure class="destaque__figura">
-          <img src="../assets/img/cena-gal.jpg?v=202609292100" alt="Bruna Pazinato como Lúcia Veríssimo em Gal, o musical" width="1200" height="1500" decoding="async">
+          <img src="../assets/img/cena-gal.jpg?v=202609300900" alt="Bruna Pazinato como Lúcia Veríssimo em Gal, o musical" width="1200" height="1500" decoding="async">
           <figcaption class="destaque__credito">Foto de Edgar Machado</figcaption>
           <a class="abre-galeria" href="../assets/img/galeria/gal/gal-01.jpg" data-galeria="gal" aria-label="Abrir galeria de Gal, o musical"></a>
         </figure>
         <div class="destaque__texto">
           <p class="destaque__meta">2026</p>
           <h3 class="destaque__titulo">Gal<span class="destaque__sub">O musical</span></h3>
-          <p class="destaque__papel"><span>Interpreta</span> Lúcia Veríssimo · cover de Maria Bethânia</p>
+          <p class="destaque__papel"><span>Interpreta</span> Lúcia Veríssimo</p>
           <blockquote class="destaque__critica">
             <p>“Ela defende muito bem a personagem. Uma figura linda, forte, cantando lindamente também.”</p>
             <cite>Lúcia Veríssimo, sobre ser interpretada por ela</cite>
@@ -740,6 +744,21 @@
       "../assets/img/galeria/cassia-eller/cassia-eller-02.jpg",
       "../assets/img/galeria/cassia-eller/cassia-eller-03.jpg",
       "../assets/img/galeria/cassia-eller/cassia-eller-06.jpg"
+    ]
+  }
+  </script>
+
+
+  <script type="application/json" class="galeria-dados" data-galeria="piaf">
+  {
+    "titulo": "Piaf",
+    "sub": "Eu não me arrependo",
+    "ano": "2026",
+    "credito": "",
+    "fotos": [
+      "../assets/img/galeria/piaf/piaf-01.jpg",
+      "../assets/img/galeria/piaf/piaf-02.jpg",
+      "../assets/img/galeria/piaf/piaf-03.jpg"
     ]
   }
   </script>
