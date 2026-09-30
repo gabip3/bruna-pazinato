@@ -87,7 +87,8 @@
   }
 
   .rodape__redes a,
-  .disco__onde a{
+  .disco__onde a,
+  .redes-fixas a{
     width: 44px;
     height: 44px;
   }
