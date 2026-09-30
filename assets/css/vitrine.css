@@ -281,7 +281,15 @@
 /* --- sem cursor: os painéis não expandem, só rolam ------------------ */
 
 @media (hover: none){
-  .vitrine{ --palco-largura: clamp(200px, 62vw, 300px); --palco-aberto: clamp(200px, 62vw, 300px); }
+  /* :not() porque a fileira da TV mostra UM cartao por vez, com
+     --palco-largura: 100% da pista. Sem a excecao, esta regra vencia
+     aquela (mesma especificidade, vem depois) e o cartao passava a
+     232px dentro de uma pista de 208: vazava em todo aparelho de
+     toque. Era assim desde que a fileira miuda foi feita. */
+  .vitrine:not(.vitrine--miuda){
+    --palco-largura: clamp(200px, 62vw, 300px);
+    --palco-aberto:  clamp(200px, 62vw, 300px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce){

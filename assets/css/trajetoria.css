@@ -198,3 +198,82 @@
 
 
 }
+
+/* =============================================================
+   TUDO NO EIXO — 30/9/2026
+
+   "Centraliza tudo em trajetória." É a única página do site que não
+   é ato: não tem vitrine, não tem galeria, não tem fileira que anda.
+   É um texto sobre uma pessoa, com um retrato e uma crítica. Centrada
+   ela vira página de programa impresso, que é o que ela sempre quis
+   ser — e agora que a abertura ganhou fotografia, o título no eixo
+   sobre a foto fecha o gesto.
+
+   Vale nas duas larguras, diferente do resto do site.
+   ============================================================= */
+
+.abertura--cheia{ text-align: center; }
+.abertura--cheia .abertura__num::after{ margin-inline: auto; }
+
+.folha.claro{ text-align: center; }
+
+/* Coluna única. As duas colunas (retrato à esquerda, texto à direita)
+   eram o que sobrava do resto do site; aqui elas deixavam o retrato a
+   404px do eixo e o texto a 288 do outro lado — centrado dentro da
+   própria coluna, que não é o mesmo que centrado na página.
+
+   O retrato ganha teto: em coluna única, sem ele, um 4:5 abriria mais
+   de 800px de altura no desktop. */
+.arco{
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: clamp(1.8rem, 5vh, 3.4rem);
+}
+
+.arco__retrato{
+  width: min(100%, 380px);
+  margin-inline: auto;
+}
+
+.arco__texto{ max-width: 62ch; }
+.arco__texto{ text-align: center; }
+.arco__frase{ margin-inline: auto; }
+.arco__corpo p{ margin-inline: auto; }
+.rotulo::after{ margin-inline: auto; }
+
+.critica{
+  text-align: center;
+  border-left: 0;                 /* o fio à esquerda só faz sentido
+                                     em texto alinhado à esquerda */
+  padding-left: 0;
+}
+
+.critica p{ margin-inline: auto; }
+
+/* O fio vira um traço curto acima da citação, no eixo — o mesmo
+   gesto do fio embaixo do "ATO I" nos painéis. */
+.critica::before{
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  margin: 0 auto clamp(1.2rem, 3vh, 2rem);
+  background: var(--coral);
+}
+
+/* "sobre Clara Nunes" desce uma linha, como o Gabi pediu: o nome do
+   espetáculo é outra informação que o nome de quem escreveu. */
+.critica__obra{
+  display: block;
+  margin-top: .5em;
+}
+
+/* O véu dos outros atos escurece o pé e a esquerda, porque lá o título
+   fica à esquerda e a foto à direita. Aqui a foto ocupa a faixa inteira
+   e o título está no meio dela, então o escuro tem de estar no meio
+   também — senão "A ARTISTA", que é coral e miúdo, some na pele dela. */
+.abertura--cheia .abertura__veu{
+  background:
+    linear-gradient(to top, var(--ink) 0%, rgba(11,11,12,.15) 46%, rgba(11,11,12,.55) 100%),
+    radial-gradient(120% 52% at 50% 62%, rgba(11,11,12,.72), rgba(11,11,12,0) 70%);
+}

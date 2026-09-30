@@ -357,3 +357,100 @@
   opacity: .45;
   cursor: default;
 }
+
+/* =============================================================
+   O RECADO EM PAPEL, E A PÁGINA NO EIXO
+
+   Pedido do Gabi em 30/9/2026: "quero o formulário com fundo branco,
+   tá muito dark aí, aumenta também os campos, nem dá pra ver DRT nem
+   nada de tão dark que tá".
+
+   Ele tem razão sobre a leitura: o rodapé do formulário estava em
+   paper-26 sobre preto, que é 2.2:1 de contraste — abaixo de qualquer
+   mínimo. O registro profissional dela era a linha menos legível da
+   página, e é justamente a que um contratante procura.
+
+   A virada é a mesma do "programa" na Trajetória: quando o assunto
+   deixa de ser o palco e passa a ser papel — ficha, registro, recado
+   — o fundo vira papel. O bloco inteiro inverte, não só o campo, senão
+   sobraria uma caixa branca boiando no preto.
+
+   Tudo centralizado, como o resto da página.
+   ============================================================= */
+
+/* O RECADO fica centrado nas duas larguras: e um bloco de página
+   inteira, sem nada ao lado para disputar.
+
+   O CABECALHO nao. No desktop ele divide a faixa com a fotografia, que
+   ocupa a direita — centralizado, "CONVERSAR." encostava na foto.
+   La ele so se centra quando a foto desce para baixo do texto. */
+.recado{ text-align: center; }
+
+@media (max-width: 860px){
+  .contato{ text-align: center; }
+  .contato__retrato{ margin-inline: auto; }
+}
+
+.recado{
+  background: var(--paper);
+  border-top-color: rgba(11, 11, 12, .14);
+  /* a cor base do bloco inverte junto: sem isto, qualquer texto que
+     eu nao tenha recolorido a mao fica papel sobre papel, invisivel */
+  color: var(--ink);
+}
+
+.recado__form{
+  margin-inline: auto;
+  justify-items: center;
+}
+
+/* o campo ocupa a coluna toda e o texto dentro dele fica no eixo */
+.campo{ width: 100%; text-align: center; }
+
+.campo__rotulo{
+  font-size: clamp(.6rem, .7vw, .72rem);
+  color: rgba(11, 11, 12, .5);
+}
+
+/* maiores: o corpo sobe de ~14px para ~18px e a linha ganha ar. O
+   16px mínimo continua valendo — abaixo disso o iOS dá zoom ao focar. */
+.campo__valor{
+  padding: .2em 0 .7em;
+  border-bottom-color: rgba(11, 11, 12, .26);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  text-align: center;
+  color: var(--ink);
+}
+
+.campo__valor--area{ min-height: 7.5em; }
+
+.campo__valor::placeholder{ color: rgba(11, 11, 12, .32); }
+
+.campo__valor:focus{ border-bottom-color: var(--coral); }
+
+.campo__valor:-webkit-autofill,
+.campo__valor:-webkit-autofill:hover,
+.campo__valor:-webkit-autofill:focus{
+  -webkit-text-fill-color: var(--ink);
+  -webkit-box-shadow: inset 0 0 0 1000px var(--paper);
+  caret-color: var(--ink);
+}
+
+.recado__enviar{
+  justify-self: center;
+  color: var(--ink);
+}
+
+.recado__enviar::before{ background: rgba(11, 11, 12, .26); }
+.recado__enviar::after{ background: var(--ink); }
+
+/* Era paper-26 sobre preto: 2.2:1. Agora é quase preto sobre papel,
+   que passa de 12:1. A linha do DRT e da OMB se lê. */
+.recado__pe{ color: rgba(11, 11, 12, .62); }
+.recado__pe a{ color: var(--ink); }
+.recado__pe a:hover,
+.recado__pe a:focus-visible{ color: var(--coral); }
+.recado__registro{ color: rgba(11, 11, 12, .45); }
+
+.recado__obrigado{ color: var(--ink); }
+.recado__aviso{ color: rgba(11, 11, 12, .62); }

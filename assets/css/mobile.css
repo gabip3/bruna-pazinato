@@ -87,8 +87,7 @@
   }
 
   .rodape__redes a,
-  .disco__onde a,
-  .redes-fixas a{
+  .disco__onde a{
     width: 44px;
     height: 44px;
   }
@@ -173,4 +172,157 @@
   .programa__coluna + .programa__coluna{ margin-top: 2rem; }
 
   .passagem{ padding-top: 2rem; padding-bottom: 2rem; }
+}
+
+/* =============================================================
+   SEGUNDA PASSADA NO CELULAR — 30/9/2026
+
+   A primeira passada consertou o que estava ilegível: piso de corpo,
+   alvo de toque, rolagem horizontal. Esta é sobre escala e eixo: o
+   Gabi viu o site no telefone e o que incomodou foi tudo pequeno
+   demais e tudo encostado na esquerda.
+
+   Vale para até 760px. O desktop não muda em nada aqui.
+   ============================================================= */
+
+@media (max-width: 760px){
+
+  /* --- a assinatura do hero ---------------------------------------
+     Estava em 11.5px numa tela de 375, com white-space: nowrap para
+     caber numa linha. Cabia, e não se lia. Em duas linhas ela pode
+     crescer 45% e ainda sobrar margem. */
+  .tagline{
+    white-space: normal;
+    font-size: 1.02rem;
+    letter-spacing: .24em;
+    line-height: 1.75;
+  }
+
+  .tagline__a,
+  .tagline__b{
+    display: block;
+    margin-left: 0;
+  }
+
+  /* --- o menu ------------------------------------------------------
+     Era flex com justify-content: flex-end, então os cinco itens
+     começavam a 475px de uma tela de 812 — o polegar alcança, mas a
+     página parecia vazia em cima. A margem automática nos dois lados
+     centra a navegação e deixa o rodapé do menu onde estava. */
+  .menu__nav{
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+  }
+
+  .menu__rodape{ justify-content: center; gap: 1.6rem; }
+  .menu__foot{ text-align: center; }
+
+  /* --- os três atos, BEM maiores -----------------------------------
+     O nome estava em 26px num painel de 525 de altura. Agora vai a
+     ~43px, na mesma escala do título da página que ele abre. E o
+     olho estava em 9.3px, abaixo do piso de 11.2 que o resto respeita
+     — ele não estava na lista da primeira passada. */
+  .ato-panel__name{ font-size: clamp(2.3rem, 11.4vw, 3.4rem); }
+
+  .ato-panel__num{
+    font-size: .72rem;
+    letter-spacing: .3em;
+  }
+
+  .ato-panel__num::after{ width: 30px; margin-top: .8em; }
+
+  /* a legenda sobe do pé para dentro da foto */
+  .ato-panel__caption{ bottom: 26%; }
+
+  /* --- título de página no eixo ------------------------------------
+     No desktop a abertura divide a faixa com a fotografia, que ocupa
+     a direita a partir de --foto-borda, e por isso o título fica à
+     esquerda. AQUI A FOTO É FULL-BLEED: ocupa os 375px inteiros. Não
+     há lado para disputar, e centralizar é o que combina com os
+     painéis, que já estão centralizados. */
+  .abertura{ text-align: center; }
+  .abertura__num::after{ margin-left: auto; margin-right: auto; }
+  .abertura__frase{ margin-inline: auto; }
+
+  /* --- os EPs no eixo, e as faixas legíveis ------------------------ */
+  .disco{ justify-items: center; text-align: center; }
+  .disco__capa{ margin-inline: auto; }
+  .disco__texto{ width: 100%; }
+
+  .disco__faixas{
+    margin-inline: auto;
+    max-width: none;
+    font-size: .82rem;       /* vence o piso de .7rem lá de cima */
+    letter-spacing: .03em;
+    line-height: 2.1;
+  }
+
+  .disco__onde{
+    justify-self: center;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  /* --- a vitrine: painéis maiores e menos alongados -----------------
+     Eram 233x357: proporção 0.65 numa foto que é 700x980, ou seja
+     0.714. Mais estreitos que a própria fotografia, pareciam tiras.
+     Na primeira tentativa eu os deixei MAIS altos, o que piorou —
+     foi para 0.54.
+
+     A proporção certa é a da foto. Em 5/7 o painel não corta nada, e
+     em 70vw ele passa de 233 para 262 de largura. Maior e mais
+     cheio, que era o pedido. */
+  /* :not() porque a fileira da TV e um painel por vez, com largura
+     de 100% da pista — se ela herdar esta medida, abre um vao. */
+  .vitrine:not(.vitrine--miuda){ --palco-largura: clamp(240px, 70vw, 300px); }
+
+  .vitrine:not(.vitrine--miuda) .palco{
+    height: auto;
+    aspect-ratio: 5 / 7;
+  }
+
+  /* --- as setas da vitrine: maiores, no meio, mais firmes ----------
+     Estavam num canto, com haste de 1px — no telefone quase não se
+     viam, e são elas que avisam que a fileira anda. */
+  .vitrine__topo{ justify-content: center; gap: 2.4rem; }
+
+  /* SÓ AS DO TOPO. Na fileira da TV as setas ficam DOS LADOS do
+     cartão, dividindo a largura com ele: engordá-las lá encolheu a
+     pista de 335 para 188, e o cartão passou a vazar. */
+  .vitrine__topo .vitrine__seta{
+    width: 56px;
+    height: 48px;
+    color: var(--paper-70);
+  }
+
+  .vitrine__topo .vitrine__seta span{ width: 40px; height: 2px; }
+  .vitrine__topo .vitrine__seta span::before,
+  .vitrine__topo .vitrine__seta span::after{ width: 14px; height: 2px; }
+
+  /* --- a passagem entre atos ---------------------------------------
+     Estava empilhada: uma coluna, "Voltar" em cima e o próximo ato
+     embaixo. No desktop são os dois lados da mesma linha, e é assim
+     que se entende que um volta e o outro avança. Volta a ser. */
+  .passagem{
+    grid-template-columns: auto 1fr;
+    gap: 1.2rem;
+  }
+
+  .passagem__link--proximo{
+    justify-self: end;
+    text-align: right;
+  }
+
+  /* E a seta embaixo do próximo ato, que é o que diz "dá para ir".
+     Vai no ::after porque não precisa de marcação nova. */
+  .passagem__link--proximo::after{
+    content: "";
+    display: block;
+    width: 42px;
+    height: 12px;
+    margin: .9em 0 0 auto;
+    background: no-repeat center / contain
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M1 6h36M31 1l6 5-6 5' fill='none' stroke='%23D14B32' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
 }
