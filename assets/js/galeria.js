@@ -40,9 +40,22 @@
 
   /* --- exibição ------------------------------------------------- */
 
-  function preparar(caminho) {
+  /* Uma foto da lista pode ser so o caminho, como sempre foi, ou um
+     objeto { src, credito } quando a autoria dela difere da galeria.
+     Apareceu no Piaf: dezessete sao do Caio Galucci e duas, as de
+     estudio com fundo preto, sao de outra pessoa. Creditar a galeria
+     inteira a ele seria assinar com o nome errado. */
+  function caminhoDe(f) { return (f && f.src) ? f.src : f; }
+
+  function creditoDe(f) {
+    return (f && typeof f === 'object' && f.credito !== undefined)
+      ? f.credito
+      : (atual ? atual.credito : '');
+  }
+
+  function preparar(f) {
     var pre = new Image();
-    pre.src = caminho;
+    pre.src = caminhoDe(f);
   }
 
   function mostrar(i) {
@@ -52,7 +65,8 @@
 
     imagem.classList.remove('is-on');
 
-    var caminho = atual.fotos[indice];
+    var foto = atual.fotos[indice];
+    var caminho = caminhoDe(foto);
     var carga = new Image();
     carga.onload = function () {
       imagem.src = caminho;
@@ -63,6 +77,10 @@
     carga.src = caminho;
 
     contador.innerHTML = '<b>' + String(indice + 1).padStart(2, '0') + '</b> / ' + String(n).padStart(2, '0');
+
+    /* o credito acompanha a foto, nao a galeria */
+    var c = creditoDe(foto);
+    credito.textContent = c ? '© ' + c : '';
 
     /* vizinhas prontas antes de serem pedidas */
     preparar(atual.fotos[(indice + 1) % n]);
