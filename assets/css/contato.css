@@ -361,11 +361,9 @@
 /* =============================================================
    O RECADO EM PAPEL, E A PÁGINA NO EIXO
 
-   Pedido do Gabi em 30/9/2026: "quero o formulário com fundo branco,
-   tá muito dark aí, aumenta também os campos, nem dá pra ver DRT nem
-   nada de tão dark que tá".
+   O formulário passa a ter fundo de papel, e os campos crescem.
 
-   Ele tem razão sobre a leitura: o rodapé do formulário estava em
+   O motivo é de leitura: o rodapé do formulário estava em
    paper-26 sobre preto, que é 2.2:1 de contraste — abaixo de qualquer
    mínimo. O registro profissional dela era a linha menos legível da
    página, e é justamente a que um contratante procura.
@@ -449,6 +447,17 @@
 /* Era paper-26 sobre preto: 2.2:1. Agora é quase preto sobre papel,
    que passa de 12:1. A linha do DRT e da OMB se lê. */
 .recado__pe{ color: rgba(11, 11, 12, .62); }
+
+/* E O FIO ACIMA DO E-MAIL TINHA SUMIDO.
+
+   Ficou de fora quando o bloco virou papel: continuava em --paper-12,
+   que é rgba(240,235,228,.12) — a própria cor do fundo com 12% de
+   opacidade. Composto sobre rgb(240,235,228) dá exatamente o fundo:
+   contraste 1.00, medido. Não era um fio fraco, era um fio que não
+   existia, e a assinatura ficava solta no vazio.
+
+   Mesma tinta da borda do bloco, logo acima. */
+.recado__pe{ border-top-color: rgba(11, 11, 12, .14); }
 .recado__pe a{ color: var(--ink); }
 .recado__pe a:hover,
 .recado__pe a:focus-visible{ color: var(--coral); }

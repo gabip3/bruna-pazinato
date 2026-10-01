@@ -261,8 +261,8 @@
   background: var(--coral);
 }
 
-/* "sobre Clara Nunes" desce uma linha, como o Gabi pediu: o nome do
-   espetáculo é outra informação que o nome de quem escreveu. */
+/* "sobre Clara Nunes" desce uma linha: o nome do espetáculo é outra
+   informação que o nome de quem escreveu. */
 .critica__obra{
   display: block;
   margin-top: .5em;

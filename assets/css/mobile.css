@@ -182,9 +182,8 @@
    SEGUNDA PASSADA NO CELULAR — 30/9/2026
 
    A primeira passada consertou o que estava ilegível: piso de corpo,
-   alvo de toque, rolagem horizontal. Esta é sobre escala e eixo: o
-   Gabi viu o site no telefone e o que incomodou foi tudo pequeno
-   demais e tudo encostado na esquerda.
+   alvo de toque, rolagem horizontal. Esta é sobre escala e eixo —
+   no telefone estava tudo pequeno demais e tudo encostado na esquerda.
 
    Vale para até 760px. O desktop não muda em nada aqui.
    ============================================================= */
@@ -486,5 +485,43 @@
     bottom: auto;
     margin-top: clamp(1.4rem, 3.5vh, 2.2rem);
     height: clamp(42px, 7vh, 64px);
+  }
+}
+
+/* =============================================================
+   TERCEIRA PASSADA — AUDITORIA ANTES DO DOMÍNIO PRÓPRIO
+
+   Varri as sete páginas a 375px medindo corpo e alvo de toque de
+   cada elemento visível, em vez de olhar. O piso declarado lá em
+   cima — 10,6px para assinatura, 11,2px para informação — estava
+   valendo em quase tudo. Escaparam três coisas, e as três são das
+   que mais importam: dois botões e o e-mail dela.
+   ============================================================= */
+
+@media (max-width: 760px){
+
+  /* "VER GALERIA" ESTAVA A 8,96px, o menor corpo do site.
+
+     A passada de setembro já tinha listado este botão pelo nome e
+     dado a ele os 44px de alvo — mas só o alvo. O corpo ficou de
+     fora porque a regra mirou .btn__texto, e no Ato II o botão é um
+     <a class="btn"> com o texto solto dentro, sem esse span. */
+  .btn{ font-size: .7rem; }
+
+  /* O ENVIAR DO FORMULÁRIO ESTAVA A 9,92px.
+     Mesma história: ganhou altura de dedo e não ganhou corpo. É o
+     botão que termina a única tarefa da página. */
+  .recado__enviar{ font-size: .7rem; }
+
+  /* O E-MAIL DELA TINHA 16px DE ALTURA DE TOQUE.
+
+     O link herda o corpo miúdo da assinatura, o que está certo — mas
+     assinatura não se toca, e este se toca: é o mailto que abre o
+     aplicativo de e-mail. O corpo fica onde está e só a área cresce,
+     com o padding compensado na margem para a linha não se mexer. */
+  .recado__pe a{
+    display: inline-block;
+    padding: .85rem .4rem;
+    margin: -.85rem -.4rem;
   }
 }

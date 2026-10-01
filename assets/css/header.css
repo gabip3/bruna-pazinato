@@ -164,8 +164,7 @@
    O menu nasceu com cinco itens. Com Camarim são sete, e numa caixa
    alta de corpo display a 1.06 as hastes de uma linha quase encostam
    nas maiúsculas da linha de baixo: a lista vira um bloco cinzento em
-   vez de sete nomes. Na tela do Gabi dava para ver o TRAJETÓRIA e o
-   CAMARIM grudados.
+   vez de sete nomes — TRAJETÓRIA e CAMARIM chegavam a encostar.
 
    Agora o passo é 1.15 de entrelinha mais .26em de respiro, o que dá
    1.67em por item. Sete itens cabem de sobra: medido em 1440x900 a
@@ -299,7 +298,7 @@
      era centrada e crescia livre. Com cinco itens sobrava espaço e
      ninguém via o problema. Com sete a lista desceu 164px e passou por
      baixo dele: medido em 1440x900, o fio nascia 6px ACIMA do fim do
-     CONTATO — cortava a palavra, que foi o que o Gabi viu.
+     CONTATO, cortando a palavra.
 
      Agora o rodapé volta ao fluxo e a lista se centra no que sobra,
      com margin-block: auto — o mesmo recurso que o mobile.css já usa.

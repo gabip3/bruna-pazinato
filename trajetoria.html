@@ -48,8 +48,21 @@
 <link rel="stylesheet" href="assets/css/trajetoria.css?v=202609301740">
 
 <!-- por ultimo: levanta o piso da micro-tipografia e a area de toque -->
-<link rel="stylesheet" href="assets/css/mobile.css?v=202609302040">
+<link rel="stylesheet" href="assets/css/mobile.css?v=202610020100">
 <script>document.documentElement.classList.add('js');</script>
+
+<!-- O caminho da página dentro do site. É o que faz o Google mostrar
+     "brunapazinato.com › Camarim" em vez da URL crua no resultado. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://gabip3.github.io/bruna-pazinato/" },
+    { "@type": "ListItem", "position": 2, "name": "Trajetória", "item": "https://gabip3.github.io/bruna-pazinato/trajetoria.html" }
+  ]
+}
+</script>
 </head>
 
 <body>
