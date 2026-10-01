@@ -1,20 +1,19 @@
-# O site foi aprovado pela Bruna em 30/9/2026 e saiu do rascunho.
-# Até aqui este arquivo trazia "Disallow: /" — com o site em aprovação,
-# o endereço do GitHub Pages é público e sem o bloqueio o Google teria
-# indexado a versão de rascunho.
+# O site mora em brunapazinato.com. Antes do domínio próprio ele ficou
+# num endereço do GitHub Pages, e enquanto estava em aprovação este
+# arquivo trazia "Disallow: /" — sem o bloqueio, o Google teria indexado
+# o rascunho.
 #
-# Se um dia ele mudar para o domínio próprio dela, o GitHub Pages passa
-# a redirecionar este endereço para lá sozinho, então o que for indexado
-# agora não se perde.
+# O endereço antigo não se perde: com o CNAME no lugar, o GitHub Pages
+# redireciona sozinho o que ficou indexado para cá.
 
 User-agent: *
 Allow: /
 
-# /gambetta/ é uma CÓPIA INTEIRA do site, feita só para mostrar a letra
-# nova para a Bruna. Liberada junto com o resto, ela viraria conteúdo
+# /gambetta/ é uma CÓPIA INTEIRA do site, feita para comparar uma
+# variante tipográfica. Liberada junto com o resto, ela viraria conteúdo
 # duplicado: seis páginas iguais concorrendo com as de verdade. Fica de
 # fora aqui e leva noindex em cada página, que é o que o Google obedece
 # mesmo quando chega por link.
 Disallow: /gambetta/
 
-Sitemap: https://gabip3.github.io/bruna-pazinato/sitemap.xml
+Sitemap: https://brunapazinato.com/sitemap.xml
