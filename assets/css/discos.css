@@ -199,3 +199,66 @@
     margin-left: -11.5px;
   }
 }
+
+/* =============================================================
+   A CAIXINHA
+
+   A capa era uma imagem chapada no preto, e disco não é imagem: é
+   objeto. Três coisas dão o volume, e nenhuma delas é desenho — são
+   as mesmas que a caixa de acrílico faz com a luz:
+
+   1. a SOMBRA embaixo, que apoia o objeto em vez de colá-lo no fundo
+   2. o BRILHO, uma faixa diagonal fraca atravessando a tampa
+   3. a LOMBADA à esquerda, onde a dobradiça engrossa o plástico
+
+   Tudo em opacidade baixa. Caixinha de CD de verdade não reluz — ela
+   só devolve um pouco da luz do ambiente, e some quando o ambiente é
+   escuro, que é o caso aqui.
+   ============================================================= */
+
+.disco__capa{
+  box-shadow:
+    0 18px 38px -14px rgba(0, 0, 0, .78),
+    0 3px 8px rgba(0, 0, 0, .45);
+  transition: box-shadow .7s var(--ease), transform .7s var(--ease);
+}
+
+/* o brilho do acrílico */
+.disco__capa::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(104deg,
+    rgba(255, 255, 255, 0)    30%,
+    rgba(255, 255, 255, .13)  43%,
+    rgba(255, 255, 255, .03)  50%,
+    rgba(255, 255, 255, 0)    59%);
+}
+
+/* a lombada, com a dobradiça */
+.disco__capa::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  width: clamp(7px, 1.1vw, 11px);
+  pointer-events: none;
+  background: linear-gradient(to right,
+    rgba(255, 255, 255, .17) 0,
+    rgba(255, 255, 255, .04) 36%,
+    rgba(0, 0, 0, .44)       60%,
+    rgba(0, 0, 0, .10)       100%);
+}
+
+/* no cursor ela levanta um dedo do fundo */
+.disco__capa:hover,
+.disco__capa:focus-visible{
+  transform: translateY(-3px);
+  box-shadow:
+    0 26px 48px -14px rgba(0, 0, 0, .82),
+    0 4px 10px rgba(0, 0, 0, .5);
+}
