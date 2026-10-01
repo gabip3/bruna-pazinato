@@ -276,3 +276,30 @@
     linear-gradient(to top, var(--ink) 0%, rgba(11,11,12,.15) 46%, rgba(11,11,12,.55) 100%),
     radial-gradient(120% 52% at 50% 62%, rgba(11,11,12,.72), rgba(11,11,12,0) 70%);
 }
+
+
+/* =============================================================
+   O TÍTULO MAIS LONGO DO SITE
+
+   "Trajetória" tem dez letras. Os outros títulos têm seis ou sete, e a
+   medida do celular foi calibrada para eles. Na mesma escala, esta
+   palavra ocupa 6.9 vezes o corpo da letra: a 54.4px dá 374px, e a
+   caixa de um telefone de 320 tem 280.
+
+   Então aqui a escala é outra, calculada a partir da palavra e não da
+   página: 12.5vw mantém a largura dentro da caixa de 320px até 412px,
+   com folga nos três tamanhos medidos. Continua sendo o maior corpo
+   que cabe — não é o título encolhido por precaução, é o título no
+   limite da margem.
+
+   A REGRA PRECISA DE PESO. O mobile.css carrega depois deste arquivo,
+   de propósito, para ser o último a falar sobre micro-tipografia. Com
+   .abertura__titulo os dois seletores empatam em especificidade e
+   quem carrega por último ganha — a primeira versão disto não teve
+   efeito nenhum, e TRAJETÓRIA continuou saindo com 341px numa caixa
+   de 280. Encostar no --cheia, que só esta página usa, sobe para 0,2,0
+   e a ordem deixa de decidir. */
+
+@media (max-width: 760px){
+  .abertura--cheia .abertura__titulo{ font-size: clamp(2.2rem, 12.5vw, 4.2rem); }
+}

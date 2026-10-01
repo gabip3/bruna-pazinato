@@ -365,7 +365,20 @@
   .disco__tipo,
   .ato-panel__num{ font-size: .82rem; letter-spacing: .24em; }
 
-  .abertura__titulo{ font-size: clamp(3.4rem, 15.5vw, 5rem); }
+  /* O PISO ERA 3.4rem E CORTAVA O TÍTULO.
+
+     O clamp sobe o corpo com a largura da tela, mas o piso é um chão:
+     abaixo de 360px o vw já pedia menos e o piso segurava em 54.4px.
+     Medido num aparelho de 320: CAMARIM saía com 295px numa caixa de
+     280, e TRAJETÓRIA com 374. A seção tem overflow:hidden, então nada
+     rolava de lado — a palavra era simplesmente decepada, que foi o
+     que apareceu na tela do telefone.
+
+     Com 2.9rem o piso só encosta abaixo de 300px, largura que não
+     existe. Os sete títulos de sete letras passam a caber até em 320.
+     TRAJETÓRIA tem dez e não cabe nem assim: ela tem regra própria no
+     trajetoria.css, que só aquela página carrega. */
+  .abertura__titulo{ font-size: clamp(2.9rem, 15.5vw, 5rem); }
   .cena__titulo{ font-size: clamp(2rem, 9vw, 2.8rem); }
   .programa__titulo{ font-size: clamp(1.8rem, 8vw, 2.5rem); }
   .destaque__titulo{ font-size: clamp(2.4rem, 10.6vw, 3.2rem); }
