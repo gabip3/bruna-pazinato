@@ -159,15 +159,27 @@
   overflow: hidden;
 }
 
+/* A ENTRELINHA ERA 1.06 E NÃO CABIA O OLHO.
+
+   O menu nasceu com cinco itens. Com Camarim são sete, e numa caixa
+   alta de corpo display a 1.06 as hastes de uma linha quase encostam
+   nas maiúsculas da linha de baixo: a lista vira um bloco cinzento em
+   vez de sete nomes. Na tela do Gabi dava para ver o TRAJETÓRIA e o
+   CAMARIM grudados.
+
+   Agora o passo é 1.15 de entrelinha mais .26em de respiro, o que dá
+   1.67em por item. Sete itens cabem de sobra: medido em 1440x900 a
+   lista toma 576 de 761 disponíveis, e em 375x667 — a tela pequena do
+   iPhone SE — toma 333 de 518, acabando 112px antes do rodapé. */
 .menu__nav a{
   display: block;
-  padding: .16em 0;
+  padding: .26em 0;
   font-family: var(--font-display);
   font-optical-sizing: none;
   font-variation-settings: var(--display-axes);
   font-size: clamp(1.5rem, 7.6vw, 2.3rem);
   font-weight: 400;
-  line-height: 1.06;
+  line-height: 1.15;
   letter-spacing: -.01em;
   text-transform: uppercase;
   color: var(--paper);
@@ -177,11 +189,17 @@
 
 .menu-open .menu__nav a{ transform: translateY(0); }
 
+/* Os atrasos paravam no quinto item, de quando o menu tinha cinco.
+   Camarim e Contato entravam sem atraso nenhum: os dois últimos
+   subiam juntos, na frente do quarto e do quinto, e a cascata
+   desmontava bem no fim. */
 .menu__nav li:nth-child(1) a{ transition-delay: .10s; }
 .menu__nav li:nth-child(2) a{ transition-delay: .16s; }
 .menu__nav li:nth-child(3) a{ transition-delay: .22s; }
 .menu__nav li:nth-child(4) a{ transition-delay: .28s; }
 .menu__nav li:nth-child(5) a{ transition-delay: .34s; }
+.menu__nav li:nth-child(6) a{ transition-delay: .40s; }
+.menu__nav li:nth-child(7) a{ transition-delay: .46s; }
 
 .menu__nav a:active,
 .menu__nav a:hover{ color: var(--coral); }
@@ -271,7 +289,7 @@
 
   .menu__nav a{
     font-size: clamp(1.9rem, 3.4vw, 3.2rem);
-    line-height: 1.08;
+    line-height: 1.16;
     letter-spacing: -.014em;
   }
 

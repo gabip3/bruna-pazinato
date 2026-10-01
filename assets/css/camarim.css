@@ -123,6 +123,35 @@
     margin-bottom: 2.2rem;
   }
 
+  /* A FOTO DO CLIPE É LARGUÍSSIMA — 1672x702, proporção 2.38 — e a
+     faixa de abertura no celular é 375x503, proporção 0.74. O cover
+     preenche pela altura e corta a largura: no telefone sobra uma
+     janela de 523px dos 1672, um quinto da foto.
+
+     No computador o enquadramento está em 36%, para empurrar ela para
+     a direita e deixar a palavra CAMARIM na cortina. Os mesmos 36% no
+     celular abrem a janela em 414–937, e ela está mais à direita que
+     isso: o rosto ficava cortado no meio. Em 54% a janela vai a
+     621–1143 e o rosto entra inteiro, com folga dos dois lados. */
+  .abertura--cheia .abertura__foto{
+    object-position: 54% 50%;
+  }
+
+  /* E O TÍTULO DESCE PARA O PÉ DA FAIXA.
+
+     A abertura centra o título na vertical, que é o certo quando a
+     foto é uma banda ao lado. Aqui ela é o fundo inteiro, e no celular
+     o cover preenche pela altura: a foto aparece de cima a baixo, com
+     o rosto no terço de cima. O título centrado caía em cima do queixo
+     — a mesma queixa do Gabi, só que na outra tela.
+
+     Mover o enquadramento não resolve: como a altura preenche exato,
+     object-position no eixo Y não tem para onde ir. Quem desce é o
+     título, e ele passa a cair no ombro, 63px abaixo do queixo. */
+  .abertura--cheia{
+    justify-content: flex-end;
+  }
+
   /* o título sobe para o meio da faixa, como nos outros atos */
   .abertura--cheia .abertura__veu{
     background:
