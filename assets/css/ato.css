@@ -24,20 +24,20 @@
   background: var(--ink);
 }
 
-.abertura__num{
-  position: relative;
-  z-index: 2;
-  font-family: var(--font-sans);
-  font-size: clamp(.6rem, .72vw, .74rem);
-  letter-spacing: .34em;
-  text-transform: uppercase;
-  color: var(--coral);
-}
+/* O RÓTULO DA ABERTURA NÃO EXISTE MAIS EM PÁGINA NENHUMA.
 
-/* O titulo nasce sem margem: so a Trajetoria ainda tem rotulo em cima
-   ("A artista"), e a margem vem dele, na regra logo abaixo. Nos atos o
-   rotulo saiu, e a margem iria virar buraco. */
-.abertura__num + .abertura__titulo{ margin-top: clamp(1rem, 2.6vh, 2rem); }
+   Era a linha miúda em caixa alta, coral, entreletra larga, por cima do
+   título — "A artista", "Fora de cena". Os três atos já tinham perdido
+   a deles; sobravam duas, e elas não diziam nada que o título não
+   dissesse. Em caixa alta espaçada e cor de destaque, uma linha que não
+   informa é só enfeite, e é o enfeite que mais aparece em página feita
+   por molde.
+
+   O que fica no site é rótulo que carrega dado: o ano de cada montagem,
+   "Ato I/II/III" na home, que é a espinha do programa, "EP" nos discos,
+   e os rótulos dos campos do formulário.
+
+   O título passa a nascer sem margem nenhuma em cima. */
 
 .abertura__titulo{
   position: relative;
@@ -88,7 +88,6 @@
 .js .abertura__frase,
 .js .abertura__nota{ opacity: 0; }
 
-.js.is-ready .abertura__num       { animation: fadeIn  1.2s var(--ease-soft) .2s both; }
 .js.is-ready .abertura__titulo    { animation: riseIn  1.5s var(--ease)      .55s both; }
 .js.is-ready .abertura__nota      { animation: fadeUp  1.3s var(--ease)      1.15s both; }
 .js.is-ready .abertura__frase     { animation: fadeUp  1.4s var(--ease)      1.25s both; }

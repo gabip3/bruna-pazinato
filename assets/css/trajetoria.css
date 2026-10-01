@@ -213,7 +213,6 @@
    ============================================================= */
 
 .abertura--cheia{ text-align: center; }
-.abertura--cheia .abertura__num::after{ margin-inline: auto; }
 
 .folha.claro{ text-align: center; }
 
