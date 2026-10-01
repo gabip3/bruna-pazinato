@@ -76,28 +76,6 @@
   object-position: var(--foco, 50% 50%);
 }
 
-/* --- a abertura ----------------------------------------------------
-   O VÉU PADRÃO NÃO SERVE AQUI, e foi o que o Gabi viu: "não tá dando
-   para ler".
-
-   Nos atos a foto é uma banda à direita e o título fica à esquerda,
-   sobre o fundo escuro da página — o véu só precisa escurecer os
-   primeiros 20%. Nesta página a foto é a faixa inteira (--foto-borda:
-   0%) e o título está em cima dela. Pior: é a única abertura do site
-   cujo fundo é um cinza quase branco, justamente atrás das letras,
-   que são cor de papel. Papel sobre cinza claro não lê.
-
-   O escuro tem de estar onde o título está — à esquerda e embaixo —
-   sem apagar o rosto dela, que está à direita e é o motivo da foto.
-   A Trajetória resolve o mesmo problema no trajetoria.css, com o
-   radial no meio, porque lá o título é centralizado. */
-.abertura--cheia .abertura__veu{
-  background:
-    linear-gradient(to top,    var(--ink) 0%, rgba(11,11,12,.18) 44%, rgba(11,11,12,.5) 100%),
-    linear-gradient(to right,  rgba(11,11,12,.86) 0%, rgba(11,11,12,.55) 38%, rgba(11,11,12,.12) 72%),
-    radial-gradient(86% 46% at 26% 52%, rgba(11,11,12,.6), rgba(11,11,12,0) 72%);
-}
-
 /* -------------------------------------------------------------
    CELULAR
    ------------------------------------------------------------- */
@@ -123,39 +101,20 @@
     margin-bottom: 2.2rem;
   }
 
-  /* A FOTO DO CLIPE É LARGUÍSSIMA — 1672x702, proporção 2.38 — e a
-     faixa de abertura no celular é 375x503, proporção 0.74. O cover
-     preenche pela altura e corta a largura: no telefone sobra uma
-     janela de 523px dos 1672, um quinto da foto.
+  /* --- a abertura no celular ---------------------------------------
+     No computador o título fica à esquerda, sobre o preto da página, e
+     a foto ocupa a faixa da direita. No celular o ato.css manda a foto
+     ocupar a largura inteira, e aí o texto passa a ficar EM CIMA dela.
 
-     No computador o enquadramento está em 36%, para empurrar ela para
-     a direita e deixar a palavra CAMARIM na cortina. Os mesmos 36% no
-     celular abrem a janela em 414–937, e ela está mais à direita que
-     isso: o rosto ficava cortado no meio. Em 54% a janela vai a
-     621–1143 e o rosto entra inteiro, com folga dos dois lados. */
-  .abertura--cheia .abertura__foto{
-    object-position: 54% 50%;
-  }
+     Nas outras aberturas isso não incomoda porque as fotos são
+     escuras. Esta é a única do site tirada em estúdio de fundo branco,
+     e o "FORA DE CENA" é coral miúdo: em cima do dourado do vestido
+     ele simplesmente sumia.
 
-  /* E O TÍTULO DESCE PARA O PÉ DA FAIXA.
-
-     A abertura centra o título na vertical, que é o certo quando a
-     foto é uma banda ao lado. Aqui ela é o fundo inteiro, e no celular
-     o cover preenche pela altura: a foto aparece de cima a baixo, com
-     o rosto no terço de cima. O título centrado caía em cima do queixo
-     — a mesma queixa do Gabi, só que na outra tela.
-
-     Mover o enquadramento não resolve: como a altura preenche exato,
-     object-position no eixo Y não tem para onde ir. Quem desce é o
-     título, e ele passa a cair no ombro, 63px abaixo do queixo. */
-  .abertura--cheia{
+     O véu já termina em tinta no pé da faixa. Então o texto desce para
+     lá, em vez de eu escurecer o vestido inteiro para caber uma linha
+     de rótulo — que seria apagar a foto para salvar a legenda. */
+  .abertura{
     justify-content: flex-end;
-  }
-
-  /* o título sobe para o meio da faixa, como nos outros atos */
-  .abertura--cheia .abertura__veu{
-    background:
-      linear-gradient(to top,   var(--ink) 2%, rgba(11,11,12,.2) 46%, rgba(11,11,12,.5) 100%),
-      radial-gradient(110% 40% at 40% 44%, rgba(11,11,12,.8), rgba(11,11,12,0) 74%);
   }
 }

@@ -284,7 +284,7 @@
 
   .menu{
     justify-content: center;
-    padding-bottom: 0;
+    padding-bottom: calc(var(--gutter) + .4rem);
   }
 
   .menu__nav a{
@@ -293,13 +293,21 @@
     letter-spacing: -.014em;
   }
 
-  /* no desktop os itens ficam centrados e o rodapé desce para o pé */
-  .menu__rodape{
-    position: absolute;
-    left: var(--gutter);
-    right: var(--gutter);
-    bottom: calc(var(--gutter) + .4rem);
-    margin-top: 0;
+  /* O RODAPÉ DO MENU ERA ABSOLUTO, E O FIO ENTRAVA NO CONTATO.
+
+     Ele ficava preso ao pé da tela, fora do fluxo, enquanto a lista
+     era centrada e crescia livre. Com cinco itens sobrava espaço e
+     ninguém via o problema. Com sete a lista desceu 164px e passou por
+     baixo dele: medido em 1440x900, o fio nascia 6px ACIMA do fim do
+     CONTATO — cortava a palavra, que foi o que o Gabi viu.
+
+     Agora o rodapé volta ao fluxo e a lista se centra no que sobra,
+     com margin-block: auto — o mesmo recurso que o mobile.css já usa.
+     Assim a sobreposição deixa de ser uma questão de quantos itens o
+     menu tem: não pode acontecer. O margin-top do rodapé continua
+     valendo e vira o vão mínimo entre o último nome e o fio. */
+  .menu__nav{
+    margin-block: auto;
   }
 }
 
