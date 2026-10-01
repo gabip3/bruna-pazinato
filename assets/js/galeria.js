@@ -140,7 +140,11 @@
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) { return; }
     var g = e.target.closest ? e.target.closest('[data-galeria]') : null;
     if (!g) { return; }
-    if (abrir(g.getAttribute('data-galeria'), 0)) { e.preventDefault(); }
+    /* Numa vitrine o gatilho e um painel so, e a galeria abre na
+       primeira foto. No Camarim as fotos estao todas a vista, e cada
+       uma e um gatilho: data-foto diz em qual o visor deve abrir. */
+    var partida = parseInt(g.getAttribute('data-foto'), 10) || 0;
+    if (abrir(g.getAttribute('data-galeria'), partida)) { e.preventDefault(); }
   });
 
   anterior.addEventListener('click', function () { mostrar(indice - 1); });
