@@ -296,3 +296,22 @@
   .palco,
   .palco__foto img,
 }
+
+/* =============================================================
+   QUANDO A FILEIRA INTEIRA CABE
+
+   O vitrine.js põe .cabe-tudo na coluna quando a pista não transborda.
+   Aí duas coisas deixam de fazer sentido: a seta, que promete um
+   movimento que não existe, e o alinhamento à esquerda, que deixa
+   meia faixa vazia do outro lado.
+
+   É condição de largura, não de página: a mesma fileira volta a ter
+   seta quando a janela encolhe.
+   ============================================================= */
+
+.cabe-tudo .vitrine__topo{ display: none; }
+
+.cabe-tudo .vitrine__pista{
+  justify-content: center;
+  cursor: default;                 /* não há o que arrastar */
+}

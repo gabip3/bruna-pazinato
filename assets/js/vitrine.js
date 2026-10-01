@@ -62,9 +62,22 @@
     }
 
     /* só vale a pena dar a volta se a pista de fato transborda */
+    /* O pai comum das setas e da pista: elas sao irmas, e o CSS nao
+       alcanca um irmao anterior. */
+    var coluna = pista.closest('.programa__coluna')
+              || (pista.closest('.vitrine') || pista).parentElement;
+
     function avaliar() {
       var cabeTudo = pista.scrollWidth <= pista.clientWidth + 4;
       if (!infinito && !cabeTudo && !semLaco) { clonar(); centralizar(); }
+
+      /* Quando a fileira inteira cabe na tela, nao ha o que rolar: as
+         setas viram enfeite que promete movimento inexistente, e os
+         paineis encostados a esquerda deixam meia faixa vazia. O Ato
+         III chegou nesse ponto quando a Bruna tirou dois videos.
+         Acontece de novo a cada vez que alguem encurta uma fileira,
+         entao a regra fica aqui e nao numa medida fixa. */
+      if (coluna && !infinito) { coluna.classList.toggle('cabe-tudo', cabeTudo); }
 
       /* a linha do tempo abre no presente; quem quiser, volta no tempo */
       if (!posicionado && pista.getAttribute('data-comeca') === 'fim') {
