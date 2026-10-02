@@ -11,9 +11,13 @@
    Então a data manda, não a memória. O HTML traz a temporada em
    data-estreia e data-fim, e este script decide entre três estados:
 
-     antes da estreia   "estreia 10 de outubro", ponto parado
-     durante            "em cartaz", ponto pulsando
+     antes da estreia   "estreia no Rio · 10 out", ponto parado
+     durante            "em cartaz no Rio", ponto pulsando
      depois             selo e botão saem do documento
+
+   O ESPETÁCULO JÁ ESTREOU EM SÃO PAULO, então "estreia" sozinho diria
+   uma coisa falsa: esta é a temporada carioca, não a estreia da peça.
+   A cidade entra nos dois estados.
 
    O HTML nasce no estado de ANTES, que é o verdadeiro no dia em que
    isto foi escrito. Assim a página continua correta e indexável sem
@@ -54,7 +58,7 @@
 
   if (agora >= estreia) {
     var texto = selo.querySelector('[data-cartaz-texto]');
-    if (texto) { texto.textContent = 'em cartaz'; }
+    if (texto) { texto.textContent = 'em cartaz no Rio'; }
     selo.classList.add('cartaz--ativo');
   }
 })();
