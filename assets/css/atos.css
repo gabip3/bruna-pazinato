@@ -1,11 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   atos.css — os três atos na home
-
-   Três painéis lado a lado, como cortinas fechadas. Cada um leva
-   à página do seu ato. A ideia é apresentar o site inteiro em um
-   único gesto de rolagem depois do hero.
-   ============================================================= */
+/* Bruna Pazinato · painéis dos atos */
 
 .atos{
   position: relative;
@@ -15,7 +8,7 @@
 .atos__list{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;                      /* o vão vira hairline entre os painéis */
+  gap: 1px;
   background: var(--paper-12);
 }
 
@@ -31,7 +24,7 @@
   overflow: hidden;
 }
 
-/* --- fotografia -------------------------------------------------- */
+/* fotografia */
 
 .ato-panel__figure{
   position: absolute;
@@ -45,7 +38,7 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 28%;
-  /* mais escuro que o hero: painel fechado, luz ainda por vir */
+
   filter: contrast(1.05) saturate(.72) brightness(.62) hue-rotate(4deg);
   transform: scale(1.02);
   transition: transform 1.4s var(--ease), filter 1s var(--ease-soft);
@@ -59,20 +52,8 @@
   transition: opacity .9s var(--ease-soft);
 }
 
-/* --- legenda ------------------------------------------------------ */
+/* legenda */
 
-/* Centralizado, e é a única coisa centralizada do site.
-
-   Em todo o resto o texto encosta na sarjeta — os clipes, os destaques,
-   a bio, os EPs. Mas isto aqui não é conteúdo numa grade: é o título
-   dentro de uma imagem que sangra. Depois que o painel ganhou a forma
-   da foto no celular, os três viraram cartazes verticais, e cartaz de
-   ato tem o nome no meio. É o programa de teatro que o site diz ser.
-
-   A abertura de cada ato continua alinhada à esquerda, e continua de
-   propósito: lá o título divide a faixa com a fotografia, que ocupa a
-   direita a partir de --foto-borda. Centralizar meteria a palavra
-   debaixo da foto. */
 .ato-panel__caption{
   position: absolute;
   left: clamp(1.1rem, 2.2vw, 2.4rem);
@@ -101,20 +82,14 @@
   margin-left: auto;
   margin-right: auto;
   background: var(--coral);
-  /* o fio cresce para os dois lados junto com o texto centralizado;
-     preso à esquerda, ele escorregava para fora do eixo no hover */
+
   transform-origin: center;
   transform: scaleX(1);
   transition: transform .7s var(--ease);
 }
 
-/* GAMBETTA MORA AQUI, E SÓ AQUI.
-   Esta letra foi escolhida entre seis testadas, e só para os três
-   painéis da home — não para os títulos do site inteiro. O arquivo está
-   hospedado em assets/fonts e declarado no base.css; o resto do site
-   segue na Young Serif. Não espalhar sem ela ver. */
 .ato-panel__name{
-  margin: 0;              /* virou h2: zera a margem que o navegador dá */
+  margin: 0;
   display: block;
   font-family: "Gambetta", "Iowan Old Style", Georgia, "Times New Roman", serif;
   font-optical-sizing: none;
@@ -126,7 +101,7 @@
   transition: color .6s var(--ease);
 }
 
-/* --- estados ------------------------------------------------------ */
+/* estados */
 
 .ato-panel__link:hover .ato-panel__figure img,
 .ato-panel__link:focus-visible .ato-panel__figure img{
@@ -142,7 +117,7 @@
 
 .ato-panel__link:focus-visible{ outline-offset: -6px; }
 
-/* --- entrada ------------------------------------------------------ */
+/* entrada */
 
 .js [data-reveal]{
   opacity: 0;
@@ -160,7 +135,7 @@
     clip-path 1.4s var(--ease)      calc(var(--i, 0) * .16s);
 }
 
-/* --- responsivo ---------------------------------------------------- */
+/* responsivo */
 
 @media (max-width: 760px){
 
@@ -168,27 +143,8 @@
     grid-template-columns: 1fr;
   }
 
-  /* O painel tem a forma da foto, e não uma altura arbitrária.
-
-     Antes eram 230 a 330px de altura numa largura de 375: uma faixa
-     deitada por cima de uma foto em pé. Medido num iPhone de 375x812,
-     aparecia 46% DA ALTURA DA FOTO — a artista cortada na cintura, para
-     os três painéis caberem quase numa tela só. Economia errada: o
-     painel é a foto.
-
-     As três fotos são 5:7 exatos (1000x1400 as duas primeiras, 900x1260
-     a terceira), então 5/7 mostra as três inteiras, sem corte nenhum.
-     No mesmo aparelho o painel passa a 375x525.
-
-     O teto existe para a borda do intervalo: a 760px de largura, 5:7
-     daria 1064px de altura, mais alto que a tela. Aí ele volta a cortar,
-     que é o comportamento certo nessa largura. */
   .ato-panel__link{
-    /* A largura explícita não é redundante: sem ela, quando o teto de
-       altura entra em ação o navegador honra a proporção ENCOLHENDO A
-       LARGURA. A 760px o painel virava 446px com 314 de vazio ao lado.
-       Com width: 100% a proporção é que cede, e o corte volta — que é
-       o que se quer quando não cabe. */
+
     width: 100%;
     height: auto;
     aspect-ratio: 5 / 7;

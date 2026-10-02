@@ -1,18 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   rodape.css — o fim de toda página
-
-   O menu já tem as redes; aqui elas voltam para quem chega ao fim
-   da página e não pensou em abrir o menu. Não é seção: é assinatura.
-   Um fio de 1px, muito ar, e nada que peça alguma coisa de quem
-   está lendo.
-
-   Os ícones são os mesmos do menu, no mesmo tamanho e com o mesmo
-   comportamento — um único desenho de rede social no site inteiro.
-
-   A contratação não mora aqui. O Ato III vai ter a própria área de
-   contato antes deste rodapé.
-   ============================================================= */
+/* Bruna Pazinato · rodapé */
 
 .rodape{
   display: flex;
@@ -32,7 +18,6 @@
   list-style: none;
 }
 
-/* mesma medida do menu: alvo de 34px para um ícone de 21 */
 .rodape__redes a{
   display: grid;
   place-items: center;
@@ -61,10 +46,7 @@
   color: var(--paper-26);
 }
 
-/* -------------------------------------------------------------
-   RESPONSIVO
-   Empilha centrado. O alvo de toque já tem 34px e não muda.
-   ------------------------------------------------------------- */
+/* responsivo */
 
 @media (max-width: 760px){
 

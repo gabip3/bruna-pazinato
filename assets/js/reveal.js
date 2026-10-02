@@ -1,16 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   reveal.js — entrada por rolagem
-
-   Genérico de propósito: qualquer elemento com [data-reveal]
-   ganha .is-in quando entra na tela. O escalonamento vem do
-   --i inline. Serve para as próximas seções sem alteração.
-
-   O conteúdo nasce invisível, então uma falha aqui apagaria a
-   página. Por isso são três caminhos, do mais eficiente ao mais
-   burro: IntersectionObserver, varredura por posição na rolagem,
-   e — se nada disso responder — tudo visível.
-   ============================================================= */
+/* Bruna Pazinato · entrada dos blocos */
 
 (function () {
   'use strict';
@@ -28,15 +16,13 @@
     alvos.slice().forEach(revelar);
   }
 
-  /* sem suporte ou com movimento reduzido: entrega tudo pronto */
   if (!('IntersectionObserver' in window) ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     revelarTudo();
     return;
   }
 
-  /* --- caminho 2: varredura por posição -------------------------
-     Roda em JS puro, sem depender do ciclo de renderização. */
+  /* caminho 2: varredura por posição */
 
   function varrer() {
     var altura = window.innerHeight || document.documentElement.clientHeight;
@@ -63,7 +49,7 @@
     if (observador) { observador.disconnect(); }
   }
 
-  /* --- caminho 1: IntersectionObserver ---------------------------- */
+  /* caminho 1: intersectionobserver */
 
   var observador = new IntersectionObserver(function (entradas) {
     entradas.forEach(function (entrada) {
@@ -83,9 +69,7 @@
 
   varrer();
 
-  /* --- caminho 3: rede de segurança -------------------------------
-     Se em 6s nada apareceu, alguma coisa não está respondendo.
-     Melhor mostrar tudo de uma vez do que deixar a página apagada. */
+  /* caminho 3: rede de segurança */
 
   window.setTimeout(function () {
     if (alvos.length === document.querySelectorAll('[data-reveal]').length) {

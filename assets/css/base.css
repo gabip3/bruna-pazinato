@@ -1,21 +1,6 @@
-/* =============================================================
-   BRUNA PAZINATO
-   base.css — tokens, reset e fundações
-   ============================================================= */
+/* Bruna Pazinato · fundações */
 
-/* -------------------------------------------------------------
-   GAMBETTA, hospedada aqui
-
-   Esta foi a escolhida para os títulos, entre seis testadas. É da
-   Fontshare, grátis inclusive para uso comercial, e por isso pode
-   morar no repositório: são 40 KB nos dois pesos, servidos do mesmo
-   domínio. Pedir à CDN deles a cada visita custaria uma conexão a
-   mais e entregaria o visitante a um terceiro antes de ele ler a
-   página.
-
-   font-display: swap — o texto aparece na serifa de sistema e troca
-   quando a fonte chega. Nunca uma tela em branco esperando letra.
-   ------------------------------------------------------------- */
+/* gambetta, hospedada aqui */
 
 @font-face{
   font-family: "Gambetta";
@@ -35,31 +20,19 @@
 
 :root{
 
-  /* --- cor ------------------------------------------------- */
-  --ink:        #0B0B0C;   /* preto de fundo */
-  --charcoal:   #141417;   /* carvão */
-  --paper:      #F0EBE4;   /* off-white quente */
+  /* cor */
+  --ink:        #0B0B0C;
+  --charcoal:   #141417;
+  --paper:      #F0EBE4;
   --paper-70:   rgba(240,235,228,.70);
   --paper-45:   rgba(240,235,228,.45);
   --paper-26:   rgba(240,235,228,.26);
   --paper-12:   rgba(240,235,228,.12);
-  --coral:      #D14B32;   /* vermelho queimado / coral */
+  --coral:      #D14B32;
   --coral-45:   rgba(209,75,50,.45);
-  --gold:       #E3B879;   /* luz quente */
+  --gold:       #E3B879;
 
-  /* --- tipografia ------------------------------------------
-     Duas serifadas, com papéis separados:
-
-     --font-name     Fraunces. EXCLUSIVA da assinatura BRUNA PAZINATO.
-                     É variável e afina as hastes conforme o corpo cresce,
-                     por isso a optical size fica travada em 16.
-     --font-display  Young Serif. Menu e títulos. Haste grossa e reta,
-                     peso único, sem eixo variável — nada a travar.
-                     A Gambetta NÃO entra aqui: ela foi aprovada só
-                     para os três painéis da home, e a regra mora no
-                     atos.css. Não espalhar sem ela ver.
-     --font-sans     Archivo. Micro-tipografia em caixa alta espaçada.
-     --------------------------------------------------------- */
+  /* tipografia */
   --font-name:    "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --name-axes:    "opsz" 16;
 
@@ -68,16 +41,16 @@
 
   --font-sans:    "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* --- métrica --------------------------------------------- */
+  /* métrica */
   --gutter:    clamp(1.25rem, 4.4vw, 4.75rem);
   --header-h:  clamp(60px, 9vh, 104px);
 
-  /* --- movimento ------------------------------------------- */
+  /* movimento */
   --ease:      cubic-bezier(.19, 1, .22, 1);
   --ease-soft: cubic-bezier(.33, .02, .18, 1);
 }
 
-/* --- reset ------------------------------------------------- */
+/* reset */
 
 *,
 *::before,
@@ -112,11 +85,6 @@ a{
 body{
   min-height: 100vh;
 
-  /* Números sempre alinhados. A Young Serif vem com algarismos de
-     texto por padrão: o 9, o 7, o 5 e o 4 descem abaixo da linha e
-     "2019" fica torto ao lado de "2021". Ela tem a variante alinhada
-     (lnum), e a regra aqui vale para qualquer número futuro também.
-     A Archivo já é alinhada; para ela não muda nada. */
   font-variant-numeric: lining-nums;
   background: var(--ink);
   color: var(--paper);
@@ -135,14 +103,14 @@ body{
   color: var(--ink);
 }
 
-/* --- foco visível (discreto, sem cara de app) --------------- */
+/* foco visível (discreto, sem cara de app) */
 
 :focus-visible{
   outline: 1px solid var(--coral);
   outline-offset: .45em;
 }
 
-/* --- utilitários -------------------------------------------- */
+/* utilitários */
 
 .skip-link{
   position: fixed;
@@ -159,8 +127,6 @@ body{
 }
 .skip-link:focus{ transform: translate(-50%, 0); }
 
-/* --- micro-tipografia recorrente ----------------------------- */
-
 .micro{
   font-family: var(--font-sans);
   font-size: clamp(.62rem, .72vw, .74rem);
@@ -169,8 +135,7 @@ body{
   text-transform: uppercase;
 }
 
-/* --- animação base de entrada -------------------------------- */
-/* Sem JS, nada é escondido: os estados iniciais só existem em .js */
+/* animação base de entrada */
 
 @keyframes riseIn{
   from{
@@ -200,15 +165,7 @@ body{
   to  { transform: scaleX(1); }
 }
 
-/* --- registro claro ---------------------------------------------
-   O palco é escuro; o programa da peça é impresso em papel. Não é
-   luz — é outro suporte. Toda a paleta está em token, então basta
-   inverter os valores dentro deste escopo e os componentes
-   acompanham sozinhos.
-
-   O coral escurece: #D14B32 sobre off-white não tem contraste
-   suficiente para tipo pequeno.
-   --------------------------------------------------------------- */
+/* registro claro */
 
 .claro{
   --ink:        #EDE8E0;
@@ -225,7 +182,7 @@ body{
   color: var(--paper);
 }
 
-/* --- grão de filme ---------------------------------------------- */
+/* grão de filme */
 
 .grain{
   position: absolute;
@@ -238,7 +195,7 @@ body{
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* --- acessibilidade de movimento ------------------------------ */
+/* acessibilidade de movimento */
 
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }

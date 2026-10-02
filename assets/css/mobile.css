@@ -1,45 +1,16 @@
-/* =============================================================
-   BRUNA PAZINATO
-   mobile.css — a passagem pelo celular
-
-   Carrega por último, e só faz duas coisas. Não muda composição,
-   não move nada de lugar: o desenho do site já responde bem, e a
-   auditoria a 375px não achou uma única página que role de lado.
-
-   1. LEVANTA O PISO DA MICRO-TIPOGRAFIA.
-      As legendas são `clamp(mínimo, Xvw, máximo)`. No desktop manda
-      o vw; no celular, o vw é minúsculo e quem manda é o mínimo —
-      que foi escolhido olhando para uma tela grande. O resultado
-      medido no aparelho: crédito de foto a 8px, papel do painel a
-      8px, direitos a 8,3px, ano a 8,6px, "ver galeria" a 9px. Isso
-      não se lê com o braço esticado.
-      O piso aqui é 10,6px para o que é assinatura e 11,2px para o
-      que é informação. E o espacejamento afrouxa junto: .3em num
-      corpo de 11px empurra a linha para fora da tela.
-
-   2. DÁ TAMANHO DE DEDO AOS ALVOS.
-      O mínimo confortável é 44px. Estavam em 15 (a marca), 26 (o
-      enviar do formulário), 27 (os campos), 32 (ver galeria), 34
-      (menu e redes), 40 (setas e passagem). Cresce a área de toque
-      por padding, não por corpo: nada muda de tamanho na tela.
-   ============================================================= */
+/* Bruna Pazinato · ajustes de celular */
 
 @media (max-width: 760px){
 
-  /* --- 1. o piso da micro-tipografia ------------------------- */
-
-  /* assinatura e navegação */
   .brand{ font-size: .72rem; letter-spacing: .26em; }
   .burger__label{ font-size: .7rem; letter-spacing: .26em; }
   .menu__foot{ font-size: .68rem; letter-spacing: .24em; }
 
-  /* rótulos de ato e de seção */
   .rotulo,
   .passagem__rotulo,
   .contato__linha,
   .campo__rotulo{ font-size: .7rem; letter-spacing: .22em; }
 
-  /* dados de obra: ano, papel, nota */
   .destaque__meta,
   .destaque__papel span,
   .filme__ano,
@@ -52,29 +23,22 @@
   .btn__texto,
   .btn__contagem{ font-size: .7rem; letter-spacing: .2em; }
 
-  /* lista de faixas dos EPs: e nome de musica, nao rotulo. Sobe para
-     o piso de 11.2px mas mantem a entreletra de texto corrido. */
   .disco__faixas{ font-size: .7rem; letter-spacing: .04em; }
 
-  /* o que é assinatura miúda: crédito, direitos, fonte da citação */
   .destaque__credito,
   .destaque__critica cite,
   .critica cite,
   .rodape__direitos,
   .recado__pe{ font-size: .66rem; letter-spacing: .14em; }
 
-  /* subtítulo da obra — vinha de um em, e o em encolheu junto */
   .destaque__sub{ font-size: .42em; }
 
-  /* o visor de fotos tem a própria micro-tipografia */
   .visor__contador,
   .visor__credito,
   .visor__obra i{ font-size: .68rem; letter-spacing: .18em; }
 
-  /* --- 2. área de toque -------------------------------------- */
+  /* 2. área de toque */
 
-  /* A marca tinha 15px de altura: o alvo cresce por padding e a
-     posição não muda, porque o padding é compensado na margem. */
   .brand{
     padding: .85rem 0;
     margin: -.85rem 0;
@@ -106,15 +70,10 @@
     min-height: 44px;
   }
 
-  /* Campos de formulário: o texto encostava no fio e o alvo tinha
-     27px. Cresce por padding, e o fio desce junto. */
   .campo__valor{
     min-height: 44px;
     padding-bottom: 1em;
-    /* O 16px aqui era piso contra o zoom do iOS, mas virou teto: esta
-       regra vem depois do contato.css e vencia o corpo maior que eu
-       tinha escrito lá. Sobe para 1.15rem, que continua acima do
-       limite do iOS e é o tamanho pedido. */
+
     font-size: 1.15rem;
   }
 
@@ -134,35 +93,17 @@
     padding-bottom: .9em;
   }
 
-  /* --- 3. o nome no hero ------------------------------------- */
+  /* 3. o nome no hero */
 
-  /* "PAZINATO" parava a 6px da borda direita, com 20px de goteira à
-     esquerda: lia como corte. O corpo cai o suficiente para a
-     palavra caber entre as duas goteiras. */
   .hero{ --name-size: clamp(2.4rem, 16.2vw, 6.6rem); }
 }
 
-/* =============================================================
-   O RITMO VERTICAL NO CELULAR
-
-   O Ato II tinha 6,8 telas de rolagem. Nada disso era gordura de
-   conteúdo — são cinco montagens em destaque, dezesseis na vitrine,
-   a televisão e a publicidade. O que dava para devolver era espaço:
-   a abertura comia 90% de uma tela inteira antes de qualquer coisa,
-   e os vãos entre blocos foram medidos em vh, que num celular alto
-   viram muito mais pixel do que a intenção.
-
-   Aqui os vãos passam a ser fixos e a abertura encolhe. Nenhuma
-   fotografia diminui, nenhum texto sai.
-   ============================================================= */
+/* o ritmo vertical no celular */
 
 @media (max-width: 760px){
 
-  /* A abertura é cartaz, não tela de espera: 90svh viravam 731px
-     antes da primeira montagem. */
   .abertura{ min-height: clamp(380px, 62svh, 560px); }
 
-  /* Os vãos em vh crescem demais em tela alta. Fixos, em rem. */
   .destaques{ gap: 2.2rem; margin-bottom: 2rem; }
   .destaque{ gap: 1rem; }
   .cena{ padding-top: 2.2rem; padding-bottom: 2.2rem; }
@@ -177,44 +118,17 @@
   .passagem{ padding-top: 2rem; padding-bottom: 2rem; }
 }
 
-/* =============================================================
-   SEGUNDA PASSADA NO CELULAR — 30/9/2026
-
-   A primeira passada consertou o que estava ilegível: piso de corpo,
-   alvo de toque, rolagem horizontal. Esta é sobre escala e eixo —
-   no telefone estava tudo pequeno demais e tudo encostado na esquerda.
-
-   Vale para até 760px. O desktop não muda em nada aqui.
-   ============================================================= */
-
 @media (max-width: 760px){
 
-  /* --- a assinatura do hero ---------------------------------------
-     Estava em 11.5px numa tela de 375, com white-space: nowrap para
-     caber numa linha. Cabia, e não se lia. Em duas linhas ela pode
-     crescer 45% e ainda sobrar margem. */
-  /* Uma linha, como no começo — mas maior do que era.
+  /* a assinatura do hero */
 
-     Ela estava em 11.5px porque o nowrap obrigava. Medido no espaço
-     real de 314px que sobra num aparelho de 375: em 1.04rem com .2em
-     de entreletra o texto dá 305px e ainda cabe. É 44% maior que o
-     original, sem quebrar. */
   .tagline{
-    /* O corpo tem de seguir a largura da tela, porque a linha é
-       indivisível: em 1.04rem fixo o texto dava 305px, e num aparelho
-       de 320 sobram 280 — cortava. O 4.5vw resolve embaixo e o teto
-       de 1.04rem segura em cima.
-         320px: 14.4px de corpo, texto 264 em 280 disponíveis
-         375px: 16.6px (no teto), texto 305 em 335 */
+
     font-size: clamp(.8rem, 4.5vw, 1.04rem);
     letter-spacing: .2em;
   }
 
-  /* --- o menu ------------------------------------------------------
-     Era flex com justify-content: flex-end, então os cinco itens
-     começavam a 475px de uma tela de 812 — o polegar alcança, mas a
-     página parecia vazia em cima. A margem automática nos dois lados
-     centra a navegação e deixa o rodapé do menu onde estava. */
+  /* o menu */
   .menu__nav{
     margin-top: auto;
     margin-bottom: auto;
@@ -224,11 +138,7 @@
   .menu__rodape{ justify-content: center; gap: 1.6rem; }
   .menu__foot{ text-align: center; }
 
-  /* --- os três atos, BEM maiores -----------------------------------
-     O nome estava em 26px num painel de 525 de altura. Agora vai a
-     ~43px, na mesma escala do título da página que ele abre. E o
-     olho estava em 9.3px, abaixo do piso de 11.2 que o resto respeita
-     — ele não estava na lista da primeira passada. */
+  /* os três atos, bem maiores */
   .ato-panel__name{ font-size: clamp(2.3rem, 11.4vw, 3.4rem); }
 
   .ato-panel__num{
@@ -238,32 +148,23 @@
 
   .ato-panel__num::after{ width: 30px; margin-top: .8em; }
 
-  /* a legenda sobe do pé para dentro da foto */
   .ato-panel__caption{ bottom: 26%; }
 
-  /* --- título de página no eixo ------------------------------------
-     No desktop a abertura divide a faixa com a fotografia, que ocupa
-     a direita a partir de --foto-borda, e por isso o título fica à
-     esquerda. AQUI A FOTO É FULL-BLEED: ocupa os 375px inteiros. Não
-     há lado para disputar, e centralizar é o que combina com os
-     painéis, que já estão centralizados. */
+  /* título de página no eixo */
   .abertura{ text-align: center; }
   .abertura__frase{ margin-inline: auto; }
 
-  /* --- os EPs no eixo, e as faixas legíveis ------------------------ */
+  /* os eps no eixo, e as faixas legíveis */
   .disco{ justify-items: center; text-align: center; }
   .disco__capa{ margin-inline: auto; }
   .disco__texto{ width: 100%; }
 
-  /* A lista fica no meio do painel, mas o TEXTO dela alinha à
-     esquerda: é lista numerada, e centrada os números não formam
-     coluna — cada linha começa num lugar. */
   .disco__faixas{
     width: max-content;
     max-width: 100%;
     margin-inline: auto;
     text-align: left;
-    font-size: .82rem;       /* vence o piso de .7rem lá de cima */
+    font-size: .82rem;
     letter-spacing: .03em;
     line-height: 2.1;
   }
@@ -274,17 +175,8 @@
     margin-left: 0;
   }
 
-  /* --- a vitrine: painéis maiores e menos alongados -----------------
-     Eram 233x357: proporção 0.65 numa foto que é 700x980, ou seja
-     0.714. Mais estreitos que a própria fotografia, pareciam tiras.
-     Na primeira tentativa eu os deixei MAIS altos, o que piorou —
-     foi para 0.54.
+  /* a vitrine: painéis maiores e menos alongados */
 
-     A proporção certa é a da foto. Em 5/7 o painel não corta nada, e
-     em 70vw ele passa de 233 para 262 de largura. Maior e mais
-     cheio, que era o pedido. */
-  /* :not() porque a fileira da TV e um painel por vez, com largura
-     de 100% da pista — se ela herdar esta medida, abre um vao. */
   .vitrine:not(.vitrine--miuda){ --palco-largura: clamp(240px, 70vw, 300px); }
 
   .vitrine:not(.vitrine--miuda) .palco{
@@ -292,14 +184,8 @@
     aspect-ratio: 5 / 7;
   }
 
-  /* --- as setas da vitrine: maiores, no meio, mais firmes ----------
-     Estavam num canto, com haste de 1px — no telefone quase não se
-     viam, e são elas que avisam que a fileira anda. */
   .vitrine__topo{ justify-content: center; gap: 2.4rem; }
 
-  /* SÓ AS DO TOPO. Na fileira da TV as setas ficam DOS LADOS do
-     cartão, dividindo a largura com ele: engordá-las lá encolheu a
-     pista de 335 para 188, e o cartão passou a vazar. */
   .vitrine__topo .vitrine__seta{
     width: 56px;
     height: 48px;
@@ -310,10 +196,7 @@
   .vitrine__topo .vitrine__seta span::before,
   .vitrine__topo .vitrine__seta span::after{ width: 14px; height: 2px; }
 
-  /* --- a passagem entre atos ---------------------------------------
-     Estava empilhada: uma coluna, "Voltar" em cima e o próximo ato
-     embaixo. No desktop são os dois lados da mesma linha, e é assim
-     que se entende que um volta e o outro avança. Volta a ser. */
+  /* a passagem entre atos */
   .passagem{
     grid-template-columns: auto 1fr;
     gap: 1.2rem;
@@ -324,8 +207,6 @@
     text-align: right;
   }
 
-  /* E a seta embaixo do próximo ato, que é o que diz "dá para ir".
-     Vai no ::after porque não precisa de marcação nova. */
   .passagem__link--proximo::after{
     content: "";
     display: block;
@@ -337,17 +218,9 @@
   }
 }
 
-/* =============================================================
-   TERCEIRA PASSADA — 30/9/2026, fim da tarde
-   ============================================================= */
-
 @media (max-width: 760px){
 
-  /* --- eyebrows e títulos, mais uma vez ---------------------------
-     "Aumentar eyebrows e títulos. AUMENTAR." Estavam todos no piso de
-     11.2px, que era o mínimo de leitura, não uma escolha de escala.
-     Sobem para 13.1 — ainda é micro-tipografia, mas deixa de parecer
-     nota de rodapé. Os títulos sobem junto, na mesma proporção. */
+  /* eyebrows e títulos, mais uma vez */
   .rotulo,
   .passagem__rotulo,
   .contato__linha,
@@ -365,19 +238,6 @@
   .disco__tipo,
   .ato-panel__num{ font-size: .82rem; letter-spacing: .24em; }
 
-  /* O PISO ERA 3.4rem E CORTAVA O TÍTULO.
-
-     O clamp sobe o corpo com a largura da tela, mas o piso é um chão:
-     abaixo de 360px o vw já pedia menos e o piso segurava em 54.4px.
-     Medido num aparelho de 320: CAMARIM saía com 295px numa caixa de
-     280, e TRAJETÓRIA com 374. A seção tem overflow:hidden, então nada
-     rolava de lado — a palavra era simplesmente decepada, que foi o
-     que apareceu na tela do telefone.
-
-     Com 2.9rem o piso só encosta abaixo de 300px, largura que não
-     existe. Os sete títulos de sete letras passam a caber até em 320.
-     TRAJETÓRIA tem dez e não cabe nem assim: ela tem regra própria no
-     trajetoria.css, que só aquela página carrega. */
   .abertura__titulo{ font-size: clamp(2.9rem, 15.5vw, 5rem); }
   .cena__titulo{ font-size: clamp(2rem, 9vw, 2.8rem); }
   .programa__titulo{ font-size: clamp(1.8rem, 8vw, 2.5rem); }
@@ -389,79 +249,33 @@
   .passagem__nome{ font-size: 1.25rem; }
   .passagem__link--proximo .passagem__nome{ font-size: clamp(1.7rem, 7.6vw, 2.2rem); }
 
-  /* --- as fotos dos atos com cor ------------------------------------
-     Estavam em brightness .62 e saturate .72, mais o véu por cima.
-     No escritório, com a tela cheia, o escuro é atmosfera; no celular,
-     na rua, vira borrão. Sobe o brilho e devolve quase toda a cor —
-     o véu continua segurando o contraste da legenda. */
+  /* as fotos dos atos com cor */
   .ato-panel__figure img{
     filter: contrast(1) saturate(1.12) brightness(.98);
   }
 
-  /* MAIS COR E MAIS LEGÍVEL SÃO PEDIDOS QUE BRIGAM.
-
-     Enquanto o rótulo dependia do véu, clarear a foto o apagava — e o
-     "ATO I" é coral miúdo, o primeiro a sumir. A saída é separar as
-     duas coisas: a fotografia fica clara, e o texto passa a carregar
-     o próprio escuro.
-
-     O véu deixa de escurecer a foto toda e vira uma sombra baixa e
-     larga atrás da legenda, onde ela está — 26% do pé. Fora dali a
-     imagem aparece inteira. */
   .ato-panel__veil{
     background:
       linear-gradient(to top, rgba(11,11,12,.7) 0%, rgba(11,11,12,.3) 16%, rgba(11,11,12,0) 48%),
-      /* Medido: a legenda ocupa de 58% a 74% da altura do painel, com
-         centro em 66%. A sombra vai exatamente ali — a primeira
-         tentativa estava em 76%, abaixo dela, e por isso o "ATO I"
-         continuava sobre foto crua. */
+
       radial-gradient(96% 34% at 50% 66%, rgba(11,11,12,.74), rgba(11,11,12,0) 74%);
   }
 
-  /* E a sombra no próprio tipo, que é o que garante a leitura mesmo
-     se a foto tiver uma área clara justo atrás da palavra. */
   .ato-panel__num,
   .ato-panel__name{
     text-shadow: 0 1px 14px rgba(11,11,12,.85), 0 1px 3px rgba(11,11,12,.7);
   }
 
-  /* O olho é coral sobre foto, e na Música a foto é vermelha justo
-     atrás dele: mesma família de cor, contraste baixo por natureza.
-     Meio ponto de peso resolve sem trocar a cor, que é assinatura. */
   .ato-panel__num{ font-weight: 500; }
 
   .ato-panel__num::after{ box-shadow: 0 1px 6px rgba(11,11,12,.7); }
 
-  /* --- as setas no meio da faixa clara ------------------------------
-     A faixa abre com 35px de respiro e as setas ficavam a 16px das
-     fotos: encostadas embaixo. Com a mesma medida dos dois lados elas
-     ficam no meio do branco, que é onde o olho as procura. */
+  /* as setas no meio da faixa clara */
   .vitrine__topo{ margin-bottom: 2.2rem; }
 }
 
-/* =============================================================
-   A MARCA SAI QUANDO O MENU ABRE — SÓ NO CELULAR
-   ============================================================= */
-
 @media (max-width: 760px){
 
-  /* Com o menu aberto, "BRUNA PAZINATO" ficava no alto de uma tela
-     que já é só o nome dela em cinco linhas grandes. Repetição sem
-     função, e o nome miúdo competindo com o menu.
-
-     visibility, não só opacity: assim ele sai de verdade, sem deixar
-     alvo de toque por cima do FECHAR, e sem mexer no lugar do botão —
-     o espaço continua reservado, então nada pula quando o menu fecha.
-
-     No desktop fica: lá o menu não toma a tela inteira do mesmo jeito
-     e a marca continua sendo o caminho de volta para o início. */
-  /* SEMPRE, não só com o menu aberto. O nome miúdo ficava fixo por
-     cima da fotografia o tempo todo, e num telefone ele é a única
-     coisa que compete com a imagem numa tela que já é pequena.
-
-     visibility em vez de display: a caixa dele continua ocupando o
-     lugar, então o MENU não escorrega para a esquerda — o cabeçalho é
-     um space-between de dois filhos, e sumir um moveria o outro. */
   .brand{
     opacity: 0;
     visibility: hidden;
@@ -469,28 +283,13 @@
   }
 }
 
-/* =============================================================
-   O HERO SOBE, E VOLTA O FIO QUE DIZ "TEM MAIS ABAIXO"
-   ============================================================= */
-
 @media (max-width: 760px){
 
-  /* O bloco do nome terminava a 47px do pé da tela. Sobe, e o que se
-     abre embaixo dele não é sobra: é o lugar do fio. */
   .hero{ padding-bottom: clamp(6rem, 16vh, 9rem); }
 
-  /* O marcador de rolagem estava em display: none no celular desde
-     sempre — justamente onde ele é mais necessário, porque num
-     telefone o hero ocupa a tela inteira e nada denuncia que existe
-     página embaixo. É o mesmo fio do desktop: 1px de papel com um
-     traço coral descendo dentro dele, sem parar. */
   .cue{
     display: block;
 
-    /* top: 100% em vez de bottom. O fio é absoluto dentro do
-       .hero__grid, e "bottom" o encostava na base DO GRID — que
-       termina na frase. Ele caía 108px ACIMA dela, atravessando o
-       nome. Ancorado no topo 100%, ele começa onde o bloco acaba. */
     top: 100%;
     bottom: auto;
     margin-top: clamp(1.4rem, 3.5vh, 2.2rem);
@@ -498,37 +297,12 @@
   }
 }
 
-/* =============================================================
-   TERCEIRA PASSADA — AUDITORIA ANTES DO DOMÍNIO PRÓPRIO
-
-   Varri as sete páginas a 375px medindo corpo e alvo de toque de
-   cada elemento visível, em vez de olhar. O piso declarado lá em
-   cima — 10,6px para assinatura, 11,2px para informação — estava
-   valendo em quase tudo. Escaparam três coisas, e as três são das
-   que mais importam: dois botões e o e-mail dela.
-   ============================================================= */
-
 @media (max-width: 760px){
 
-  /* "VER GALERIA" ESTAVA A 8,96px, o menor corpo do site.
-
-     A passada de setembro já tinha listado este botão pelo nome e
-     dado a ele os 44px de alvo — mas só o alvo. O corpo ficou de
-     fora porque a regra mirou .btn__texto, e no Ato II o botão é um
-     <a class="btn"> com o texto solto dentro, sem esse span. */
   .btn{ font-size: .7rem; }
 
-  /* O ENVIAR DO FORMULÁRIO ESTAVA A 9,92px.
-     Mesma história: ganhou altura de dedo e não ganhou corpo. É o
-     botão que termina a única tarefa da página. */
   .recado__enviar{ font-size: .7rem; }
 
-  /* O E-MAIL DELA TINHA 16px DE ALTURA DE TOQUE.
-
-     O link herda o corpo miúdo da assinatura, o que está certo — mas
-     assinatura não se toca, e este se toca: é o mailto que abre o
-     aplicativo de e-mail. O corpo fica onde está e só a área cresce,
-     com o padding compensado na margem para a linha não se mexer. */
   .recado__pe a{
     display: inline-block;
     padding: .85rem .4rem;

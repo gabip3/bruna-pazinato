@@ -1,19 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   recado.js — o formulário envia sem sair da página
-
-   Sem isto, o navegador faz o POST na marra e o Web3Forms devolve
-   a página de sucesso deles: um cartão branco genérico, fora do
-   site, com um "Go Back". Depois de cinco páginas em preto, é um
-   tombo — e quem escreveu não volta.
-
-   Aqui o envio vai por fetch e a resposta acontece no lugar do
-   formulário, na tipografia da casa.
-
-   Sem JavaScript nada disso existe e o form continua funcionando
-   do jeito antigo: o action e o method estão no HTML, não aqui.
-   Melhor a página feia deles do que um botão morto.
-   ============================================================= */
+/* Bruna Pazinato · recado */
 
 (function () {
   'use strict';
@@ -38,7 +23,7 @@
   }
 
   form.addEventListener('submit', function (e) {
-    /* deixa a validação do navegador falar primeiro */
+
     if (!form.checkValidity()) { return; }
 
     e.preventDefault();
@@ -60,7 +45,6 @@
       .then(function (r) {
         if (!r.success) { throw new Error(r.message || 'recusado'); }
 
-        /* o formulário sai e a confirmação ocupa o lugar dele */
         form.classList.add('recado__form--enviado');
         form.innerHTML =
           '<p class="recado__obrigado">Recebido. Ela responde por aqui.</p>';

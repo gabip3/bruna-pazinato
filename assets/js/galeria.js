@@ -1,12 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   galeria.js — visor de fotos de cena
-
-   O conteúdo de cada galeria vem de um <script type="application/json">
-   na própria página, com data-galeria batendo com o gatilho.
-   Sem JavaScript, o gatilho continua sendo um link para a primeira
-   foto — abre a imagem de verdade, não um link morto.
-   ============================================================= */
+/* Bruna Pazinato · galeria e visor */
 
 (function () {
   'use strict';
@@ -24,12 +16,12 @@
   var proximo  = visor.querySelector('.visor__nav--prox');
   var root     = document.documentElement;
 
-  var atual = null;     /* dados da galeria aberta */
+  var atual = null;
   var indice = 0;
   var focoAnterior = null;
   var relogio = 0;
 
-  /* --- dados ---------------------------------------------------- */
+  /* dados */
 
   function dados(nome) {
     var fonte = document.querySelector('script.galeria-dados[data-galeria="' + nome + '"]');
@@ -38,13 +30,8 @@
     catch (e) { return null; }
   }
 
-  /* --- exibição ------------------------------------------------- */
+  /* exibição */
 
-  /* Uma foto da lista pode ser so o caminho, como sempre foi, ou um
-     objeto { src, credito } quando a autoria dela difere da galeria.
-     Apareceu no Piaf: dezessete sao do Caio Galucci e duas, as de
-     estudio com fundo preto, sao de outra pessoa. Creditar a galeria
-     inteira a ele seria assinar com o nome errado. */
   function caminhoDe(f) { return (f && f.src) ? f.src : f; }
 
   function creditoDe(f) {
@@ -78,11 +65,9 @@
 
     contador.innerHTML = '<b>' + String(indice + 1).padStart(2, '0') + '</b> / ' + String(n).padStart(2, '0');
 
-    /* o credito acompanha a foto, nao a galeria */
     var c = creditoDe(foto);
     credito.textContent = c ? '© ' + c : '';
 
-    /* vizinhas prontas antes de serem pedidas */
     preparar(atual.fotos[(indice + 1) % n]);
     preparar(atual.fotos[(indice - 1 + n) % n]);
   }
@@ -94,8 +79,6 @@
     atual = d;
     focoAnterior = document.activeElement;
 
-    /* galeria de uma foto só não tem para onde navegar: sem setas e sem
-       contagem, ela se apresenta como uma fotografia, não como carrossel */
     var unica = d.fotos.length < 2;
     anterior.hidden = unica;
     proximo.hidden  = unica;
@@ -103,12 +86,9 @@
     window.clearTimeout(relogio);
 
     obra.innerHTML = d.titulo + (d.sub ? '<i>' + d.sub + (d.ano ? ' · ' + d.ano : '') + '</i>' : '');
-    /* sem credito, nada escrito: a frase de espera aparecia em quase
-       toda galeria e virava ruido. O credito de verdade continua. */
+
     credito.textContent = d.credito ? '© ' + d.credito : '';
 
-    /* frames de TV são pequenos: o visor não amplia além do original,
-       senão a foto chega esticada na tela grande */
     palco.style.maxWidth = d.largura ? d.largura + 'px' : '';
 
     visor.hidden = false;
@@ -132,17 +112,13 @@
     }, 450);
   }
 
-  /* --- gatilhos -------------------------------------------------- */
+  /* gatilhos */
 
-  /* delegação: a vitrine clona painéis depois deste script rodar,
-     e clone com listener perdido vira link que navega para o .jpg */
   document.addEventListener('click', function (e) {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) { return; }
     var g = e.target.closest ? e.target.closest('[data-galeria]') : null;
     if (!g) { return; }
-    /* Numa vitrine o gatilho e um painel so, e a galeria abre na
-       primeira foto. No Camarim as fotos estao todas a vista, e cada
-       uma e um gatilho: data-foto diz em qual o visor deve abrir. */
+
     var partida = parseInt(g.getAttribute('data-foto'), 10) || 0;
     if (abrir(g.getAttribute('data-galeria'), partida)) { e.preventDefault(); }
   });
@@ -158,7 +134,6 @@
     if (e.key === 'ArrowRight') { mostrar(indice + 1); }
   });
 
-  /* arrasto no celular */
   var partidaX = null;
 
   palco.addEventListener('touchstart', function (e) {

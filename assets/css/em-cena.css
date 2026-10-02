@@ -1,13 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   em-cena.css — Ato II
-
-   Quinze musicais não podem ser tratados igualmente: lista plana
-   é currículo, escolha é portfólio. Por isso três destaques com
-   fotografia e escala, e o resto num índice tipográfico — como o
-   programa de uma peça, com o elenco principal na capa e a ficha
-   técnica completa no verso.
-   ============================================================= */
+/* Bruna Pazinato · ato II */
 
 .cena{
   position: relative;
@@ -18,7 +9,6 @@
 .cena__cabeca{
   margin-bottom: clamp(1.5rem, 3.6vh, 2.6rem);
 }
-
 
 .cena__titulo{
   margin-top: 0;
@@ -33,9 +23,7 @@
   color: var(--paper);
 }
 
-/* -------------------------------------------------------------
-   DESTAQUES
-   ------------------------------------------------------------- */
+/* destaques */
 
 .destaques{
   display: grid;
@@ -49,15 +37,6 @@
   align-items: center;
   gap: clamp(1.6rem, 5vw, 5rem);
 }
-
-/* A fotografia ficava alternando de lado, e nos blocos pares o texto ia
-   para a esquerda alinhado à direita. Parecia ritmo e era estorvo: as duas
-   citações — a da Lúcia Veríssimo no Gal e a da Tania Brandão na Clara
-   Nunes — são o que esses blocos têm de melhor, e alinhadas à direita
-   ficavam espremidas contra a imagem, com a página vazia do outro lado.
-
-   Agora a foto é sempre à esquerda e o texto corre à direita dela. Menos
-   truque, mais leitura. */
 
 .destaque__figura{
   position: relative;
@@ -82,10 +61,6 @@
   filter: contrast(1.03) saturate(.95) brightness(.98);
 }
 
-/* Crédito de fotografia. Fica sobre o canto da imagem, em corpo miúdo e
-   caixa baixa: é informação de quem fez, não rótulo de seção. A Bruna
-   fez questão de que estas fossem creditadas, e ela tem razão — foto de
-   cena tem autor. */
 .destaque__credito{
   position: absolute;
   left: 0;
@@ -151,10 +126,6 @@
   color: var(--paper-45);
 }
 
-/* A crítica. Uma frase só: o resto da resenha mora na Trajetória.
-   Display em caixa baixa, para não competir com o título em caixa
-   alta; o fio coral é linha, não texto, então não tem o problema de
-   leitura que a data em coral tinha. */
 .destaque__critica{
   margin: clamp(1.2rem, 3vh, 2rem) 0 0;
   padding-left: clamp(.9rem, 1.4vw, 1.2rem);
@@ -162,11 +133,7 @@
 }
 
 .destaque__critica p{
-  /* A medida vai no <p>, que é quem tem o corpo grande: ch se mede na
-     fonte do próprio elemento. Sem ela a citação corria a coluna
-     inteira numa linha só, esticada até onde desse. 44ch dá duas
-     linhas nas duas citações do site — a da Lúcia Veríssimo, que é
-     longa, e a da Tania Brandão, que é curta. */
+
   max-width: 44ch;
   font-family: var(--font-display);
   font-optical-sizing: none;
@@ -187,17 +154,9 @@
   color: var(--paper-45);
 }
 
-/* -------------------------------------------------------------
-   ÍNDICE DAS OUTRAS MONTAGENS
-   ------------------------------------------------------------- */
+/* índice das outras montagens */
 
-/* -------------------------------------------------------------
-   O PROGRAMA — bloco claro
-
-   Quebra a sequência escura no ponto em que a página era só lista,
-   e o faz por um motivo: ficha de peça é impressa em papel, não
-   projetada no palco. Grão em multiply para não parecer tela acesa.
-   ------------------------------------------------------------- */
+/* o programa — bloco claro */
 
 .programa{
   position: relative;
@@ -237,11 +196,7 @@
   color: var(--paper);
 }
 
-/* o botão da galeria vem de galeria.css — aqui só o encaixe na linha */
-
-/* -------------------------------------------------------------
-   RESPONSIVO
-   ------------------------------------------------------------- */
+/* responsivo */
 
 @media (max-width: 860px){
 
@@ -250,34 +205,11 @@
     gap: clamp(1.2rem, 3vh, 2rem);
   }
 
-  /* EM PÉ, COMO A FOTO.
-
-     Estava em 3/2 — deitada — para os destaques não empurrarem a
-     página quando viraram coluna única. Mas as três fotos são 4:5
-     (854x1066 o Piaf, 1200x1500 a Gal e a Clara Nunes), e um corte
-     3/2 delas joga fora metade da imagem: num aparelho de 375 dava
-     335x223, e o que sobrava era uma tira.
-
-     Em 4/5 a foto aparece inteira, 335x419. A página fica mais longa,
-     e é o preço certo: são as três montagens que ela escolheu pôr em
-     destaque. */
   .destaque__figura{ aspect-ratio: 4 / 5; max-height: none; }
   .destaque__figura img{ object-position: 50% 22%; }
 }
 
-/* =============================================================
-   EM CARTAZ
-
-   O selo de temporada e o botão de ingresso. Tudo aqui tem prazo: o
-   cartaz.js apaga os dois quando a última sessão passa, e o CSS só
-   cuida de como eles aparecem enquanto valem.
-
-   O PONTO É VERDE, e é a única vez que o verde aparece no site. Foi
-   uma escolha e não um descuido: coral e dourado já significam coisas
-   aqui — destaque e dado —, e "acontecendo agora" é uma terceira. O
-   verde é o único sinal que o olho lê sem legenda. É um verde quebrado,
-   não o de semáforo, para não brigar com a paleta quente.
-   ============================================================= */
+/* em cartaz */
 
 .cartaz{
   display: inline-flex;
@@ -290,12 +222,10 @@
   height: .5em;
   border-radius: 50%;
   background: #46B06A;
-  /* o halo é o mesmo verde, e some junto no prefers-reduced-motion */
+
   box-shadow: 0 0 0 0 rgba(70, 176, 106, .55);
 }
 
-/* Só pulsa DEPOIS da estreia. Antes dela o ponto fica parado: a
-   temporada ainda não começou, e um ponto pulsando diria que sim. */
 .cartaz--ativo .cartaz__ponto{
   animation: cartazPulso 2.4s var(--ease-soft) infinite;
 }
@@ -306,10 +236,7 @@
   100% { box-shadow: 0 0 0 0   rgba(70, 176, 106, 0); }
 }
 
-/* --- o botão de ingresso -------------------------------------------
-   Vem antes do "Ver galeria" porque é a ação com data para acabar. E
-   é o único botão preenchido do site: a borda fina do .btn é certa
-   para "ver mais", não para "comprar agora". */
+/* o botão de ingresso */
 
 .destaque__texto .btn + .btn{ margin-left: .6rem; }
 
@@ -330,17 +257,11 @@
   .cartaz--ativo .cartaz__ponto{ animation: none; }
 }
 
-/* No celular os dois botões empilham: lado a lado eles passavam da
-   margem, e "Comprar ingresso" é a linha mais longa das duas. */
 @media (max-width: 620px){
   .destaque__texto .btn{ display: flex; justify-content: center; }
   .destaque__texto .btn + .btn{ margin-left: 0; margin-top: .6rem; }
 }
 
-/* O separador é do selo, não da linha. Escrito no HTML como "2026 · ",
-   ele sobrava sozinho quando o cartaz.js removia o selo: a linha ficava
-   "2026 ·", com um ponto apontando para nada. Como ::before do próprio
-   selo, ele sai junto. */
 .cartaz::before{
   content: "·";
   margin-inline: .62em 0;

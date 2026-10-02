@@ -1,13 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   hero.js — contorno do nome sobre a fotografia
-
-   Onde a fotografia atravessa as últimas letras de PAZINATO, um
-   contorno fino continua o desenho por cima da imagem.
-   --cut = distância entre o início do nome e a borda da foto.
-
-   Só a home tem hero; nas outras páginas isso sai de cena sozinho.
-   ============================================================= */
+/* Bruna Pazinato · entrada */
 
 (function () {
   'use strict';
@@ -35,7 +26,7 @@
   function agendar() {
     window.cancelAnimationFrame(quadro);
     quadro = window.requestAnimationFrame(sincronizar);
-    /* rAF pode não rodar em aba oculta; garante a medida de todo jeito */
+
     window.setTimeout(sincronizar, 200);
   }
 

@@ -15,9 +15,7 @@
 <meta property="og:description" content="Oito clipes.">
 <meta property="og:url" content="https://brunapazinato.com/musica.html">
 <meta property="og:site_name" content="Bruna Pazinato">
-<!-- A imagem de compartilhamento e 1200x630 e horizontal de proposito:
-     as fotos do site sao todas verticais, e o WhatsApp, o Facebook e o
-     X recortam a previa em faixa. Vertical, cortavam a cabeca dela. -->
+
 <meta property="og:image" content="https://brunapazinato.com/assets/img/compartilhar.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -32,8 +30,7 @@
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<!-- iOS ignora SVG: sem este PNG, quem salva o site na tela inicial
-     do iPhone recebe uma miniatura da pagina, nao o icone. -->
+
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
@@ -42,20 +39,17 @@
 <link rel="preconnect" href="https://i.ytimg.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..600&family=Fraunces:opsz,wght@9..144,300..800&family=Young+Serif&display=swap">
 
-<link rel="stylesheet" href="assets/css/base.css?v=202609291600">
-<link rel="stylesheet" href="assets/css/header.css?v=202610012320">
-<link rel="stylesheet" href="assets/css/rodape.css?v=202609291600">
-<link rel="stylesheet" href="assets/css/ato.css?v=202610020400">
-<link rel="stylesheet" href="assets/css/musica.css?v=202609291600">
-<link rel="stylesheet" href="assets/css/discos.css?v=202610011020">
-<link rel="stylesheet" href="assets/css/player.css?v=202609291600">
+<link rel="stylesheet" href="assets/css/base.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/header.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/rodape.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/ato.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/musica.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/discos.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/player.css?v=202610021000">
 
-<!-- por ultimo: levanta o piso da micro-tipografia e a area de toque -->
-<link rel="stylesheet" href="assets/css/mobile.css?v=202610020500">
+<link rel="stylesheet" href="assets/css/mobile.css?v=202610021000">
 <script>document.documentElement.classList.add('js');</script>
 
-<!-- Os dois EPs. Sem data de propósito: ela não quis ano na página, e
-     não faz sentido o buscador anunciar o que a página esconde. -->
 <script type="application/ld+json">
 [
   {
@@ -102,8 +96,6 @@
 ]
 </script>
 
-<!-- O caminho da página dentro do site. É o que faz o Google mostrar
-     "brunapazinato.com › Camarim" em vez da URL crua no resultado. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -183,9 +175,7 @@
 
 <main id="conteudo">
 
-  <!-- ============================================================
-       ABERTURA DO ATO
-       ============================================================ -->
+  <!-- abertura do ato -->
   <section class="abertura" style="--foto-borda: 42%; --foto-pos: 55% 50%; --foto-fade: 26%; --foto-brilho: .95">
 
     <figure class="abertura__figura" aria-hidden="true">
@@ -198,9 +188,7 @@
     <span class="grain" aria-hidden="true"></span>
   </section>
 
-  <!-- ============================================================
-       AS FAIXAS
-       ============================================================ -->
+  <!-- as faixas -->
   <section class="faixas" aria-label="Clipes">
     <ol class="faixas__lista">
 
@@ -295,14 +283,7 @@
     </ol>
   </section>
 
-  <!-- ============================================================
-       OS DISCOS
-       Quase todo clipe acima saiu de um destes dois EPs. Faltava
-       dizer onde se escuta. Sem datas — decisão dela.
-
-       Afrodisíaca não está no Apple Music; só o Dopamina. Por isso
-       a lista de ícones é diferente nos dois, e é de propósito.
-       ============================================================ -->
+  <!-- os discos -->
   <section class="discos" aria-label="EPs">
     <ul class="discos__lista">
 
@@ -391,9 +372,7 @@
     </ul>
   </section>
 
-  <!-- ============================================================
-       PASSAGEM PARA O PRÓXIMO ATO
-       ============================================================ -->
+  <!-- passagem para o próximo ato -->
   <nav class="passagem" aria-label="Navegação entre atos">
     <a class="passagem__link" href="index.html">
       <span class="passagem__rotulo">Voltar</span>
@@ -407,9 +386,7 @@
 
 </main>
 
-<!-- ============================================================
-     RODAPÉ
-     ============================================================ -->
+<!-- rodapé -->
 <footer class="rodape">
 
   <ul class="rodape__redes">
@@ -437,7 +414,6 @@
 
 </footer>
 
-<!-- player, preenchido pelo JS quando alguém abre um clipe -->
 <div class="player" id="player" hidden>
   <button class="player__fechar" type="button" aria-label="Fechar vídeo">
     <span aria-hidden="true"></span>
@@ -445,10 +421,10 @@
   <div class="player__quadro"></div>
 </div>
 
-<script src="assets/js/pronto.js?v=202609291600" defer></script>
-<script src="assets/js/nav.js?v=202609291600" defer></script>
-<script src="assets/js/reveal.js?v=202609291600" defer></script>
-<script src="assets/js/player.js?v=202609291600" defer></script>
+<script src="assets/js/pronto.js?v=202610021000" defer></script>
+<script src="assets/js/nav.js?v=202610021000" defer></script>
+<script src="assets/js/reveal.js?v=202610021000" defer></script>
+<script src="assets/js/player.js?v=202610021000" defer></script>
 
 </body>
 </html>

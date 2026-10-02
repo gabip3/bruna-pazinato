@@ -15,9 +15,7 @@
 <meta property="og:description" content="A intérprete no palco.">
 <meta property="og:url" content="https://brunapazinato.com/ao-vivo.html">
 <meta property="og:site_name" content="Bruna Pazinato">
-<!-- A imagem de compartilhamento e 1200x630 e horizontal de proposito:
-     as fotos do site sao todas verticais, e o WhatsApp, o Facebook e o
-     X recortam a previa em faixa. Vertical, cortavam a cabeca dela. -->
+
 <meta property="og:image" content="https://brunapazinato.com/assets/img/compartilhar.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -32,8 +30,7 @@
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<!-- iOS ignora SVG: sem este PNG, quem salva o site na tela inicial
-     do iPhone recebe uma miniatura da pagina, nao o icone. -->
+
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
@@ -41,23 +38,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..600&family=Fraunces:opsz,wght@9..144,300..800&family=Young+Serif&display=swap">
 
-<link rel="stylesheet" href="assets/css/base.css?v=202609291600">
-<link rel="stylesheet" href="assets/css/header.css?v=202610012320">
-<link rel="stylesheet" href="assets/css/rodape.css?v=202609291600">
-<link rel="stylesheet" href="assets/css/ato.css?v=202610020400">
-<link rel="stylesheet" href="assets/css/showreel.css?v=202609291600">
-<!-- a vitrine de palco usa o mesmo desenho das montagens do Ato II:
-     em-cena.css traz a faixa de papel, vitrine.css traz os painéis -->
-<link rel="stylesheet" href="assets/css/em-cena.css?v=202609291600">
-<link rel="stylesheet" href="assets/css/vitrine.css?v=202610011100">
-<link rel="stylesheet" href="assets/css/player.css?v=202609291600">
+<link rel="stylesheet" href="assets/css/base.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/header.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/rodape.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/ato.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/showreel.css?v=202610021000">
 
-<!-- por ultimo: levanta o piso da micro-tipografia e a area de toque -->
-<link rel="stylesheet" href="assets/css/mobile.css?v=202610020500">
+<link rel="stylesheet" href="assets/css/em-cena.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/vitrine.css?v=202610021000">
+<link rel="stylesheet" href="assets/css/player.css?v=202610021000">
+
+<link rel="stylesheet" href="assets/css/mobile.css?v=202610021000">
 <script>document.documentElement.classList.add('js');</script>
 
-<!-- O caminho da página dentro do site. É o que faz o Google mostrar
-     "brunapazinato.com › Camarim" em vez da URL crua no resultado. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -137,14 +130,7 @@
 
 <main id="conteudo">
 
-  <!-- ============================================================
-       ABERTURA DO ATO
-
-       PLACEHOLDER: a fotografia é assets/img/abertura-ao-vivo.jpg.
-       Para trocar, basta substituir o arquivo nesse caminho. Se a
-       nova foto tiver outra proporção, ajuste --foto-forma abaixo
-       (é a largura / altura da imagem), senão o quadro corta.
-       ============================================================ -->
+  <!-- abertura do ato -->
   <section class="abertura" style="--foto-borda: 44%; --foto-pos: 50% 34%; --foto-fade: 24%; --foto-brilho: 1">
 
     <figure class="abertura__figura" aria-hidden="true">
@@ -158,11 +144,7 @@
     <span class="grain" aria-hidden="true"></span>
   </section>
 
-  <!-- ============================================================
-       O SHOWREEL
-       Um minuto e meio de palco. Entra mudo, como fotografia que se
-       mexe; ganha som e controles nativos quando alguem clica.
-       ============================================================ -->
+  <!-- o showreel -->
   <section class="showreel" aria-label="Showreel">
 
     <figure class="showreel__quadro" data-showreel data-reveal>
@@ -183,17 +165,6 @@
 
   </section>
 
-  <!-- ============================================================
-       NO PALCO · registro claro
-
-       A mesma vitrine das outras montagens do Ato II, com uma troca:
-       o painel abre vídeo em vez de galeria. O gatilho é data-filme,
-       o mesmo dos filmes publicitários, então o player é o de sempre
-       — controles nativos, sem player escrito à mão.
-
-       Os rótulos vêm das pastas do arquivo de origem:
-       CARNAVAL e PERSONALIDADES. Não inventei categoria.
-       ============================================================ -->
   <section class="programa claro" aria-label="No palco">
 
     <div class="programa__coluna">
@@ -254,11 +225,7 @@
 
   </section>
 
-  <!-- ============================================================
-       PASSAGEM
-       Os tres atos acabam aqui. Sem esta nav o visitante ficava sem
-       saida a nao ser o menu, e os outros dois atos tinham a sua.
-       ============================================================ -->
+  <!-- passagem -->
   <nav class="passagem" aria-label="Navegação entre páginas">
     <a class="passagem__link" href="em-cena.html">
       <span class="passagem__rotulo">Ato II</span>
@@ -272,7 +239,6 @@
 
 </main>
 
-<!-- player de vídeo, preenchido pelo JS -->
 <div class="player" id="player" hidden>
   <button class="player__fechar" type="button" aria-label="Fechar vídeo">
     <span aria-hidden="true"></span>
@@ -280,9 +246,7 @@
   <div class="player__quadro"></div>
 </div>
 
-<!-- ============================================================
-     RODAPÉ
-     ============================================================ -->
+<!-- rodapé -->
 <footer class="rodape">
 
   <ul class="rodape__redes">
@@ -310,12 +274,12 @@
 
 </footer>
 
-<script src="assets/js/pronto.js?v=202609291600" defer></script>
-<script src="assets/js/nav.js?v=202609291600" defer></script>
-<script src="assets/js/reveal.js?v=202609291600" defer></script>
-<script src="assets/js/showreel.js?v=202609291600" defer></script>
-<script src="assets/js/vitrine.js?v=202610011100" defer></script>
-<script src="assets/js/player.js?v=202609291600" defer></script>
+<script src="assets/js/pronto.js?v=202610021000" defer></script>
+<script src="assets/js/nav.js?v=202610021000" defer></script>
+<script src="assets/js/reveal.js?v=202610021000" defer></script>
+<script src="assets/js/showreel.js?v=202610021000" defer></script>
+<script src="assets/js/vitrine.js?v=202610021000" defer></script>
+<script src="assets/js/player.js?v=202610021000" defer></script>
 
 </body>
 </html>

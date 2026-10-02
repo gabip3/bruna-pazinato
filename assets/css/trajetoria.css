@@ -1,21 +1,10 @@
-/* =============================================================
-   BRUNA PAZINATO
-   trajetoria.css — a página de leitura
-
-   O palco é escuro; o programa da peça é impresso. A TRAJETÓRIA
-   é o programa inteiro: depois da abertura, tudo é papel.
-
-   Não é currículo. A ordem é a de uma matéria de revista: o arco
-   primeiro (de onde saiu, até onde chegou), a crítica, os nomes
-   com quem trabalhou, e no fim a linha do tempo.
-   ============================================================= */
+/* Bruna Pazinato · trajetória */
 
 .folha{
   position: relative;
   padding: clamp(3rem, 9vh, 6.5rem) var(--gutter) clamp(3rem, 8vh, 5.5rem);
 }
 
-/* grão de papel, o mesmo do programa do Ato II */
 .folha::after{
   content: "";
   position: absolute;
@@ -29,7 +18,6 @@
 
 .folha > *{ position: relative; z-index: 1; }
 
-/* rótulo miúdo, o mesmo em todas as partes da folha */
 .rotulo{
   margin: 0;
   font-family: var(--font-sans);
@@ -40,9 +28,7 @@
   color: var(--coral);
 }
 
-/* -------------------------------------------------------------
-   O ARCO
-   ------------------------------------------------------------- */
+/* o arco */
 
 .arco{
   display: grid;
@@ -56,8 +42,6 @@
   overflow: hidden;
 }
 
-/* Foto de estúdio com fundo branco. Em multiply o branco vira a cor
-   do papel e a figura fica impressa na folha, sem retângulo em volta. */
 .arco__retrato img{
   width: 100%;
   height: 100%;
@@ -98,23 +82,13 @@
   color: var(--paper);
 }
 
-/* -------------------------------------------------------------
-   A CRÍTICA
-   ------------------------------------------------------------- */
+/* a crítica */
 
-/* A crítica é o centro da página: a única voz de fora, e a que diz
-   o que ninguém poderia dizer no lugar dela. Fica centrada, larga e
-   com ar em volta, sem fio nem caixa. */
 .critica{
   margin: clamp(4rem, 13vh, 9rem) auto 0;
   text-align: center;
 }
 
-/* A medida fica no <p>, não no <blockquote>: ch se mede na fonte do próprio
-   elemento, e o blockquote herda a Archivo de 16px. Lá em cima, 19ch davam
-   uma coluna de 150px para um texto de 67px — uma palavra por linha. Aqui
-   os 22ch são 22 caracteres da Young Serif grande, que é o que se queria
-   dizer: cinco linhas de citação. */
 .critica p{
   max-width: 22ch;
   margin-inline: auto;
@@ -141,12 +115,7 @@
 
 .critica cite em{ font-style: normal; color: var(--paper-70); }
 
-/* -------------------------------------------------------------
-   A IMAGEM DO FIM
-   Ela no palco, com o próprio nome no telão atrás. Fecha a página
-   sem dizer mais nada. A folha clara corta direto na fotografia,
-   sem transição: é o papel acabando e a luz voltando.
-   ------------------------------------------------------------- */
+/* a imagem do fim */
 
 .fim{
   position: relative;
@@ -163,13 +132,12 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 40%;
-  /* a sobra de escala é o que o parallax consome ao deslocar */
+
   transform: scale(1.12);
   filter: contrast(1.04) saturate(.86) brightness(.84);
   will-change: transform;
 }
 
-/* o pé escurece para encontrar a passagem, que é preta */
 .fim::after{
   content: "";
   position: absolute;
@@ -179,9 +147,7 @@
     var(--ink) 100%);
 }
 
-/* -------------------------------------------------------------
-   RESPONSIVO
-   ------------------------------------------------------------- */
+/* responsivo */
 
 @media (max-width: 860px){
 
@@ -195,34 +161,12 @@
     aspect-ratio: 4 / 5;
   }
 
-
-
 }
-
-/* =============================================================
-   TUDO NO EIXO — 30/9/2026
-
-   "Centraliza tudo em trajetória." É a única página do site que não
-   é ato: não tem vitrine, não tem galeria, não tem fileira que anda.
-   É um texto sobre uma pessoa, com um retrato e uma crítica. Centrada
-   ela vira página de programa impresso, que é o que ela sempre quis
-   ser — e agora que a abertura ganhou fotografia, o título no eixo
-   sobre a foto fecha o gesto.
-
-   Vale nas duas larguras, diferente do resto do site.
-   ============================================================= */
 
 .abertura--cheia{ text-align: center; }
 
 .folha.claro{ text-align: center; }
 
-/* Coluna única. As duas colunas (retrato à esquerda, texto à direita)
-   eram o que sobrava do resto do site; aqui elas deixavam o retrato a
-   404px do eixo e o texto a 288 do outro lado — centrado dentro da
-   própria coluna, que não é o mesmo que centrado na página.
-
-   O retrato ganha teto: em coluna única, sem ele, um 4:5 abriria mais
-   de 800px de altura no desktop. */
 .arco{
   grid-template-columns: minmax(0, 1fr);
   justify-items: center;
@@ -242,15 +186,12 @@
 
 .critica{
   text-align: center;
-  border-left: 0;                 /* o fio à esquerda só faz sentido
-                                     em texto alinhado à esquerda */
+  border-left: 0;
   padding-left: 0;
 }
 
 .critica p{ margin-inline: auto; }
 
-/* O fio vira um traço curto acima da citação, no eixo — o mesmo
-   gesto do fio embaixo do "ATO I" nos painéis. */
 .critica::before{
   content: "";
   display: block;
@@ -260,45 +201,18 @@
   background: var(--coral);
 }
 
-/* "sobre Clara Nunes" desce uma linha: o nome do espetáculo é outra
-   informação que o nome de quem escreveu. */
 .critica__obra{
   display: block;
   margin-top: .5em;
 }
 
-/* O véu dos outros atos escurece o pé e a esquerda, porque lá o título
-   fica à esquerda e a foto à direita. Aqui a foto ocupa a faixa inteira
-   e o título está no meio dela, então o escuro tem de estar no meio
-   também — senão "A ARTISTA", que é coral e miúdo, some na pele dela. */
 .abertura--cheia .abertura__veu{
   background:
     linear-gradient(to top, var(--ink) 0%, rgba(11,11,12,.15) 46%, rgba(11,11,12,.55) 100%),
     radial-gradient(120% 52% at 50% 62%, rgba(11,11,12,.72), rgba(11,11,12,0) 70%);
 }
 
-
-/* =============================================================
-   O TÍTULO MAIS LONGO DO SITE
-
-   "Trajetória" tem dez letras. Os outros títulos têm seis ou sete, e a
-   medida do celular foi calibrada para eles. Na mesma escala, esta
-   palavra ocupa 6.9 vezes o corpo da letra: a 54.4px dá 374px, e a
-   caixa de um telefone de 320 tem 280.
-
-   Então aqui a escala é outra, calculada a partir da palavra e não da
-   página: 12.5vw mantém a largura dentro da caixa de 320px até 412px,
-   com folga nos três tamanhos medidos. Continua sendo o maior corpo
-   que cabe — não é o título encolhido por precaução, é o título no
-   limite da margem.
-
-   A REGRA PRECISA DE PESO. O mobile.css carrega depois deste arquivo,
-   de propósito, para ser o último a falar sobre micro-tipografia. Com
-   .abertura__titulo os dois seletores empatam em especificidade e
-   quem carrega por último ganha — a primeira versão disto não teve
-   efeito nenhum, e TRAJETÓRIA continuou saindo com 341px numa caixa
-   de 280. Encostar no --cheia, que só esta página usa, sobe para 0,2,0
-   e a ordem deixa de decidir. */
+/* o título mais longo do site */
 
 @media (max-width: 760px){
   .abertura--cheia .abertura__titulo{ font-size: clamp(2.2rem, 12.5vw, 4.2rem); }

@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Copia de trabalho: nao pode ser indexada, senao concorre com o site. -->
 <meta name="robots" content="noindex, nofollow">
 
 <title>Contato | Bruna Pazinato</title>
@@ -20,8 +19,7 @@
 
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<!-- iOS ignora SVG: sem este PNG, quem salva o site na tela inicial
-     do iPhone recebe uma miniatura da pagina, nao o icone. -->
+
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 
@@ -31,14 +29,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..600&family=Fraunces:opsz,wght@9..144,300..800&family=Young+Serif&display=swap">
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=gambetta@400,500&display=swap">
 
-<link rel="stylesheet" href="../assets/css/base.css?v=202609291600">
-<link rel="stylesheet" href="../assets/css/header.css?v=202610012320">
-<link rel="stylesheet" href="../assets/css/rodape.css?v=202609291600">
-<link rel="stylesheet" href="../assets/css/contato.css?v=202610020400">
+<link rel="stylesheet" href="../assets/css/base.css?v=202610021000">
+<link rel="stylesheet" href="../assets/css/header.css?v=202610021000">
+<link rel="stylesheet" href="../assets/css/rodape.css?v=202610021000">
+<link rel="stylesheet" href="../assets/css/contato.css?v=202610021000">
 
-<!-- por ultimo: levanta o piso da micro-tipografia e a area de toque -->
-<link rel="stylesheet" href="../assets/css/mobile.css?v=202610020500">
-<link rel="stylesheet" href="fonte.css?v=202609300900">
+<link rel="stylesheet" href="../assets/css/mobile.css?v=202610021000">
+<link rel="stylesheet" href="fonte.css?v=202610021000">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -109,16 +106,7 @@
 
 <main id="conteudo">
 
-  <!-- ============================================================
-       CONTATO
-
-       Eram três blocos, um por assunto. Como o endereço é um só, três
-       portas para a mesma sala viraram repetição: agora é um texto
-       curto que diz o que cabe, e um único convite.
-
-       A abertura não tem botão: o formulário vem logo abaixo, e um
-       "escrever" aqui só rolaria dois dedos de página.
-       ============================================================ -->
+  <!-- contato -->
   <section class="contato">
 
     <div class="contato__texto">
@@ -133,19 +121,7 @@
 
   </section>
 
-  <!-- ============================================================
-       O RECADO
-
-       Formulário sem caixa: cada campo é uma linha com um fio
-       embaixo, que vira coral quando está em uso. Nada de moldura
-       cinza com canto arredondado.
-
-       A access key do Web3Forms fica no HTML de propósito: é chave
-       pública, e é assim que o serviço funciona — quem protege é o
-       domínio e o filtro de spam deles, não o segredo da chave.
-       O campo escondido "botcheck" é a armadilha de robô que eles
-       pedem, e o "subject" é o assunto que chega na caixa dela.
-       ============================================================ -->
+  <!-- o recado -->
   <section class="recado" id="escrever" aria-label="Formulário de contato">
 
     <form class="recado__form" action="https://api.web3forms.com/submit" method="POST" data-reveal style="--i:1">
@@ -184,9 +160,7 @@
   </section>
 </main>
 
-<!-- ============================================================
-     RODAPÉ
-     ============================================================ -->
+<!-- rodapé -->
 <footer class="rodape">
 
   <ul class="rodape__redes">
@@ -214,10 +188,10 @@
 
 </footer>
 
-<script src="../assets/js/pronto.js?v=202609291600" defer></script>
-<script src="../assets/js/nav.js?v=202609291600" defer></script>
-<script src="../assets/js/reveal.js?v=202609291600" defer></script>
-<script src="../assets/js/recado.js?v=202609300900" defer></script>
+<script src="../assets/js/pronto.js?v=202610021000" defer></script>
+<script src="../assets/js/nav.js?v=202610021000" defer></script>
+<script src="../assets/js/reveal.js?v=202610021000" defer></script>
+<script src="../assets/js/recado.js?v=202610021000" defer></script>
 
 </body>
 </html>

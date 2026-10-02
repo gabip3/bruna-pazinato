@@ -1,15 +1,6 @@
-/* =============================================================
-   BRUNA PAZINATO
-   ato.css — molde das páginas de ato
+/* Bruna Pazinato · abertura e passagem */
 
-   Vale para MÚSICA, EM CENA, AO VIVO. Cada ato só troca o
-   conteúdo e o perfil da linha; a abertura e a passagem para o
-   próximo ato são sempre estas.
-   ============================================================= */
-
-/* -------------------------------------------------------------
-   ABERTURA DO ATO
-   ------------------------------------------------------------- */
+/* abertura do ato */
 
 .abertura{
 
@@ -23,21 +14,6 @@
   overflow: hidden;
   background: var(--ink);
 }
-
-/* O RÓTULO DA ABERTURA NÃO EXISTE MAIS EM PÁGINA NENHUMA.
-
-   Era a linha miúda em caixa alta, coral, entreletra larga, por cima do
-   título — "A artista", "Fora de cena". Os três atos já tinham perdido
-   a deles; sobravam duas, e elas não diziam nada que o título não
-   dissesse. Em caixa alta espaçada e cor de destaque, uma linha que não
-   informa é só enfeite, e é o enfeite que mais aparece em página feita
-   por molde.
-
-   O que fica no site é rótulo que carrega dado: o ano de cada montagem,
-   "Ato I/II/III" na home, que é a espinha do programa, "EP" nos discos,
-   e os rótulos dos campos do formulário.
-
-   O título passa a nascer sem margem nenhuma em cima. */
 
 .abertura__titulo{
   position: relative;
@@ -64,16 +40,11 @@
   color: var(--paper-45);
 }
 
-/* A frase de apoio do Ato III. Nao e slogan: e fala dela, entao vem na
-   serifa do nome, em caixa baixa e com aspas, do tamanho de uma legenda
-   — e nao em versal espacejado, que soaria a cartaz de campanha. */
 .abertura__frase{
   position: relative;
   z-index: 2;
   margin-top: clamp(1.3rem, 3.2vh, 2.6rem);
 
-  /* Uma linha só: quebrada em duas ela vira parágrafo, e o que se quer
-     é uma frase dita de passagem. No celular não cabe, e aí quebra. */
   white-space: nowrap;
   font-family: var(--font-name);
   font-size: clamp(.98rem, 1.45vw, 1.4rem);
@@ -82,7 +53,7 @@
   color: var(--paper-70);
 }
 
-/* --- entrada da abertura ----------------------------------------- */
+/* entrada da abertura */
 
 .js .abertura__titulo,
 .js .abertura__frase,
@@ -92,16 +63,7 @@
 .js.is-ready .abertura__nota      { animation: fadeUp  1.3s var(--ease)      1.15s both; }
 .js.is-ready .abertura__frase     { animation: fadeUp  1.4s var(--ease)      1.25s both; }
 
-/* --- a fotografia do ato ------------------------------------------
-   A abertura era só tipografia sobre o preto: bonita e vazia, com
-   cara de gerador de site. O hero não tem esse problema porque a
-   fotografia atravessa as letras. Aqui é a mesma ideia, em banda:
-   a foto entra pela direita, com a borda esquerda dissolvida, e o
-   titulo avanca por cima dela.
-
-   A imagem é a mesma do painel da home, de propósito: quem clica no
-   painel do ato cai na foto que acabou de ver.
-   ------------------------------------------------------------- */
+/* a fotografia do ato */
 
 .abertura__figura{
   position: absolute;
@@ -112,11 +74,6 @@
   margin: 0;
   overflow: hidden;
 
-  /* Mesmo desenho do hero: a foto ocupa uma faixa alta a direita, cobre o
-     quadro (cortando o que precisar) e dissolve na esquerda. Prender o
-     quadro a proporcao da imagem deixava a faixa estreita demais — o Ato I
-     virou uma tira de 543px. A banda e alta de proposito: quanto mais alta,
-     menos o cover precisa cortar. */
   left: var(--foto-borda, 44%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) calc(var(--foto-fade, 24%) * .4), #000 var(--foto-fade, 24%));
           mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.45) calc(var(--foto-fade, 24%) * .4), #000 var(--foto-fade, 24%));
@@ -131,7 +88,6 @@
   transform: scale(1.03);
 }
 
-/* véu de leitura: o título encosta na foto e precisa continuar legível */
 .abertura__veu{
   position: absolute;
   inset: 0;
@@ -143,11 +99,8 @@
 .js .abertura__figura{ opacity: 0; }
 .js.is-ready .abertura__figura{ animation: fadeIn 1.8s var(--ease-soft) .35s both; }
 
-/* No celular nao cabe a fotografia inteira ao lado do titulo: ela passa a
-   ocupar a banda toda e o veu carrega a mao para o titulo continuar legivel. */
 @media (max-width: 700px){
 
-  /* A frase volta a poder quebrar: em uma linha so nao cabe. */
   .abertura__frase{ white-space: normal; max-width: 24ch; }
 
   .abertura__figura{
@@ -162,9 +115,7 @@
   }
 }
 
-/* -------------------------------------------------------------
-   PASSAGEM PARA O PRÓXIMO ATO
-   ------------------------------------------------------------- */
+/* passagem para o próximo ato */
 
 .passagem{
   display: grid;
@@ -232,7 +183,7 @@
   }
 }
 
-/* --- movimento reduzido ------------------------------------------- */
+/* movimento reduzido */
 
 @media (prefers-reduced-motion: reduce){
   .js .abertura__titulo,

@@ -1,7 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   nav.js — menu mobile
-   ============================================================= */
+/* Bruna Pazinato · menu */
 
 (function () {
   'use strict';
@@ -25,7 +22,7 @@
 
     if (state) {
       menu.hidden = false;
-      void menu.offsetWidth;            /* reflow: garante a transição */
+      void menu.offsetWidth;
       root.classList.add('menu-open');
     } else {
       root.classList.remove('menu-open');
@@ -53,10 +50,7 @@
   });
 })();
 
-/* --- tom do cabeçalho ----------------------------------------------
-   Quando uma seção .claro passa por baixo do cabeçalho, ele troca de
-   tom. Conta direto no scroll, sem requestAnimationFrame: a conta é
-   barata e não pode depender do ciclo de pintura estar rodando. */
+/* tom do cabeçalho */
 
 (function () {
   'use strict';

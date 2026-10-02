@@ -1,24 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   gambetta/fonte.css — versão paralela, só para comparação
-
-   Esta pasta é uma cópia do site com uma única diferença: a fonte.
-   Tudo o mais — imagens, vídeos, folhas de estilo e scripts — é o
-   mesmo arquivo do site principal, carregado com ../assets. Nada
-   aqui é duplicado além do HTML.
-
-   Carrega depois de todas as outras folhas, então basta redefinir
-   as variáveis: cada regra do site já as lê.
-
-   Aqui a Gambetta assume os dois papéis que o site principal
-   divide entre duas serifadas — o nome (Fraunces) e os títulos
-   (Young Serif). Uma voz só, diferenciada por corpo e espacejamento
-   em vez de por família. O "ato" em coral dentro do nome continua
-   igual: aquilo é cor, não é letra.
-
-   Para apagar esta versão, apague a pasta. O site principal não
-   sabe que ela existe.
-   ============================================================= */
+/* Bruna Pazinato · fonte */
 
 :root{
   --font-name:    "Gambetta", "Iowan Old Style", Georgia, "Times New Roman", serif;

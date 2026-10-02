@@ -1,44 +1,16 @@
-/* =============================================================
-   BRUNA PAZINATO
-   camarim.css — fora de cena
-
-   O nome é o conceito. Camarim é onde a atriz fica entre ser ela e
-   ser a personagem: é ali que estão o book, o ensaio de divulgação e
-   o retrato de perfil. Nada disso é espetáculo, e por isso esta
-   página fica fora da numeração dos atos, ao lado da Trajetória e
-   do Contato.
-
-   A PRIMEIRA VERSÃO ERA UMA GRADE EM SETE BLOCOS, um por ensaio. A
-   ideia era que cada bloco fosse um dia de trabalho, com uma luz e
-   uma roupa — só que nenhuma destas fotos tem ficha. Sem fotógrafo e
-   sem ano, quatro dos sete rótulos ficaram sendo a palavra "Ensaio"
-   repetida, e o que sobrava para diferenciar era a cor da camisa.
-   Seção com título que não informa é pior que seção nenhuma.
-
-   Agora é uma faixa só, com o slider que já roda as montagens no Ato
-   II. A página inteira passa a ser o que ela é: um corredor de fotos.
-   ============================================================= */
+/* Bruna Pazinato · camarim */
 
 .ensaios{
   padding: clamp(2rem, 6vh, 4.6rem) var(--gutter) clamp(2.4rem, 7vh, 5.5rem);
   background: var(--ink);
 }
 
-/* A pista e as setas precisam de um pai em comum: o vitrine.js procura
-   por ele para avisar, com .cabe-tudo, quando não há o que rolar. */
 .ensaios__coluna{
   position: relative;
   z-index: 1;
 }
 
-/* --- o painel ------------------------------------------------------
-   Aqui o painel não tem legenda. Nas montagens ele carrega ano, obra e
-   papel, e por isso a foto chega escura, com um degradê forte no pé
-   para o texto ler. Nesta página não há texto nenhum, então o escuro
-   não está protegendo nada: está só apagando a fotografia.
-
-   Fica um véu leve e parelho, o suficiente para a fileira não brigar
-   com o fundo, e ele sai quando o cursor entra. */
+/* o painel */
 
 .ensaios .palco__foto img{
   filter: contrast(1.02) saturate(.88) brightness(.82);
@@ -57,34 +29,14 @@
 .ensaios .palco__link:hover .palco__foto::after,
 .ensaios .palco__link:focus-visible .palco__foto::after{ opacity: 0; }
 
-/* Quinze das dezesseis fotos estão em pé, entre 0.66 e 0.80 — todas
-   perto do 5/7 do painel, todas cortam de leve. A do vestido vermelho
-   é 3:2 deitada, e centralizada ela entra no painel pela barriga: some
-   o rosto à direita e some o arrasto do tecido à esquerda.
-
-   A PRIMEIRA TENTATIVA FOI ALARGAR AQUELE PAINEL, em 1.62. Dava 384
-   contra 237 dos outros, e a fileira perdia o compasso bem no meio —
-   que é justamente o que o slider do Ato II não faz: lá todo painel
-   tem a mesma medida, e é esse slider que esta página reusa.
-
-   Painel igual, então, e quem cede é o enquadramento: --foco move a
-   janela do recorte na foto que precisar. Na vermelha ela vai para
-   32%, onde está o rosto, e o corte passa a comer o fundo cinza vazio
-   da direita em vez do assunto. A foto inteira continua a um clique,
-   no visor. */
 .ensaios .palco__foto img{
   object-position: var(--foco, 50% 50%);
 }
 
-/* -------------------------------------------------------------
-   CELULAR
-   ------------------------------------------------------------- */
+/* celular */
 
 @media (max-width: 760px){
 
-  /* O painel vira o tamanho do cartão do Ato II no celular: largo o
-     bastante para a foto se ler na mão, estreito o bastante para a
-     próxima aparecer pela borda e avisar que a fileira anda. */
   .ensaios .vitrine{
     --palco-largura: clamp(240px, 70vw, 300px);
     --palco-aberto:  clamp(240px, 70vw, 300px);
@@ -101,19 +53,7 @@
     margin-bottom: 2.2rem;
   }
 
-  /* --- a abertura no celular ---------------------------------------
-     No computador o título fica à esquerda, sobre o preto da página, e
-     a foto ocupa a faixa da direita. No celular o ato.css manda a foto
-     ocupar a largura inteira, e aí o texto passa a ficar EM CIMA dela.
-
-     Nas outras aberturas isso não incomoda porque as fotos são
-     escuras. Esta é a única do site tirada em estúdio de fundo branco,
-     e o "FORA DE CENA" é coral miúdo: em cima do dourado do vestido
-     ele simplesmente sumia.
-
-     O véu já termina em tinta no pé da faixa. Então o texto desce para
-     lá, em vez de eu escurecer o vestido inteiro para caber uma linha
-     de rótulo — que seria apagar a foto para salvar a legenda. */
+  /* a abertura no celular */
   .abertura{
     justify-content: flex-end;
   }

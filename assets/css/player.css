@@ -1,11 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   player.css — visor de vídeo em tela cheia
-
-   Serve ao Ato I (clipes no YouTube) e à Cena 3 do Ato II
-   (filmes publicitários hospedados aqui). O quadro é o mesmo;
-   muda só o que nasce dentro dele — iframe ou <video>.
-   ============================================================= */
+/* Bruna Pazinato · player */
 
 .player{
   position: fixed;
@@ -47,9 +40,6 @@
   border: 0;
 }
 
-/* os filmes publicitários não são todos 16/9: um é 2,16:1, outro
-   1,62:1. Em vez de uma classe por formato, o vídeo se encaixa
-   dentro do quadro e o que sobra fica preto, como no cinema. */
 .player__quadro video{
   position: absolute;
   inset: 0;
@@ -90,7 +80,6 @@
 
 .player__fechar:hover span{ background: var(--coral); }
 
-/* vídeo vertical (Tato) pede outro formato */
 .player--vertical .player__quadro{
   width: auto;
   height: min(80vh, 900px);

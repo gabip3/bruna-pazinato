@@ -1,23 +1,6 @@
-/* =============================================================
-   BRUNA PAZINATO
-   galeria.css — visor de fotos de cena
+/* Bruna Pazinato · galeria e visor */
 
-   Uma foto por vez, grande, no preto. Sem grade, sem moldura:
-   a galeria não acrescenta rolagem à página, ela abre por cima.
-   Serve a qualquer ato — o conteúdo vem de um JSON na página.
-   ============================================================= */
-
-/* -------------------------------------------------------------
-   PORTA DE ENTRADA
-
-   O botão é a affordance de verdade: hover em imagem não anuncia
-   nada para quem não passa o cursor — e não existe no celular.
-   A fotografia continua clicável, mas como atalho, não como aviso.
-   ------------------------------------------------------------- */
-
-/* Botão retangular, canto vivo, sem sombra. No hover o coral
-   varre de baixo para cima e o texto inverte para o preto.
-   O mesmo componente abre galeria e leva à bilheteria. */
+/* porta de entrada */
 
 .btn{
   position: relative;
@@ -57,10 +40,8 @@
 .btn:hover::before,
 .btn:focus-visible::before{ transform: scaleY(1); }
 
-/* no destaque, o botao respira depois da critica */
 .destaque .btn{ margin-top: clamp(1.2rem, 3vh, 2rem); }
 
-/* a fotografia segue clicável, sem rótulo por cima */
 .abre-galeria{
   position: absolute;
   inset: 0;
@@ -73,7 +54,7 @@
 
 .abre-galeria:focus-visible{ outline-offset: -6px; }
 
-/* --- visor ----------------------------------------------------- */
+/* visor */
 
 .visor{
   position: fixed;
@@ -95,15 +76,13 @@
 
 .visor-aberto{ overflow: hidden; }
 
-/* --- palco ----------------------------------------------------- */
+/* palco */
 
-/* altura definida pelo grid do visor; a imagem preenche a caixa e
-   se ajusta por object-fit — percentual em item de grid não segura */
 .visor__palco{
   position: relative;
   display: block;
   min-height: 0;
-  margin: 0 auto;      /* galerias de baixa resolução ficam centradas */
+  margin: 0 auto;
   width: 100%;
 }
 
@@ -123,7 +102,7 @@
   transform: none;
 }
 
-/* --- legenda --------------------------------------------------- */
+/* legenda */
 
 .visor__legenda{
   display: grid;
@@ -176,7 +155,7 @@
   color: var(--paper-26);
 }
 
-/* --- controles -------------------------------------------------- */
+/* controles */
 
 .visor__nav{
   position: absolute;
@@ -189,7 +168,6 @@
   transition: color .4s linear;
 }
 
-/* display: grid vence o atributo hidden; aqui ele volta a valer */
 .visor__nav[hidden],
 .visor__contador[hidden]{ display: none; }
 
@@ -198,7 +176,6 @@
 
 .visor__nav:hover{ color: var(--paper); }
 
-/* seta inteira: haste + as duas diagonais da ponta */
 .visor__nav span{
   display: block;
   width: clamp(26px, 3vw, 40px);

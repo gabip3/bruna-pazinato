@@ -1,19 +1,8 @@
-/* =============================================================
-   BRUNA PAZINATO
-   hero.css — abertura (100vh)
-   Camadas (z-index):
-     0  nome (a fotografia passa por cima das últimas letras)
-     2  fotografia
-     3  luz quente
-     4  linha / onda
-     5  contorno do nome sobre a foto
-     6  micro-tipografia
-     8  grão
-   ============================================================= */
+/* Bruna Pazinato · entrada */
 
 .hero{
-  --photo-edge: 50%;                 /* onde a fotografia começa */
-  --photo-pos: 50% 24%;              /* enquadramento da foto */
+  --photo-edge: 50%;
+  --photo-pos: 50% 24%;
   --name-size: clamp(2.7rem, 10.8vw, 15rem);
 
   position: relative;
@@ -35,9 +24,7 @@
   justify-items: start;
 }
 
-/* -------------------------------------------------------------
-   FOTOGRAFIA
-   ------------------------------------------------------------- */
+/* fotografia */
 
 .hero__figure{
   position: absolute;
@@ -54,17 +41,11 @@
   height: 100%;
   object-fit: cover;
   object-position: var(--photo-pos);
-  /* Tratamento da foto — o fundo original é vermelho pleno (#BD0001).
-     O hue-rotate puxa para vermelho queimado, aproximando do --coral.
-     Três ajustes possíveis, troque a linha ativa:
-       cru      contrast(1.05) saturate(.90) brightness(.94)
-       médio    contrast(1.06) saturate(.82) brightness(.90) hue-rotate(4deg)   ← atual
-       queimado contrast(1.07) saturate(.74) brightness(.88) hue-rotate(7deg)   */
+
   filter: contrast(1.06) saturate(.82) brightness(.90) hue-rotate(4deg);
   transform: scale(1.045);
 }
 
-/* véus de leitura sobre a fotografia */
 .hero__veil{
   position: absolute;
   inset: 0;
@@ -75,7 +56,6 @@
     linear-gradient(to right,  rgba(11,11,12,.55), rgba(11,11,12,0) 24%);
 }
 
-/* cortina de abertura — as luzes ainda estão apagadas */
 .hero__figure::after{
   content: "";
   position: absolute;
@@ -87,9 +67,7 @@
 
 .js .hero__figure::after{ opacity: 1; }
 
-/* -------------------------------------------------------------
-   LUZ QUENTE
-   ------------------------------------------------------------- */
+/* luz quente */
 
 .hero__glow{
   position: absolute;
@@ -110,13 +88,9 @@
               rgba(227,184,121,0)   68%);
 }
 
-/* -------------------------------------------------------------
-   LINHA / ONDA SONORA
-   ------------------------------------------------------------- */
+/* linha / onda sonora */
 
-/* -------------------------------------------------------------
-   NOME
-   ------------------------------------------------------------- */
+/* nome */
 
 .hero__mark{
   display: block;
@@ -128,7 +102,7 @@
 }
 
 .name{
-  position: relative;                 /* sem z-index: fica sob a fotografia */
+  position: relative;
   font-family: var(--font-name);
   font-optical-sizing: none;
   font-variation-settings: var(--name-axes);
@@ -165,7 +139,6 @@
   color: var(--coral);
 }
 
-/* contorno do nome onde a fotografia o atravessa */
 .name__ghost{
   position: absolute;
   left: 0;
@@ -184,9 +157,7 @@
   -webkit-text-stroke-color: rgba(209,75,50,.72);
 }
 
-/* -------------------------------------------------------------
-   TAGLINE
-   ------------------------------------------------------------- */
+/* tagline */
 
 .tagline{
   position: relative;
@@ -202,9 +173,7 @@
 .tagline__a{ color: var(--paper); }
 .tagline__b{ color: var(--paper-45); margin-left: .35em; }
 
-/* -------------------------------------------------------------
-   MARCADOR DE ROLAGEM
-   ------------------------------------------------------------- */
+/* marcador de rolagem */
 
 .cue{
   position: absolute;
@@ -226,10 +195,6 @@
   height: 42%;
   background: var(--coral);
 }
-
-/* =============================================================
-   ENTRADA — "as luzes ainda estão apagadas"
-   ============================================================= */
 
 .js .hero__mark{ transform: scaleX(0); }
 .js .name__inner,
@@ -263,7 +228,7 @@
   100%{ transform: translateY(320%); opacity: 0; }
 }
 
-/* --- coreografia ------------------------------------------------ */
+/* coreografia */
 
 .js.is-ready .hero__mark      { animation: drawLine 1.2s var(--ease) .25s both; }
 .js.is-ready .name__line--first .name__inner{ animation: riseIn 1.6s var(--ease) .90s both; }
@@ -277,10 +242,6 @@
 .js.is-ready .tagline         { animation: fadeUp 1.6s var(--ease) 3.05s both; }
 .js.is-ready .cue             { animation: fadeIn 1.6s linear 4.5s both; }
 .js.is-ready .cue i           { animation: cueTravel 3.8s var(--ease-soft) 5s infinite; }
-
-/* =============================================================
-   RESPONSIVO — o mobile é outra composição, não uma redução
-   ============================================================= */
 
 @media (max-width: 1180px){
   .hero{ --photo-edge: 47%; --name-size: clamp(3rem, 11.6vw, 9.4rem); }
@@ -296,7 +257,6 @@
 
   .hero__grid{ align-content: end; }
 
-  /* fotografia como cartaz: ocupa o alto e dissolve na base */
   .hero__figure{
     left: 0;
     bottom: auto;
@@ -326,12 +286,11 @@
   .tagline{ font-size: .72rem; letter-spacing: .2em; }
 }
 
-/* telas baixas (celular deitado, notebooks pequenos) */
 @media (max-height: 620px) and (min-width: 901px){
   .hero{ --name-size: clamp(2.6rem, 9vw, 8rem); }
 }
 
-/* --- movimento reduzido ------------------------------------------ */
+/* movimento reduzido */
 
 @media (prefers-reduced-motion: reduce){
   .js .hero__mark{ transform: none; }

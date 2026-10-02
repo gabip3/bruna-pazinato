@@ -1,19 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   contato.css
-
-   Uma página, uma frase e um convite. Começou com três blocos —
-   shows, projetos, imprensa — até ficar claro que o endereço é um
-   só: três portas para a mesma sala são repetição, não escolha.
-   Ficou o texto curto que diz o que cabe, e um único "escrever".
-
-   O retrato é ela estendendo o microfone. Fica ao lado do título,
-   e não no fim da página, porque o gesto diz "vamos conversar"
-   antes da tipografia dizer.
-
-   O coral aparece num lugar só: o fio que atravessa o convite no
-   hover. Em mais lugares que isso, deixaria de ser detalhe.
-   ============================================================= */
+/* Bruna Pazinato · contato */
 
 .contato{
   display: grid;
@@ -48,7 +33,7 @@
   color: var(--paper-45);
 }
 
-/* --- o retrato ---------------------------------------------------- */
+/* o retrato */
 
 .contato__retrato{
   margin: 0;
@@ -67,11 +52,7 @@
   filter: contrast(1.03) saturate(.94) brightness(.94);
 }
 
-/* -------------------------------------------------------------
-   ENTRADA
-   Mesma gramática da home, escopada aqui: a regra geral vive no
-   atos.css, que só a home carrega.
-   ------------------------------------------------------------- */
+/* entrada */
 
 .js .contato [data-reveal]{
   opacity: 0;
@@ -90,10 +71,7 @@
   .js .contato [data-reveal]{ opacity: 1; transform: none; }
 }
 
-/* -------------------------------------------------------------
-   RESPONSIVO
-   Uma coluna: a fala primeiro, ela embaixo.
-   ------------------------------------------------------------- */
+/* responsivo */
 
 @media (max-width: 860px){
 
@@ -111,20 +89,9 @@
 
   .contato__retrato img{ object-position: 50% 24%; }
 
-
 }
 
-/* =============================================================
-   O RECADO
-
-   Formulário sem caixa. Cada campo é uma linha com um fio embaixo,
-   que vira coral quando está em uso — o mesmo fio do convite e da
-   lista de clipes. Nada de retângulo cinza com canto arredondado:
-   é a única coisa que faria a página parecer template.
-
-   O navegador insiste em pintar de amarelo o campo preenchido pelo
-   autofill; o box-shadow interno devolve o preto.
-   ============================================================= */
+/* o recado */
 
 .recado{
   padding: clamp(3rem, 10vh, 6.5rem) var(--gutter) clamp(3.4rem, 11vh, 7rem);
@@ -139,7 +106,6 @@
   max-width: 900px;
 }
 
-/* a armadilha de robô do Web3Forms: existe no HTML, não na tela */
 .recado__isca{
   position: absolute;
   width: 1px; height: 1px;
@@ -198,7 +164,6 @@
 
 .campo__valor::placeholder{ color: var(--paper-26); }
 
-/* o amarelo do preenchimento automático não combina com nada aqui */
 .campo__valor:-webkit-autofill,
 .campo__valor:-webkit-autofill:hover,
 .campo__valor:-webkit-autofill:focus{
@@ -255,8 +220,6 @@
 
 .recado__enviar:hover .recado__seta,
 .recado__enviar:focus-visible .recado__seta{ transform: translateX(.5em); }
-
-/* --- o pé: o endereço direto e o registro profissional ------------- */
 
 .recado__pe{
   display: flex;
@@ -315,12 +278,7 @@
   .recado__enviar{ padding-bottom: 1.1em; }
 }
 
-/* --- a resposta do envio -------------------------------------------
-   O formulário some e a confirmação ocupa o lugar dele, na mesma
-   tipografia. Antes disso o envio levava a pessoa para a página de
-   sucesso do Web3Forms: um cartão branco, fora do site, com um botão
-   "Go Back". Quem escreveu não voltava.
-   ------------------------------------------------------------- */
+/* a resposta do envio */
 
 .recado__form--enviado{
   display: block;
@@ -358,30 +316,6 @@
   cursor: default;
 }
 
-/* =============================================================
-   O RECADO EM PAPEL, E A PÁGINA NO EIXO
-
-   O formulário passa a ter fundo de papel, e os campos crescem.
-
-   O motivo é de leitura: o rodapé do formulário estava em
-   paper-26 sobre preto, que é 2.2:1 de contraste — abaixo de qualquer
-   mínimo. O registro profissional dela era a linha menos legível da
-   página, e é justamente a que um contratante procura.
-
-   A virada é a mesma do "programa" na Trajetória: quando o assunto
-   deixa de ser o palco e passa a ser papel — ficha, registro, recado
-   — o fundo vira papel. O bloco inteiro inverte, não só o campo, senão
-   sobraria uma caixa branca boiando no preto.
-
-   Tudo centralizado, como o resto da página.
-   ============================================================= */
-
-/* O RECADO fica centrado nas duas larguras: e um bloco de página
-   inteira, sem nada ao lado para disputar.
-
-   O CABECALHO nao. No desktop ele divide a faixa com a fotografia, que
-   ocupa a direita — centralizado, "CONVERSAR." encostava na foto.
-   La ele so se centra quando a foto desce para baixo do texto. */
 .recado{ text-align: center; }
 
 @media (max-width: 860px){
@@ -392,8 +326,7 @@
 .recado{
   background: var(--paper);
   border-top-color: rgba(11, 11, 12, .14);
-  /* a cor base do bloco inverte junto: sem isto, qualquer texto que
-     eu nao tenha recolorido a mao fica papel sobre papel, invisivel */
+
   color: var(--ink);
 }
 
@@ -402,7 +335,6 @@
   justify-items: center;
 }
 
-/* o campo ocupa a coluna toda e o texto dentro dele fica no eixo */
 .campo{ width: 100%; text-align: center; }
 
 .campo__rotulo{
@@ -410,10 +342,6 @@
   color: rgba(11, 11, 12, .5);
 }
 
-/* maiores: o corpo sobe de ~14px para ~18px e a linha ganha ar. O
-   16px mínimo continua valendo — abaixo disso o iOS dá zoom ao focar. */
-/* Maiores de novo: de 16px para 18.4 no celular e 20 no desktop. É
-   formulário, não legenda — quem escreve precisa ler o que escreveu. */
 .campo__valor{
   padding: .25em 0 .75em;
   border-bottom-color: rgba(11, 11, 12, .26);
@@ -444,19 +372,8 @@
 .recado__enviar::before{ background: rgba(11, 11, 12, .26); }
 .recado__enviar::after{ background: var(--ink); }
 
-/* Era paper-26 sobre preto: 2.2:1. Agora é quase preto sobre papel,
-   que passa de 12:1. A linha do DRT e da OMB se lê. */
 .recado__pe{ color: rgba(11, 11, 12, .62); }
 
-/* E O FIO ACIMA DO E-MAIL TINHA SUMIDO.
-
-   Ficou de fora quando o bloco virou papel: continuava em --paper-12,
-   que é rgba(240,235,228,.12) — a própria cor do fundo com 12% de
-   opacidade. Composto sobre rgb(240,235,228) dá exatamente o fundo:
-   contraste 1.00, medido. Não era um fio fraco, era um fio que não
-   existia, e a assinatura ficava solta no vazio.
-
-   Mesma tinta da borda do bloco, logo acima. */
 .recado__pe{ border-top-color: rgba(11, 11, 12, .14); }
 .recado__pe a{ color: var(--ink); }
 .recado__pe a:hover,
@@ -466,26 +383,12 @@
 .recado__obrigado{ color: var(--ink); }
 .recado__aviso{ color: rgba(11, 11, 12, .62); }
 
-/* O e-mail e a linha do DRT/OMB moram num flex que empacotava tudo à
-   esquerda: com o bloco centrado, os dois ficavam encostados na
-   margem esquerda dele. Agora o conteúdo se centra também. */
 .recado__pe{
   justify-content: center;
   text-align: center;
 }
 
-/* =============================================================
-   CAIXA EM VEZ DE LINHA
-
-   O campo era um fio embaixo do texto — bonito no preto, onde o site
-   inteiro é fio e vazio. No papel ele perdeu a função: sobre fundo
-   claro, uma linha solta não diz onde começa nem onde termina a área
-   de escrever, e num celular a pessoa não sabe onde tocar.
-
-   Retângulo de canto reto, como todo o resto do site — nenhum raio de
-   borda em lugar nenhum daqui. O preenchimento é quase branco sobre o
-   papel: separa o campo do fundo sem virar um bloco.
-   ============================================================= */
+/* caixa em vez de linha */
 
 .campo__valor{
   padding: .72em .9em;
@@ -504,7 +407,6 @@
   padding-top: .85em;
 }
 
-/* o preenchimento automático tem de respeitar a caixa, não o preto */
 .campo__valor:-webkit-autofill,
 .campo__valor:-webkit-autofill:hover,
 .campo__valor:-webkit-autofill:focus{

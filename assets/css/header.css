@@ -1,7 +1,4 @@
-/* =============================================================
-   BRUNA PAZINATO
-   header.css — navegação transparente sobre o hero
-   ============================================================= */
+/* Bruna Pazinato · cabeçalho e menu */
 
 .header{
   position: fixed;
@@ -13,12 +10,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  pointer-events: none;                 /* só os elementos clicáveis capturam */
+  pointer-events: none;
 }
 
 .header > *{ pointer-events: auto; }
 
-/* --- assinatura ------------------------------------------------ */
+/* assinatura */
 
 .brand{
   display: inline-flex;
@@ -47,9 +44,9 @@
 
 .brand:hover .brand__first{ color: var(--paper-70); }
 
-/* --- menu desktop ---------------------------------------------- */
+/* menu desktop */
 
-.nav{ display: none; }   /* menu horizontal desativado — ver variante no README */
+.nav{ display: none; }
 
 .nav__list{
   display: flex;
@@ -86,7 +83,7 @@
 .nav__item a:hover::after,
 .nav__item a:focus-visible::after{ transform: scaleX(1); }
 
-/* --- botão hamburguer ------------------------------------------- */
+/* botão hamburguer */
 
 .burger{
   display: inline-flex;
@@ -132,7 +129,7 @@
 [aria-expanded="true"] .burger__lines i:first-child{ transform: translateY(3.5px) rotate(45deg); }
 [aria-expanded="true"] .burger__lines i:last-child { width: 24px; transform: translateY(-3.5px) rotate(-45deg); }
 
-/* --- menu em tela cheia ------------------------------------------- */
+/* menu em tela cheia */
 
 .menu{
   position: fixed;
@@ -159,17 +156,6 @@
   overflow: hidden;
 }
 
-/* A ENTRELINHA ERA 1.06 E NÃO CABIA O OLHO.
-
-   O menu nasceu com cinco itens. Com Camarim são sete, e numa caixa
-   alta de corpo display a 1.06 as hastes de uma linha quase encostam
-   nas maiúsculas da linha de baixo: a lista vira um bloco cinzento em
-   vez de sete nomes — TRAJETÓRIA e CAMARIM chegavam a encostar.
-
-   Agora o passo é 1.15 de entrelinha mais .26em de respiro, o que dá
-   1.67em por item. Sete itens cabem de sobra: medido em 1440x900 a
-   lista toma 576 de 761 disponíveis, e em 375x667 — a tela pequena do
-   iPhone SE — toma 333 de 518, acabando 112px antes do rodapé. */
 .menu__nav a{
   display: block;
   padding: .26em 0;
@@ -188,10 +174,6 @@
 
 .menu-open .menu__nav a{ transform: translateY(0); }
 
-/* Os atrasos paravam no quinto item, de quando o menu tinha cinco.
-   Camarim e Contato entravam sem atraso nenhum: os dois últimos
-   subiam juntos, na frente do quarto e do quinto, e a cascata
-   desmontava bem no fim. */
 .menu__nav li:nth-child(1) a{ transition-delay: .10s; }
 .menu__nav li:nth-child(2) a{ transition-delay: .16s; }
 .menu__nav li:nth-child(3) a{ transition-delay: .22s; }
@@ -203,7 +185,7 @@
 .menu__nav a:active,
 .menu__nav a:hover{ color: var(--coral); }
 
-/* --- rodapé do menu: assinatura e redes --------------------------- */
+/* rodapé do menu: assinatura e redes */
 
 .menu__rodape{
   display: flex;
@@ -252,7 +234,7 @@
   transform: translateY(-2px);
 }
 
-/* --- entrada do header ------------------------------------------- */
+/* entrada do header */
 
 .js .brand,
 .js .nav__item,
@@ -276,8 +258,7 @@
 .js.is-ready .nav__item:nth-child(4){ animation-delay: .95s; }
 .js.is-ready .nav__item:nth-child(5){ animation-delay: 1.02s; }
 
-
-/* --- menu no desktop ---------------------------------------------- */
+/* menu no desktop */
 
 @media (min-width: 901px){
 
@@ -292,29 +273,12 @@
     letter-spacing: -.014em;
   }
 
-  /* O RODAPÉ DO MENU ERA ABSOLUTO, E O FIO ENTRAVA NO CONTATO.
-
-     Ele ficava preso ao pé da tela, fora do fluxo, enquanto a lista
-     era centrada e crescia livre. Com cinco itens sobrava espaço e
-     ninguém via o problema. Com sete a lista desceu 164px e passou por
-     baixo dele: medido em 1440x900, o fio nascia 6px ACIMA do fim do
-     CONTATO, cortando a palavra.
-
-     Agora o rodapé volta ao fluxo e a lista se centra no que sobra,
-     com margin-block: auto — o mesmo recurso que o mobile.css já usa.
-     Assim a sobreposição deixa de ser uma questão de quantos itens o
-     menu tem: não pode acontecer. O margin-top do rodapé continua
-     valendo e vira o vão mínimo entre o último nome e o fio. */
   .menu__nav{
     margin-block: auto;
   }
 }
 
-/* --- cabeçalho sobre seção clara ----------------------------------
-   O cabeçalho é fixo e claro, feito para o preto. Quando passa por
-   cima de uma seção .claro, a assinatura e o MENU sumiam no papel.
-   O nav.js liga .header--claro nesse trecho; com o menu aberto o
-   fundo volta a ser preto, então a troca não vale. */
+/* cabeçalho sobre seção clara */
 
 .brand__last,
 .burger__label{ transition: color .5s var(--ease); }

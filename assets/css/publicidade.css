@@ -1,22 +1,5 @@
-/* =============================================================
-   BRUNA PAZINATO
-   publicidade.css — Cena 3 do Ato II
+/* Bruna Pazinato · publicidade */
 
-   Três filmes. Pouco material para um ato inteiro, muito para
-   virar uma linha de texto. Vira um índice com imagem: o mesmo
-   compasso da Cena 2, só que a coluna da esquerda é um quadro
-   do filme em vez do ano.
-
-   No desktop as duas cenas ficam lado a lado. Empilhadas, a
-   página crescia meia tela; pareadas, cresce quase nada — e o
-   programa impresso ganha duas colunas, que é como programa
-   impresso se parece mesmo.
-   ============================================================= */
-
-/* O par não é uma .programa__coluna, então a regra de espaçamento
-   do programa não o alcançava e ele encostava na fileira de musicais.
-   Aqui o respiro volta, e maior: a fileira sangra a página inteira e
-   precisa de ar antes de o texto começar. */
 .programa__coluna + .programa__par{
   margin-top: clamp(2.6rem, 7.5vh, 5rem);
 }
@@ -34,7 +17,7 @@
   border-bottom: 1px solid var(--paper-12);
 }
 
-/* --- o quadro do filme ------------------------------------------- */
+/* o quadro do filme */
 
 .filme__still{
   position: relative;
@@ -60,7 +43,7 @@
   transform: scale(1);
 }
 
-/* --- texto -------------------------------------------------------- */
+/* texto */
 
 .filme__texto{ display: block; }
 
@@ -73,8 +56,6 @@
   color: var(--paper-45);
 }
 
-/* Só a marca. Personagem de comercial não é crédito de elenco, e
-   nomear o filme ("Tubarão") só confundia com nome de espetáculo. */
 .filme__marca{
   display: block;
   font-family: var(--font-display);
@@ -87,9 +68,7 @@
   color: var(--paper);
 }
 
-/* --- o triângulo ---------------------------------------------------
-   Um triângulo desenhado em borda, sem SVG e sem fonte de ícone.
-   É a única forma que diz "isto toca" sem escrever nada. */
+/* o triângulo */
 
 .filme__play{
   justify-self: end;
@@ -109,9 +88,7 @@
   transform: translateX(3px);
 }
 
-/* -------------------------------------------------------------
-   DUAS COLUNAS
-   ------------------------------------------------------------- */
+/* duas colunas */
 
 @media (min-width: 861px){
 
@@ -122,7 +99,6 @@
     align-items: start;
   }
 
-  /* pareadas, não empilhadas: o espaçamento vertical some */
   .programa__par > .programa__coluna + .programa__coluna{
     margin-top: 0;
   }

@@ -1,24 +1,11 @@
-/* =============================================================
-   BRUNA PAZINATO
-   showreel.css — Ato III, primeira cena
-
-   Um vídeo e um título. Sem cartão, sem moldura, sem legenda:
-   noventa segundos de palco dizem mais do que qualquer texto que
-   eu pudesse escrever ao lado.
-
-   O vídeo entra em silêncio, como uma fotografia que se mexe, e
-   só ganha som quando alguém pede. Antes disso ele está um passo
-   mais escuro, no mesmo tratamento das outras imagens do site;
-   ao ligar o som, volta ao brilho cheio. É a diferença entre
-   olhar e assistir.
-   ============================================================= */
+/* Bruna Pazinato · showreel */
 
 .showreel{
   padding: clamp(4rem, 13vh, 9rem) var(--gutter) clamp(3rem, 10vh, 7rem);
   background: var(--ink);
 }
 
-/* --- o vídeo ------------------------------------------------------ */
+/* o vídeo */
 
 .showreel__quadro{
   position: relative;
@@ -29,7 +16,6 @@
   cursor: pointer;
 }
 
-/* com som, quem manda são os controles nativos */
 .showreel__quadro.is-com-som{ cursor: default; }
 
 .showreel__video{
@@ -43,10 +29,7 @@
 
 .showreel__quadro.is-com-som .showreel__video{ filter: none; }
 
-/* --- o convite ao som ---------------------------------------------
-   Tipografia, não botão: o mesmo corpo das notas do site, com o
-   triângulo que já abre os clipes e os filmes. Some ao ser usado.
-   ------------------------------------------------------------- */
+/* o convite ao som */
 
 .showreel__som{
   position: absolute;
@@ -85,12 +68,7 @@
 
 .showreel__som:focus-visible{ outline: 1px solid var(--paper-45); outline-offset: 6px; }
 
-/* -------------------------------------------------------------
-   ENTRADA
-   A mesma gramática da home — opacidade, 2rem de subida e um
-   corte que abre — mas escrita aqui dentro, porque a regra geral
-   vive no atos.css e só a home carrega aquele arquivo.
-   ------------------------------------------------------------- */
+/* entrada */
 
 .js .showreel [data-reveal]{
   opacity: 0;
@@ -112,9 +90,7 @@
   .js .showreel [data-reveal]{ opacity: 1; transform: none; clip-path: none; }
 }
 
-/* -------------------------------------------------------------
-   RESPONSIVO
-   ------------------------------------------------------------- */
+/* responsivo */
 
 @media (max-width: 760px){
 
@@ -124,6 +100,6 @@
 
   .showreel__som{
     letter-spacing: .2em;
-    padding: .9em .4em;   /* alvo de toque */
+    padding: .9em .4em;
   }
 }
