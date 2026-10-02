@@ -1,0 +1,156 @@
+[
+  {
+    "galeria": "alice",
+    "abre": "assets/img/galeria/alice/alice-01.jpg",
+    "miniatura": "assets/img/vitrine/alice.jpg",
+    "alt": "Bruna Pazinato como Lagarta em Alice de Cor e Salteado",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2025",
+    "obra": "Alice de Cor e&nbsp;Salteado",
+    "papel": "Lagarta"
+  },
+  {
+    "galeria": "cassia-eller",
+    "abre": "assets/img/galeria/cassia-eller/cassia-eller-05.jpg",
+    "miniatura": "assets/img/vitrine/cassia-eller.jpg",
+    "alt": "Bruna Pazinato como Maria Eugênia em Cassia Eller",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2024",
+    "obra": "Cassia Eller",
+    "papel": "Maria Eugênia"
+  },
+  {
+    "galeria": "brasil-raiz",
+    "abre": "assets/img/galeria/brasil-raiz/brasil-raiz-01.jpg",
+    "miniatura": "assets/img/vitrine/brasil-raiz.jpg",
+    "alt": "Bruna Pazinato como Bianca em Brasil Raiz",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2023",
+    "obra": "Brasil Raiz",
+    "papel": "Bianca"
+  },
+  {
+    "galeria": "o-pequeno-principe",
+    "abre": "assets/img/galeria/o-pequeno-principe/o-pequeno-principe-01.jpg",
+    "miniatura": "assets/img/vitrine/o-pequeno-principe.jpg",
+    "alt": "Bruna Pazinato como Vulcão em O Pequeno Príncipe",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2022",
+    "obra": "O Pequeno Príncipe",
+    "papel": "Vulcão · cover da Raposa"
+  },
+  {
+    "galeria": "noite-de-patroa",
+    "abre": "assets/img/galeria/noite-de-patroa/noite-de-patroa-01.jpg",
+    "miniatura": "assets/img/vitrine/noite-de-patroa.jpg",
+    "alt": "Bruna Pazinato como Marina, protagonista de Noite de Patroa",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2021<i>–</i>22",
+    "obra": "Noite de Patroa",
+    "papel": "Marina · protagonista"
+  },
+  {
+    "galeria": "grandes-encontros-mpb",
+    "abre": "assets/img/galeria/grandes-encontros-mpb/grandes-encontros-mpb-01.jpg",
+    "miniatura": "assets/img/vitrine/grandes-encontros-mpb.jpg",
+    "alt": "Bruna Pazinato no elenco de Grandes Encontros da MPB",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2019<i>–</i>20",
+    "obra": "Grandes Encontros da MPB",
+    "papel": "Elenco"
+  },
+  {
+    "galeria": "aparecida",
+    "abre": "assets/img/galeria/aparecida/aparecida-01.jpg",
+    "miniatura": "assets/img/vitrine/aparecida.jpg",
+    "alt": "Bruna Pazinato como Clara, protagonista de Aparecida",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2018<i>–</i>19",
+    "obra": "Aparecida",
+    "papel": "Clara · protagonista"
+  },
+  {
+    "galeria": "os-dez-mandamentos",
+    "abre": "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-01.jpg?v=202610011430",
+    "miniatura": "assets/img/vitrine/os-dez-mandamentos.jpg",
+    "alt": "Bruna Pazinato como Nefertari em Os Dez Mandamentos",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2016<i>–</i>17",
+    "obra": "Os Dez Mandamentos",
+    "papel": "Nefertari"
+  },
+  {
+    "galeria": "mulheres-a-beira",
+    "abre": "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-01.jpg",
+    "miniatura": "assets/img/vitrine/mulheres-a-beira.jpg",
+    "alt": "Bruna Pazinato como Olga em Mulheres à Beira de um Ataque de Nervos",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2015<i>–</i>16",
+    "obra": "Mulheres à Beira de um Ataque de Nervos",
+    "papel": "Olga · cover de Paulina Morales"
+  },
+  {
+    "galeria": "chacrinha",
+    "abre": "assets/img/galeria/chacrinha/chacrinha-01.jpg?v=202610020300",
+    "miniatura": "assets/img/vitrine/chacrinha.jpg?v=202610020300",
+    "alt": "Bruna Pazinato como Florinda Barbosa em Chacrinha, O Musical",
+    "largura": 419,
+    "altura": 587,
+    "ano": "2015",
+    "obra": "Chacrinha, O Musical",
+    "papel": "Florinda Barbosa · Wanderléa"
+  },
+  {
+    "galeria": "uma-luz-cor-de-luar",
+    "abre": "assets/img/galeria/uma-luz-cor-de-luar/uma-luz-cor-de-luar-01.jpg",
+    "miniatura": "assets/img/vitrine/uma-luz-cor-de-luar.jpg",
+    "alt": "Bruna Pazinato em Uma Luz Cor de Luar, na Fundação Lia Maria Aguiar",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2013<i>–</i>14",
+    "obra": "Uma Luz Cor de Luar",
+    "papel": "Fundação Lia Maria Aguiar"
+  },
+  {
+    "galeria": "a-princesinha",
+    "abre": "assets/img/galeria/a-princesinha/a-princesinha-01.jpg",
+    "miniatura": "assets/img/vitrine/a-princesinha.jpg",
+    "alt": "Bruna Pazinato em A Princesinha, na Fundação Lia Maria Aguiar",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2012<i>–</i>13",
+    "obra": "A Princesinha",
+    "papel": "Fundação Lia Maria Aguiar"
+  },
+  {
+    "galeria": "enlace",
+    "abre": "assets/img/galeria/enlace/enlace-01.jpg",
+    "miniatura": "assets/img/vitrine/enlace.jpg",
+    "alt": "Bruna Pazinato em Enlace, A Loja do Ourives, no Teatro TUCA",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2012",
+    "obra": "Enlace, A Loja do Ourives",
+    "papel": "Teatro TUCA"
+  },
+  {
+    "galeria": "quem-inventou-o-amor",
+    "abre": "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-01.jpg",
+    "miniatura": "assets/img/vitrine/quem-inventou-o-amor.jpg",
+    "alt": "Bruna Pazinato como protagonista de Quem Inventou o Amor Foi Roberto Carlos",
+    "largura": 700,
+    "altura": 980,
+    "ano": "2011<i>–</i>12",
+    "obra": "Quem Inventou o Amor Foi Roberto Carlos",
+    "papel": "Protagonista"
+  }
+]

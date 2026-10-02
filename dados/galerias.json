@@ -1,0 +1,313 @@
+{
+  "mulheres-a-beira": {
+    "titulo": "Mulheres à Beira de um Ataque de Nervos",
+    "sub": "",
+    "ano": "2015–16",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-01.jpg",
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-02.jpg",
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-03.jpg",
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-04.jpg",
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-05.jpg",
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-06.jpg",
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-07.jpg",
+      "assets/img/galeria/mulheres-a-beira/mulheres-a-beira-08.jpg"
+    ]
+  },
+  "chacrinha": {
+    "titulo": "Chacrinha",
+    "sub": "O Musical",
+    "ano": "2015",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/chacrinha/chacrinha-01.jpg?v=202610020300",
+      "assets/img/galeria/chacrinha/chacrinha-02.jpg?v=202610020300",
+      "assets/img/galeria/chacrinha/chacrinha-03.jpg?v=202610020300"
+    ],
+    "largura": 1280
+  },
+  "uma-luz-cor-de-luar": {
+    "titulo": "Uma Luz Cor de Luar",
+    "sub": "Fundação Lia Maria Aguiar",
+    "ano": "2013–14",
+    "credito": "Hugo Kloppel",
+    "largura": 960,
+    "fotos": [
+      "assets/img/galeria/uma-luz-cor-de-luar/uma-luz-cor-de-luar-01.jpg"
+    ]
+  },
+  "a-princesinha": {
+    "titulo": "A Princesinha",
+    "sub": "O Musical de Natal",
+    "ano": "2012–13",
+    "credito": "",
+    "largura": 900,
+    "fotos": [
+      "assets/img/galeria/a-princesinha/a-princesinha-01.jpg",
+      "assets/img/galeria/a-princesinha/a-princesinha-02.jpg"
+    ]
+  },
+  "enlace": {
+    "titulo": "Enlace",
+    "sub": "A Loja do Ourives",
+    "ano": "2012",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/enlace/enlace-01.jpg",
+      "assets/img/galeria/enlace/enlace-02.jpg",
+      "assets/img/galeria/enlace/enlace-03.jpg",
+      "assets/img/galeria/enlace/enlace-04.jpg",
+      "assets/img/galeria/enlace/enlace-05.jpg"
+    ],
+    "largura": 960
+  },
+  "quem-inventou-o-amor": {
+    "titulo": "Quem Inventou o Amor Foi Roberto Carlos",
+    "sub": "",
+    "ano": "2011–12",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-01.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-02.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-03.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-04.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-05.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-06.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-07.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-08.jpg",
+      "assets/img/galeria/quem-inventou-o-amor/quem-inventou-o-amor-09.jpg"
+    ],
+    "largura": 800
+  },
+  "tic-tic-tati": {
+    "titulo": "Tic Tic Tati",
+    "sub": "TV Cultura",
+    "ano": "2012–15",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/tic-tic-tati/tic-tic-tati-01.jpg",
+      "assets/img/galeria/tic-tic-tati/tic-tic-tati-02.jpg",
+      "assets/img/galeria/tic-tic-tati/tic-tic-tati-03.jpg",
+      "assets/img/galeria/tic-tic-tati/tic-tic-tati-04.jpg",
+      "assets/img/galeria/tic-tic-tati/tic-tic-tati-05.jpg"
+    ],
+    "largura": 960
+  },
+  "os-dez-mandamentos": {
+    "titulo": "Os Dez Mandamentos",
+    "sub": "",
+    "ano": "2016–17",
+    "credito": "",
+    "largura": 1200,
+    "fotos": [
+      "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-01.jpg?v=202610011430",
+      "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-02.jpg?v=202610011430",
+      "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-03.jpg?v=202610011430",
+      "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-04.jpg?v=202610011430",
+      "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-05.jpg?v=202610011430",
+      "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-06.jpg?v=202610011430",
+      "assets/img/galeria/os-dez-mandamentos/os-dez-mandamentos-07.jpg?v=202610011430"
+    ]
+  },
+  "lia": {
+    "titulo": "Lia",
+    "sub": "Record TV",
+    "ano": "2018",
+    "credito": "",
+    "largura": 600,
+    "fotos": [
+      "assets/img/galeria/lia/lia-01.jpg",
+      "assets/img/galeria/lia/lia-02.jpg",
+      "assets/img/galeria/lia/lia-03.jpg",
+      "assets/img/galeria/lia/lia-04.jpg",
+      "assets/img/galeria/lia/lia-05.jpg"
+    ]
+  },
+  "o-rico-e-lazaro": {
+    "titulo": "O Rico e Lázaro",
+    "sub": "Record TV",
+    "ano": "2017",
+    "credito": "",
+    "largura": 640,
+    "fotos": [
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-01.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-02.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-03.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-04.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-05.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-06.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-07.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-08.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-09.jpg",
+      "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-10.jpg"
+    ]
+  },
+  "brasil-raiz": {
+    "titulo": "Brasil Raiz",
+    "sub": "",
+    "ano": "2023",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/brasil-raiz/brasil-raiz-01.jpg",
+      "assets/img/galeria/brasil-raiz/brasil-raiz-02.jpg",
+      "assets/img/galeria/brasil-raiz/brasil-raiz-03.jpg",
+      "assets/img/galeria/brasil-raiz/brasil-raiz-04.jpg"
+    ]
+  },
+  "o-pequeno-principe": {
+    "titulo": "O Pequeno Príncipe",
+    "sub": "",
+    "ano": "2022",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/o-pequeno-principe/o-pequeno-principe-01.jpg",
+      "assets/img/galeria/o-pequeno-principe/o-pequeno-principe-02.jpg",
+      "assets/img/galeria/o-pequeno-principe/o-pequeno-principe-03.jpg",
+      "assets/img/galeria/o-pequeno-principe/o-pequeno-principe-04.jpg",
+      "assets/img/galeria/o-pequeno-principe/o-pequeno-principe-05.jpg",
+      "assets/img/galeria/o-pequeno-principe/o-pequeno-principe-06.jpg"
+    ]
+  },
+  "noite-de-patroa": {
+    "titulo": "Noite de Patroa",
+    "sub": "",
+    "ano": "2021–22",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/noite-de-patroa/noite-de-patroa-01.jpg",
+      "assets/img/galeria/noite-de-patroa/noite-de-patroa-02.jpg",
+      "assets/img/galeria/noite-de-patroa/noite-de-patroa-03.jpg",
+      "assets/img/galeria/noite-de-patroa/noite-de-patroa-04.jpg",
+      "assets/img/galeria/noite-de-patroa/noite-de-patroa-05.jpg",
+      "assets/img/galeria/noite-de-patroa/noite-de-patroa-06.jpg",
+      "assets/img/galeria/noite-de-patroa/noite-de-patroa-07.jpg"
+    ]
+  },
+  "grandes-encontros-mpb": {
+    "titulo": "Grandes Encontros da MPB",
+    "sub": "",
+    "ano": "2019–20",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/grandes-encontros-mpb/grandes-encontros-mpb-01.jpg",
+      "assets/img/galeria/grandes-encontros-mpb/grandes-encontros-mpb-02.jpg",
+      "assets/img/galeria/grandes-encontros-mpb/grandes-encontros-mpb-03.jpg",
+      "assets/img/galeria/grandes-encontros-mpb/grandes-encontros-mpb-04.jpg"
+    ]
+  },
+  "aparecida": {
+    "titulo": "Aparecida",
+    "sub": "Um musical por Walcyr Carrasco",
+    "ano": "2018–19",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/aparecida/aparecida-01.jpg",
+      "assets/img/galeria/aparecida/aparecida-02.jpg",
+      "assets/img/galeria/aparecida/aparecida-03.jpg",
+      "assets/img/galeria/aparecida/aparecida-04.jpg",
+      "assets/img/galeria/aparecida/aparecida-05.jpg"
+    ]
+  },
+  "cassia-eller": {
+    "titulo": "Cassia Eller",
+    "ano": "2024",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/cassia-eller/cassia-eller-05.jpg",
+      "assets/img/galeria/cassia-eller/cassia-eller-04.jpg",
+      "assets/img/galeria/cassia-eller/cassia-eller-01.jpg",
+      "assets/img/galeria/cassia-eller/cassia-eller-02.jpg",
+      "assets/img/galeria/cassia-eller/cassia-eller-03.jpg",
+      "assets/img/galeria/cassia-eller/cassia-eller-06.jpg"
+    ]
+  },
+  "piaf": {
+    "titulo": "Piaf",
+    "sub": "Eu não me arrependo",
+    "ano": "2026",
+    "credito": "Caio Galucci",
+    "fotos": [
+      {
+        "src": "assets/img/galeria/piaf/piaf-01.jpg?v=202609301430",
+        "credito": ""
+      },
+      {
+        "src": "assets/img/galeria/piaf/piaf-02.jpg?v=202609301430",
+        "credito": ""
+      },
+      "assets/img/galeria/piaf/piaf-03.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-04.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-05.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-06.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-07.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-08.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-09.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-10.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-11.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-12.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-13.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-14.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-15.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-16.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-17.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-18.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-19.jpg?v=202609301430"
+    ]
+  },
+  "gal": {
+    "titulo": "Gal",
+    "sub": "O musical",
+    "ano": "2026",
+    "credito": "Edgar Machado",
+    "fotos": [
+      "assets/img/galeria/gal/gal-01.jpg",
+      "assets/img/galeria/gal/gal-02.jpg",
+      "assets/img/galeria/gal/gal-03.jpg",
+      "assets/img/galeria/gal/gal-04.jpg",
+      "assets/img/galeria/gal/gal-05.jpg",
+      "assets/img/galeria/gal/gal-06.jpg",
+      "assets/img/galeria/gal/gal-07.jpg"
+    ]
+  },
+  "alice": {
+    "titulo": "Alice",
+    "sub": "De cor e salteado",
+    "ano": "2025",
+    "credito": "@lifelucas",
+    "fotos": [
+      "assets/img/galeria/alice/alice-01.jpg",
+      "assets/img/galeria/alice/alice-02.jpg",
+      "assets/img/galeria/alice/alice-03.jpg",
+      "assets/img/galeria/alice/alice-04.jpg",
+      "assets/img/galeria/alice/alice-05.jpg",
+      "assets/img/galeria/alice/alice-06.jpg",
+      "assets/img/galeria/alice/alice-07.jpg",
+      "assets/img/galeria/alice/alice-08.jpg",
+      "assets/img/galeria/alice/alice-09.jpg",
+      "assets/img/galeria/alice/alice-10.jpg",
+      "assets/img/galeria/alice/alice-11.jpg",
+      "assets/img/galeria/alice/alice-12.jpg"
+    ]
+  },
+  "clara-nunes": {
+    "titulo": "Clara Nunes",
+    "sub": "Uma declaração de amor",
+    "ano": "2023",
+    "credito": "",
+    "fotos": [
+      "assets/img/galeria/clara-nunes/clara-nunes-01.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-02.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-03.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-04.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-05.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-06.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-07.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-08.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-09.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-10.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-11.jpg",
+      "assets/img/galeria/clara-nunes/clara-nunes-12.jpg"
+    ]
+  }
+}

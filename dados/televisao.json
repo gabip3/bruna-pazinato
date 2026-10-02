@@ -1,0 +1,35 @@
+[
+  {
+    "galeria": "lia",
+    "abre": "assets/img/galeria/lia/lia-01.jpg",
+    "miniatura": "assets/img/vitrine/lia.jpg",
+    "alt": "Bruna Pazinato como Lia, protagonista da novela da Record TV",
+    "largura": 420,
+    "altura": 588,
+    "ano": "2018",
+    "obra": "Lia",
+    "papel": "Lia · Record TV"
+  },
+  {
+    "galeria": "o-rico-e-lazaro",
+    "abre": "assets/img/galeria/o-rico-e-lazaro/o-rico-e-lazaro-01.jpg",
+    "miniatura": "assets/img/vitrine/o-rico-e-lazaro.jpg",
+    "alt": "Bruna Pazinato como a cantora Rebeca em O Rico e Lázaro, da Record TV",
+    "largura": 420,
+    "altura": 588,
+    "ano": "2017",
+    "obra": "O Rico e Lázaro",
+    "papel": "Rebeca · Record TV"
+  },
+  {
+    "galeria": "tic-tic-tati",
+    "abre": "assets/img/galeria/tic-tic-tati/tic-tic-tati-01.jpg",
+    "miniatura": "assets/img/vitrine/tic-tic-tati.jpg",
+    "alt": "Bruna Pazinato no programa Tic Tic Tati, da TV Cultura",
+    "largura": 420,
+    "altura": 588,
+    "ano": "2012<i>–</i>15",
+    "obra": "Tic Tic Tati",
+    "papel": "TV Cultura"
+  }
+]
