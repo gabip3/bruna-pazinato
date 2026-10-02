@@ -214,3 +214,7 @@ body{
 @media (hover:none){ .foto__apagar{ opacity:1; } }
 
 .espera a{ color:var(--coral); }
+
+/* porta que ainda não abre: ela vê que existe, e vê que não é agora */
+.porta--espera{ cursor:default; opacity:.45; }
+.porta--espera:hover{ background:var(--ink); }
