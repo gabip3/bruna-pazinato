@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel | Bruna Pazinato</title>
+<meta name="theme-color" content="#0B0B0C">
+<meta name="color-scheme" content="dark">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..600&family=Young+Serif&display=swap">
+
+<link rel="stylesheet" href="painel.css?v=202610021200">
+</head>
+<body>
+
+<!-- carregando -->
+<div class="tela" id="tela-espera">
+  <p class="espera">um instante…</p>
+</div>
+
+<!-- entrar -->
+<div class="tela" id="tela-entrar" hidden>
+  <form class="entrar" id="form-entrar" novalidate>
+    <p class="entrar__marca">Bruna <b>Pazin<i>ato</i></b></p>
+    <h1 class="entrar__titulo">Painel</h1>
+
+    <label class="campo">
+      <span class="campo__rotulo">E-mail</span>
+      <input class="campo__valor" type="email" name="email" autocomplete="username" required>
+    </label>
+
+    <label class="campo">
+      <span class="campo__rotulo">Senha</span>
+      <input class="campo__valor" type="password" name="senha" autocomplete="current-password" required>
+    </label>
+
+    <button class="botao" type="submit" id="botao-entrar">Entrar</button>
+    <p class="aviso" id="aviso-entrar" role="status"></p>
+  </form>
+</div>
+
+<!-- dentro -->
+<div class="tela" id="tela-casa" hidden>
+  <header class="topo">
+    <p class="topo__marca">Bruna <b>Pazin<i>ato</i></b></p>
+    <button class="sair" type="button" id="botao-sair">Sair</button>
+  </header>
+
+  <main class="casa">
+    <h1 class="casa__ola">Oi, <span id="casa-nome">Bruna</span>.</h1>
+    <p class="casa__pergunta">O que você quer mudar hoje?</p>
+
+    <nav class="portas">
+      <a class="porta" href="fotos.html">
+        <span class="porta__nome">Minhas fotos</span>
+        <span class="porta__nota">ver, acrescentar e apagar fotos de cada montagem</span>
+      </a>
+      <a class="porta" href="espetaculos.html">
+        <span class="porta__nome">Meus espetáculos</span>
+        <span class="porta__nota">acrescentar um musical novo</span>
+      </a>
+      <a class="porta" href="videos.html">
+        <span class="porta__nome">Vídeos</span>
+        <span class="porta__nota">acrescentar um vídeo ao vivo</span>
+      </a>
+    </nav>
+
+    <p class="casa__pe">
+      Tudo o que você mudar aqui aparece no site em cerca de um minuto.
+      <a href="https://brunapazinato.com" target="_blank" rel="noopener">Ver o site</a>
+    </p>
+  </main>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="painel.js?v=202610021200"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* Bruna Pazinato · painel */
+
+:root{
+  --ink:#0B0B0C; --charcoal:#141417; --paper:#F0EBE4;
+  --paper-70:rgba(240,235,228,.70); --paper-45:rgba(240,235,228,.45);
+  --paper-26:rgba(240,235,228,.26); --paper-12:rgba(240,235,228,.12);
+  --coral:#D14B32; --gold:#E3B879;
+  --display:"Young Serif","Iowan Old Style",Georgia,serif;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.19,1,.22,1);
+  --gutter:clamp(1.25rem,5vw,3rem);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--sans);
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+
+.tela[hidden]{ display:none; }
+
+/* espera */
+.espera{
+  min-height:100svh; display:grid; place-items:center; margin:0;
+  font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--paper-45);
+}
+
+/* marca */
+.entrar__marca, .topo__marca{
+  margin:0; font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--paper-45);
+}
+.entrar__marca b, .topo__marca b{ font-weight:500; color:var(--paper); }
+.entrar__marca i, .topo__marca i{ font-style:normal; color:var(--coral); }
+
+/* entrar */
+.entrar{
+  min-height:100svh; display:flex; flex-direction:column; justify-content:center;
+  max-width:26rem; margin-inline:auto; padding:var(--gutter);
+}
+.entrar__titulo{
+  margin:.8em 0 1.6em; font-family:var(--display); font-weight:400;
+  font-size:clamp(2.6rem,9vw,3.4rem); line-height:1; letter-spacing:-.02em;
+  text-transform:uppercase;
+}
+
+.campo{ display:block; margin-bottom:1.1rem; }
+.campo__rotulo{
+  display:block; margin-bottom:.5rem;
+  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--paper-45);
+}
+.campo__valor{
+  width:100%; padding:.9em 1em;
+  border:1px solid var(--paper-26); background:rgba(255,255,255,.03);
+  font-family:var(--sans); font-size:1rem; color:var(--paper);
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.campo__valor:focus{ outline:none; border-color:var(--coral); background:rgba(255,255,255,.06); }
+
+.botao{
+  width:100%; margin-top:.6rem; padding:1.05em 1.5em; min-height:48px;
+  border:1px solid var(--coral); background:var(--coral); color:var(--ink);
+  font-family:var(--sans); font-size:.72rem; font-weight:500;
+  letter-spacing:.26em; text-transform:uppercase; cursor:pointer;
+  transition:background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+}
+.botao:hover:not(:disabled), .botao:focus-visible:not(:disabled){
+  background:var(--paper); border-color:var(--paper);
+}
+.botao:disabled{ opacity:.5; cursor:default; }
+
+.aviso{
+  margin:1rem 0 0; min-height:1.4em;
+  font-size:.78rem; letter-spacing:.02em; line-height:1.5; color:var(--gold);
+}
+
+/* topo */
+.topo{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding:1.4rem var(--gutter);
+  border-bottom:1px solid var(--paper-12);
+}
+.sair{
+  padding:.7em 1.2em; min-height:40px;
+  border:1px solid var(--paper-26); background:none; color:var(--paper-70);
+  font-family:var(--sans); font-size:.66rem; letter-spacing:.24em;
+  text-transform:uppercase; cursor:pointer;
+  transition:color .3s var(--ease), border-color .3s var(--ease);
+}
+.sair:hover, .sair:focus-visible{ color:var(--paper); border-color:var(--paper-45); }
+
+/* casa */
+.casa{ max-width:46rem; margin-inline:auto; padding:clamp(2.6rem,9vh,5rem) var(--gutter); }
+.casa__ola{
+  margin:0; font-family:var(--display); font-weight:400;
+  font-size:clamp(2.2rem,8vw,3.2rem); line-height:1.05; letter-spacing:-.02em;
+}
+.casa__pergunta{
+  margin:.7em 0 clamp(2.2rem,6vh,3.4rem);
+  font-size:clamp(1rem,2.4vw,1.15rem); color:var(--paper-70);
+}
+
+.portas{ display:grid; gap:1px; background:var(--paper-12); border-block:1px solid var(--paper-12); }
+
+.porta{
+  display:block; padding:clamp(1.4rem,4vw,2rem) clamp(1.2rem,3vw,1.8rem);
+  background:var(--ink); color:inherit; text-decoration:none;
+  transition:background .4s var(--ease);
+}
+.porta:hover, .porta:focus-visible{ background:var(--charcoal); outline:none; }
+
+.porta__nome{
+  display:block; font-family:var(--display); font-weight:400;
+  font-size:clamp(1.3rem,4vw,1.7rem); line-height:1.1;
+}
+.porta__nota{
+  display:block; margin-top:.5em;
+  font-size:.82rem; line-height:1.5; color:var(--paper-45);
+}
+
+.casa__pe{
+  margin:clamp(2rem,6vh,3rem) 0 0;
+  font-size:.82rem; line-height:1.7; color:var(--paper-45);
+}
+.casa__pe a{ color:var(--paper-70); text-decoration:underline; text-underline-offset:.25em; }
+.casa__pe a:hover{ color:var(--coral); }
+
+@media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }

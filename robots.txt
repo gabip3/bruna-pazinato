@@ -16,4 +16,7 @@ Allow: /
 # mesmo quando chega por link.
 Disallow: /gambetta/
 
+# O painel não é página de site: é a porta de serviço.
+Disallow: /admin/
+
 Sitemap: https://brunapazinato.com/sitemap.xml
