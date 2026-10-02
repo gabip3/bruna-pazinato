@@ -228,17 +228,14 @@
     "ano": "2026",
     "credito": "Caio Galucci",
     "fotos": [
-      {
-        "src": "assets/img/galeria/piaf/piaf-01.jpg?v=202609301430",
-        "credito": ""
-      },
+      "assets/img/galeria/piaf/piaf-04.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-15.jpg?v=202609301430",
       {
         "src": "assets/img/galeria/piaf/piaf-02.jpg?v=202609301430",
         "credito": ""
       },
-      "assets/img/galeria/piaf/piaf-03.jpg?v=202609301430",
-      "assets/img/galeria/piaf/piaf-04.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-05.jpg?v=202609301430",
+      "assets/img/galeria/piaf/piaf-03.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-06.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-07.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-08.jpg?v=202609301430",
@@ -248,11 +245,14 @@
       "assets/img/galeria/piaf/piaf-12.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-13.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-14.jpg?v=202609301430",
-      "assets/img/galeria/piaf/piaf-15.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-16.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-17.jpg?v=202609301430",
       "assets/img/galeria/piaf/piaf-18.jpg?v=202609301430",
-      "assets/img/galeria/piaf/piaf-19.jpg?v=202609301430"
+      "assets/img/galeria/piaf/piaf-19.jpg?v=202609301430",
+      {
+        "src": "assets/img/galeria/piaf/piaf-01.jpg?v=202609301430",
+        "credito": ""
+      }
     ]
   },
   "gal": {
