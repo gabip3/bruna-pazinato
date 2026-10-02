@@ -1,12 +1,29 @@
 /* Bruna Pazinato · contato */
 
+/* AS COLUNAS SEGUEM O CONTEÚDO, não a janela.
+
+   Eram frações: 1.12 e 0.88 de duas partes. Fração reparte tudo o que
+   existe, então quanto mais larga a tela maior o vazio no meio — o
+   título encostado na margem esquerda, o retrato na direita, e um
+   buraco crescente entre os dois. Numa tela de 1900px sobravam mais de
+   500px de nada.
+
+   Agora a coluna do texto mede o texto e a do retrato mede o retrato,
+   e justify-content centra o par. A sobra vai para as duas bordas em
+   vez de se abrir no meio: eles ficam juntos, e juntos no centro. */
 .contato{
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  grid-template-columns: minmax(0, auto) var(--retrato-largura);
+  justify-content: center;
   align-items: center;
   gap: clamp(2rem, 6vw, 5.5rem);
   padding: calc(var(--header-h) + clamp(3rem, 11vh, 8rem)) var(--gutter) clamp(4rem, 12vh, 8rem);
   background: var(--ink);
+
+  /* o retrato é 715x1080. A primeira parcela o prende à altura da tela,
+     a segunda o impede de engolir a largura quando a janela é baixa e
+     estreita — é ali que o título e a foto brigam por espaço. */
+  --retrato-largura: min(calc(76svh * 715 / 1080), 32vw);
 }
 
 .contato__texto{ min-width: 0; }
@@ -53,8 +70,8 @@
    inteira: numa coluna larga a foto estreita em vez de ser decepada. */
 .contato__retrato{
   margin: 0;
-  width: min(100%, calc(76svh * 715 / 1080));
-  justify-self: end;
+  width: 100%;
+  justify-self: center;
   overflow: hidden;
   aspect-ratio: 715 / 1080;
   max-height: 76svh;
