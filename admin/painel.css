@@ -73,6 +73,15 @@ body{
 }
 .botao:disabled{ opacity:.5; cursor:default; }
 
+.esqueci{
+  display:block; width:100%; margin-top:1rem; padding:.9em; min-height:44px;
+  border:0; background:none; color:var(--paper-45);
+  font-family:var(--sans); font-size:.72rem; letter-spacing:.16em;
+  text-transform:uppercase; cursor:pointer;
+  transition:color .3s var(--ease);
+}
+.esqueci:hover, .esqueci:focus-visible{ color:var(--paper); }
+
 .aviso{
   margin:1rem 0 0; min-height:1.4em;
   font-size:.78rem; letter-spacing:.02em; line-height:1.5; color:var(--gold);

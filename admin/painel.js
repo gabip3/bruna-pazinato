@@ -34,6 +34,7 @@
   var aviso   = document.getElementById('aviso-entrar');
   var nome    = document.getElementById('casa-nome');
   var sair    = document.getElementById('botao-sair');
+  var esqueci = document.getElementById('botao-esqueci');
 
   function mostrar(qual) {
     espera.hidden = qual !== 'espera';
@@ -95,6 +96,26 @@
     }).then(function () {
       botao.disabled = false;
       botao.textContent = 'Entrar';
+    });
+  });
+
+  /* Sem isto, esquecer a senha significa depender do Gabi — que é
+     exatamente a dependência que este painel existe para acabar. O
+     Firebase manda o link de troca direto para o e-mail dela.
+
+     A resposta é a mesma havendo conta ou não: dizer "esse e-mail não
+     existe aqui" contaria a um estranho quem tem acesso. */
+  esqueci.addEventListener('click', function () {
+    var email = form.email.value.trim();
+    if (!email) {
+      aviso.textContent = 'Escreve seu e-mail aí em cima e clica de novo.';
+      form.email.focus();
+      return;
+    }
+    esqueci.disabled = true;
+    auth.sendPasswordResetEmail(email).catch(function () {}).then(function () {
+      esqueci.disabled = false;
+      aviso.textContent = 'Se esse e-mail tiver acesso, o link para criar uma senha nova já está indo. Dá uma olhada na caixa de entrada.';
     });
   });
 
