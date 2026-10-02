@@ -15,6 +15,51 @@
 
 .header > *{ pointer-events: auto; }
 
+/* O FUNDO DO HEADER.
+
+   Ele nasce transparente: no alto de cada página flutua sobre a
+   fotografia, que é a intenção. O problema aparecia ao rolar — o
+   conteúdo passava por baixo e se via ATRAVÉS dele. Não era empilhamento
+   errado: o header já é z-index 50 contra 6 da tagline. Era não haver
+   nada atrás.
+
+   O ::before carrega o fundo em vez do próprio header porque o header
+   tem pointer-events: none e filhos que o reativam; pintar nele
+   mesmo deixaria a faixa inteira clicável.
+
+   O FUNDO É OPACO, e a primeira versão não era. Com 92% eu seguia a
+   linguagem do menu em tela cheia, que é translúcido — mas o menu cobre
+   a página inteira e aqui a faixa tem 74px. Oito por cento de um coral
+   forte passando por baixo de uma barra fina não é transparência, é
+   sujeira: o botão de ingresso aparecia atravessado atrás da assinatura.
+   Translucidez é enfeite; não deixar o conteúdo vazar é a função. */
+.header::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  border-bottom: 1px solid var(--paper-12);
+  opacity: 0;
+  transition: opacity .45s var(--ease-soft);
+}
+
+.header--rolado::before{ opacity: 1; }
+
+/* sobre seção clara o fundo inverte junto com o texto */
+.header--claro::before{
+  background: var(--paper);
+  border-bottom-color: rgba(20, 18, 15, .12);
+}
+
+/* com o menu aberto o header vive sobre o véu do próprio menu:
+   um segundo fundo ali vira uma faixa mais escura atravessada */
+.menu-open .header::before{ opacity: 0; }
+
+@media (prefers-reduced-motion: reduce){
+  .header::before{ transition: none; }
+}
+
 /* assinatura */
 
 .brand{

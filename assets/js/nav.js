@@ -56,10 +56,27 @@
   'use strict';
 
   var header = document.querySelector('.header');
+  if (!header) { return; }
+
+  /* A lista de seções claras pode estar vazia — há páginas sem nenhuma.
+     Antes a função inteira desistia aqui, e com ela ia embora também o
+     fundo do header, que toda página precisa. */
   var claros = Array.prototype.slice.call(document.querySelectorAll('.claro'));
-  if (!header || !claros.length) { return; }
 
   function tom() {
+    /* FUNDO AO ROLAR.
+
+       O header é fixo e nasce sem fundo, de propósito: no alto de cada
+       página ele flutua sobre a fotografia. Mas assim que a página anda,
+       o conteúdo passa POR BAIXO dele e aparece através — o que se via
+       como "o texto por cima do header" era na verdade texto atrás de
+       uma faixa invisível.
+
+       Doze pixels de folga para a barra não piscar a cada toque de
+       rolagem no celular. */
+    header.classList.toggle('header--rolado', window.scrollY > 12);
+
+    if (!claros.length) { return; }
     var linha = header.offsetHeight / 2;
     var sobre = claros.some(function (el) {
       var r = el.getBoundingClientRect();
