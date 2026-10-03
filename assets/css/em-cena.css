@@ -209,21 +209,61 @@
   .destaque__figura img{ object-position: 50% 22%; }
 }
 
-/* em cartaz
-   O selo, a pulsação e o botão moram em cartaz.css, que esta página
-   carrega — são os mesmos da home. Aqui fica só o que é desta página. */
+/* em cartaz */
+
+.cartaz{
+  display: inline-flex;
+  align-items: center;
+  gap: .62em;
+}
+
+.cartaz__ponto{
+  width: .5em;
+  height: .5em;
+  border-radius: 50%;
+  background: #46B06A;
+
+  box-shadow: 0 0 0 0 rgba(70, 176, 106, .55);
+}
+
+.cartaz--ativo .cartaz__ponto{
+  animation: cartazPulso 2.4s var(--ease-soft) infinite;
+}
+
+@keyframes cartazPulso{
+  0%   { box-shadow: 0 0 0 0   rgba(70, 176, 106, .55); }
+  70%  { box-shadow: 0 0 0 .55em rgba(70, 176, 106, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(70, 176, 106, 0); }
+}
+
+/* o botão de ingresso */
 
 .destaque__texto .btn + .btn{ margin-left: .6rem; }
 
-/* na ficha do destaque o selo vem depois do ano, e precisa do ponto que
-   os separa. No bloco da home ele aparece sozinho e não leva ponto. */
-.destaque__meta .cartaz::before{
-  content: "·";
-  margin-inline: .62em 0;
-  color: var(--paper-26);
+.btn--ingresso{
+  border-color: var(--coral);
+  background: var(--coral);
+  color: var(--ink);
+}
+
+.btn--ingresso:hover,
+.btn--ingresso:focus-visible{
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cartaz--ativo .cartaz__ponto{ animation: none; }
 }
 
 @media (max-width: 620px){
   .destaque__texto .btn{ display: flex; justify-content: center; }
   .destaque__texto .btn + .btn{ margin-left: 0; margin-top: .6rem; }
+}
+
+.cartaz::before{
+  content: "·";
+  margin-inline: .62em 0;
+  color: var(--paper-26);
 }

@@ -1,5 +1,45 @@
 /* Bruna Pazinato · galeria e visor */
 
+/* porta de entrada */
+
+.btn{
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1em;
+  padding: .95em 1.5em;
+  border: 1px solid var(--paper-26);
+  font-family: var(--font-sans);
+  font-size: clamp(.56rem, .68vw, .7rem);
+  font-weight: 400;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--paper);
+  transition: color .45s var(--ease), border-color .45s var(--ease);
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--coral);
+  transform: scaleY(0);
+  transform-origin: center bottom;
+  transition: transform .55s var(--ease);
+}
+
+.btn:hover,
+.btn:focus-visible{
+  color: var(--ink);
+  border-color: var(--coral);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before{ transform: scaleY(1); }
+
 .destaque .btn{ margin-top: clamp(1.2rem, 3vh, 2rem); }
 
 .abre-galeria{
