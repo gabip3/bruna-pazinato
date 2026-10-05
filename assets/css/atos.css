@@ -73,21 +73,6 @@
   color: var(--coral);
 }
 
-.ato-panel__num::after{
-  content: "";
-  display: block;
-  width: clamp(20px, 2.4vw, 34px);
-  height: 1px;
-  margin-top: .85em;
-  margin-left: auto;
-  margin-right: auto;
-  background: var(--coral);
-
-  transform-origin: center;
-  transform: scaleX(1);
-  transition: transform .7s var(--ease);
-}
-
 .ato-panel__name{
   margin: 0;
   display: block;
@@ -112,8 +97,17 @@
 .ato-panel__link:hover .ato-panel__veil,
 .ato-panel__link:focus-visible .ato-panel__veil{ opacity: .72; }
 
-.ato-panel__link:hover .ato-panel__num::after,
-.ato-panel__link:focus-visible .ato-panel__num::after{ transform: scaleX(2.6); }
+/* A RISCA SAIU E O NOME É QUE RESPONDE AGORA.
+
+   Havia uma risca coral de 1px embaixo do "Ato I" que esticava ao
+   passar o mouse. Era o enfeite fazendo o trabalho: o traço crescia e a
+   palavra, que é o que se vai clicar, ficava parada.
+
+   Sem ela, quem acende é MÚSICA, EM CENA, AO VIVO. O alvo do gesto e o
+   alvo do clique passam a ser a mesma coisa. A transição de cor já
+   existia na regra do nome, esperando por isto. */
+.ato-panel__link:hover .ato-panel__name,
+.ato-panel__link:focus-visible .ato-panel__name{ color: var(--coral); }
 
 .ato-panel__link:focus-visible{ outline-offset: -6px; }
 
@@ -160,7 +154,6 @@
   }
 
   .ato-panel__num{ margin-bottom: .6em; }
-  .ato-panel__num::after{ margin-top: .6em; width: 22px; }
   .ato-panel__name{ font-size: clamp(1.55rem, 7vw, 2.4rem); }
 }
 
