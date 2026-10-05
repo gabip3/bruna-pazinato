@@ -199,25 +199,32 @@
  * Aquele continua como estava até alguém decidir que forma ele quer.
  */
 
-/* O GRADIENTE SAI COM O TEXTO QUE ELE SERVIA.
+/* O NOME FICA NA FOTO. O ANO E O PAPEL DESCEM.
 
-   Ele existia para dar fundo à legenda: 92% de preto no pé do painel,
-   senão o nome da obra sumia na foto. Sem legenda em cima, o degradê
-   não protege nada — só escurece uma fotografia que alguém fez. */
-[data-legenda] .palco__foto::after{ content: none; }
+   Das três linhas que moravam sobre o painel, a do nome volta: é ela
+   que diz o que se está olhando, e o Gabi a quis de volta. As outras
+   duas descem para a legenda.
 
-/* A LEGENDA SAI DA VISTA, NÃO DO DOCUMENTO.
+   Uma linha pede muito menos fundo que três. O degradê antigo subia a
+   92% de preto e ainda punha 35% no alto da foto, porque tinha um
+   bloco inteiro de texto para proteger. Este para na metade da altura
+   e nem toca o alto. */
+[data-legenda] .palco__foto::after{
+  background: linear-gradient(to top,
+    rgba(9,9,10,.80) 0%,
+    rgba(9,9,10,.42) 22%,
+    rgba(9,9,10,0)  54%);
+}
 
-   Ela some do painel mas continua no link, e por dois motivos. É o nome
-   acessível de cada cartão: sem ela o leitor de tela anuncia só o texto
-   alternativo da imagem. E é de onde a legenda de baixo lê o que
-   mostrar — o dado não precisou ser duplicado em atributo nenhum.
+/* O ANO E O PAPEL SAEM DA VISTA, NÃO DO DOCUMENTO.
 
-   Por isso é recorte de 1px e não display: none, que apagaria os dois. */
-[data-legenda] .palco__texto{
-  left: auto;
-  right: auto;
-  bottom: auto;
+   Recorte de 1px e não display: none, porque eles continuam servindo
+   calados. São parte do nome acessível do cartão, e são de onde a
+   legenda de baixo lê o que mostrar — nenhum dado foi duplicado em
+   atributo. */
+[data-legenda] .palco__ano,
+[data-legenda] .palco__papel{
+  position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -227,6 +234,9 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* sem as outras duas linhas o nome não precisa mais dividir o pé */
+[data-legenda] .palco__obra{ margin: 0; }
 
 .palco__ano{
   display: block;
