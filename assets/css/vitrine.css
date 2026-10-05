@@ -254,3 +254,63 @@
   justify-content: center;
   cursor: default;
 }
+
+/* ------------------------------------------------------------------
+ * O PAINEL NO DESKTOP
+ *
+ * No celular nada muda: ano, obra e papel ficam empilhados sobre a
+ * foto, como estão no ar. Foi o pedido, e foi o que a Bruna aprovou.
+ *
+ * Aqui, onde existe ponteiro, o cartão em repouso diz só duas coisas —
+ * o ano e o nome — e guarda o personagem para quando o mouse chegar.
+ * Três linhas de caixa-alta espacejada em corpo 8px, num cartão de
+ * 300px, é o que dava ao painel a cara de template.
+ *
+ * O corte é por (hover: hover), não por largura: o que decide se o
+ * personagem pode se esconder atrás de um gesto é existir o gesto.
+ * Num tablet sem mouse continuam as três linhas.
+ * ------------------------------------------------------------------ */
+
+@media (hover: hover){
+
+  /* O ANO VIRA O ÚNICO RÓTULO, e larga o Archivo espacejado pela
+     serifa do próprio nome. Algarismo não tem caixa, então a caixa-alta
+     nunca fez nada por ele; o que fazia era o espacejamento de .30em,
+     que em corpo 8px é o que mais parece etiqueta automática. */
+  [data-ficha] .palco__ano{
+    margin-bottom: .55em;
+    font-family: var(--font-display);
+    font-optical-sizing: none;
+    font-variation-settings: var(--display-axes);
+    font-size: clamp(.78rem, .95vw, .98rem);
+    letter-spacing: .02em;
+  }
+
+  /* o traço dos intervalos, "2021–22", continua discreto */
+  [data-ficha] .palco__ano i{ opacity: .45; }
+
+  /* O PERSONAGEM ESPERA O MOUSE.
+
+     Em opacidade e não em display: continua no documento para o leitor
+     de tela e, principalmente, continua ocupando o lugar dele. Se eu
+     tirasse do fluxo, o bloco inteiro — que está ancorado pelo pé —
+     subiria ao aparecer, e o nome pularia debaixo do cursor. */
+  [data-ficha] .palco__papel{
+    opacity: 0;
+    transform: translateY(.25em);
+    transition: opacity .45s var(--ease-soft), transform .5s var(--ease);
+  }
+
+  /* focus-within junto com hover: quem navega por teclado chega no
+     link sem passar o mouse, e precisa ver o mesmo que o mouse vê */
+  [data-ficha] .palco__link:hover .palco__papel,
+  [data-ficha] .palco__link:focus-within .palco__papel,
+  [data-ficha] .palco__link:focus-visible .palco__papel{
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    [data-ficha] .palco__papel{ transition: none; transform: none; }
+  }
+}
