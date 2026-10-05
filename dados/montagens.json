@@ -63,7 +63,8 @@
     "altura": 980,
     "ano": "2019<i>–</i>20",
     "obra": "Grandes Encontros da MPB",
-    "papel": "Elenco"
+    "papel": "Elenco",
+    "personagem": false
   },
   {
     "galeria": "aparecida",
@@ -118,7 +119,8 @@
     "altura": 980,
     "ano": "2013<i>–</i>14",
     "obra": "Uma Luz Cor de Luar",
-    "papel": "Fundação Lia Maria Aguiar"
+    "papel": "Fundação Lia Maria Aguiar",
+    "personagem": false
   },
   {
     "galeria": "a-princesinha",
@@ -129,7 +131,8 @@
     "altura": 980,
     "ano": "2012<i>–</i>13",
     "obra": "A Princesinha",
-    "papel": "Fundação Lia Maria Aguiar"
+    "papel": "Fundação Lia Maria Aguiar",
+    "personagem": false
   },
   {
     "galeria": "enlace",
@@ -140,7 +143,8 @@
     "altura": 980,
     "ano": "2012",
     "obra": "Enlace, A Loja do Ourives",
-    "papel": "Teatro TUCA"
+    "papel": "Teatro TUCA",
+    "personagem": false
   },
   {
     "galeria": "quem-inventou-o-amor",

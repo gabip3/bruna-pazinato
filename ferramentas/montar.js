@@ -23,7 +23,7 @@ function palco(m){
     <span class="palco__texto">
       <span class="palco__ano">${txt(m.ano)}</span>
       <span class="palco__obra">${txt(m.obra)}</span>${m.papel ? `
-      <span class="palco__papel">${txt(m.papel)}</span>` : ''}
+      <span class="palco__papel"${m.personagem === false ? ' data-personagem="nao"' : ''}>${txt(m.papel)}</span>` : ''}
     </span>
   </a>
 </li>`;
