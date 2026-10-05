@@ -155,23 +155,11 @@
   transition: filter .7s var(--ease-soft), transform 1.2s var(--ease);
 }
 
-/* 0.72 de brilho era para o texto branco ter onde pousar. Sem texto em
-   cima, escurecer assim só apaga a foto; fica um repouso mais discreto
-   que o hover, mas já uma fotografia inteira.
-
-   Vem ANTES do hover de propósito: as duas regras têm o mesmo peso, e
-   num empate quem vence é a última. Depois do hover, esta apagaria o
-   clarão de passar o mouse. */
-[data-legenda] .palco__foto img{
-  filter: contrast(1.03) saturate(.88) brightness(.9);
-}
-
 .palco__link:hover .palco__foto img,
 .palco__link:focus-visible .palco__foto img{
   filter: contrast(1.03) saturate(.95) brightness(.95);
   transform: scale(1);
 }
-
 
 .palco__foto::after{
   content: "";
@@ -190,53 +178,6 @@
   display: block;
   color: #EFEAE3;
 }
-
-/* ---- os dois carrosséis dos espetáculos ---------------------------
- *
- * Só aqui. O carrossel do Ao vivo tem outra natureza: ali o campo do
- * ano guarda o nome do artista ("Abrava", "Thelminha") e a obra é "Com
- * Abrava" — uma legenda embaixo repetiria a mesma palavra duas vezes.
- * Aquele continua como estava até alguém decidir que forma ele quer.
- */
-
-/* O NOME FICA NA FOTO. O ANO E O PAPEL DESCEM.
-
-   Das três linhas que moravam sobre o painel, a do nome volta: é ela
-   que diz o que se está olhando, e o Gabi a quis de volta. As outras
-   duas descem para a legenda.
-
-   Uma linha pede muito menos fundo que três. O degradê antigo subia a
-   92% de preto e ainda punha 35% no alto da foto, porque tinha um
-   bloco inteiro de texto para proteger. Este para na metade da altura
-   e nem toca o alto. */
-[data-legenda] .palco__foto::after{
-  background: linear-gradient(to top,
-    rgba(9,9,10,.80) 0%,
-    rgba(9,9,10,.42) 22%,
-    rgba(9,9,10,0)  54%);
-}
-
-/* O ANO E O PAPEL SAEM DA VISTA, NÃO DO DOCUMENTO.
-
-   Recorte de 1px e não display: none, porque eles continuam servindo
-   calados. São parte do nome acessível do cartão, e são de onde a
-   legenda de baixo lê o que mostrar — nenhum dado foi duplicado em
-   atributo. */
-[data-legenda] .palco__ano,
-[data-legenda] .palco__papel{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* sem as outras duas linhas o nome não precisa mais dividir o pé */
-[data-legenda] .palco__obra{ margin: 0; }
 
 .palco__ano{
   display: block;
@@ -271,67 +212,6 @@
   text-transform: uppercase;
   color: rgba(239,234,227,.6);
 }
-
-/* A LEGENDA ÚNICA, EMBAIXO DA VITRINE.
-
-   Uma por carrossel, em vez de uma por painel. Mostra o item mais
-   centrado e troca quando se rola — o que estava escrito catorze vezes
-   sobre catorze fotos passa a estar escrito uma vez, no lugar onde se
-   lê. Nasce pelo JavaScript a partir do texto que já existe nos
-   cartões; sem script não há legenda, e as fotos continuam de pé.
-
-   Sem caixa-alta e sem espacejamento: a vitrine inteira era versalete
-   espaçado, e aqui embaixo isso viraria rótulo. Em itálico de Fraunces,
-   que tem itálico de verdade — a Young Serif não tem, e o navegador
-   inclinaria a reta à força. */
-
-.vitrine__legenda{
-  margin: clamp(.9rem, 2.2vh, 1.4rem) 0 0;
-  padding: 0 var(--gutter);
-  /* a altura é reservada: sem isto a página pula a cada troca */
-  min-height: 1.7em;
-  font-family: var(--font-sans);
-  font-size: clamp(.78rem, .95vw, .92rem);
-  font-weight: 300;
-  line-height: 1.5;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--paper-70);
-}
-
-.vitrine__legenda i{
-  font-family: var(--font-name);
-  font-style: italic;
-  font-size: 1.16em;
-  letter-spacing: -.004em;
-  color: var(--paper);
-}
-
-/* O ano era dourado em cima da foto, onde precisava brigar com a
-   imagem; aqui embaixo é só a data, e herda o tom do corpo.
-
-   Cheguei a dar a ele um tom mais fraco, para hierarquizar. Composto
-   sobre o papel aquilo dava 4,03 de contraste, abaixo do mínimo de 4,5
-   — e a diferença que eu ganhava era de enfeite. A hierarquia já está
-   feita pelo itálico da obra; o resto da linha pode ser um tom só. */
-.vitrine__legenda b{ font-weight: 300; }
-
-.vitrine__legenda > span{
-  display: inline-block;
-  transition: opacity .3s var(--ease-soft);
-}
-
-@media (prefers-reduced-motion: reduce){
-  .vitrine__legenda > span{ transition: none; }
-}
-
-/* NÃO EXISTE REGRA PARA A COLUNA CLARA, de propósito.
-
-   Eu tinha escrito uma, forçando tinta escura na televisão. Ela deixou
-   o nome da obra com contraste 1,00 — invisível, papel sobre papel.
-   Dentro da seção clara os tokens já estão trocados: ali --paper é a
-   tinta escura, e var(--ink) é que vira papel. A regra reinvertia o que
-   já tinha sido invertido. Medido: 15,33 nas duas colunas sem ela. */
 
 /* rodapé da vitrine */
 

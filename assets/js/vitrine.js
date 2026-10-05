@@ -58,9 +58,6 @@
         pista.scrollLeft = pista.scrollWidth;
         posicionado = true;
       }
-
-      criarLegenda();
-      atualizarLegenda();
     }
 
     function envolver() {
@@ -80,115 +77,6 @@
 
     window.setTimeout(avaliar, 200);
     window.addEventListener('load', avaliar);
-
-    /* a legenda única, embaixo
-     *
-     * Lê o que já está em cada cartão — o mesmo texto que o leitor de
-     * tela usa — e mostra o do painel mais perto do centro da pista.
-     * Nada de dado duplicado em atributo: se o montador mudar a obra,
-     * a legenda muda junto.
-     */
-
-    var legenda = null, legendaInterior = null, ultimo = '', espera = 0;
-
-    function fichaDe(el) {
-      var obra = el.querySelector('.palco__obra');
-      if (!obra) { return null; }
-      var papel = el.querySelector('.palco__papel');
-      var ano   = el.querySelector('.palco__ano');
-      return {
-        obra:  obra.textContent.trim(),
-        papel: papel ? papel.textContent.trim() : '',
-        /* "como Teatro TUCA" seria absurdo: nem todo papel é
-           personagem, e o montador marca quais não são */
-        como:  papel ? papel.getAttribute('data-personagem') !== 'nao' : false,
-        ano:   ano ? ano.textContent.trim() : ''
-      };
-    }
-
-    function criarLegenda() {
-      /* só quem pede. Eu tinha escopado pela seção .programa, mas o Ao
-         vivo usa a mesma seção — e lá o campo do ano guarda o nome do
-         artista e a obra é "Com <artista>": a legenda repetiria a mesma
-         palavra duas vezes na mesma linha. Agora é a pista que declara
-         que carrega legenda embaixo, e o CSS segue o mesmo atributo. */
-      if (legenda || !pista.hasAttribute('data-legenda')) { return; }
-      if (!fichaDe(originais[0])) { return; }
-      var caixa = pista.closest('.vitrine') || pista;
-
-      legenda = document.createElement('p');
-      legenda.className = 'vitrine__legenda';
-      /* polite, e só depois que a rolagem para: anunciar a cada quadro
-         transformaria o leitor de tela num matraqueador */
-      legenda.setAttribute('aria-live', 'polite');
-
-      legendaInterior = document.createElement('span');
-      legenda.appendChild(legendaInterior);
-      caixa.insertAdjacentElement('afterend', legenda);
-    }
-
-    function maisCentrado() {
-      var r = pista.getBoundingClientRect();
-      var meio = r.left + r.width / 2;
-      var melhor = null, menor = Infinity;
-      var filhos = pista.children;
-
-      for (var i = 0; i < filhos.length; i++) {
-        var c = filhos[i].getBoundingClientRect();
-        if (c.right <= r.left || c.left >= r.right) { continue; }
-        var d = Math.abs(c.left + c.width / 2 - meio);
-        if (d < menor) { menor = d; melhor = filhos[i]; }
-      }
-      return melhor;
-    }
-
-    function pintar(f) {
-      while (legendaInterior.firstChild) {
-        legendaInterior.removeChild(legendaInterior.firstChild);
-      }
-      var obra = document.createElement('i');
-      obra.textContent = f.obra;
-      legendaInterior.appendChild(obra);
-
-      if (f.papel) {
-        legendaInterior.appendChild(
-          document.createTextNode((f.como ? ' — como ' : ' — ') + f.papel)
-        );
-      }
-      if (f.ano) {
-        legendaInterior.appendChild(document.createTextNode(' · '));
-        var ano = document.createElement('b');
-        ano.textContent = f.ano;
-        legendaInterior.appendChild(ano);
-      }
-    }
-
-    function atualizarLegenda() {
-      if (!legenda) { return; }
-      var el = maisCentrado();
-      if (!el) { return; }
-      var f = fichaDe(el);
-      if (!f) { return; }
-
-      var chave = f.obra + '|' + f.papel + '|' + f.ano;
-      if (chave === ultimo) { return; }
-      ultimo = chave;
-
-      if (reduzido) { pintar(f); return; }
-
-      legendaInterior.style.opacity = '0';
-      window.setTimeout(function () {
-        pintar(f);
-        legendaInterior.style.opacity = '1';
-      }, 170);
-    }
-
-    function adiarLegenda() {
-      window.clearTimeout(espera);
-      espera = window.setTimeout(atualizarLegenda, 130);
-    }
-
-    pista.addEventListener('scroll', adiarLegenda, { passive: true });
 
     /* arrastar com o mouse */
 
