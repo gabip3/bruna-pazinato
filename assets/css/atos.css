@@ -71,6 +71,7 @@
   letter-spacing: .32em;
   text-transform: uppercase;
   color: var(--coral);
+  transition: color .6s var(--ease);
 }
 
 .ato-panel__name{
@@ -108,6 +109,16 @@
    existia na regra do nome, esperando por isto. */
 .ato-panel__link:hover .ato-panel__name,
 .ato-panel__link:focus-visible .ato-panel__name{ color: var(--coral); }
+
+/* OS DOIS TROCAM DE LUGAR. O nome pega o coral que era do rótulo, e o
+   rótulo pega o papel que era do nome. Não é só acender: é uma inversão,
+   e por isso o painel inteiro parece responder em vez de piscar.
+
+   De quebra conserta uma medição ruim que eu tinha feito: coral sobre
+   fotografia dava 2,67 de contraste nos três painéis. No hover, que é
+   quando alguém está de fato lendo aquele rótulo, ele passa a papel. */
+.ato-panel__link:hover .ato-panel__num,
+.ato-panel__link:focus-visible .ato-panel__num{ color: var(--paper); }
 
 .ato-panel__link:focus-visible{ outline-offset: -6px; }
 
