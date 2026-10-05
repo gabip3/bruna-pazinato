@@ -85,7 +85,7 @@
       x.setAttribute('aria-label', 'Apagar esta foto');
       x.textContent = '×';
       x.addEventListener('click', function () {
-        alert('Apagar ainda não está ligado — é a próxima etapa.');
+        alert('Apagar ainda não está ligado. É a próxima etapa.');
       });
 
       cel.appendChild(img);
@@ -112,11 +112,11 @@
     area.addEventListener(ev, function (e) { e.preventDefault(); area.classList.remove('sobre'); });
   });
   area.addEventListener('drop', function () {
-    alert('Acrescentar ainda não está ligado — é a próxima etapa.');
+    alert('Acrescentar ainda não está ligado. É a próxima etapa.');
   });
   arquivo.addEventListener('change', function () {
     arquivo.value = '';
-    alert('Acrescentar ainda não está ligado — é a próxima etapa.');
+    alert('Acrescentar ainda não está ligado. É a próxima etapa.');
   });
 
   firebase.initializeApp(CONFIG);

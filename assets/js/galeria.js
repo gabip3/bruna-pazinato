@@ -57,7 +57,7 @@
     var carga = new Image();
     carga.onload = function () {
       imagem.src = caminho;
-      imagem.alt = atual.titulo + ' — foto ' + (indice + 1) + ' de ' + n;
+      imagem.alt = atual.titulo + ', foto ' + (indice + 1) + ' de ' + n;
       window.requestAnimationFrame(function () { imagem.classList.add('is-on'); });
       window.setTimeout(function () { imagem.classList.add('is-on'); }, 120);
     };
