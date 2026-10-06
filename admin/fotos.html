@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..600&family=Young+Serif&display=swap">
-<link rel="stylesheet" href="painel.css?v=202610021600">
+<link rel="stylesheet" href="painel.css?v=202610061700">
 </head>
 <body>
 
@@ -43,10 +43,12 @@
     <p class="casa__pergunta" id="fotos-conta"></p>
 
     <label class="soltar" id="area-soltar">
-      <input type="file" id="arquivo" accept="image/*" multiple hidden>
+      <input type="file" id="arquivo" accept="image/*,.heic,.heif" multiple hidden>
       <span class="soltar__nome">Acrescentar foto</span>
       <span class="soltar__nota">arraste aqui, ou toque para escolher do seu celular</span>
     </label>
+
+    <p class="aviso" id="aviso" role="status" aria-live="polite" hidden></p>
 
     <div class="grade" id="grade-fotos"></div>
   </main>
@@ -54,6 +56,8 @@
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="fotos.js?v=202610021600"></script>
+<script src="config.js?v=202610061700"></script>
+<script src="enviar.js?v=202610061700"></script>
+<script src="fotos.js?v=202610061700"></script>
 </body>
 </html>

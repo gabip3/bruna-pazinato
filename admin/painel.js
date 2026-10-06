@@ -11,20 +11,10 @@
 (function () {
   'use strict';
 
-  var CONFIG = {
-    apiKey: 'AIzaSyDyedBAi5UUXMNcRTKRdZLJOlEjRK5ly60',
-    authDomain: 'websites-f4984.firebaseapp.com',
-    projectId: 'websites-f4984',
-    storageBucket: 'websites-f4984.firebasestorage.app',
-    messagingSenderId: '311825434715',
-    appId: '1:311825434715:web:a494120041dd8cf5e3177e'
-  };
-
-  /* Quem pode entrar NESTE painel. O projeto do Firebase é o mesmo de
-     outros sites, então sem esta lista a dona de um site entraria no
-     painel de outro. A lista é conferida de novo nas regras do
-     Firestore — aqui é só para a tela não abrir à toa. */
-  var PERMITIDOS = ['contato.brunapazinato@gmail.com', 'gabip3@gmail.com'];
+  /* tudo o que é deste cliente mora em config.js */
+  var C = window.PAINEL;
+  var CONFIG = C.firebase;
+  var PERMITIDOS = C.permitidos;
 
   var espera  = document.getElementById('tela-espera');
   var entrar  = document.getElementById('tela-entrar');

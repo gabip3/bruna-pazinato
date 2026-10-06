@@ -218,3 +218,47 @@ body{
 /* porta que ainda não abre: ela vê que existe, e vê que não é agora */
 .porta--espera{ cursor:default; opacity:.45; }
 .porta--espera:hover{ background:var(--ink); }
+
+/* ------------------------------------------------------------------
+ * O PAINEL FALANDO COM ELA
+ *
+ * Um lugar só, sempre o mesmo, logo acima da grade. Erro, andamento e
+ * confirmação dividem o mesmo espaço porque nunca acontecem juntos — e
+ * porque ela precisa saber onde olhar sem aprender nada.
+ * ------------------------------------------------------------------ */
+
+.aviso{
+  margin:0 0 1.4rem; padding:.9em 1.1em;
+  border-left:2px solid var(--paper-26);
+  font-size:.92rem; font-weight:300; line-height:1.5; color:var(--paper-70);
+}
+
+.aviso--bom{ border-left-color:#46B06A; color:var(--paper); }
+.aviso--erro{ border-left-color:var(--coral); color:var(--paper); }
+
+/* enquanto sobe, a área de acrescentar para de convidar */
+.soltar.ocupada{ opacity:.5; pointer-events:none; }
+
+/* ------------------------------------------------------------------
+ * O QUE JÁ FOI PEDIDO
+ *
+ * A grade mostra o site de verdade. O que ela acabou de mandar ainda
+ * não está lá — então aparece marcado, e não misturado. Sem isso ela
+ * manda, não vê diferença nenhuma e manda de novo.
+ * ------------------------------------------------------------------ */
+
+.foto--pedida img{ opacity:.78; }
+.foto--pedida{ outline:1px solid var(--gold); outline-offset:-1px; }
+
+.foto--apagando img{ opacity:.3; filter:grayscale(1); }
+.foto--apagando{ outline:1px solid var(--coral); outline-offset:-1px; }
+
+.foto__selo{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:.5em .7em;
+  background:rgba(11,11,12,.82);
+  font-size:.6rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--paper); text-align:center;
+}
+
+.foto--apagando .foto__selo{ color:var(--coral); }
