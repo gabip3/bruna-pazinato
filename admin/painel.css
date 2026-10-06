@@ -329,7 +329,18 @@ body{
 .textos[open] .textos__abrir::after{ content:" −"; }
 .textos__abrir:hover{ color:var(--paper); }
 
-.textos__corpo{ padding-bottom:1.4rem; display:grid; gap:1rem; }
+/* O RESPIRO DEPOIS DA LINHA QUE ABRE.
+
+   Sem ele, "MUDAR OS TEXTOS" e "NOME DO ESPETÁCULO" ficam encostados —
+   e como as duas são caixa-alta espacejada no mesmo corpo e na mesma
+   cor, leem como um bloco só. O espaço é o que diz que uma é o título
+   da seção e a outra é o rótulo do primeiro campo. */
+.textos__corpo{
+  padding-top:clamp(1.1rem, 3.5vh, 1.8rem);
+  padding-bottom:1.4rem;
+  display:grid;
+  gap:1.5rem;
+}
 
 .campo{ display:block; }
 
