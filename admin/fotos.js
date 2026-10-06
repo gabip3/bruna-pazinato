@@ -41,6 +41,7 @@
   var papeis = {};   /* galeria -> personagem, juntado de montagens e televisão */
   var atual = null;
   var ocupado = false;
+  var quem = C.dona;   /* quem está logado, e quem assina o pedido */
   var ordem = null;      /* a ordem na tela, que pode diferir da do site */
   var ordemOriginal = null;
 
@@ -252,7 +253,7 @@
         falhas.forEach(function (f) { linhas.push('· ' + f); });
       }
 
-      return window.ENVIAR.pedir('acrescentar foto em ' + g.titulo, linhas, C.dona)
+      return window.ENVIAR.pedir('acrescentar foto em ' + g.titulo, linhas, quem)
         .then(function () {
           travar(false);
           falar(
@@ -304,7 +305,7 @@
       'Galeria: ' + atual + ' (hoje com ' + g.fotos.length + ')'
     ];
 
-    window.ENVIAR.pedir('apagar foto de ' + g.titulo, linhas, C.dona)
+    window.ENVIAR.pedir('apagar foto de ' + g.titulo, linhas, quem)
       .then(function () {
         travar(false);
         cel.classList.add('foto--apagando');
@@ -347,7 +348,7 @@
     linhas.push('');
     linhas.push('Galeria: ' + atual);
 
-    window.ENVIAR.pedir('nova ordem em ' + g.titulo, linhas, C.dona)
+    window.ENVIAR.pedir('nova ordem em ' + g.titulo, linhas, quem)
       .then(function () {
         travar(false);
         ordemOriginal = ordem.slice();
@@ -404,7 +405,7 @@
     linhas.push('');
     linhas.push('Galeria: ' + atual);
 
-    window.ENVIAR.pedir('mudar textos de ' + g.titulo, linhas, C.dona)
+    window.ENVIAR.pedir('mudar textos de ' + g.titulo, linhas, quem)
       .then(function () {
         travar(false);
         document.getElementById('botao-textos').disabled = true;
@@ -453,6 +454,14 @@
       mostrar('fora');
       return;
     }
+
+    /* QUEM ASSINA É QUEM APERTOU O BOTÃO.
+
+       Estava fixo no nome da dona do site, e por isso um pedido feito
+       pelo Gabi chegava assinado "Bruna". Com dois no painel, saber
+       quem pediu é o que evita ele publicar uma coisa achando que ela
+       pediu, e vice-versa. */
+    quem = C.nomes[(usuario.email || '').toLowerCase()] || C.dona;
     /* O PERSONAGEM VEM DE OUTRO ARQUIVO.
 
        galerias.json guarda nome, ano, crédito e as fotos. Quem ela

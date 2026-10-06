@@ -24,6 +24,14 @@ window.PAINEL = {
   /* quem está do outro lado */
   dona: 'Bruna',
 
+  /* o nome de cada um, para a saudação e para assinar os pedidos. Sem
+     isto o painel recorta o que vem antes do arroba e chama a pessoa de
+     "Gabip3", e todo pedido chega assinado com o nome da dona do site. */
+  nomes: {
+    'contato.brunapazinato@gmail.com': 'Bruna',
+    'gabip3@gmail.com': 'Gabi'
+  },
+
   /* entrada */
   firebase: {
     apiKey: 'AIzaSyDyedBAi5UUXMNcRTKRdZLJOlEjRK5ly60',
