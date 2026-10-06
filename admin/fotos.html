@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@300..600&family=Young+Serif&display=swap">
-<link rel="stylesheet" href="painel.css?v=202610061700">
+<link rel="stylesheet" href="painel.css?v=202610061810">
 </head>
 <body>
 
@@ -48,6 +48,40 @@
       <span class="soltar__nota">arraste aqui, ou toque para escolher do seu celular</span>
     </label>
 
+    <!-- os textos deste espetáculo -->
+    <details class="textos" id="textos">
+      <summary class="textos__abrir">Mudar os textos deste espetáculo</summary>
+      <div class="textos__corpo">
+        <label class="campo">
+          <span class="campo__rotulo">Nome do espetáculo</span>
+          <input class="campo__valor" type="text" id="txt-titulo" autocomplete="off">
+        </label>
+        <label class="campo">
+          <span class="campo__rotulo">Subtítulo</span>
+          <input class="campo__valor" type="text" id="txt-sub" autocomplete="off">
+        </label>
+        <label class="campo">
+          <span class="campo__rotulo">Personagem</span>
+          <input class="campo__valor" type="text" id="txt-papel" autocomplete="off" placeholder="quem ela interpreta">
+        </label>
+        <label class="campo">
+          <span class="campo__rotulo">Ano</span>
+          <input class="campo__valor" type="text" id="txt-ano" autocomplete="off">
+        </label>
+        <label class="campo">
+          <span class="campo__rotulo">Fotos de</span>
+          <input class="campo__valor" type="text" id="txt-credito" autocomplete="off">
+        </label>
+        <button class="botao" type="button" id="botao-textos" disabled>Enviar as mudanças</button>
+      </div>
+    </details>
+
+    <p class="ordem" id="ordem" hidden>
+      <span class="ordem__nota">Você mudou a ordem das fotos.</span>
+      <button class="botao" type="button" id="botao-ordem">Enviar a nova ordem</button>
+      <button class="botao botao--fraco" type="button" id="botao-desfazer">Desfazer</button>
+    </p>
+
     <p class="aviso" id="aviso" role="status" aria-live="polite" hidden></p>
 
     <div class="grade" id="grade-fotos"></div>
@@ -58,6 +92,6 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="config.js?v=202610061700"></script>
 <script src="enviar.js?v=202610061700"></script>
-<script src="fotos.js?v=202610061700"></script>
+<script src="fotos.js?v=202610061830"></script>
 </body>
 </html>

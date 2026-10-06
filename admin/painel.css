@@ -201,7 +201,7 @@ body{
 
 .foto__apagar{
   position:absolute; top:.4rem; right:.4rem;
-  width:36px; height:36px; display:grid; place-items:center;
+  width:44px; height:44px; display:grid; place-items:center;
   border:0; border-radius:50%;
   background:rgba(11,11,12,.72); color:var(--paper);
   font-family:var(--sans); font-size:1rem; line-height:1; cursor:pointer;
@@ -262,3 +262,100 @@ body{
 }
 
 .foto--apagando .foto__selo{ color:var(--coral); }
+
+/* ------------------------------------------------------------------
+ * MOVER A FOTO
+ *
+ * Duas setas e o número da posição, no pé de cada foto. No celular
+ * ficam sempre visíveis — sem cursor não há de onde elas surgirem.
+ * ------------------------------------------------------------------ */
+
+.foto__mover{
+  position:absolute; left:0; right:0; bottom:0;
+  display:flex; align-items:center; justify-content:space-between;
+  background:linear-gradient(to top, rgba(11,11,12,.86), rgba(11,11,12,0));
+  padding:.3rem;
+  opacity:0; transition:opacity .25s var(--ease);
+}
+
+.foto:hover .foto__mover,
+.foto:focus-within .foto__mover{ opacity:1; }
+
+@media (hover:none){ .foto__mover{ opacity:1; } }
+
+.foto__seta{
+  width:44px; height:44px;
+  border:0; background:none; color:var(--paper);
+  font-family:var(--sans); font-size:1rem; line-height:1; cursor:pointer;
+}
+
+.foto__seta:disabled{ opacity:.22; cursor:default; }
+
+.foto__num{
+  font-size:.62rem; letter-spacing:.2em; color:var(--paper-70);
+}
+
+/* a foto marcada como pedida não se move: ela ainda nem está no site */
+.foto--pedida .foto__mover, .foto--apagando .foto__mover{ display:none; }
+
+/* ------------------------------------------------------------------
+ * A BARRA DA NOVA ORDEM
+ * ------------------------------------------------------------------ */
+
+.ordem{
+  display:flex; flex-wrap:wrap; align-items:center; gap:.8rem;
+  margin:0 0 1.4rem; padding:.9em 1.1em;
+  border-left:2px solid var(--gold);
+}
+
+.ordem__nota{ flex:1 1 12rem; font-size:.92rem; font-weight:300; color:var(--paper); }
+
+/* ------------------------------------------------------------------
+ * OS TEXTOS DO ESPETÁCULO
+ *
+ * Fechado por padrão. O que ela faz toda semana é foto; texto é raro, e
+ * um formulário aberto o tempo todo transformaria a tela num cadastro.
+ * ------------------------------------------------------------------ */
+
+.textos{ margin:0 0 1.6rem; border-top:1px solid var(--paper-12); }
+
+.textos__abrir{
+  padding:1em 0; cursor:pointer; list-style:none;
+  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--paper-45);
+}
+
+.textos__abrir::-webkit-details-marker{ display:none; }
+.textos__abrir::after{ content:" +"; }
+.textos[open] .textos__abrir::after{ content:" −"; }
+.textos__abrir:hover{ color:var(--paper); }
+
+.textos__corpo{ padding-bottom:1.4rem; display:grid; gap:1rem; }
+
+.campo{ display:block; }
+
+.campo__rotulo{
+  display:block; margin-bottom:.5em;
+  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--paper-45);
+}
+
+.campo__valor{
+  width:100%; min-height:44px; padding:.7em .9em;
+  border:1px solid var(--paper-26); border-radius:0;
+  background:rgba(255,255,255,.03);
+  font-family:var(--sans); font-size:1rem; font-weight:300; color:var(--paper);
+}
+
+.campo__valor:focus{ outline:none; border-color:var(--coral); }
+
+.botao{
+  min-height:44px; padding:.7em 1.4em;
+  border:1px solid var(--paper-26); border-radius:0; background:none;
+  font-family:var(--sans); font-size:.7rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--paper); cursor:pointer;
+  transition:border-color .3s var(--ease), color .3s var(--ease);
+}
+
+.botao:hover:not(:disabled){ border-color:var(--coral); }
+.botao:disabled{ opacity:.35; cursor:default; }
+.botao--fraco{ border-color:transparent; color:var(--paper-45); }
+.botao--fraco:hover{ color:var(--paper); }

@@ -27,10 +27,22 @@
   var area     = document.getElementById('area-soltar');
   var arquivo  = document.getElementById('arquivo');
   var aviso    = document.getElementById('aviso');
+  var textos   = document.getElementById('textos');
+  var barraOrdem = document.getElementById('ordem');
+  var campos = {
+    titulo:  document.getElementById('txt-titulo'),
+    sub:     document.getElementById('txt-sub'),
+    ano:     document.getElementById('txt-ano'),
+    papel:   document.getElementById('txt-papel'),
+    credito: document.getElementById('txt-credito')
+  };
 
   var galerias = null;
+  var papeis = {};   /* galeria -> personagem, juntado de montagens e televisão */
   var atual = null;
   var ocupado = false;
+  var ordem = null;      /* a ordem na tela, que pode diferir da do site */
+  var ordemOriginal = null;
 
   function mostrar(qual) {
     espera.hidden = qual !== 'espera';
@@ -78,6 +90,10 @@
     });
   }
 
+  function caminhoDe(f) {
+    return typeof f === 'string' ? f : f.src;
+  }
+
   function abrir(chave) {
     atual = chave;
     var g = galerias[chave];
@@ -85,15 +101,49 @@
     conta.textContent = plural(g.fotos.length) + (g.credito ? ' · fotos de ' + g.credito : '');
     falar('');
 
-    grade.textContent = '';
-    g.fotos.forEach(function (f, i) {
-      var src = (typeof f === 'string' ? f : f.src);
-      grade.appendChild(celulaDoSite(src, i + 1, g.fotos.length));
-    });
+    ordem = g.fotos.map(caminhoDe);
+    ordemOriginal = ordem.slice();
+    barraOrdem.hidden = true;
+
+    campos.titulo.value  = g.titulo || '';
+    campos.sub.value     = g.sub || '';
+    campos.papel.value   = papeis[chave] || '';
+    campos.ano.value     = g.ano || '';
+    campos.credito.value = g.credito || '';
+    document.getElementById('botao-textos').disabled = true;
+    textos.open = false;
+
+    desenharGrade();
 
     escolher.hidden = true;
     verFotos.hidden = false;
     window.scrollTo(0, 0);
+  }
+
+  function desenharGrade() {
+    grade.textContent = '';
+    ordem.forEach(function (src, i) {
+      grade.appendChild(celulaDoSite(src, i + 1, ordem.length));
+    });
+  }
+
+  /* MOVER É POR BOTÃO, NÃO POR ARRASTAR.
+
+     Arrastar numa grade é gostoso no mouse e uma tortura no dedo: a
+     página rola junto, o alvo escapa, e numa galeria de dezenove fotos
+     ela desiste. Duas setas por foto resolvem o caso real, que é
+     escolher qual abre a galeria. */
+  function mover(de, para) {
+    if (para < 0 || para >= ordem.length) { return; }
+    var f = ordem.splice(de, 1)[0];
+    ordem.splice(para, 0, f);
+    desenharGrade();
+    barraOrdem.hidden = mesmaOrdem();
+    if (!barraOrdem.hidden) { falar(''); }
+  }
+
+  function mesmaOrdem() {
+    return ordem.join('|') === ordemOriginal.join('|');
   }
 
   function celulaDoSite(src, posicao, total) {
@@ -112,8 +162,36 @@
     x.textContent = '×';
     x.addEventListener('click', function () { pedirParaApagar(cel, x, src, posicao); });
 
+    var setas = document.createElement('span');
+    setas.className = 'foto__mover';
+
+    var antes = document.createElement('button');
+    antes.type = 'button';
+    antes.className = 'foto__seta';
+    antes.textContent = '←';
+    antes.disabled = posicao === 1;
+    antes.setAttribute('aria-label', 'Mover a foto ' + posicao + ' para antes');
+    antes.addEventListener('click', function () { mover(posicao - 1, posicao - 2); });
+
+    var numero = document.createElement('span');
+    numero.className = 'foto__num';
+    numero.textContent = posicao;
+
+    var depois = document.createElement('button');
+    depois.type = 'button';
+    depois.className = 'foto__seta';
+    depois.textContent = '→';
+    depois.disabled = posicao === total;
+    depois.setAttribute('aria-label', 'Mover a foto ' + posicao + ' para depois');
+    depois.addEventListener('click', function () { mover(posicao - 1, posicao); });
+
+    setas.appendChild(antes);
+    setas.appendChild(numero);
+    setas.appendChild(depois);
+
     cel.appendChild(img);
     cel.appendChild(x);
+    cel.appendChild(setas);
     return cel;
   }
 
@@ -243,6 +321,101 @@
       });
   }
 
+  /* ------------------------------------------------------------------
+   * A NOVA ORDEM
+   * ------------------------------------------------------------------ */
+
+  document.getElementById('botao-desfazer').addEventListener('click', function () {
+    ordem = ordemOriginal.slice();
+    desenharGrade();
+    barraOrdem.hidden = true;
+    falar('');
+  });
+
+  document.getElementById('botao-ordem').addEventListener('click', function () {
+    if (ocupado || mesmaOrdem()) { return; }
+    travar(true);
+    falar('Avisando o Gabi…');
+
+    var g = galerias[atual];
+    var linhas = ['Nova ordem das fotos de: ' + nomeDe(g), ''];
+    ordem.forEach(function (src, i) {
+      var antes = ordemOriginal.indexOf(src) + 1;
+      var marca = antes === i + 1 ? '' : '   (era a ' + antes + ')';
+      linhas.push((i + 1) + '. ' + src.split('/').pop() + marca);
+    });
+    linhas.push('');
+    linhas.push('Galeria: ' + atual);
+
+    window.ENVIAR.pedir('nova ordem em ' + g.titulo, linhas, C.dona)
+      .then(function () {
+        travar(false);
+        ordemOriginal = ordem.slice();
+        barraOrdem.hidden = true;
+        desenharGrade();
+        falar('Enviado. A nova ordem entra no ar em seguida.', 'bom');
+      })
+      .catch(function (err) {
+        travar(false);
+        falar(window.ENVIAR.explicar(err), 'erro');
+      });
+  });
+
+  /* ------------------------------------------------------------------
+   * OS TEXTOS
+   * ------------------------------------------------------------------ */
+
+  function textoMudou() {
+    var g = galerias[atual];
+    if (!g) { return false; }
+    return campos.titulo.value.trim()  !== (g.titulo || '') ||
+           campos.sub.value.trim()     !== (g.sub || '') ||
+           campos.papel.value.trim()   !== (papeis[atual] || '') ||
+           campos.ano.value.trim()     !== (g.ano || '') ||
+           campos.credito.value.trim() !== (g.credito || '');
+  }
+
+  Object.keys(campos).forEach(function (k) {
+    campos[k].addEventListener('input', function () {
+      document.getElementById('botao-textos').disabled = !textoMudou();
+    });
+  });
+
+  document.getElementById('botao-textos').addEventListener('click', function () {
+    if (ocupado || !textoMudou()) { return; }
+    travar(true);
+    falar('Avisando o Gabi…');
+
+    var g = galerias[atual];
+    var rotulos = { titulo: 'Nome', sub: 'Subtítulo', papel: 'Personagem', ano: 'Ano', credito: 'Fotos de' };
+    var linhas = ['Mudar os textos de: ' + nomeDe(g), ''];
+
+    /* só o que mudou. Mandar os quatro sempre obrigaria ele a comparar
+       campo a campo para descobrir o que ela quis. */
+    Object.keys(campos).forEach(function (k) {
+      var novo = campos[k].value.trim();
+      /* o personagem não mora no galerias.json: vem do carrossel */
+      var velho = (k === 'papel' ? papeis[atual] : g[k]) || '';
+      if (novo === velho) { return; }
+      linhas.push(rotulos[k] + ':');
+      linhas.push('   de:   ' + (velho || '(vazio)'));
+      linhas.push('   para: ' + (novo || '(vazio)'));
+    });
+    linhas.push('');
+    linhas.push('Galeria: ' + atual);
+
+    window.ENVIAR.pedir('mudar textos de ' + g.titulo, linhas, C.dona)
+      .then(function () {
+        travar(false);
+        document.getElementById('botao-textos').disabled = true;
+        falar('Enviado. Os textos entram no ar em seguida.', 'bom');
+      })
+      .catch(function (err) {
+        travar(false);
+        falar(window.ENVIAR.explicar(err), 'erro');
+      });
+  });
+
   /* ------------------------------------------------------------------ */
 
   document.getElementById('botao-outra').addEventListener('click', function () {
@@ -280,10 +453,26 @@
       mostrar('fora');
       return;
     }
-    fetch('../dados/galerias.json')
-      .then(function (r) { return r.json(); })
-      .then(function (j) {
-        galerias = j;
+    /* O PERSONAGEM VEM DE OUTRO ARQUIVO.
+
+       galerias.json guarda nome, ano, crédito e as fotos. Quem ela
+       interpreta mora no carrossel — em montagens.json e televisao.json
+       — ligado pela mesma chave de galeria. Junto os dois aqui para ela
+       ver um formulário só, em vez de aprender onde cada coisa mora.
+
+       Três galerias ficam de fora: Piaf, Gal e Clara Nunes, que são os
+       destaques e têm o personagem escrito no HTML, não em dados. Nelas
+       o campo nasce vazio — ela escreve e o pedido chega igual. */
+    Promise.all([
+      fetch('../dados/galerias.json').then(function (r) { return r.json(); }),
+      fetch('../dados/montagens.json').then(function (r) { return r.json(); }).catch(function () { return []; }),
+      fetch('../dados/televisao.json').then(function (r) { return r.json(); }).catch(function () { return []; })
+    ])
+      .then(function (tudo) {
+        galerias = tudo[0];
+        tudo[1].concat(tudo[2]).forEach(function (m) {
+          if (m && m.galeria && m.papel) { papeis[m.galeria] = m.papel; }
+        });
         desenharLista();
         mostrar('dentro');
       })
