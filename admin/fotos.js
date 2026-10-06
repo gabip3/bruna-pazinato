@@ -258,8 +258,8 @@
           travar(false);
           falar(
             links.length === 1
-              ? 'Enviado. A foto entra no ar em seguida.'
-              : links.length + ' fotos enviadas. Entram no ar em seguida.',
+              ? 'Enviado. Sua foto já está a caminho do site.'
+              : 'Enviado. Suas ' + links.length + ' fotos já estão a caminho do site.',
             'bom'
           );
         });
@@ -313,7 +313,7 @@
         selo.className = 'foto__selo';
         selo.textContent = 'pedido para apagar';
         cel.appendChild(selo);
-        falar('Enviado. O Gabi tira a foto em seguida.', 'bom');
+        falar('Enviado. Essa foto já está saindo do site.', 'bom');
       })
       .catch(function (err) {
         travar(false);
@@ -354,7 +354,7 @@
         ordemOriginal = ordem.slice();
         barraOrdem.hidden = true;
         desenharGrade();
-        falar('Enviado. A nova ordem entra no ar em seguida.', 'bom');
+        falar('Enviado. A nova ordem já está a caminho do site.', 'bom');
       })
       .catch(function (err) {
         travar(false);
@@ -409,7 +409,7 @@
       .then(function () {
         travar(false);
         document.getElementById('botao-textos').disabled = true;
-        falar('Enviado. Os textos entram no ar em seguida.', 'bom');
+        falar('Enviado. Os textos já estão a caminho do site.', 'bom');
       })
       .catch(function (err) {
         travar(false);
