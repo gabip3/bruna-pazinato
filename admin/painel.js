@@ -73,8 +73,22 @@
       return;
     }
 
-    var apelido = (usuario.displayName || usuario.email || '').split(/[@ ]/)[0];
-    nome.textContent = apelido ? apelido.charAt(0).toUpperCase() + apelido.slice(1) : 'Bruna';
+    /* O NOME VEM DE UMA LISTA, NÃO DO E-MAIL.
+       Recortar o que vem antes do arroba dava "Gabip3" — que não é o
+       nome de ninguém. Para quem a gente conhece, a gente chama pelo
+       nome; para quem não, o recorte continua valendo como último
+       recurso. */
+    var NOMES = {
+      'contato.brunapazinato@gmail.com': 'Bruna',
+      'gabip3@gmail.com': 'Gabi'
+    };
+    var email = (usuario.email || '').toLowerCase();
+    var apelido = NOMES[email];
+    if (!apelido) {
+      apelido = (usuario.displayName || email).split(/[@ ]/)[0];
+      apelido = apelido ? apelido.charAt(0).toUpperCase() + apelido.slice(1) : 'Bruna';
+    }
+    nome.textContent = apelido;
     mostrar('casa');
   });
 
