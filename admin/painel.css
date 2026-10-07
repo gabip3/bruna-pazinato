@@ -227,14 +227,20 @@ body{
  * porque ela precisa saber onde olhar sem aprender nada.
  * ------------------------------------------------------------------ */
 
-.aviso{
+/* PELO ID, NÃO PELA CLASSE.
+
+   A tela de entrada já tinha um .aviso — texto dourado, sem borda. Esta
+   regra, escrita depois, pegou os dois e deixou um risco vertical solto
+   embaixo do botão de entrar, onde o aviso vive vazio esperando erro de
+   senha. Duas telas, dois avisos, dois desenhos. */
+#aviso{
   margin:0 0 1.4rem; padding:.9em 1.1em;
   border-left:2px solid var(--paper-26);
   font-size:.92rem; font-weight:300; line-height:1.5; color:var(--paper-70);
 }
 
-.aviso--bom{ border-left-color:#46B06A; color:var(--paper); }
-.aviso--erro{ border-left-color:var(--coral); color:var(--paper); }
+#aviso.aviso--bom{ border-left-color:#46B06A; color:var(--paper); }
+#aviso.aviso--erro{ border-left-color:var(--coral); color:var(--paper); }
 
 /* enquanto sobe, a área de acrescentar para de convidar */
 .soltar.ocupada{ opacity:.5; pointer-events:none; }

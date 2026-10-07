@@ -119,7 +119,7 @@
     esqueci.disabled = true;
     auth.sendPasswordResetEmail(email).catch(function () {}).then(function () {
       esqueci.disabled = false;
-      aviso.textContent = 'Se esse e-mail tiver acesso, o link para criar uma senha nova já está indo. Dá uma olhada na caixa de entrada.';
+      aviso.textContent = 'Se esse e-mail tiver acesso, o link para criar a senha já está indo. Olha na caixa de entrada — e no lixo eletrônico, que às vezes ele cai lá.';
     });
   });
 
